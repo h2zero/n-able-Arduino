@@ -1,0 +1,17 @@
+{
+  "name": "framework-n-able",
+  "version": "0.1.0",
+  "description": "Arduino Wiring-based Framework for Arm BLE devices supported by the NimBLE stack",
+  "keywords": [
+    "framework",
+    "Arduino",
+    "BLE",
+    "nRF5",
+    "ARM"
+  ],
+  "license": "LGPL-2.1-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h2zero/n-able.git"
+  }
+}
