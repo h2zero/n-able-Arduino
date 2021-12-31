@@ -47,7 +47,7 @@ Waveshare_BLE400.build.variant_system_lib=
 Waveshare_BLE400.build.float_flags=
 Waveshare_BLE400.build.ldscript=nrf51_{build.chip}.ld
 Waveshare_BLE400.build.lfclk_flags=-DUSE_LFXO
-Waveshare_BLE400.build.extra_flags=-DNRF51 -D__STACK_SIZE=384 {build.ram_size} -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Waveshare_BLE400.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 Waveshare_BLE400.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Waveshare_BLE400.menu.chip.xxaa.build.chip=xxaa

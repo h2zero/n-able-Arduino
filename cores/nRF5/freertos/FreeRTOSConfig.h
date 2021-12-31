@@ -65,7 +65,7 @@
 
 #ifndef CONFIG_RTOS_MIN_TASK_SIZE
 #  ifdef NRF51
-#    define CONFIG_RTOS_MIN_TASK_SIZE (40)
+#    define CONFIG_RTOS_MIN_TASK_SIZE (48)
 #  else
 #    define CONFIG_RTOS_MIN_TASK_SIZE (80)
 #  endif
@@ -79,11 +79,11 @@
 #  endif
 #endif
 
-#ifndef CONFIG_RTOS_TIMER_QUEUE_STACK_DEPTH
+#ifndef CONFIG_RTOS_TIMER_STACK_DEPTH
 #  ifdef NRF51
-#    define CONFIG_RTOS_TIMER_QUEUE_STACK_DEPTH (60)
+#    define CONFIG_RTOS_TIMER_STACK_DEPTH (64)
 #  else
-#    define CONFIG_RTOS_TIMER_QUEUE_STACK_DEPTH (256)
+#    define CONFIG_RTOS_TIMER_STACK_DEPTH (256)
 #  endif
 #endif
 
@@ -132,7 +132,7 @@
 #define configUSE_TIMERS                                                          1
 #define configTIMER_TASK_PRIORITY                                                 ( configMAX_PRIORITIES - 1)
 #define configTIMER_QUEUE_LENGTH                                                  CONFIG_RTOS_TIMER_QUEUE_LENGTH
-#define configTIMER_TASK_STACK_DEPTH                                              CONFIG_RTOS_TIMER_QUEUE_STACK_DEPTH
+#define configTIMER_TASK_STACK_DEPTH                                              CONFIG_RTOS_TIMER_STACK_DEPTH
 
 /* Tickless Idle configuration. */
 #define configEXPECTED_IDLE_TIME_BEFORE_SLEEP                                     2
