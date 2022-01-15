@@ -47,7 +47,7 @@ Waveshare_BLE400.build.variant_system_lib=
 Waveshare_BLE400.build.float_flags=
 Waveshare_BLE400.build.ldscript=nrf51_{build.chip}.ld
 Waveshare_BLE400.build.lfclk_flags=-DUSE_LFXO
-Waveshare_BLE400.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Waveshare_BLE400.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 Waveshare_BLE400.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Waveshare_BLE400.menu.chip.xxaa.build.chip=xxaa
@@ -150,7 +150,7 @@ Generic_nRF52832.build.variant=Generic
 Generic_nRF52832.build.variant_system_lib=
 Generic_nRF52832.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52832.build.ldscript=nrf52_xxaa.ld
-Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 Generic_nRF52832.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52832.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -240,7 +240,7 @@ nRF52DK.build.variant=nRF52DK
 nRF52DK.build.variant_system_lib=
 nRF52DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52DK.build.ldscript=nrf52_xxaa.ld
-nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 nRF52DK.build.lfclk_flags=-DUSE_LFXO
 
@@ -318,7 +318,7 @@ BT5032A.build.variant_system_lib=
 BT5032A.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BT5032A.build.ldscript=nrf52_xxaa.ld
 BT5032A.build.lfclk_flags=-DUSE_LFXO
-BT5032A.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BT5032A.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 BT5032A.menu.custom_config.disable=Disabled
 BT5032A.menu.custom_config.enable=Enabled
@@ -399,7 +399,7 @@ BT5040.build.ldscript=nrf52840_dongle.ld
 BT5040.build.vid=0x239A
 BT5040.build.pid=0x8029
 BT5040.build.lfclk_flags=-DUSE_LFXO
-BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 BT5040.menu.custom_config.disable=Disabled
 BT5040.menu.custom_config.enable=Enabled
@@ -477,7 +477,7 @@ Generic_nRF52833.build.variant=Generic
 Generic_nRF52833.build.variant_system_lib=
 Generic_nRF52833.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52833.build.ldscript=nrf52833_xxaa.ld
-Generic_nRF52833.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Generic_nRF52833.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 Generic_nRF52833.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52833.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -568,7 +568,7 @@ BBCmicrobitV2.build.variant_system_lib=
 BBCmicrobitV2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BBCmicrobitV2.build.ldscript=nrf52833_xxaa.ld
 BBCmicrobitV2.build.lfclk_flags=-DUSE_LFSYNT
-BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DNIMBLE_CPP_DEBUG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
 BBCmicrobitV2.menu.custom_config.disable=Disabled
 BBCmicrobitV2.menu.custom_config.enable=Enabled
