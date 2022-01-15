@@ -72,11 +72,11 @@ static void usb_hardware_init(void)
   uint32_t usb_reg = NRF_POWER->USBREGSTATUS;
 
   // Power module init
-  const nrfx_power_config_t pwr_cfg = { 0 };
+  const nrfx_power_config_t pwr_cfg = { 0, 0 };
   nrfx_power_init(&pwr_cfg);
 
   // Register tusb function as USB power handler
-  const nrfx_power_usbevt_config_t config = { .handler = (nrfx_power_usb_event_handler_t) tusb_hal_nrf_power_event };
+  const nrfx_power_usbevt_config_t config = { .handler = (nrfx_power_usb_event_handler_t) (void*)tusb_hal_nrf_power_event };
   nrfx_power_usbevt_init(&config);
 
   nrfx_power_usbevt_enable();
