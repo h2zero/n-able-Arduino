@@ -65,10 +65,13 @@
 #define CONFIG_BT_NIMBLE_ROLE_BROADCASTER
 #endif
 
-#ifndef CONFIG_BT_NIMBLE_TASK_STACK_SIZE
-#define CONFIG_BT_NIMBLE_TASK_STACK_SIZE 4096
+#ifndef CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE
+#define CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE 4096
 #endif
 
+#ifndef CONFIG_NIMBLE_STACK_USE_MEM_POOLS
+#define CONFIG_NIMBLE_STACK_USE_MEM_POOLS 0
+#endif
 
 /**
  * This macro exists to ensure code includes this header when needed.  If code
@@ -301,6 +304,10 @@
 
 #ifndef MYNEWT_VAL_BLE_LL_OUR_SCA
 #define MYNEWT_VAL_BLE_LL_OUR_SCA (60)
+#endif
+
+#ifndef MYNEWT_VAL_BLE_LL_SCA
+#define MYNEWT_VAL_BLE_LL_SCA (60)
 #endif
 
 #ifndef MYNEWT_VAL_BLE_LL_PRIO
@@ -1246,6 +1253,10 @@
 
 #ifndef MYNEWT_VAL_BLE_HCI_EVT_LO_BUF_COUNT
 #define MYNEWT_VAL_BLE_HCI_EVT_LO_BUF_COUNT (8)
+#endif
+
+#ifndef MYNEWT_VAL_BLE_HCI_VS
+#define MYNEWT_VAL_BLE_HCI_VS (1)
 #endif
 
 #ifndef MYNEWT_VAL_BLE_PUBLIC_DEV_ADDR
