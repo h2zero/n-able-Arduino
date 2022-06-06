@@ -87,23 +87,23 @@ Waveshare_BLE400.menu.main_stack.custom=Custom (config file)
 Waveshare_BLE400.menu.main_stack.custom.build.main_stack_flags=
 
 Waveshare_BLE400.menu.hs_stack.1024=1024
-Waveshare_BLE400.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1024
+Waveshare_BLE400.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
 Waveshare_BLE400.menu.hs_stack.1152=1152
-Waveshare_BLE400.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1152
+Waveshare_BLE400.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
 Waveshare_BLE400.menu.hs_stack.1280=1280
-Waveshare_BLE400.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1280
+Waveshare_BLE400.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
 Waveshare_BLE400.menu.hs_stack.1408=1408
-Waveshare_BLE400.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1408
+Waveshare_BLE400.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
 Waveshare_BLE400.menu.hs_stack.1536=1536
-Waveshare_BLE400.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1536
+Waveshare_BLE400.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
 Waveshare_BLE400.menu.hs_stack.1664=1664
-Waveshare_BLE400.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1664
+Waveshare_BLE400.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
 Waveshare_BLE400.menu.hs_stack.1792=1792
-Waveshare_BLE400.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1792
+Waveshare_BLE400.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
 Waveshare_BLE400.menu.hs_stack.1920=1920
-Waveshare_BLE400.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=1920
+Waveshare_BLE400.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
 Waveshare_BLE400.menu.hs_stack.2048=2048
-Waveshare_BLE400.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2048
+Waveshare_BLE400.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
 Waveshare_BLE400.menu.hs_stack.custom=Custom (config file)
 Waveshare_BLE400.menu.hs_stack.custom.build.hs_stack_flags=
 
@@ -180,15 +180,15 @@ Generic_nRF52832.menu.main_stack.custom=Custom (config file)
 Generic_nRF52832.menu.main_stack.custom.build.main_stack_flags=
 
 Generic_nRF52832.menu.hs_stack.2048=2048
-Generic_nRF52832.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2048
+Generic_nRF52832.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
 Generic_nRF52832.menu.hs_stack.2560=2560
-Generic_nRF52832.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2560
+Generic_nRF52832.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
 Generic_nRF52832.menu.hs_stack.3072=3072
-Generic_nRF52832.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3072
+Generic_nRF52832.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
 Generic_nRF52832.menu.hs_stack.3584=3584
-Generic_nRF52832.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3584
+Generic_nRF52832.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
 Generic_nRF52832.menu.hs_stack.4096=4096
-Generic_nRF52832.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=4096
+Generic_nRF52832.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
 Generic_nRF52832.menu.hs_stack.custom=Custom (config file)
 Generic_nRF52832.menu.hs_stack.custom.build.hs_stack_flags=
 
@@ -265,15 +265,15 @@ nRF52DK.menu.main_stack.custom=Custom (config file)
 nRF52DK.menu.main_stack.custom.build.main_stack_flags=
 
 nRF52DK.menu.hs_stack.2048=2048
-nRF52DK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2048
+nRF52DK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
 nRF52DK.menu.hs_stack.2560=2560
-nRF52DK.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2560
+nRF52DK.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
 nRF52DK.menu.hs_stack.3072=3072
-nRF52DK.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3072
+nRF52DK.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
 nRF52DK.menu.hs_stack.3584=3584
-nRF52DK.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3584
+nRF52DK.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
 nRF52DK.menu.hs_stack.4096=4096
-nRF52DK.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=4096
+nRF52DK.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
 nRF52DK.menu.hs_stack.custom=Custom (config file)
 nRF52DK.menu.hs_stack.custom.build.hs_stack_flags=
 
@@ -341,15 +341,15 @@ BT5032A.menu.main_stack.custom=Custom (config file)
 BT5032A.menu.main_stack.custom.build.main_stack_flags=
 
 BT5032A.menu.hs_stack.2048=2048
-BT5032A.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2048
+BT5032A.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
 BT5032A.menu.hs_stack.2560=2560
-BT5032A.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2560
+BT5032A.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
 BT5032A.menu.hs_stack.3072=3072
-BT5032A.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3072
+BT5032A.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
 BT5032A.menu.hs_stack.3584=3584
-BT5032A.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3584
+BT5032A.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
 BT5032A.menu.hs_stack.4096=4096
-BT5032A.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=4096
+BT5032A.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
 BT5032A.menu.hs_stack.custom=Custom (config file)
 BT5032A.menu.hs_stack.custom.build.hs_stack_flags=
 
@@ -422,15 +422,15 @@ BT5040.menu.main_stack.custom=Custom (config file)
 BT5040.menu.main_stack.custom.build.main_stack_flags=
 
 BT5040.menu.hs_stack.2048=2048
-BT5040.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2048
+BT5040.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
 BT5040.menu.hs_stack.2560=2560
-BT5040.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2560
+BT5040.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
 BT5040.menu.hs_stack.3072=3072
-BT5040.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3072
+BT5040.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
 BT5040.menu.hs_stack.3584=3584
-BT5040.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3584
+BT5040.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
 BT5040.menu.hs_stack.4096=4096
-BT5040.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=4096
+BT5040.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
 BT5040.menu.hs_stack.custom=Custom (config file)
 BT5040.menu.hs_stack.custom.build.hs_stack_flags=
 
@@ -507,15 +507,15 @@ Generic_nRF52833.menu.main_stack.custom=Custom (config file)
 Generic_nRF52833.menu.main_stack.custom.build.main_stack_flags=
 
 Generic_nRF52833.menu.hs_stack.2048=2048
-Generic_nRF52833.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2048
+Generic_nRF52833.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
 Generic_nRF52833.menu.hs_stack.2560=2560
-Generic_nRF52833.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2560
+Generic_nRF52833.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
 Generic_nRF52833.menu.hs_stack.3072=3072
-Generic_nRF52833.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3072
+Generic_nRF52833.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
 Generic_nRF52833.menu.hs_stack.3584=3584
-Generic_nRF52833.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3584
+Generic_nRF52833.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
 Generic_nRF52833.menu.hs_stack.4096=4096
-Generic_nRF52833.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=4096
+Generic_nRF52833.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
 Generic_nRF52833.menu.hs_stack.custom=Custom (config file)
 Generic_nRF52833.menu.hs_stack.custom.build.hs_stack_flags=
 
@@ -591,15 +591,15 @@ BBCmicrobitV2.menu.main_stack.custom=Custom (config file)
 BBCmicrobitV2.menu.main_stack.custom.build.main_stack_flags=
 
 BBCmicrobitV2.menu.hs_stack.2048=2048
-BBCmicrobitV2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2048
+BBCmicrobitV2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
 BBCmicrobitV2.menu.hs_stack.2560=2560
-BBCmicrobitV2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=2560
+BBCmicrobitV2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
 BBCmicrobitV2.menu.hs_stack.3072=3072
-BBCmicrobitV2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3072
+BBCmicrobitV2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
 BBCmicrobitV2.menu.hs_stack.3584=3584
-BBCmicrobitV2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=3584
+BBCmicrobitV2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
 BBCmicrobitV2.menu.hs_stack.4096=4096
-BBCmicrobitV2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_TASK_STACK_SIZE=4096
+BBCmicrobitV2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
 BBCmicrobitV2.menu.hs_stack.custom=Custom (config file)
 BBCmicrobitV2.menu.hs_stack.custom.build.hs_stack_flags=
 
