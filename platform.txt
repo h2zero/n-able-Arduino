@@ -99,6 +99,9 @@ recipe.output.save_file_bin={build.project_name}.save.bin
 recipe.output.tmp_file_hex={build.project_name}.hex
 recipe.output.save_file_hex={build.project_name}.save.hex
 
+## Create dfu package zip file
+recipe.objcopy.zip.pattern="{tools.nrfutil.cmd}" pkg generate --hw-version 52 --debug-mode --sd-req 0 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
+
 ## Compute size
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
 recipe.size.regex=\.text\s+([0-9]+).*
@@ -158,3 +161,14 @@ tools.blackmagicprobe.bootloader.params.verbose=
 tools.blackmagicprobe.bootloader.params.quiet=-q --batch-silent
 tools.blackmagicprobe.bootloader.pattern="{path}{cmd}" -quiet -cd "{runtime.platform.path}/cores/nRF5/SDK/components/softdevice/{softdevice}/hex/" -ex "target extended-remote {serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex "detach" -ex "quit"
 tools.blackmagicprobe.bootloader.pattern.windows="{path}{cmd}" -quiet -cd "{runtime.platform.path}/cores/nRF5/SDK/components/softdevice/{softdevice}/hex/" -ex "target extended-remote \\.\{serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex "detach" -ex "quit"
+
+#
+# nrfutil upload
+#
+tools.nrfutil.cmd={runtime.platform.path}/tools/nrfutil/nrfutil-linux
+tools.nrfutil.cmd.windows={runtime.platform.path}/tools/nrfutil/nrfutil.exe
+tools.nrfutil.cmd.macosx={runtime.platform.path}/tools/nrfutil/nrfutil-mac
+
+tools.nrfutil.upload.params.verbose=
+tools.nrfutil.upload.params.quiet=
+tools.nrfutil.upload.pattern="{cmd}" dfu serial -pkg "{build.path}/{build.project_name}.zip" -p {serial.port} -b 115200

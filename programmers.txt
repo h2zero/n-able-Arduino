@@ -25,3 +25,10 @@ blackmagicprobe.protocol=
 blackmagicprobe.program.protocol=
 blackmagicprobe.program.tool=blackmagicprobe
 blackmagicprobe.program.extra_params=;
+
+nrfutil.name=nrfutil
+nrfutil.communication=USB
+nrfutil.protocol=
+nrfutil.program.protocol=
+nrfutil.program.tool=nrfutil
+nrfutil.program.extra_params=;

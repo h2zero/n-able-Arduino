@@ -51,15 +51,12 @@ extern "C"
 #define LED_GREEN            PIN_LED3
 #define LED_RED              PIN_LED4
 
-#define LED_STATE_ON         0         // State when LED is litted
+#define LED_STATE_ON         (0)
 
 /*
  * Buttons
  */
-#define PIN_BUTTON1          38
-//#define PIN_BUTTON2          12
-//#define PIN_BUTTON3          24
-//#define PIN_BUTTON4          25
+#define PIN_BUTTON1          (38)
 
 /*
  * Analog pins
@@ -81,7 +78,7 @@ static const uint8_t A4  = PIN_A4 ;
 static const uint8_t A5  = PIN_A5 ;
 static const uint8_t A6  = PIN_A6 ;
 static const uint8_t A7  = PIN_A7 ;
-#define ADC_RESOLUTION    14
+#define ADC_RESOLUTION     (14)
 
 // Other pins
 #define PIN_AREF           (2)
@@ -98,9 +95,6 @@ static const uint8_t AREF = PIN_AREF;
 #define PIN_SERIAL1_RX      (33) // P1.01
 #define PIN_SERIAL1_TX      (34) // P1.02
 
-// Connected to Jlink CDC
-//#define PIN_SERIAL2_RX      (8)
-//#define PIN_SERIAL2_TX      (6)
 
 /*
  * SPI Interfaces
@@ -125,12 +119,12 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 #define PIN_WIRE_SCL         (27)
 
 // QSPI Pins
-#define PIN_QSPI_SCK         19
-#define PIN_QSPI_CS          17
-#define PIN_QSPI_IO0         20
-#define PIN_QSPI_IO1         21
-#define PIN_QSPI_IO2         22
-#define PIN_QSPI_IO3         23
+#define PIN_QSPI_SCK         (19)
+#define PIN_QSPI_CS          (17)
+#define PIN_QSPI_IO0         (20)
+#define PIN_QSPI_IO1         (21)
+#define PIN_QSPI_IO2         (22)
+#define PIN_QSPI_IO3         (23)
 
 // On-board QSPI Flash
 #define EXTERNAL_FLASH_DEVICES   MX25R6435F

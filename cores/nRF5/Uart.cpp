@@ -231,14 +231,12 @@ size_t Uart::write(const uint8_t data)
   #define NRF_UART0_IRQn UART0_IRQn
 #endif
 
-#if defined(NRF52832_XXAA) || defined(NRF51_SERIES)
-#if defined(PIN_SERIAL_CTS) && defined(PIN_SERIAL_RTS)
-  Uart Serial( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL_RX, PIN_SERIAL_TX, PIN_SERIAL_CTS, PIN_SERIAL_RTS );
-#else
-  Uart Serial( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL_RX, PIN_SERIAL_TX );
-#endif
-#else
-  Uart Serial1( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL1_RX, PIN_SERIAL1_TX );
+#if !defined(USB_CDC_DEFAULT_SERIAL)
+#  if defined(PIN_SERIAL_CTS) && defined(PIN_SERIAL_RTS)
+      Uart Serial( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL_RX, PIN_SERIAL_TX, PIN_SERIAL_CTS, PIN_SERIAL_RTS );
+#  else
+      Uart Serial( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL_RX, PIN_SERIAL_TX );
+#  endif
 #endif
 
 #if defined(NRF52_SERIES)
