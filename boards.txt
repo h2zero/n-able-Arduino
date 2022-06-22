@@ -1580,6 +1580,83 @@ BT5032A.menu.cppDbgLvl.debug.build.cpp_debug=4
 # nRF52840 variants
 ###################
 
+nRF52840_dongle.name=nRF52840_dongle
+
+nRF52840_dongle.upload.tool=nrfutil
+nRF52840_dongle.upload.target=nrf52
+nRF52840_dongle.upload.maximum_size=913408
+
+nRF52840_dongle.bootloader.tool=openocd
+
+nRF52840_dongle.build.mcu=cortex-m4
+nRF52840_dongle.build.f_cpu=64000000
+nRF52840_dongle.build.board=NRF52840_DONGLE
+nRF52840_dongle.build.core=nRF5
+nRF52840_dongle.build.variant=nRF52840_Dongle
+nRF52840_dongle.build.variant_system_lib=
+nRF52840_dongle.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nRF52840_dongle.build.ldscript=nrf52840_dongle.ld
+nRF52840_dongle.build.vid=0x1915
+nRF52840_dongle.build.pid=0x521B
+nRF52840_dongle.build.lfclk_flags=-DUSE_LFXO
+nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+
+nRF52840_dongle.menu.custom_config.disable=Disabled
+nRF52840_dongle.menu.custom_config.enable=Enabled
+nRF52840_dongle.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+nRF52840_dongle.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+
+nRF52840_dongle.menu.main_stack.1536=1536
+nRF52840_dongle.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+nRF52840_dongle.menu.main_stack.2048=2048
+nRF52840_dongle.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+nRF52840_dongle.menu.main_stack.2560=2560
+nRF52840_dongle.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+nRF52840_dongle.menu.main_stack.3072=3072
+nRF52840_dongle.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+nRF52840_dongle.menu.main_stack.3584=3584
+nRF52840_dongle.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+nRF52840_dongle.menu.main_stack.4096=4096
+nRF52840_dongle.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+nRF52840_dongle.menu.main_stack.custom=Custom (config file)
+nRF52840_dongle.menu.main_stack.custom.build.main_stack_flags=
+
+nRF52840_dongle.menu.hs_stack.2048=2048
+nRF52840_dongle.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+nRF52840_dongle.menu.hs_stack.2560=2560
+nRF52840_dongle.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+nRF52840_dongle.menu.hs_stack.3072=3072
+nRF52840_dongle.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+nRF52840_dongle.menu.hs_stack.3584=3584
+nRF52840_dongle.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+nRF52840_dongle.menu.hs_stack.4096=4096
+nRF52840_dongle.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+nRF52840_dongle.menu.hs_stack.custom=Custom (config file)
+nRF52840_dongle.menu.hs_stack.custom.build.hs_stack_flags=
+
+nRF52840_dongle.menu.role.all=All
+nRF52840_dongle.menu.role.all.build.nimble_flags=
+nRF52840_dongle.menu.role.periph=Peripheral
+nRF52840_dongle.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nRF52840_dongle.menu.role.adv=Advertiser
+nRF52840_dongle.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nRF52840_dongle.menu.role.scan=Scanner
+nRF52840_dongle.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nRF52840_dongle.menu.role.central=Client
+nRF52840_dongle.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nRF52840_dongle.menu.cppDbgLvl.none=None
+nRF52840_dongle.menu.cppDbgLvl.none.build.cpp_debug=0
+nRF52840_dongle.menu.cppDbgLvl.error=Error
+nRF52840_dongle.menu.cppDbgLvl.error.build.cpp_debug=1
+nRF52840_dongle.menu.cppDbgLvl.warn=Warn
+nRF52840_dongle.menu.cppDbgLvl.warn.build.cpp_debug=2
+nRF52840_dongle.menu.cppDbgLvl.info=Info
+nRF52840_dongle.menu.cppDbgLvl.info.build.cpp_debug=3
+nRF52840_dongle.menu.cppDbgLvl.debug=Debug
+nRF52840_dongle.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
 BT5040.name=E104-BT5040
 
 BT5040.upload.tool=nrfutil
@@ -1592,7 +1669,7 @@ BT5040.build.mcu=cortex-m4
 BT5040.build.f_cpu=64000000
 BT5040.build.board=BT5040
 BT5040.build.core=nRF5
-BT5040.build.variant=BT5040
+BT5040.build.variant=nRF52840_Dongle
 BT5040.build.variant_system_lib=
 BT5040.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BT5040.build.ldscript=nrf52840_dongle.ld
