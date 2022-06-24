@@ -140,7 +140,7 @@ BluzDK.bootloader.tool=openocd
 
 BluzDK.build.mcu=cortex-m0
 BluzDK.build.f_cpu=16000000
-BluzDK.build.board=BluzDK
+BluzDK.build.board=BLUZ_DK
 BluzDK.build.core=nRF5
 BluzDK.build.variant=BluzDK
 BluzDK.build.variant_system_lib=
@@ -241,7 +241,7 @@ CalliopeMini.bootloader.tool=openocd
 
 CalliopeMini.build.mcu=cortex-m0
 CalliopeMini.build.f_cpu=16000000
-CalliopeMini.build.board=CalliopeMini
+CalliopeMini.build.board=CALLIOPE_MINI
 CalliopeMini.build.core=nRF5
 CalliopeMini.build.variant=CalliopeMini
 CalliopeMini.build.variant_system_lib=
@@ -341,7 +341,7 @@ ng_beacon.bootloader.tool=openocd
 
 ng_beacon.build.mcu=cortex-m0
 ng_beacon.build.f_cpu=16000000
-ng_beacon.build.board=ng_beacon
+ng_beacon.build.board=NG_BEACON
 ng_beacon.build.core=nRF5
 ng_beacon.build.variant=ng_beacon
 ng_beacon.build.variant_system_lib=
@@ -441,7 +441,7 @@ Beacon_PCA20006.bootloader.tool=openocd
 
 Beacon_PCA20006.build.mcu=cortex-m0
 Beacon_PCA20006.build.f_cpu=16000000
-Beacon_PCA20006.build.board=Beacon_PCA20006
+Beacon_PCA20006.build.board=BEACON_PCA20006
 Beacon_PCA20006.build.core=nRF5
 Beacon_PCA20006.build.variant=Beacon_PCA20006
 Beacon_PCA20006.build.variant_system_lib=
@@ -541,7 +541,7 @@ BBCmicrobit.bootloader.tool=openocd
 
 BBCmicrobit.build.mcu=cortex-m0
 BBCmicrobit.build.f_cpu=16000000
-BBCmicrobit.build.board=BBCmicrobit
+BBCmicrobit.build.board=BBC_MICROBIT
 BBCmicrobit.build.core=nRF5
 BBCmicrobit.build.variant=BBCmicrobit
 BBCmicrobit.build.variant_system_lib=
@@ -641,7 +641,7 @@ nRF51DK.bootloader.tool=openocd
 
 nRF51DK.build.mcu=cortex-m0
 nRF51DK.build.f_cpu=16000000
-nRF51DK.build.board=nRF51DK
+nRF51DK.build.board=NRF51_DK
 nRF51DK.build.core=nRF5
 nRF51DK.build.variant=nRF51DK
 nRF51DK.build.variant_system_lib=
@@ -731,7 +731,7 @@ nRF51DK.menu.cppDbgLvl.debug=Debug
 nRF51DK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 
-nRF51Dongle.name=Nordic Semiconductor nRF52 DK
+nRF51Dongle.name=Nordic nRF51 Dongle
 
 nRF51Dongle.upload.tool=openocd
 nRF51Dongle.upload.target=nrf51
@@ -741,9 +741,9 @@ nRF51Dongle.bootloader.tool=openocd
 
 nRF51Dongle.build.mcu=cortex-m0
 nRF51Dongle.build.f_cpu=16000000
-nRF51Dongle.build.board=nRF51Dongle
+nRF51Dongle.build.board=NRF51_DONGLE
 nRF51Dongle.build.core=nRF5
-nRF51Dongle.build.variant=nRF51Dongle
+nRF51Dongle.build.variant=nRF51_Dongle
 nRF51Dongle.build.variant_system_lib=
 nRF51Dongle.build.float_flags=
 nRF51Dongle.build.ldscript=nrf51_{build.chip}.ld
@@ -841,7 +841,7 @@ OSHChip.bootloader.tool=openocd
 
 OSHChip.build.mcu=cortex-m0
 OSHChip.build.f_cpu=16000000
-OSHChip.build.board=OSHChip
+OSHChip.build.board=OSHCHIP
 OSHChip.build.core=nRF5
 OSHChip.build.variant=OSHChip
 OSHChip.build.variant_system_lib=
@@ -941,7 +941,7 @@ RedBearLab_nRF51822.bootloader.tool=openocd
 
 RedBearLab_nRF51822.build.mcu=cortex-m0
 RedBearLab_nRF51822.build.f_cpu=16000000
-RedBearLab_nRF51822.build.board=RedBearLab_nRF51822
+RedBearLab_nRF51822.build.board=REDBEARLAB_NRF51822
 RedBearLab_nRF51822.build.core=nRF5
 RedBearLab_nRF51822.build.variant=RedBearLab_nRF51822
 RedBearLab_nRF51822.build.variant_system_lib=
@@ -1041,7 +1041,7 @@ BLENano.bootloader.tool=openocd
 
 BLENano.build.mcu=cortex-m0
 BLENano.build.f_cpu=16000000
-BLENano.build.board=BLENano
+BLENano.build.board=BLE_NANO
 BLENano.build.core=nRF5
 BLENano.build.variant=BLENano
 BLENano.build.variant_system_lib=
@@ -1141,7 +1141,7 @@ TinyBLE.bootloader.tool=openocd
 
 TinyBLE.build.mcu=cortex-m0
 TinyBLE.build.f_cpu=16000000
-TinyBLE.build.board=TinyBLE
+TinyBLE.build.board=TINYBLE
 TinyBLE.build.core=nRF5
 TinyBLE.build.variant=TinyBLE
 TinyBLE.build.variant_system_lib=
@@ -1241,7 +1241,7 @@ Sinobit.bootloader.tool=openocd
 
 Sinobit.build.mcu=cortex-m0
 Sinobit.build.f_cpu=16000000
-Sinobit.build.board=Sinobit
+Sinobit.build.board=SINOBIT
 Sinobit.build.core=nRF5
 Sinobit.build.variant=Sinobit
 Sinobit.build.variant_system_lib=
@@ -1343,7 +1343,7 @@ Generic_nRF52832.upload.maximum_size=524288
 Generic_nRF52832.bootloader.tool=openocd
 
 Generic_nRF52832.build.mcu=cortex-m4
-Generic_nRF52832.build.f_cpu=16000000
+Generic_nRF52832.build.f_cpu=64000000
 Generic_nRF52832.build.board=GENERIC
 Generic_nRF52832.build.core=nRF5
 Generic_nRF52832.build.variant=Generic
@@ -1421,7 +1421,7 @@ nRF52DK.name=Nordic nRF52832DK (PCA10040)
 nRF52DK.vid.0=0x1366
 nRF52DK.pid.0=0x1015
 
-nRF52DK.upload.tool=sandeepmistry:openocd
+nRF52DK.upload.tool=openocd
 nRF52DK.upload.protocol=jlink
 nRF52DK.upload.target=nrf52
 nRF52DK.upload.maximum_size=524288
@@ -1433,10 +1433,10 @@ nRF52DK.upload.native_usb=false
 nRF52DK.bootloader.tool=openocd
 
 nRF52DK.build.mcu=cortex-m4
-nRF52DK.build.f_cpu=16000000
+nRF52DK.build.f_cpu=64000000
 nRF52DK.build.board=NRF52_DK
 nRF52DK.build.core=nRF5
-nRF52DK.build.variant=nRF52DK
+nRF52DK.build.variant=nRF52832_DK
 nRF52DK.build.variant_system_lib=
 nRF52DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52DK.build.ldscript=nrf52_xxaa.ld
@@ -1501,84 +1501,540 @@ nRF52DK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 
 
-BT5032A.name=Ebyte BT5032A
+BT5032A-TB.name=Ebyte BT5032A-TB
 
-BT5032A.upload.tool=openocd
-BT5032A.upload.target=nrf52
-BT5032A.upload.maximum_size=913408
+BT5032A-TB.upload.tool=openocd
+BT5032A-TB.upload.target=nrf52
+BT5032A-TB.upload.maximum_size=524288
 
-BT5032A.bootloader.tool=openocd
+BT5032A-TB.bootloader.tool=openocd
 
-BT5032A.build.mcu=cortex-m4
-BT5032A.build.f_cpu=16000000
-BT5032A.build.board=BT5032A
-BT5032A.build.core=nRF5
-BT5032A.build.variant=BT5032A
-BT5032A.build.variant_system_lib=
-BT5032A.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-BT5032A.build.ldscript=nrf52_xxaa.ld
-BT5032A.build.lfclk_flags=-DUSE_LFXO
-BT5032A.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BT5032A-TB.build.mcu=cortex-m4
+BT5032A-TB.build.f_cpu=64000000
+BT5032A-TB.build.board=BT5032A_TB
+BT5032A-TB.build.core=nRF5
+BT5032A-TB.build.variant=BT5032A_TB
+BT5032A-TB.build.variant_system_lib=
+BT5032A-TB.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+BT5032A-TB.build.ldscript=nrf52_xxaa.ld
+BT5032A-TB.build.lfclk_flags=-DUSE_LFXO
+BT5032A-TB.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
 
-BT5032A.menu.custom_config.disable=Disabled
-BT5032A.menu.custom_config.enable=Enabled
-BT5032A.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BT5032A.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+BT5032A-TB.menu.custom_config.disable=Disabled
+BT5032A-TB.menu.custom_config.enable=Enabled
+BT5032A-TB.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+BT5032A-TB.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
 
-BT5032A.menu.main_stack.1536=1536
-BT5032A.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BT5032A.menu.main_stack.2048=2048
-BT5032A.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BT5032A.menu.main_stack.2560=2560
-BT5032A.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-BT5032A.menu.main_stack.3072=3072
-BT5032A.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-BT5032A.menu.main_stack.3584=3584
-BT5032A.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-BT5032A.menu.main_stack.4096=4096
-BT5032A.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-BT5032A.menu.main_stack.custom=Custom (config file)
-BT5032A.menu.main_stack.custom.build.main_stack_flags=
+BT5032A-TB.menu.main_stack.1536=1536
+BT5032A-TB.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+BT5032A-TB.menu.main_stack.2048=2048
+BT5032A-TB.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+BT5032A-TB.menu.main_stack.2560=2560
+BT5032A-TB.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+BT5032A-TB.menu.main_stack.3072=3072
+BT5032A-TB.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+BT5032A-TB.menu.main_stack.3584=3584
+BT5032A-TB.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+BT5032A-TB.menu.main_stack.4096=4096
+BT5032A-TB.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+BT5032A-TB.menu.main_stack.custom=Custom (config file)
+BT5032A-TB.menu.main_stack.custom.build.main_stack_flags=
 
-BT5032A.menu.hs_stack.2048=2048
-BT5032A.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BT5032A.menu.hs_stack.2560=2560
-BT5032A.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-BT5032A.menu.hs_stack.3072=3072
-BT5032A.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-BT5032A.menu.hs_stack.3584=3584
-BT5032A.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-BT5032A.menu.hs_stack.4096=4096
-BT5032A.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-BT5032A.menu.hs_stack.custom=Custom (config file)
-BT5032A.menu.hs_stack.custom.build.hs_stack_flags=
+BT5032A-TB.menu.hs_stack.2048=2048
+BT5032A-TB.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+BT5032A-TB.menu.hs_stack.2560=2560
+BT5032A-TB.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+BT5032A-TB.menu.hs_stack.3072=3072
+BT5032A-TB.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+BT5032A-TB.menu.hs_stack.3584=3584
+BT5032A-TB.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+BT5032A-TB.menu.hs_stack.4096=4096
+BT5032A-TB.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+BT5032A-TB.menu.hs_stack.custom=Custom (config file)
+BT5032A-TB.menu.hs_stack.custom.build.hs_stack_flags=
 
-BT5032A.menu.role.all=All
-BT5032A.menu.role.all.build.nimble_flags=
-BT5032A.menu.role.periph=Peripheral
-BT5032A.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-BT5032A.menu.role.adv=Advertiser
-BT5032A.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-BT5032A.menu.role.scan=Scanner
-BT5032A.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-BT5032A.menu.role.central=Client
-BT5032A.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+BT5032A-TB.menu.role.all=All
+BT5032A-TB.menu.role.all.build.nimble_flags=
+BT5032A-TB.menu.role.periph=Peripheral
+BT5032A-TB.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BT5032A-TB.menu.role.adv=Advertiser
+BT5032A-TB.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BT5032A-TB.menu.role.scan=Scanner
+BT5032A-TB.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BT5032A-TB.menu.role.central=Client
+BT5032A-TB.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
 
-BT5032A.menu.cppDbgLvl.none=None
-BT5032A.menu.cppDbgLvl.none.build.cpp_debug=0
-BT5032A.menu.cppDbgLvl.error=Error
-BT5032A.menu.cppDbgLvl.error.build.cpp_debug=1
-BT5032A.menu.cppDbgLvl.warn=Warn
-BT5032A.menu.cppDbgLvl.warn.build.cpp_debug=2
-BT5032A.menu.cppDbgLvl.info=Info
-BT5032A.menu.cppDbgLvl.info.build.cpp_debug=3
-BT5032A.menu.cppDbgLvl.debug=Debug
-BT5032A.menu.cppDbgLvl.debug.build.cpp_debug=4
+BT5032A-TB.menu.cppDbgLvl.none=None
+BT5032A-TB.menu.cppDbgLvl.none.build.cpp_debug=0
+BT5032A-TB.menu.cppDbgLvl.error=Error
+BT5032A-TB.menu.cppDbgLvl.error.build.cpp_debug=1
+BT5032A-TB.menu.cppDbgLvl.warn=Warn
+BT5032A-TB.menu.cppDbgLvl.warn.build.cpp_debug=2
+BT5032A-TB.menu.cppDbgLvl.info=Info
+BT5032A-TB.menu.cppDbgLvl.info.build.cpp_debug=3
+BT5032A-TB.menu.cppDbgLvl.debug=Debug
+BT5032A-TB.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+
+bluey.name=Electronut labs bluey
+
+bluey.upload.tool=openocd
+bluey.upload.target=nrf52
+bluey.upload.maximum_size=524288
+
+bluey.bootloader.tool=openocd
+
+bluey.build.mcu=cortex-m4
+bluey.build.f_cpu=64000000
+bluey.build.board=ELECTRONUT_BLUEY
+bluey.build.core=nRF5
+bluey.build.variant=bluey
+bluey.build.variant_system_lib=
+bluey.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+bluey.build.ldscript=nrf52_xxaa.ld
+bluey.build.lfclk_flags=-DUSE_LFXO
+bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+
+bluey.menu.custom_config.disable=Disabled
+bluey.menu.custom_config.enable=Enabled
+bluey.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+bluey.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+
+bluey.menu.main_stack.1536=1536
+bluey.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+bluey.menu.main_stack.2048=2048
+bluey.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+bluey.menu.main_stack.2560=2560
+bluey.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+bluey.menu.main_stack.3072=3072
+bluey.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+bluey.menu.main_stack.3584=3584
+bluey.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+bluey.menu.main_stack.4096=4096
+bluey.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+bluey.menu.main_stack.custom=Custom (config file)
+bluey.menu.main_stack.custom.build.main_stack_flags=
+
+bluey.menu.hs_stack.2048=2048
+bluey.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+bluey.menu.hs_stack.2560=2560
+bluey.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+bluey.menu.hs_stack.3072=3072
+bluey.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+bluey.menu.hs_stack.3584=3584
+bluey.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+bluey.menu.hs_stack.4096=4096
+bluey.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+bluey.menu.hs_stack.custom=Custom (config file)
+bluey.menu.hs_stack.custom.build.hs_stack_flags=
+
+bluey.menu.role.all=All
+bluey.menu.role.all.build.nimble_flags=
+bluey.menu.role.periph=Peripheral
+bluey.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+bluey.menu.role.adv=Advertiser
+bluey.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+bluey.menu.role.scan=Scanner
+bluey.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+bluey.menu.role.central=Client
+bluey.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+bluey.menu.cppDbgLvl.none=None
+bluey.menu.cppDbgLvl.none.build.cpp_debug=0
+bluey.menu.cppDbgLvl.error=Error
+bluey.menu.cppDbgLvl.error.build.cpp_debug=1
+bluey.menu.cppDbgLvl.warn=Warn
+bluey.menu.cppDbgLvl.warn.build.cpp_debug=2
+bluey.menu.cppDbgLvl.info=Info
+bluey.menu.cppDbgLvl.info.build.cpp_debug=3
+bluey.menu.cppDbgLvl.debug=Debug
+bluey.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+
+hackaBLE.name=Electronut labs hackaBLE
+
+hackaBLE.upload.tool=openocd
+hackaBLE.upload.target=nrf52
+hackaBLE.upload.maximum_size=524288
+
+hackaBLE.bootloader.tool=openocd
+
+hackaBLE.build.mcu=cortex-m4
+hackaBLE.build.f_cpu=64000000
+hackaBLE.build.board=ELECTRONUT_HACKABLE
+hackaBLE.build.core=nRF5
+hackaBLE.build.variant=hackaBLE
+hackaBLE.build.variant_system_lib=
+hackaBLE.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+hackaBLE.build.ldscript=nrf52_xxaa.ld
+hackaBLE.build.lfclk_flags=-DUSE_LFXO
+hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+
+hackaBLE.menu.custom_config.disable=Disabled
+hackaBLE.menu.custom_config.enable=Enabled
+hackaBLE.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+hackaBLE.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+
+hackaBLE.menu.main_stack.1536=1536
+hackaBLE.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+hackaBLE.menu.main_stack.2048=2048
+hackaBLE.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+hackaBLE.menu.main_stack.2560=2560
+hackaBLE.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+hackaBLE.menu.main_stack.3072=3072
+hackaBLE.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+hackaBLE.menu.main_stack.3584=3584
+hackaBLE.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+hackaBLE.menu.main_stack.4096=4096
+hackaBLE.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+hackaBLE.menu.main_stack.custom=Custom (config file)
+hackaBLE.menu.main_stack.custom.build.main_stack_flags=
+
+hackaBLE.menu.hs_stack.2048=2048
+hackaBLE.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+hackaBLE.menu.hs_stack.2560=2560
+hackaBLE.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+hackaBLE.menu.hs_stack.3072=3072
+hackaBLE.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+hackaBLE.menu.hs_stack.3584=3584
+hackaBLE.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+hackaBLE.menu.hs_stack.4096=4096
+hackaBLE.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+hackaBLE.menu.hs_stack.custom=Custom (config file)
+hackaBLE.menu.hs_stack.custom.build.hs_stack_flags=
+
+hackaBLE.menu.role.all=All
+hackaBLE.menu.role.all.build.nimble_flags=
+hackaBLE.menu.role.periph=Peripheral
+hackaBLE.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+hackaBLE.menu.role.adv=Advertiser
+hackaBLE.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+hackaBLE.menu.role.scan=Scanner
+hackaBLE.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+hackaBLE.menu.role.central=Client
+hackaBLE.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+hackaBLE.menu.cppDbgLvl.none=None
+hackaBLE.menu.cppDbgLvl.none.build.cpp_debug=0
+hackaBLE.menu.cppDbgLvl.error=Error
+hackaBLE.menu.cppDbgLvl.error.build.cpp_debug=1
+hackaBLE.menu.cppDbgLvl.warn=Warn
+hackaBLE.menu.cppDbgLvl.warn.build.cpp_debug=2
+hackaBLE.menu.cppDbgLvl.info=Info
+hackaBLE.menu.cppDbgLvl.info.build.cpp_debug=3
+hackaBLE.menu.cppDbgLvl.debug=Debug
+hackaBLE.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+
+hackaBLE_v2.name=Electronut labs hackaBLE_v2
+
+hackaBLE_v2.upload.tool=openocd
+hackaBLE_v2.upload.target=nrf52
+hackaBLE_v2.upload.maximum_size=524288
+
+hackaBLE_v2.bootloader.tool=openocd
+
+hackaBLE_v2.build.mcu=cortex-m4
+hackaBLE_v2.build.f_cpu=64000000
+hackaBLE_v2.build.board=ELECTRONUT_HACKABLE_V2
+hackaBLE_v2.build.core=nRF5
+hackaBLE_v2.build.variant=hackaBLE_v2
+hackaBLE_v2.build.variant_system_lib=
+hackaBLE_v2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+hackaBLE_v2.build.ldscript=nrf52_xxaa.ld
+hackaBLE_v2.build.lfclk_flags=-DUSE_LFXO
+hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+
+hackaBLE_v2.menu.custom_config.disable=Disabled
+hackaBLE_v2.menu.custom_config.enable=Enabled
+hackaBLE_v2.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+hackaBLE_v2.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+
+hackaBLE_v2.menu.main_stack.1536=1536
+hackaBLE_v2.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+hackaBLE_v2.menu.main_stack.2048=2048
+hackaBLE_v2.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+hackaBLE_v2.menu.main_stack.2560=2560
+hackaBLE_v2.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+hackaBLE_v2.menu.main_stack.3072=3072
+hackaBLE_v2.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+hackaBLE_v2.menu.main_stack.3584=3584
+hackaBLE_v2.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+hackaBLE_v2.menu.main_stack.4096=4096
+hackaBLE_v2.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+hackaBLE_v2.menu.main_stack.custom=Custom (config file)
+hackaBLE_v2.menu.main_stack.custom.build.main_stack_flags=
+
+hackaBLE_v2.menu.hs_stack.2048=2048
+hackaBLE_v2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+hackaBLE_v2.menu.hs_stack.2560=2560
+hackaBLE_v2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+hackaBLE_v2.menu.hs_stack.3072=3072
+hackaBLE_v2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+hackaBLE_v2.menu.hs_stack.3584=3584
+hackaBLE_v2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+hackaBLE_v2.menu.hs_stack.4096=4096
+hackaBLE_v2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+hackaBLE_v2.menu.hs_stack.custom=Custom (config file)
+hackaBLE_v2.menu.hs_stack.custom.build.hs_stack_flags=
+
+hackaBLE_v2.menu.role.all=All
+hackaBLE_v2.menu.role.all.build.nimble_flags=
+hackaBLE_v2.menu.role.periph=Peripheral
+hackaBLE_v2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+hackaBLE_v2.menu.role.adv=Advertiser
+hackaBLE_v2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+hackaBLE_v2.menu.role.scan=Scanner
+hackaBLE_v2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+hackaBLE_v2.menu.role.central=Client
+hackaBLE_v2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+hackaBLE_v2.menu.cppDbgLvl.none=None
+hackaBLE_v2.menu.cppDbgLvl.none.build.cpp_debug=0
+hackaBLE_v2.menu.cppDbgLvl.error=Error
+hackaBLE_v2.menu.cppDbgLvl.error.build.cpp_debug=1
+hackaBLE_v2.menu.cppDbgLvl.warn=Warn
+hackaBLE_v2.menu.cppDbgLvl.warn.build.cpp_debug=2
+hackaBLE_v2.menu.cppDbgLvl.info=Info
+hackaBLE_v2.menu.cppDbgLvl.info.build.cpp_debug=3
+hackaBLE_v2.menu.cppDbgLvl.debug=Debug
+hackaBLE_v2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+
+Blend2.name=RedBear BLE Nano 2
+
+Blend2.upload.tool=openocd
+Blend2.upload.target=nrf52
+Blend2.upload.maximum_size=913408
+
+Blend2.bootloader.tool=openocd
+
+Blend2.build.mcu=cortex-m4
+Blend2.build.f_cpu=64000000
+Blend2.build.board=RB_BLEND_2
+Blend2.build.core=nRF5
+Blend2.build.variant=RedBear_Blend2
+Blend2.build.variant_system_lib=
+Blend2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+Blend2.build.ldscript=nrf52_xxaa.ld
+Blend2.build.lfclk_flags=-DUSE_LFXO
+Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+
+Blend2.menu.custom_config.disable=Disabled
+Blend2.menu.custom_config.enable=Enabled
+Blend2.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+Blend2.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+
+Blend2.menu.main_stack.1536=1536
+Blend2.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+Blend2.menu.main_stack.2048=2048
+Blend2.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+Blend2.menu.main_stack.2560=2560
+Blend2.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+Blend2.menu.main_stack.3072=3072
+Blend2.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+Blend2.menu.main_stack.3584=3584
+Blend2.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+Blend2.menu.main_stack.4096=4096
+Blend2.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+Blend2.menu.main_stack.custom=Custom (config file)
+Blend2.menu.main_stack.custom.build.main_stack_flags=
+
+Blend2.menu.hs_stack.2048=2048
+Blend2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+Blend2.menu.hs_stack.2560=2560
+Blend2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+Blend2.menu.hs_stack.3072=3072
+Blend2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+Blend2.menu.hs_stack.3584=3584
+Blend2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+Blend2.menu.hs_stack.4096=4096
+Blend2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+Blend2.menu.hs_stack.custom=Custom (config file)
+Blend2.menu.hs_stack.custom.build.hs_stack_flags=
+
+Blend2.menu.role.all=All
+Blend2.menu.role.all.build.nimble_flags=
+Blend2.menu.role.periph=Peripheral
+Blend2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Blend2.menu.role.adv=Advertiser
+Blend2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Blend2.menu.role.scan=Scanner
+Blend2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Blend2.menu.role.central=Client
+Blend2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Blend2.menu.cppDbgLvl.none=None
+Blend2.menu.cppDbgLvl.none.build.cpp_debug=0
+Blend2.menu.cppDbgLvl.error=Error
+Blend2.menu.cppDbgLvl.error.build.cpp_debug=1
+Blend2.menu.cppDbgLvl.warn=Warn
+Blend2.menu.cppDbgLvl.warn.build.cpp_debug=2
+Blend2.menu.cppDbgLvl.info=Info
+Blend2.menu.cppDbgLvl.info.build.cpp_debug=3
+Blend2.menu.cppDbgLvl.debug=Debug
+Blend2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+
+BLENano2.name=RedBear BLE Nano 2
+
+BLENano2.upload.tool=openocd
+BLENano2.upload.target=nrf52
+BLENano2.upload.maximum_size=913408
+
+BLENano2.bootloader.tool=openocd
+
+BLENano2.build.mcu=cortex-m4
+BLENano2.build.f_cpu=64000000
+BLENano2.build.board=RB_BLE_NANO_2
+BLENano2.build.core=nRF5
+BLENano2.build.variant=RedBear_BLENano2
+BLENano2.build.variant_system_lib=
+BLENano2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+BLENano2.build.ldscript=nrf52_xxaa.ld
+BLENano2.build.lfclk_flags=-DUSE_LFXO
+BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+
+BLENano2.menu.custom_config.disable=Disabled
+BLENano2.menu.custom_config.enable=Enabled
+BLENano2.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+BLENano2.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+
+BLENano2.menu.main_stack.1536=1536
+BLENano2.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+BLENano2.menu.main_stack.2048=2048
+BLENano2.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+BLENano2.menu.main_stack.2560=2560
+BLENano2.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+BLENano2.menu.main_stack.3072=3072
+BLENano2.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+BLENano2.menu.main_stack.3584=3584
+BLENano2.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+BLENano2.menu.main_stack.4096=4096
+BLENano2.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+BLENano2.menu.main_stack.custom=Custom (config file)
+BLENano2.menu.main_stack.custom.build.main_stack_flags=
+
+BLENano2.menu.hs_stack.2048=2048
+BLENano2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+BLENano2.menu.hs_stack.2560=2560
+BLENano2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+BLENano2.menu.hs_stack.3072=3072
+BLENano2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+BLENano2.menu.hs_stack.3584=3584
+BLENano2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+BLENano2.menu.hs_stack.4096=4096
+BLENano2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+BLENano2.menu.hs_stack.custom=Custom (config file)
+BLENano2.menu.hs_stack.custom.build.hs_stack_flags=
+
+BLENano2.menu.role.all=All
+BLENano2.menu.role.all.build.nimble_flags=
+BLENano2.menu.role.periph=Peripheral
+BLENano2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BLENano2.menu.role.adv=Advertiser
+BLENano2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BLENano2.menu.role.scan=Scanner
+BLENano2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BLENano2.menu.role.central=Client
+BLENano2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+BLENano2.menu.cppDbgLvl.none=None
+BLENano2.menu.cppDbgLvl.none.build.cpp_debug=0
+BLENano2.menu.cppDbgLvl.error=Error
+BLENano2.menu.cppDbgLvl.error.build.cpp_debug=1
+BLENano2.menu.cppDbgLvl.warn=Warn
+BLENano2.menu.cppDbgLvl.warn.build.cpp_debug=2
+BLENano2.menu.cppDbgLvl.info=Info
+BLENano2.menu.cppDbgLvl.info.build.cpp_debug=3
+BLENano2.menu.cppDbgLvl.debug=Debug
+BLENano2.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 
 
 # nRF52840 variants
 ###################
+
+nRF52840_DK.name=Nordic nRF52840 DK
+
+nRF52840_DK.upload.tool=nrfutil
+nRF52840_DK.upload.target=nrf52
+nRF52840_DK.upload.maximum_size=1048576
+
+nRF52840_DK.bootloader.tool=openocd
+
+nRF52840_DK.build.mcu=cortex-m4
+nRF52840_DK.build.f_cpu=64000000
+nRF52840_DK.build.board=NRF52840_DK
+nRF52840_DK.build.core=nRF5
+nRF52840_DK.build.variant=nRF52840_DK
+nRF52840_DK.build.variant_system_lib=
+nRF52840_DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nRF52840_DK.build.ldscript=nRF52840_DK.ld
+nRF52840_DK.build.lfclk_flags=-DUSE_LFXO
+nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+
+nRF52840_DK.menu.custom_config.disable=Disabled
+nRF52840_DK.menu.custom_config.enable=Enabled
+nRF52840_DK.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
+nRF52840_DK.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
+
+nRF52840_DK.menu.main_stack.1536=1536
+nRF52840_DK.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
+nRF52840_DK.menu.main_stack.2048=2048
+nRF52840_DK.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
+nRF52840_DK.menu.main_stack.2560=2560
+nRF52840_DK.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
+nRF52840_DK.menu.main_stack.3072=3072
+nRF52840_DK.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
+nRF52840_DK.menu.main_stack.3584=3584
+nRF52840_DK.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
+nRF52840_DK.menu.main_stack.4096=4096
+nRF52840_DK.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
+nRF52840_DK.menu.main_stack.custom=Custom (config file)
+nRF52840_DK.menu.main_stack.custom.build.main_stack_flags=
+
+nRF52840_DK.menu.hs_stack.2048=2048
+nRF52840_DK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
+nRF52840_DK.menu.hs_stack.2560=2560
+nRF52840_DK.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
+nRF52840_DK.menu.hs_stack.3072=3072
+nRF52840_DK.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
+nRF52840_DK.menu.hs_stack.3584=3584
+nRF52840_DK.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
+nRF52840_DK.menu.hs_stack.4096=4096
+nRF52840_DK.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
+nRF52840_DK.menu.hs_stack.custom=Custom (config file)
+nRF52840_DK.menu.hs_stack.custom.build.hs_stack_flags=
+
+nRF52840_DK.menu.role.all=All
+nRF52840_DK.menu.role.all.build.nimble_flags=
+nRF52840_DK.menu.role.periph=Peripheral
+nRF52840_DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nRF52840_DK.menu.role.adv=Advertiser
+nRF52840_DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nRF52840_DK.menu.role.scan=Scanner
+nRF52840_DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nRF52840_DK.menu.role.central=Client
+nRF52840_DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nRF52840_DK.menu.cppDbgLvl.none=None
+nRF52840_DK.menu.cppDbgLvl.none.build.cpp_debug=0
+nRF52840_DK.menu.cppDbgLvl.error=Error
+nRF52840_DK.menu.cppDbgLvl.error.build.cpp_debug=1
+nRF52840_DK.menu.cppDbgLvl.warn=Warn
+nRF52840_DK.menu.cppDbgLvl.warn.build.cpp_debug=2
+nRF52840_DK.menu.cppDbgLvl.info=Info
+nRF52840_DK.menu.cppDbgLvl.info.build.cpp_debug=3
+nRF52840_DK.menu.cppDbgLvl.debug=Debug
+nRF52840_DK.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
 
 nRF52840_dongle.name=nRF52840_dongle
 
@@ -1748,7 +2204,7 @@ Generic_nRF52833.bootloader.tool=openocd
 
 Generic_nRF52833.build.mcu=cortex-m4
 Generic_nRF52833.build.f_cpu=64000000
-Generic_nRF52833.build.board=GENERIC
+Generic_nRF52833.build.board=GENERIC_NRF52833
 Generic_nRF52833.build.core=nRF5
 Generic_nRF52833.build.variant=Generic
 Generic_nRF52833.build.variant_system_lib=
@@ -1829,9 +2285,9 @@ nRF52833DK.bootloader.tool=openocd
 
 nRF52833DK.build.mcu=cortex-m4
 nRF52833DK.build.f_cpu=64000000
-nRF52833DK.build.board=nRF52833DK
+nRF52833DK.build.board=NRF52833_DK
 nRF52833DK.build.core=nRF5
-nRF52833DK.build.variant=Generic
+nRF52833DK.build.variant=nRF8233_DK
 nRF52833DK.build.variant_system_lib=
 nRF52833DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52833DK.build.ldscript=nrf52833_xxaa.ld
