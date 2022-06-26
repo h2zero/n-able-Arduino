@@ -1,3 +1,23 @@
+/*
+  EEPROM.h - EEPROM library
+  Original Copyright (c) 2006 David A. Mellis.  All right reserved.
+  New version by Christopher Andrews 2015.
+  This copy has minor modificatons for use with Teensy, by Paul Stoffregen
+  Modified by Ryan Powell for use with n-able arduino core.
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 #ifndef EEPROM_H
 #define EEPROM_H
 
@@ -40,21 +60,21 @@ class EEPROMClass {
 
     /**
      * Read an eeprom cell
-     * @param index
+     * @param id
      * @return value
      */
     uint8_t read(int id) { uint8_t val = _store.read(id, &val, 1); return val; }
 
     /**
      * Write value to an eeprom cell
-     * @param index
+     * @param id
      * @param value
      */
     void write(int id, uint8_t val) { _store.write(id, &val, 1); }
 
     /**
      * Update a eeprom cell
-     * @param index
+     * @param id
      * @param value
      */
     void update(int id, uint8_t val) { _store.write(id, &val, 1); }
@@ -78,6 +98,30 @@ class EEPROMClass {
         return t;
     }
 };
+
+// put - Specialization for Arduino Strings -------------------------------
+// to put an Arduino String to the EEPROM we copy its internal buffer
+// including the trailing \0 to the eprom
+template <>
+inline const String &EEPROMClass::put(int id, const String &s)
+{
+    if(!_store.write(id, (uint8_t*)s.c_str(), s.length() + 1)) {
+        _store.defrag();
+        _store.write(id, (uint8_t*)s.c_str(), s.length() + 1);
+    }
+    return s;
+}
+
+// get - Specialization for Arduino Strings -------------------------------
+template <>
+inline String &EEPROMClass::get(int id, String &s){
+    s = "";
+    FCStoreDesc * desc = _store.find(id);
+    if (desc != nullptr) {
+        s = (const char*)((uint32_t)desc + sizeof(FCStoreDesc));
+    }
+    return s;
+}
 
 static EEPROMClass EEPROM __attribute__ ((unused));
 
