@@ -20,6 +20,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <algorithm>
 
 
 FCStore::FCStore(FCStoreCallbacks * callbacks, uint16_t numBytes) {
@@ -134,7 +135,22 @@ bool FCStore::write (uint32_t id, uint8_t* buf, uint16_t len) {
        cbf->flashWriteWord((uint32_t)oldDesc + WORD_BYTES, newAddr);
     }
 
-    return true;
+    // Verify the data
+    FCStoreDesc * desc = find(id);
+
+    if (desc == nullptr) {
+        STORE_PRINTF("Data verify error - id not found\n");
+        return false;
+    }
+
+    uint16_t datalen = desc->getByteLength();
+    uint32_t dataAddr = (uint32_t)desc + sizeof(FCStoreDesc);
+    if (datalen == len && memcmp(buf, (uint8_t*)dataAddr, datalen) == 0) {
+        return true;
+    }
+
+    STORE_PRINTF("Data verify error - corrupted\n");
+    return false;
 }
 
 FCStoreDesc* FCStore::find (uint32_t id) {
@@ -231,7 +247,7 @@ bool FCStore::read(uint32_t id, uint8_t* buf, uint16_t maxBytes) {
     if (desc != nullptr) {
         uint16_t datalen = desc->getByteLength();
         uint32_t dataAddr = (uint32_t)desc + sizeof(FCStoreDesc);
-        memcpy(buf, (uint8_t*)dataAddr, (datalen > maxBytes) ? datalen : maxBytes);
+        memcpy(buf, (uint8_t*)dataAddr, std::min(datalen, maxBytes));
         return true;
     }
 
