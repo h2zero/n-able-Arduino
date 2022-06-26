@@ -51,7 +51,7 @@
 extern "C" {
 #endif
 
-static uint32_t _resetReason;
+static const char * _resetReason;
 
 void init( void )
 {
@@ -81,8 +81,10 @@ void init( void )
 
     if(NRF_POWER->RESETREAS & (POWER_RESETREAS_DOG_Detected << POWER_RESETREAS_DOG_Pos))
     {
-        _resetReason = 0xdeadbeef;
+        _resetReason = "Watchdog timeout";
         NRF_POWER->RESETREAS = 0xffffffff;
+    } else {
+        _resetReason = "Device power on";
     }
 
     // Set vendor IRQ's to default priority level
@@ -97,7 +99,7 @@ void init( void )
 	NRF_WDT->TASKS_START = 1;  //Start the Watchdog timer
 }
 
-uint32_t get_reset_reason(void) {
+const char * get_reset_reason(void) {
     return _resetReason;
 }
 

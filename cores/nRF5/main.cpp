@@ -39,12 +39,6 @@ static StaticTask_t _mainTaskBuffer;
 
 void loopTask(void *pvParameters)
 {
-/*
-    if(get_reset_reason() == 0xdeadbeef) {
-        Serial.begin(115200);
-        Serial.printf("Chip was reset by watchdog!\n");
-    }
-*/
     setup();
 
     for(;;) {
