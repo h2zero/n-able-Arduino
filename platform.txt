@@ -28,7 +28,7 @@ compiler.warning_flags.default=
 compiler.warning_flags.more=-Wall
 compiler.warning_flags.all=-Wall -Wextra
 
-compiler.path={runtime.platform.path}/tools/gcc-arm-none-eabi/9_0_2020q2/bin/
+compiler.path={runtime.tools.gcc-arm-none-eabi-9.3.1-1.path}/bin/
 compiler.c.cmd=arm-none-eabi-gcc
 compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g -Os {compiler.warning_flags} {build.float_flags} -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -std=gnu11 -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -MMD
 compiler.c.elf.cmd=arm-none-eabi-g++
@@ -52,7 +52,9 @@ compiler.define=-DARDUINO=
 # this can be overriden in boards.txt
 build.extra_flags=
 build.lfclk_flags=
+build.dfu_pattern=echo
 
+nrf52.dfu_pattern="{tools.nrfutil.cmd}" pkg generate --hw-version 52 --debug-mode --sd-req 0 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
 nordic.path={build.core.path}/nordic
 
 compiler.nrf.flags=-DNRF5 -DARDUINO_ARCH_NRF5 "-I{build.core.path}/nimble_config" "-I{nordic.path}/nrfx" "-I{nordic.path}/nrfx/hal" "-I{nordic.path}/nrfx/mdk" "-I{nordic.path}/nrfx/soc" "-I{nordic.path}/nrfx/drivers/include" "-I{nordic.path}/nrfx/drivers/src" "-I{build.core.path}/CMSIS/Include" "-I{build.core.path}/FC_Store" "-I{build.core.path}/BLEBond_nvs" "-I{build.core.path}/TinyUSB" "-I{build.core.path}/TinyUSB/Adafruit_TinyUSB_ArduinoCore" "-I{build.core.path}/TinyUSB/Adafruit_TinyUSB_ArduinoCore/tinyusb/src"
@@ -100,7 +102,7 @@ recipe.output.tmp_file_hex={build.project_name}.hex
 recipe.output.save_file_hex={build.project_name}.save.hex
 
 ## Create dfu package zip file
-recipe.objcopy.zip.pattern="{tools.nrfutil.cmd}" pkg generate --hw-version 52 --debug-mode --sd-req 0 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
+recipe.objcopy.zip.pattern={build.dfu_pattern}
 
 ## Compute size
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
@@ -114,7 +116,7 @@ recipe.output.save_file={build.project_name}.{build.variant}.hex
 #
 # OpenOCD sketch upload
 #
-tools.openocd.path={runtime.platform.path}/tools/openocd/bin
+tools.openocd.path={runtime.tools.openocd-0.11.0-4.path}/bin/
 tools.openocd.cmd=openocd
 tools.openocd.cmd.windows=openocd.exe
 
@@ -137,7 +139,7 @@ tools.openocd.bootloader.pattern="{path}/{cmd}" {bootloader.verbose} -f interfac
 #
 # blackmagic probe upload
 #
-tools.blackmagicprobe.path={runtime.platform.path}/tools/gcc-arm-none-eabi/9_0_2020q2/bin/
+tools.blackmagicprobe.path={runtime.tools.gcc-arm-none-eabi-9.3.1-1.path}/bin/
 tools.blackmagicprobe.cmd=arm-none-eabi-gdb
 
 tools.blackmagicprobe.upload.speed=230400

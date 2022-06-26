@@ -2056,7 +2056,7 @@ nRF52840_dongle.build.vid=0x1915
 nRF52840_dongle.build.pid=0x521B
 nRF52840_dongle.build.lfclk_flags=-DUSE_LFXO
 nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
+nRF52840_dongle.build.dfu_pattern={nrf52.dfu_pattern}
 nRF52840_dongle.menu.custom_config.disable=Disabled
 nRF52840_dongle.menu.custom_config.enable=Enabled
 nRF52840_dongle.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
@@ -2133,6 +2133,7 @@ BT5040.build.vid=0x1915
 BT5040.build.pid=0x521B
 BT5040.build.lfclk_flags=-DUSE_LFXO
 BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BT5040.build.dfu_pattern={nrf52.dfu_pattern}
 
 BT5040.menu.custom_config.disable=Disabled
 BT5040.menu.custom_config.enable=Enabled
