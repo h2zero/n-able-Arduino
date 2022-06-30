@@ -5,12 +5,6 @@
 #error NRF52840_XXAA not defined
 #else
 
-#if defined __has_include
-#  if __has_include ("custom_config.h")
-#    include "custom_config.h"
-#  endif
-#endif
-
 #ifndef CONFIG_BT_NIMBLE_MAX_CONNECTIONS
 #  define CONFIG_BT_NIMBLE_MAX_CONNECTIONS 3
 #endif

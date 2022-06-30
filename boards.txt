@@ -1,6 +1,6 @@
-# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+# Copyright (c) 2014-2015 Arduino LLC. All right reserved.
 # Copyright (c) 2016 Sandeep Mistry All right reserved.
-# Copyright (c) 2021 Ryan Powell.  All right reserved.
+# Copyright (c) 2021 Ryan Powell. All right reserved.
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -14,18 +14,12 @@
 #
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 menu.chip=Chip
-menu.custom_config=Use custom config file
-menu.main_stack=Main task stack size
-menu.hs_stack=NimBLE host stack size
 menu.role=NimBLE Role
 menu.cppDbgLvl=NimBLE debug log level
-menu.version=Version
 menu.lfclk=Low Frequency Clock
-menu.board_variant=Board Variant
-
 
 
 # nRF51822 variants
@@ -47,7 +41,7 @@ Waveshare_BLE400.build.variant_system_lib=
 Waveshare_BLE400.build.float_flags=
 Waveshare_BLE400.build.ldscript=nrf51_{build.chip}.ld
 Waveshare_BLE400.build.lfclk_flags=-DUSE_LFXO
-Waveshare_BLE400.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Waveshare_BLE400.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Waveshare_BLE400.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Waveshare_BLE400.menu.chip.xxaa.build.chip=xxaa
@@ -55,57 +49,6 @@ Waveshare_BLE400.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 Waveshare_BLE400.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 Waveshare_BLE400.menu.chip.xxac.build.chip=xxac
 Waveshare_BLE400.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-Waveshare_BLE400.menu.custom_config.disable=Disabled
-Waveshare_BLE400.menu.custom_config.enable=Enabled
-Waveshare_BLE400.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-Waveshare_BLE400.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-Waveshare_BLE400.menu.main_stack.768=768
-Waveshare_BLE400.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-Waveshare_BLE400.menu.main_stack.896=896
-Waveshare_BLE400.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-Waveshare_BLE400.menu.main_stack.1024=1024
-Waveshare_BLE400.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-Waveshare_BLE400.menu.main_stack.1152=1152
-Waveshare_BLE400.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-Waveshare_BLE400.menu.main_stack.1280=1280
-Waveshare_BLE400.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-Waveshare_BLE400.menu.main_stack.1408=1408
-Waveshare_BLE400.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-Waveshare_BLE400.menu.main_stack.1536=1536
-Waveshare_BLE400.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-Waveshare_BLE400.menu.main_stack.1664=1664
-Waveshare_BLE400.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-Waveshare_BLE400.menu.main_stack.1792=1792
-Waveshare_BLE400.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-Waveshare_BLE400.menu.main_stack.1920=1920
-Waveshare_BLE400.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-Waveshare_BLE400.menu.main_stack.2048=2048
-Waveshare_BLE400.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-Waveshare_BLE400.menu.main_stack.custom=Custom (config file)
-Waveshare_BLE400.menu.main_stack.custom.build.main_stack_flags=
-
-Waveshare_BLE400.menu.hs_stack.1024=1024
-Waveshare_BLE400.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-Waveshare_BLE400.menu.hs_stack.1152=1152
-Waveshare_BLE400.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-Waveshare_BLE400.menu.hs_stack.1280=1280
-Waveshare_BLE400.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-Waveshare_BLE400.menu.hs_stack.1408=1408
-Waveshare_BLE400.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-Waveshare_BLE400.menu.hs_stack.1536=1536
-Waveshare_BLE400.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-Waveshare_BLE400.menu.hs_stack.1664=1664
-Waveshare_BLE400.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-Waveshare_BLE400.menu.hs_stack.1792=1792
-Waveshare_BLE400.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-Waveshare_BLE400.menu.hs_stack.1920=1920
-Waveshare_BLE400.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-Waveshare_BLE400.menu.hs_stack.2048=2048
-Waveshare_BLE400.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-Waveshare_BLE400.menu.hs_stack.custom=Custom (config file)
-Waveshare_BLE400.menu.hs_stack.custom.build.hs_stack_flags=
 
 Waveshare_BLE400.menu.role.all=All
 Waveshare_BLE400.menu.role.all.build.nimble_flags=
@@ -147,7 +90,7 @@ BluzDK.build.variant_system_lib=
 BluzDK.build.float_flags=
 BluzDK.build.ldscript=nrf51_{build.chip}.ld
 BluzDK.build.lfclk_flags=-DUSE_LFXO
-BluzDK.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BluzDK.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BluzDK.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 BluzDK.menu.chip.xxaa.build.chip=xxaa
@@ -155,57 +98,6 @@ BluzDK.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 BluzDK.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 BluzDK.menu.chip.xxac.build.chip=xxac
 BluzDK.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-BluzDK.menu.custom_config.disable=Disabled
-BluzDK.menu.custom_config.enable=Enabled
-BluzDK.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BluzDK.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-BluzDK.menu.main_stack.768=768
-BluzDK.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-BluzDK.menu.main_stack.896=896
-BluzDK.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-BluzDK.menu.main_stack.1024=1024
-BluzDK.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-BluzDK.menu.main_stack.1152=1152
-BluzDK.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-BluzDK.menu.main_stack.1280=1280
-BluzDK.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-BluzDK.menu.main_stack.1408=1408
-BluzDK.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-BluzDK.menu.main_stack.1536=1536
-BluzDK.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BluzDK.menu.main_stack.1664=1664
-BluzDK.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-BluzDK.menu.main_stack.1792=1792
-BluzDK.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-BluzDK.menu.main_stack.1920=1920
-BluzDK.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-BluzDK.menu.main_stack.2048=2048
-BluzDK.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BluzDK.menu.main_stack.custom=Custom (config file)
-BluzDK.menu.main_stack.custom.build.main_stack_flags=
-
-BluzDK.menu.hs_stack.1024=1024
-BluzDK.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-BluzDK.menu.hs_stack.1152=1152
-BluzDK.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-BluzDK.menu.hs_stack.1280=1280
-BluzDK.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-BluzDK.menu.hs_stack.1408=1408
-BluzDK.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-BluzDK.menu.hs_stack.1536=1536
-BluzDK.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-BluzDK.menu.hs_stack.1664=1664
-BluzDK.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-BluzDK.menu.hs_stack.1792=1792
-BluzDK.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-BluzDK.menu.hs_stack.1920=1920
-BluzDK.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-BluzDK.menu.hs_stack.2048=2048
-BluzDK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BluzDK.menu.hs_stack.custom=Custom (config file)
-BluzDK.menu.hs_stack.custom.build.hs_stack_flags=
 
 BluzDK.menu.role.all=All
 BluzDK.menu.role.all.build.nimble_flags=
@@ -248,7 +140,7 @@ CalliopeMini.build.variant_system_lib=
 CalliopeMini.build.float_flags=
 CalliopeMini.build.ldscript=nrf51_{build.chip}.ld
 CalliopeMini.build.lfclk_flags=-DUSE_LFXO
-CalliopeMini.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+CalliopeMini.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 CalliopeMini.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 CalliopeMini.menu.chip.xxaa.build.chip=xxaa
@@ -256,57 +148,6 @@ CalliopeMini.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 CalliopeMini.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 CalliopeMini.menu.chip.xxac.build.chip=xxac
 CalliopeMini.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-CalliopeMini.menu.custom_config.disable=Disabled
-CalliopeMini.menu.custom_config.enable=Enabled
-CalliopeMini.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-CalliopeMini.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-CalliopeMini.menu.main_stack.768=768
-CalliopeMini.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-CalliopeMini.menu.main_stack.896=896
-CalliopeMini.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-CalliopeMini.menu.main_stack.1024=1024
-CalliopeMini.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-CalliopeMini.menu.main_stack.1152=1152
-CalliopeMini.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-CalliopeMini.menu.main_stack.1280=1280
-CalliopeMini.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-CalliopeMini.menu.main_stack.1408=1408
-CalliopeMini.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-CalliopeMini.menu.main_stack.1536=1536
-CalliopeMini.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-CalliopeMini.menu.main_stack.1664=1664
-CalliopeMini.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-CalliopeMini.menu.main_stack.1792=1792
-CalliopeMini.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-CalliopeMini.menu.main_stack.1920=1920
-CalliopeMini.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-CalliopeMini.menu.main_stack.2048=2048
-CalliopeMini.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-CalliopeMini.menu.main_stack.custom=Custom (config file)
-CalliopeMini.menu.main_stack.custom.build.main_stack_flags=
-
-CalliopeMini.menu.hs_stack.1024=1024
-CalliopeMini.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-CalliopeMini.menu.hs_stack.1152=1152
-CalliopeMini.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-CalliopeMini.menu.hs_stack.1280=1280
-CalliopeMini.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-CalliopeMini.menu.hs_stack.1408=1408
-CalliopeMini.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-CalliopeMini.menu.hs_stack.1536=1536
-CalliopeMini.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-CalliopeMini.menu.hs_stack.1664=1664
-CalliopeMini.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-CalliopeMini.menu.hs_stack.1792=1792
-CalliopeMini.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-CalliopeMini.menu.hs_stack.1920=1920
-CalliopeMini.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-CalliopeMini.menu.hs_stack.2048=2048
-CalliopeMini.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-CalliopeMini.menu.hs_stack.custom=Custom (config file)
-CalliopeMini.menu.hs_stack.custom.build.hs_stack_flags=
 
 CalliopeMini.menu.role.all=All
 CalliopeMini.menu.role.all.build.nimble_flags=
@@ -348,7 +189,7 @@ ng_beacon.build.variant_system_lib=
 ng_beacon.build.float_flags=
 ng_beacon.build.ldscript=nrf51_{build.chip}.ld
 ng_beacon.build.lfclk_flags=-DUSE_LFXO
-ng_beacon.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+ng_beacon.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 ng_beacon.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 ng_beacon.menu.chip.xxaa.build.chip=xxaa
@@ -356,57 +197,6 @@ ng_beacon.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 ng_beacon.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 ng_beacon.menu.chip.xxac.build.chip=xxac
 ng_beacon.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-ng_beacon.menu.custom_config.disable=Disabled
-ng_beacon.menu.custom_config.enable=Enabled
-ng_beacon.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-ng_beacon.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-ng_beacon.menu.main_stack.768=768
-ng_beacon.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-ng_beacon.menu.main_stack.896=896
-ng_beacon.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-ng_beacon.menu.main_stack.1024=1024
-ng_beacon.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-ng_beacon.menu.main_stack.1152=1152
-ng_beacon.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-ng_beacon.menu.main_stack.1280=1280
-ng_beacon.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-ng_beacon.menu.main_stack.1408=1408
-ng_beacon.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-ng_beacon.menu.main_stack.1536=1536
-ng_beacon.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-ng_beacon.menu.main_stack.1664=1664
-ng_beacon.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-ng_beacon.menu.main_stack.1792=1792
-ng_beacon.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-ng_beacon.menu.main_stack.1920=1920
-ng_beacon.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-ng_beacon.menu.main_stack.2048=2048
-ng_beacon.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-ng_beacon.menu.main_stack.custom=Custom (config file)
-ng_beacon.menu.main_stack.custom.build.main_stack_flags=
-
-ng_beacon.menu.hs_stack.1024=1024
-ng_beacon.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-ng_beacon.menu.hs_stack.1152=1152
-ng_beacon.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-ng_beacon.menu.hs_stack.1280=1280
-ng_beacon.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-ng_beacon.menu.hs_stack.1408=1408
-ng_beacon.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-ng_beacon.menu.hs_stack.1536=1536
-ng_beacon.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-ng_beacon.menu.hs_stack.1664=1664
-ng_beacon.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-ng_beacon.menu.hs_stack.1792=1792
-ng_beacon.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-ng_beacon.menu.hs_stack.1920=1920
-ng_beacon.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-ng_beacon.menu.hs_stack.2048=2048
-ng_beacon.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-ng_beacon.menu.hs_stack.custom=Custom (config file)
-ng_beacon.menu.hs_stack.custom.build.hs_stack_flags=
 
 ng_beacon.menu.role.all=All
 ng_beacon.menu.role.all.build.nimble_flags=
@@ -448,7 +238,7 @@ Beacon_PCA20006.build.variant_system_lib=
 Beacon_PCA20006.build.float_flags=
 Beacon_PCA20006.build.ldscript=nrf51_{build.chip}.ld
 Beacon_PCA20006.build.lfclk_flags=-DUSE_LFXO
-Beacon_PCA20006.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Beacon_PCA20006.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Beacon_PCA20006.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Beacon_PCA20006.menu.chip.xxaa.build.chip=xxaa
@@ -456,68 +246,6 @@ Beacon_PCA20006.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 Beacon_PCA20006.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 Beacon_PCA20006.menu.chip.xxac.build.chip=xxac
 Beacon_PCA20006.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-Beacon_PCA20006.menu.custom_config.disable=Disabled
-Beacon_PCA20006.menu.custom_config.enable=Enabled
-Beacon_PCA20006.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-Beacon_PCA20006.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-Beacon_PCA20006.menu.main_stack.768=768
-Beacon_PCA20006.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-Beacon_PCA20006.menu.main_stack.896=896
-Beacon_PCA20006.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-Beacon_PCA20006.menu.main_stack.1024=1024
-Beacon_PCA20006.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-Beacon_PCA20006.menu.main_stack.1152=1152
-Beacon_PCA20006.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-Beacon_PCA20006.menu.main_stack.1280=1280
-Beacon_PCA20006.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-Beacon_PCA20006.menu.main_stack.1408=1408
-Beacon_PCA20006.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-Beacon_PCA20006.menu.main_stack.1536=1536
-Beacon_PCA20006.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-Beacon_PCA20006.menu.main_stack.1664=1664
-Beacon_PCA20006.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-Beacon_PCA20006.menu.main_stack.1792=1792
-Beacon_PCA20006.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-Beacon_PCA20006.menu.main_stack.1920=1920
-Beacon_PCA20006.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-Beacon_PCA20006.menu.main_stack.2048=2048
-Beacon_PCA20006.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-Beacon_PCA20006.menu.main_stack.custom=Custom (config file)
-Beacon_PCA20006.menu.main_stack.custom.build.main_stack_flags=
-
-Beacon_PCA20006.menu.hs_stack.1024=1024
-Beacon_PCA20006.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-Beacon_PCA20006.menu.hs_stack.1152=1152
-Beacon_PCA20006.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-Beacon_PCA20006.menu.hs_stack.1280=1280
-Beacon_PCA20006.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-Beacon_PCA20006.menu.hs_stack.1408=1408
-Beacon_PCA20006.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-Beacon_PCA20006.menu.hs_stack.1536=1536
-Beacon_PCA20006.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-Beacon_PCA20006.menu.hs_stack.1664=1664
-Beacon_PCA20006.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-Beacon_PCA20006.menu.hs_stack.1792=1792
-Beacon_PCA20006.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-Beacon_PCA20006.menu.hs_stack.1920=1920
-Beacon_PCA20006.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-Beacon_PCA20006.menu.hs_stack.2048=2048
-Beacon_PCA20006.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-Beacon_PCA20006.menu.hs_stack.custom=Custom (config file)
-Beacon_PCA20006.menu.hs_stack.custom.build.hs_stack_flags=
-
-Beacon_PCA20006.menu.role.all=All
-Beacon_PCA20006.menu.role.all.build.nimble_flags=
-Beacon_PCA20006.menu.role.periph=Peripheral
-Beacon_PCA20006.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-Beacon_PCA20006.menu.role.adv=Advertiser
-Beacon_PCA20006.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-Beacon_PCA20006.menu.role.scan=Scanner
-Beacon_PCA20006.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-Beacon_PCA20006.menu.role.central=Client
-Beacon_PCA20006.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
 
 Beacon_PCA20006.menu.cppDbgLvl.none=None
 Beacon_PCA20006.menu.cppDbgLvl.none.build.cpp_debug=0
@@ -548,7 +276,7 @@ BBCmicrobit.build.variant_system_lib=
 BBCmicrobit.build.float_flags=
 BBCmicrobit.build.ldscript=nrf51_{build.chip}.ld
 BBCmicrobit.build.lfclk_flags=-DUSE_LFXO
-BBCmicrobit.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BBCmicrobit.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BBCmicrobit.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 BBCmicrobit.menu.chip.xxaa.build.chip=xxaa
@@ -556,57 +284,6 @@ BBCmicrobit.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 BBCmicrobit.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 BBCmicrobit.menu.chip.xxac.build.chip=xxac
 BBCmicrobit.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-BBCmicrobit.menu.custom_config.disable=Disabled
-BBCmicrobit.menu.custom_config.enable=Enabled
-BBCmicrobit.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BBCmicrobit.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-BBCmicrobit.menu.main_stack.768=768
-BBCmicrobit.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-BBCmicrobit.menu.main_stack.896=896
-BBCmicrobit.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-BBCmicrobit.menu.main_stack.1024=1024
-BBCmicrobit.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-BBCmicrobit.menu.main_stack.1152=1152
-BBCmicrobit.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-BBCmicrobit.menu.main_stack.1280=1280
-BBCmicrobit.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-BBCmicrobit.menu.main_stack.1408=1408
-BBCmicrobit.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-BBCmicrobit.menu.main_stack.1536=1536
-BBCmicrobit.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BBCmicrobit.menu.main_stack.1664=1664
-BBCmicrobit.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-BBCmicrobit.menu.main_stack.1792=1792
-BBCmicrobit.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-BBCmicrobit.menu.main_stack.1920=1920
-BBCmicrobit.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-BBCmicrobit.menu.main_stack.2048=2048
-BBCmicrobit.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BBCmicrobit.menu.main_stack.custom=Custom (config file)
-BBCmicrobit.menu.main_stack.custom.build.main_stack_flags=
-
-BBCmicrobit.menu.hs_stack.1024=1024
-BBCmicrobit.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-BBCmicrobit.menu.hs_stack.1152=1152
-BBCmicrobit.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-BBCmicrobit.menu.hs_stack.1280=1280
-BBCmicrobit.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-BBCmicrobit.menu.hs_stack.1408=1408
-BBCmicrobit.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-BBCmicrobit.menu.hs_stack.1536=1536
-BBCmicrobit.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-BBCmicrobit.menu.hs_stack.1664=1664
-BBCmicrobit.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-BBCmicrobit.menu.hs_stack.1792=1792
-BBCmicrobit.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-BBCmicrobit.menu.hs_stack.1920=1920
-BBCmicrobit.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-BBCmicrobit.menu.hs_stack.2048=2048
-BBCmicrobit.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BBCmicrobit.menu.hs_stack.custom=Custom (config file)
-BBCmicrobit.menu.hs_stack.custom.build.hs_stack_flags=
 
 BBCmicrobit.menu.role.all=All
 BBCmicrobit.menu.role.all.build.nimble_flags=
@@ -648,7 +325,7 @@ nRF51DK.build.variant_system_lib=
 nRF51DK.build.float_flags=
 nRF51DK.build.ldscript=nrf51_{build.chip}.ld
 nRF51DK.build.lfclk_flags=-DUSE_LFXO
-nRF51DK.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+nRF51DK.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF51DK.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 nRF51DK.menu.chip.xxaa.build.chip=xxaa
@@ -656,57 +333,6 @@ nRF51DK.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 nRF51DK.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 nRF51DK.menu.chip.xxac.build.chip=xxac
 nRF51DK.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-nRF51DK.menu.custom_config.disable=Disabled
-nRF51DK.menu.custom_config.enable=Enabled
-nRF51DK.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-nRF51DK.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-nRF51DK.menu.main_stack.768=768
-nRF51DK.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-nRF51DK.menu.main_stack.896=896
-nRF51DK.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-nRF51DK.menu.main_stack.1024=1024
-nRF51DK.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-nRF51DK.menu.main_stack.1152=1152
-nRF51DK.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-nRF51DK.menu.main_stack.1280=1280
-nRF51DK.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-nRF51DK.menu.main_stack.1408=1408
-nRF51DK.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-nRF51DK.menu.main_stack.1536=1536
-nRF51DK.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-nRF51DK.menu.main_stack.1664=1664
-nRF51DK.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-nRF51DK.menu.main_stack.1792=1792
-nRF51DK.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-nRF51DK.menu.main_stack.1920=1920
-nRF51DK.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-nRF51DK.menu.main_stack.2048=2048
-nRF51DK.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-nRF51DK.menu.main_stack.custom=Custom (config file)
-nRF51DK.menu.main_stack.custom.build.main_stack_flags=
-
-nRF51DK.menu.hs_stack.1024=1024
-nRF51DK.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-nRF51DK.menu.hs_stack.1152=1152
-nRF51DK.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-nRF51DK.menu.hs_stack.1280=1280
-nRF51DK.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-nRF51DK.menu.hs_stack.1408=1408
-nRF51DK.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-nRF51DK.menu.hs_stack.1536=1536
-nRF51DK.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-nRF51DK.menu.hs_stack.1664=1664
-nRF51DK.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-nRF51DK.menu.hs_stack.1792=1792
-nRF51DK.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-nRF51DK.menu.hs_stack.1920=1920
-nRF51DK.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-nRF51DK.menu.hs_stack.2048=2048
-nRF51DK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-nRF51DK.menu.hs_stack.custom=Custom (config file)
-nRF51DK.menu.hs_stack.custom.build.hs_stack_flags=
 
 nRF51DK.menu.role.all=All
 nRF51DK.menu.role.all.build.nimble_flags=
@@ -748,7 +374,7 @@ nRF51Dongle.build.variant_system_lib=
 nRF51Dongle.build.float_flags=
 nRF51Dongle.build.ldscript=nrf51_{build.chip}.ld
 nRF51Dongle.build.lfclk_flags=-DUSE_LFXO
-nRF51Dongle.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+nRF51Dongle.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF51Dongle.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 nRF51Dongle.menu.chip.xxaa.build.chip=xxaa
@@ -756,57 +382,6 @@ nRF51Dongle.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 nRF51Dongle.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 nRF51Dongle.menu.chip.xxac.build.chip=xxac
 nRF51Dongle.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-nRF51Dongle.menu.custom_config.disable=Disabled
-nRF51Dongle.menu.custom_config.enable=Enabled
-nRF51Dongle.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-nRF51Dongle.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-nRF51Dongle.menu.main_stack.768=768
-nRF51Dongle.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-nRF51Dongle.menu.main_stack.896=896
-nRF51Dongle.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-nRF51Dongle.menu.main_stack.1024=1024
-nRF51Dongle.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-nRF51Dongle.menu.main_stack.1152=1152
-nRF51Dongle.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-nRF51Dongle.menu.main_stack.1280=1280
-nRF51Dongle.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-nRF51Dongle.menu.main_stack.1408=1408
-nRF51Dongle.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-nRF51Dongle.menu.main_stack.1536=1536
-nRF51Dongle.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-nRF51Dongle.menu.main_stack.1664=1664
-nRF51Dongle.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-nRF51Dongle.menu.main_stack.1792=1792
-nRF51Dongle.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-nRF51Dongle.menu.main_stack.1920=1920
-nRF51Dongle.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-nRF51Dongle.menu.main_stack.2048=2048
-nRF51Dongle.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-nRF51Dongle.menu.main_stack.custom=Custom (config file)
-nRF51Dongle.menu.main_stack.custom.build.main_stack_flags=
-
-nRF51Dongle.menu.hs_stack.1024=1024
-nRF51Dongle.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-nRF51Dongle.menu.hs_stack.1152=1152
-nRF51Dongle.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-nRF51Dongle.menu.hs_stack.1280=1280
-nRF51Dongle.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-nRF51Dongle.menu.hs_stack.1408=1408
-nRF51Dongle.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-nRF51Dongle.menu.hs_stack.1536=1536
-nRF51Dongle.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-nRF51Dongle.menu.hs_stack.1664=1664
-nRF51Dongle.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-nRF51Dongle.menu.hs_stack.1792=1792
-nRF51Dongle.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-nRF51Dongle.menu.hs_stack.1920=1920
-nRF51Dongle.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-nRF51Dongle.menu.hs_stack.2048=2048
-nRF51Dongle.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-nRF51Dongle.menu.hs_stack.custom=Custom (config file)
-nRF51Dongle.menu.hs_stack.custom.build.hs_stack_flags=
 
 nRF51Dongle.menu.role.all=All
 nRF51Dongle.menu.role.all.build.nimble_flags=
@@ -848,7 +423,7 @@ OSHChip.build.variant_system_lib=
 OSHChip.build.float_flags=
 OSHChip.build.ldscript=nrf51_{build.chip}.ld
 OSHChip.build.lfclk_flags=-DUSE_LFXO
-OSHChip.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+OSHChip.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 OSHChip.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 OSHChip.menu.chip.xxaa.build.chip=xxaa
@@ -856,57 +431,6 @@ OSHChip.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 OSHChip.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 OSHChip.menu.chip.xxac.build.chip=xxac
 OSHChip.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-OSHChip.menu.custom_config.disable=Disabled
-OSHChip.menu.custom_config.enable=Enabled
-OSHChip.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-OSHChip.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-OSHChip.menu.main_stack.768=768
-OSHChip.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-OSHChip.menu.main_stack.896=896
-OSHChip.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-OSHChip.menu.main_stack.1024=1024
-OSHChip.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-OSHChip.menu.main_stack.1152=1152
-OSHChip.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-OSHChip.menu.main_stack.1280=1280
-OSHChip.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-OSHChip.menu.main_stack.1408=1408
-OSHChip.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-OSHChip.menu.main_stack.1536=1536
-OSHChip.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-OSHChip.menu.main_stack.1664=1664
-OSHChip.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-OSHChip.menu.main_stack.1792=1792
-OSHChip.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-OSHChip.menu.main_stack.1920=1920
-OSHChip.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-OSHChip.menu.main_stack.2048=2048
-OSHChip.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-OSHChip.menu.main_stack.custom=Custom (config file)
-OSHChip.menu.main_stack.custom.build.main_stack_flags=
-
-OSHChip.menu.hs_stack.1024=1024
-OSHChip.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-OSHChip.menu.hs_stack.1152=1152
-OSHChip.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-OSHChip.menu.hs_stack.1280=1280
-OSHChip.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-OSHChip.menu.hs_stack.1408=1408
-OSHChip.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-OSHChip.menu.hs_stack.1536=1536
-OSHChip.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-OSHChip.menu.hs_stack.1664=1664
-OSHChip.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-OSHChip.menu.hs_stack.1792=1792
-OSHChip.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-OSHChip.menu.hs_stack.1920=1920
-OSHChip.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-OSHChip.menu.hs_stack.2048=2048
-OSHChip.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-OSHChip.menu.hs_stack.custom=Custom (config file)
-OSHChip.menu.hs_stack.custom.build.hs_stack_flags=
 
 OSHChip.menu.role.all=All
 OSHChip.menu.role.all.build.nimble_flags=
@@ -948,7 +472,7 @@ RedBearLab_nRF51822.build.variant_system_lib=
 RedBearLab_nRF51822.build.float_flags=
 RedBearLab_nRF51822.build.ldscript=nrf51_{build.chip}.ld
 RedBearLab_nRF51822.build.lfclk_flags=-DUSE_LFXO
-RedBearLab_nRF51822.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+RedBearLab_nRF51822.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 RedBearLab_nRF51822.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 RedBearLab_nRF51822.menu.chip.xxaa.build.chip=xxaa
@@ -956,57 +480,6 @@ RedBearLab_nRF51822.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 RedBearLab_nRF51822.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 RedBearLab_nRF51822.menu.chip.xxac.build.chip=xxac
 RedBearLab_nRF51822.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-RedBearLab_nRF51822.menu.custom_config.disable=Disabled
-RedBearLab_nRF51822.menu.custom_config.enable=Enabled
-RedBearLab_nRF51822.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-RedBearLab_nRF51822.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-RedBearLab_nRF51822.menu.main_stack.768=768
-RedBearLab_nRF51822.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-RedBearLab_nRF51822.menu.main_stack.896=896
-RedBearLab_nRF51822.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-RedBearLab_nRF51822.menu.main_stack.1024=1024
-RedBearLab_nRF51822.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-RedBearLab_nRF51822.menu.main_stack.1152=1152
-RedBearLab_nRF51822.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-RedBearLab_nRF51822.menu.main_stack.1280=1280
-RedBearLab_nRF51822.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-RedBearLab_nRF51822.menu.main_stack.1408=1408
-RedBearLab_nRF51822.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-RedBearLab_nRF51822.menu.main_stack.1536=1536
-RedBearLab_nRF51822.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-RedBearLab_nRF51822.menu.main_stack.1664=1664
-RedBearLab_nRF51822.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-RedBearLab_nRF51822.menu.main_stack.1792=1792
-RedBearLab_nRF51822.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-RedBearLab_nRF51822.menu.main_stack.1920=1920
-RedBearLab_nRF51822.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-RedBearLab_nRF51822.menu.main_stack.2048=2048
-RedBearLab_nRF51822.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-RedBearLab_nRF51822.menu.main_stack.custom=Custom (config file)
-RedBearLab_nRF51822.menu.main_stack.custom.build.main_stack_flags=
-
-RedBearLab_nRF51822.menu.hs_stack.1024=1024
-RedBearLab_nRF51822.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-RedBearLab_nRF51822.menu.hs_stack.1152=1152
-RedBearLab_nRF51822.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-RedBearLab_nRF51822.menu.hs_stack.1280=1280
-RedBearLab_nRF51822.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-RedBearLab_nRF51822.menu.hs_stack.1408=1408
-RedBearLab_nRF51822.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-RedBearLab_nRF51822.menu.hs_stack.1536=1536
-RedBearLab_nRF51822.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-RedBearLab_nRF51822.menu.hs_stack.1664=1664
-RedBearLab_nRF51822.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-RedBearLab_nRF51822.menu.hs_stack.1792=1792
-RedBearLab_nRF51822.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-RedBearLab_nRF51822.menu.hs_stack.1920=1920
-RedBearLab_nRF51822.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-RedBearLab_nRF51822.menu.hs_stack.2048=2048
-RedBearLab_nRF51822.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-RedBearLab_nRF51822.menu.hs_stack.custom=Custom (config file)
-RedBearLab_nRF51822.menu.hs_stack.custom.build.hs_stack_flags=
 
 RedBearLab_nRF51822.menu.role.all=All
 RedBearLab_nRF51822.menu.role.all.build.nimble_flags=
@@ -1048,7 +521,7 @@ BLENano.build.variant_system_lib=
 BLENano.build.float_flags=
 BLENano.build.ldscript=nrf51_{build.chip}.ld
 BLENano.build.lfclk_flags=-DUSE_LFXO
-BLENano.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+BLENano.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BLENano.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 BLENano.menu.chip.xxaa.build.chip=xxaa
@@ -1056,57 +529,6 @@ BLENano.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 BLENano.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 BLENano.menu.chip.xxac.build.chip=xxac
 BLENano.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-BLENano.menu.custom_config.disable=Disabled
-BLENano.menu.custom_config.enable=Enabled
-BLENano.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BLENano.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-BLENano.menu.main_stack.768=768
-BLENano.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-BLENano.menu.main_stack.896=896
-BLENano.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-BLENano.menu.main_stack.1024=1024
-BLENano.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-BLENano.menu.main_stack.1152=1152
-BLENano.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-BLENano.menu.main_stack.1280=1280
-BLENano.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-BLENano.menu.main_stack.1408=1408
-BLENano.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-BLENano.menu.main_stack.1536=1536
-BLENano.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BLENano.menu.main_stack.1664=1664
-BLENano.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-BLENano.menu.main_stack.1792=1792
-BLENano.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-BLENano.menu.main_stack.1920=1920
-BLENano.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-BLENano.menu.main_stack.2048=2048
-BLENano.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BLENano.menu.main_stack.custom=Custom (config file)
-BLENano.menu.main_stack.custom.build.main_stack_flags=
-
-BLENano.menu.hs_stack.1024=1024
-BLENano.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-BLENano.menu.hs_stack.1152=1152
-BLENano.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-BLENano.menu.hs_stack.1280=1280
-BLENano.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-BLENano.menu.hs_stack.1408=1408
-BLENano.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-BLENano.menu.hs_stack.1536=1536
-BLENano.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-BLENano.menu.hs_stack.1664=1664
-BLENano.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-BLENano.menu.hs_stack.1792=1792
-BLENano.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-BLENano.menu.hs_stack.1920=1920
-BLENano.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-BLENano.menu.hs_stack.2048=2048
-BLENano.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BLENano.menu.hs_stack.custom=Custom (config file)
-BLENano.menu.hs_stack.custom.build.hs_stack_flags=
 
 BLENano.menu.role.all=All
 BLENano.menu.role.all.build.nimble_flags=
@@ -1148,7 +570,7 @@ TinyBLE.build.variant_system_lib=
 TinyBLE.build.float_flags=
 TinyBLE.build.ldscript=nrf51_{build.chip}.ld
 TinyBLE.build.lfclk_flags=-DUSE_LFXO
-TinyBLE.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+TinyBLE.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 TinyBLE.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 TinyBLE.menu.chip.xxaa.build.chip=xxaa
@@ -1156,57 +578,6 @@ TinyBLE.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 TinyBLE.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 TinyBLE.menu.chip.xxac.build.chip=xxac
 TinyBLE.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-TinyBLE.menu.custom_config.disable=Disabled
-TinyBLE.menu.custom_config.enable=Enabled
-TinyBLE.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-TinyBLE.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-TinyBLE.menu.main_stack.768=768
-TinyBLE.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-TinyBLE.menu.main_stack.896=896
-TinyBLE.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-TinyBLE.menu.main_stack.1024=1024
-TinyBLE.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-TinyBLE.menu.main_stack.1152=1152
-TinyBLE.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-TinyBLE.menu.main_stack.1280=1280
-TinyBLE.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-TinyBLE.menu.main_stack.1408=1408
-TinyBLE.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-TinyBLE.menu.main_stack.1536=1536
-TinyBLE.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-TinyBLE.menu.main_stack.1664=1664
-TinyBLE.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-TinyBLE.menu.main_stack.1792=1792
-TinyBLE.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-TinyBLE.menu.main_stack.1920=1920
-TinyBLE.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-TinyBLE.menu.main_stack.2048=2048
-TinyBLE.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-TinyBLE.menu.main_stack.custom=Custom (config file)
-TinyBLE.menu.main_stack.custom.build.main_stack_flags=
-
-TinyBLE.menu.hs_stack.1024=1024
-TinyBLE.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-TinyBLE.menu.hs_stack.1152=1152
-TinyBLE.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-TinyBLE.menu.hs_stack.1280=1280
-TinyBLE.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-TinyBLE.menu.hs_stack.1408=1408
-TinyBLE.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-TinyBLE.menu.hs_stack.1536=1536
-TinyBLE.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-TinyBLE.menu.hs_stack.1664=1664
-TinyBLE.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-TinyBLE.menu.hs_stack.1792=1792
-TinyBLE.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-TinyBLE.menu.hs_stack.1920=1920
-TinyBLE.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-TinyBLE.menu.hs_stack.2048=2048
-TinyBLE.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-TinyBLE.menu.hs_stack.custom=Custom (config file)
-TinyBLE.menu.hs_stack.custom.build.hs_stack_flags=
 
 TinyBLE.menu.role.all=All
 TinyBLE.menu.role.all.build.nimble_flags=
@@ -1248,7 +619,7 @@ Sinobit.build.variant_system_lib=
 Sinobit.build.float_flags=
 Sinobit.build.ldscript=nrf51_{build.chip}.ld
 Sinobit.build.lfclk_flags=-DUSE_LFXO
-Sinobit.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Sinobit.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Sinobit.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Sinobit.menu.chip.xxaa.build.chip=xxaa
@@ -1256,57 +627,6 @@ Sinobit.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
 Sinobit.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
 Sinobit.menu.chip.xxac.build.chip=xxac
 Sinobit.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-Sinobit.menu.custom_config.disable=Disabled
-Sinobit.menu.custom_config.enable=Enabled
-Sinobit.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-Sinobit.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-Sinobit.menu.main_stack.768=768
-Sinobit.menu.main_stack.768.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=768
-Sinobit.menu.main_stack.896=896
-Sinobit.menu.main_stack.896.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=896
-Sinobit.menu.main_stack.1024=1024
-Sinobit.menu.main_stack.1024.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1024
-Sinobit.menu.main_stack.1152=1152
-Sinobit.menu.main_stack.1152.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1152
-Sinobit.menu.main_stack.1280=1280
-Sinobit.menu.main_stack.1280.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1280
-Sinobit.menu.main_stack.1408=1408
-Sinobit.menu.main_stack.1408.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1408
-Sinobit.menu.main_stack.1536=1536
-Sinobit.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-Sinobit.menu.main_stack.1664=1664
-Sinobit.menu.main_stack.1664.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1664
-Sinobit.menu.main_stack.1792=1792
-Sinobit.menu.main_stack.1792.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1792
-Sinobit.menu.main_stack.1920=1920
-Sinobit.menu.main_stack.1920.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1920
-Sinobit.menu.main_stack.2048=2048
-Sinobit.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-Sinobit.menu.main_stack.custom=Custom (config file)
-Sinobit.menu.main_stack.custom.build.main_stack_flags=
-
-Sinobit.menu.hs_stack.1024=1024
-Sinobit.menu.hs_stack.1024.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1024
-Sinobit.menu.hs_stack.1152=1152
-Sinobit.menu.hs_stack.1152.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1152
-Sinobit.menu.hs_stack.1280=1280
-Sinobit.menu.hs_stack.1280.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1280
-Sinobit.menu.hs_stack.1408=1408
-Sinobit.menu.hs_stack.1408.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1408
-Sinobit.menu.hs_stack.1536=1536
-Sinobit.menu.hs_stack.1536.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1536
-Sinobit.menu.hs_stack.1664=1664
-Sinobit.menu.hs_stack.1664.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1664
-Sinobit.menu.hs_stack.1792=1792
-Sinobit.menu.hs_stack.1792.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1792
-Sinobit.menu.hs_stack.1920=1920
-Sinobit.menu.hs_stack.1920.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=1920
-Sinobit.menu.hs_stack.2048=2048
-Sinobit.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-Sinobit.menu.hs_stack.custom=Custom (config file)
-Sinobit.menu.hs_stack.custom.build.hs_stack_flags=
 
 Sinobit.menu.role.all=All
 Sinobit.menu.role.all.build.nimble_flags=
@@ -1350,7 +670,7 @@ Generic_nRF52832.build.variant=Generic
 Generic_nRF52832.build.variant_system_lib=
 Generic_nRF52832.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52832.build.ldscript=nrf52_xxaa.ld
-Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52832.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52832.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -1358,39 +678,6 @@ Generic_nRF52832.menu.lfclk.lfrc=RC Oscillator
 Generic_nRF52832.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
 Generic_nRF52832.menu.lfclk.lfsynt=Synthesized
 Generic_nRF52832.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
-
-Generic_nRF52832.menu.custom_config.disable=Disabled
-Generic_nRF52832.menu.custom_config.enable=Enabled
-Generic_nRF52832.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-Generic_nRF52832.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-Generic_nRF52832.menu.main_stack.1536=1536
-Generic_nRF52832.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-Generic_nRF52832.menu.main_stack.2048=2048
-Generic_nRF52832.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-Generic_nRF52832.menu.main_stack.2560=2560
-Generic_nRF52832.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-Generic_nRF52832.menu.main_stack.3072=3072
-Generic_nRF52832.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-Generic_nRF52832.menu.main_stack.3584=3584
-Generic_nRF52832.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-Generic_nRF52832.menu.main_stack.4096=4096
-Generic_nRF52832.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-Generic_nRF52832.menu.main_stack.custom=Custom (config file)
-Generic_nRF52832.menu.main_stack.custom.build.main_stack_flags=
-
-Generic_nRF52832.menu.hs_stack.2048=2048
-Generic_nRF52832.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-Generic_nRF52832.menu.hs_stack.2560=2560
-Generic_nRF52832.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-Generic_nRF52832.menu.hs_stack.3072=3072
-Generic_nRF52832.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-Generic_nRF52832.menu.hs_stack.3584=3584
-Generic_nRF52832.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-Generic_nRF52832.menu.hs_stack.4096=4096
-Generic_nRF52832.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-Generic_nRF52832.menu.hs_stack.custom=Custom (config file)
-Generic_nRF52832.menu.hs_stack.custom.build.hs_stack_flags=
 
 Generic_nRF52832.menu.role.all=All
 Generic_nRF52832.menu.role.all.build.nimble_flags=
@@ -1440,42 +727,9 @@ nRF52DK.build.variant=nRF52832_DK
 nRF52DK.build.variant_system_lib=
 nRF52DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52DK.build.ldscript=nrf52_xxaa.ld
-nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52DK.build.lfclk_flags=-DUSE_LFXO
-
-nRF52DK.menu.custom_config.disable=Disabled
-nRF52DK.menu.custom_config.enable=Enabled
-nRF52DK.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-nRF52DK.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-nRF52DK.menu.main_stack.1536=1536
-nRF52DK.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-nRF52DK.menu.main_stack.2048=2048
-nRF52DK.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-nRF52DK.menu.main_stack.2560=2560
-nRF52DK.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-nRF52DK.menu.main_stack.3072=3072
-nRF52DK.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-nRF52DK.menu.main_stack.3584=3584
-nRF52DK.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-nRF52DK.menu.main_stack.4096=4096
-nRF52DK.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-nRF52DK.menu.main_stack.custom=Custom (config file)
-nRF52DK.menu.main_stack.custom.build.main_stack_flags=
-
-nRF52DK.menu.hs_stack.2048=2048
-nRF52DK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-nRF52DK.menu.hs_stack.2560=2560
-nRF52DK.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-nRF52DK.menu.hs_stack.3072=3072
-nRF52DK.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-nRF52DK.menu.hs_stack.3584=3584
-nRF52DK.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-nRF52DK.menu.hs_stack.4096=4096
-nRF52DK.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-nRF52DK.menu.hs_stack.custom=Custom (config file)
-nRF52DK.menu.hs_stack.custom.build.hs_stack_flags=
 
 nRF52DK.menu.role.all=All
 nRF52DK.menu.role.all.build.nimble_flags=
@@ -1516,42 +770,9 @@ BT5032A-TB.build.core=nRF5
 BT5032A-TB.build.variant=BT5032A_TB
 BT5032A-TB.build.variant_system_lib=
 BT5032A-TB.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-BT5032A-TB.build.ldscript=nrf52_xxaa.ld
+BT5032A-TB.build.ldscript=nrf52832_xxaa.ld
 BT5032A-TB.build.lfclk_flags=-DUSE_LFXO
-BT5032A-TB.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-BT5032A-TB.menu.custom_config.disable=Disabled
-BT5032A-TB.menu.custom_config.enable=Enabled
-BT5032A-TB.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BT5032A-TB.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-BT5032A-TB.menu.main_stack.1536=1536
-BT5032A-TB.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BT5032A-TB.menu.main_stack.2048=2048
-BT5032A-TB.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BT5032A-TB.menu.main_stack.2560=2560
-BT5032A-TB.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-BT5032A-TB.menu.main_stack.3072=3072
-BT5032A-TB.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-BT5032A-TB.menu.main_stack.3584=3584
-BT5032A-TB.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-BT5032A-TB.menu.main_stack.4096=4096
-BT5032A-TB.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-BT5032A-TB.menu.main_stack.custom=Custom (config file)
-BT5032A-TB.menu.main_stack.custom.build.main_stack_flags=
-
-BT5032A-TB.menu.hs_stack.2048=2048
-BT5032A-TB.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BT5032A-TB.menu.hs_stack.2560=2560
-BT5032A-TB.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-BT5032A-TB.menu.hs_stack.3072=3072
-BT5032A-TB.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-BT5032A-TB.menu.hs_stack.3584=3584
-BT5032A-TB.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-BT5032A-TB.menu.hs_stack.4096=4096
-BT5032A-TB.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-BT5032A-TB.menu.hs_stack.custom=Custom (config file)
-BT5032A-TB.menu.hs_stack.custom.build.hs_stack_flags=
+BT5032A-TB.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BT5032A-TB.menu.role.all=All
 BT5032A-TB.menu.role.all.build.nimble_flags=
@@ -1594,40 +815,7 @@ bluey.build.variant_system_lib=
 bluey.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 bluey.build.ldscript=nrf52_xxaa.ld
 bluey.build.lfclk_flags=-DUSE_LFXO
-bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-bluey.menu.custom_config.disable=Disabled
-bluey.menu.custom_config.enable=Enabled
-bluey.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-bluey.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-bluey.menu.main_stack.1536=1536
-bluey.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-bluey.menu.main_stack.2048=2048
-bluey.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-bluey.menu.main_stack.2560=2560
-bluey.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-bluey.menu.main_stack.3072=3072
-bluey.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-bluey.menu.main_stack.3584=3584
-bluey.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-bluey.menu.main_stack.4096=4096
-bluey.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-bluey.menu.main_stack.custom=Custom (config file)
-bluey.menu.main_stack.custom.build.main_stack_flags=
-
-bluey.menu.hs_stack.2048=2048
-bluey.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-bluey.menu.hs_stack.2560=2560
-bluey.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-bluey.menu.hs_stack.3072=3072
-bluey.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-bluey.menu.hs_stack.3584=3584
-bluey.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-bluey.menu.hs_stack.4096=4096
-bluey.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-bluey.menu.hs_stack.custom=Custom (config file)
-bluey.menu.hs_stack.custom.build.hs_stack_flags=
+bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 bluey.menu.role.all=All
 bluey.menu.role.all.build.nimble_flags=
@@ -1670,40 +858,7 @@ hackaBLE.build.variant_system_lib=
 hackaBLE.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 hackaBLE.build.ldscript=nrf52_xxaa.ld
 hackaBLE.build.lfclk_flags=-DUSE_LFXO
-hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-hackaBLE.menu.custom_config.disable=Disabled
-hackaBLE.menu.custom_config.enable=Enabled
-hackaBLE.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-hackaBLE.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-hackaBLE.menu.main_stack.1536=1536
-hackaBLE.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-hackaBLE.menu.main_stack.2048=2048
-hackaBLE.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-hackaBLE.menu.main_stack.2560=2560
-hackaBLE.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-hackaBLE.menu.main_stack.3072=3072
-hackaBLE.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-hackaBLE.menu.main_stack.3584=3584
-hackaBLE.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-hackaBLE.menu.main_stack.4096=4096
-hackaBLE.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-hackaBLE.menu.main_stack.custom=Custom (config file)
-hackaBLE.menu.main_stack.custom.build.main_stack_flags=
-
-hackaBLE.menu.hs_stack.2048=2048
-hackaBLE.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-hackaBLE.menu.hs_stack.2560=2560
-hackaBLE.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-hackaBLE.menu.hs_stack.3072=3072
-hackaBLE.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-hackaBLE.menu.hs_stack.3584=3584
-hackaBLE.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-hackaBLE.menu.hs_stack.4096=4096
-hackaBLE.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-hackaBLE.menu.hs_stack.custom=Custom (config file)
-hackaBLE.menu.hs_stack.custom.build.hs_stack_flags=
+hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 hackaBLE.menu.role.all=All
 hackaBLE.menu.role.all.build.nimble_flags=
@@ -1746,40 +901,7 @@ hackaBLE_v2.build.variant_system_lib=
 hackaBLE_v2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 hackaBLE_v2.build.ldscript=nrf52_xxaa.ld
 hackaBLE_v2.build.lfclk_flags=-DUSE_LFXO
-hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-hackaBLE_v2.menu.custom_config.disable=Disabled
-hackaBLE_v2.menu.custom_config.enable=Enabled
-hackaBLE_v2.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-hackaBLE_v2.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-hackaBLE_v2.menu.main_stack.1536=1536
-hackaBLE_v2.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-hackaBLE_v2.menu.main_stack.2048=2048
-hackaBLE_v2.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-hackaBLE_v2.menu.main_stack.2560=2560
-hackaBLE_v2.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-hackaBLE_v2.menu.main_stack.3072=3072
-hackaBLE_v2.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-hackaBLE_v2.menu.main_stack.3584=3584
-hackaBLE_v2.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-hackaBLE_v2.menu.main_stack.4096=4096
-hackaBLE_v2.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-hackaBLE_v2.menu.main_stack.custom=Custom (config file)
-hackaBLE_v2.menu.main_stack.custom.build.main_stack_flags=
-
-hackaBLE_v2.menu.hs_stack.2048=2048
-hackaBLE_v2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-hackaBLE_v2.menu.hs_stack.2560=2560
-hackaBLE_v2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-hackaBLE_v2.menu.hs_stack.3072=3072
-hackaBLE_v2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-hackaBLE_v2.menu.hs_stack.3584=3584
-hackaBLE_v2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-hackaBLE_v2.menu.hs_stack.4096=4096
-hackaBLE_v2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-hackaBLE_v2.menu.hs_stack.custom=Custom (config file)
-hackaBLE_v2.menu.hs_stack.custom.build.hs_stack_flags=
+hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 hackaBLE_v2.menu.role.all=All
 hackaBLE_v2.menu.role.all.build.nimble_flags=
@@ -1822,40 +944,7 @@ Blend2.build.variant_system_lib=
 Blend2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Blend2.build.ldscript=nrf52_xxaa.ld
 Blend2.build.lfclk_flags=-DUSE_LFXO
-Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-Blend2.menu.custom_config.disable=Disabled
-Blend2.menu.custom_config.enable=Enabled
-Blend2.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-Blend2.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-Blend2.menu.main_stack.1536=1536
-Blend2.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-Blend2.menu.main_stack.2048=2048
-Blend2.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-Blend2.menu.main_stack.2560=2560
-Blend2.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-Blend2.menu.main_stack.3072=3072
-Blend2.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-Blend2.menu.main_stack.3584=3584
-Blend2.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-Blend2.menu.main_stack.4096=4096
-Blend2.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-Blend2.menu.main_stack.custom=Custom (config file)
-Blend2.menu.main_stack.custom.build.main_stack_flags=
-
-Blend2.menu.hs_stack.2048=2048
-Blend2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-Blend2.menu.hs_stack.2560=2560
-Blend2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-Blend2.menu.hs_stack.3072=3072
-Blend2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-Blend2.menu.hs_stack.3584=3584
-Blend2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-Blend2.menu.hs_stack.4096=4096
-Blend2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-Blend2.menu.hs_stack.custom=Custom (config file)
-Blend2.menu.hs_stack.custom.build.hs_stack_flags=
+Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Blend2.menu.role.all=All
 Blend2.menu.role.all.build.nimble_flags=
@@ -1898,40 +987,7 @@ BLENano2.build.variant_system_lib=
 BLENano2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BLENano2.build.ldscript=nrf52_xxaa.ld
 BLENano2.build.lfclk_flags=-DUSE_LFXO
-BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-BLENano2.menu.custom_config.disable=Disabled
-BLENano2.menu.custom_config.enable=Enabled
-BLENano2.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BLENano2.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-BLENano2.menu.main_stack.1536=1536
-BLENano2.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BLENano2.menu.main_stack.2048=2048
-BLENano2.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BLENano2.menu.main_stack.2560=2560
-BLENano2.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-BLENano2.menu.main_stack.3072=3072
-BLENano2.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-BLENano2.menu.main_stack.3584=3584
-BLENano2.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-BLENano2.menu.main_stack.4096=4096
-BLENano2.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-BLENano2.menu.main_stack.custom=Custom (config file)
-BLENano2.menu.main_stack.custom.build.main_stack_flags=
-
-BLENano2.menu.hs_stack.2048=2048
-BLENano2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BLENano2.menu.hs_stack.2560=2560
-BLENano2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-BLENano2.menu.hs_stack.3072=3072
-BLENano2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-BLENano2.menu.hs_stack.3584=3584
-BLENano2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-BLENano2.menu.hs_stack.4096=4096
-BLENano2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-BLENano2.menu.hs_stack.custom=Custom (config file)
-BLENano2.menu.hs_stack.custom.build.hs_stack_flags=
+BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BLENano2.menu.role.all=All
 BLENano2.menu.role.all.build.nimble_flags=
@@ -1977,40 +1033,7 @@ nRF52840_DK.build.variant_system_lib=
 nRF52840_DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52840_DK.build.ldscript=nRF52840_DK.ld
 nRF52840_DK.build.lfclk_flags=-DUSE_LFXO
-nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-nRF52840_DK.menu.custom_config.disable=Disabled
-nRF52840_DK.menu.custom_config.enable=Enabled
-nRF52840_DK.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-nRF52840_DK.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-nRF52840_DK.menu.main_stack.1536=1536
-nRF52840_DK.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-nRF52840_DK.menu.main_stack.2048=2048
-nRF52840_DK.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-nRF52840_DK.menu.main_stack.2560=2560
-nRF52840_DK.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-nRF52840_DK.menu.main_stack.3072=3072
-nRF52840_DK.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-nRF52840_DK.menu.main_stack.3584=3584
-nRF52840_DK.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-nRF52840_DK.menu.main_stack.4096=4096
-nRF52840_DK.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-nRF52840_DK.menu.main_stack.custom=Custom (config file)
-nRF52840_DK.menu.main_stack.custom.build.main_stack_flags=
-
-nRF52840_DK.menu.hs_stack.2048=2048
-nRF52840_DK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-nRF52840_DK.menu.hs_stack.2560=2560
-nRF52840_DK.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-nRF52840_DK.menu.hs_stack.3072=3072
-nRF52840_DK.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-nRF52840_DK.menu.hs_stack.3584=3584
-nRF52840_DK.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-nRF52840_DK.menu.hs_stack.4096=4096
-nRF52840_DK.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-nRF52840_DK.menu.hs_stack.custom=Custom (config file)
-nRF52840_DK.menu.hs_stack.custom.build.hs_stack_flags=
+nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52840_DK.menu.role.all=All
 nRF52840_DK.menu.role.all.build.nimble_flags=
@@ -2055,40 +1078,8 @@ nRF52840_dongle.build.ldscript=nrf52840_dongle.ld
 nRF52840_dongle.build.vid=0x1915
 nRF52840_dongle.build.pid=0x521B
 nRF52840_dongle.build.lfclk_flags=-DUSE_LFXO
-nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-nRF52840_dongle.build.dfu_pattern={nrf52.dfu_pattern}
-nRF52840_dongle.menu.custom_config.disable=Disabled
-nRF52840_dongle.menu.custom_config.enable=Enabled
-nRF52840_dongle.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-nRF52840_dongle.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-nRF52840_dongle.menu.main_stack.1536=1536
-nRF52840_dongle.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-nRF52840_dongle.menu.main_stack.2048=2048
-nRF52840_dongle.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-nRF52840_dongle.menu.main_stack.2560=2560
-nRF52840_dongle.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-nRF52840_dongle.menu.main_stack.3072=3072
-nRF52840_dongle.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-nRF52840_dongle.menu.main_stack.3584=3584
-nRF52840_dongle.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-nRF52840_dongle.menu.main_stack.4096=4096
-nRF52840_dongle.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-nRF52840_dongle.menu.main_stack.custom=Custom (config file)
-nRF52840_dongle.menu.main_stack.custom.build.main_stack_flags=
-
-nRF52840_dongle.menu.hs_stack.2048=2048
-nRF52840_dongle.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-nRF52840_dongle.menu.hs_stack.2560=2560
-nRF52840_dongle.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-nRF52840_dongle.menu.hs_stack.3072=3072
-nRF52840_dongle.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-nRF52840_dongle.menu.hs_stack.3584=3584
-nRF52840_dongle.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-nRF52840_dongle.menu.hs_stack.4096=4096
-nRF52840_dongle.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-nRF52840_dongle.menu.hs_stack.custom=Custom (config file)
-nRF52840_dongle.menu.hs_stack.custom.build.hs_stack_flags=
+nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF52840_dongle.build.dfu_pattern={nrfutil.dfu_pattern}
 
 nRF52840_dongle.menu.role.all=All
 nRF52840_dongle.menu.role.all.build.nimble_flags=
@@ -2132,41 +1123,8 @@ BT5040.build.ldscript=nrf52840_dongle.ld
 BT5040.build.vid=0x1915
 BT5040.build.pid=0x521B
 BT5040.build.lfclk_flags=-DUSE_LFXO
-BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-BT5040.build.dfu_pattern={nrf52.dfu_pattern}
-
-BT5040.menu.custom_config.disable=Disabled
-BT5040.menu.custom_config.enable=Enabled
-BT5040.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BT5040.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-BT5040.menu.main_stack.1536=1536
-BT5040.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BT5040.menu.main_stack.2048=2048
-BT5040.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BT5040.menu.main_stack.2560=2560
-BT5040.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-BT5040.menu.main_stack.3072=3072
-BT5040.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-BT5040.menu.main_stack.3584=3584
-BT5040.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-BT5040.menu.main_stack.4096=4096
-BT5040.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-BT5040.menu.main_stack.custom=Custom (config file)
-BT5040.menu.main_stack.custom.build.main_stack_flags=
-
-BT5040.menu.hs_stack.2048=2048
-BT5040.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BT5040.menu.hs_stack.2560=2560
-BT5040.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-BT5040.menu.hs_stack.3072=3072
-BT5040.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-BT5040.menu.hs_stack.3584=3584
-BT5040.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-BT5040.menu.hs_stack.4096=4096
-BT5040.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-BT5040.menu.hs_stack.custom=Custom (config file)
-BT5040.menu.hs_stack.custom.build.hs_stack_flags=
+BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BT5040.build.dfu_pattern={nrfutil.dfu_pattern}
 
 BT5040.menu.role.all=All
 BT5040.menu.role.all.build.nimble_flags=
@@ -2211,7 +1169,7 @@ Generic_nRF52833.build.variant=Generic
 Generic_nRF52833.build.variant_system_lib=
 Generic_nRF52833.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52833.build.ldscript=nrf52833_xxaa.ld
-Generic_nRF52833.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+Generic_nRF52833.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52833.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52833.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -2219,39 +1177,6 @@ Generic_nRF52833.menu.lfclk.lfrc=RC Oscillator
 Generic_nRF52833.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
 Generic_nRF52833.menu.lfclk.lfsynt=Synthesized
 Generic_nRF52833.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
-
-Generic_nRF52833.menu.custom_config.disable=Disabled
-Generic_nRF52833.menu.custom_config.enable=Enabled
-Generic_nRF52833.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-Generic_nRF52833.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-Generic_nRF52833.menu.main_stack.1536=1536
-Generic_nRF52833.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-Generic_nRF52833.menu.main_stack.2048=2048
-Generic_nRF52833.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-Generic_nRF52833.menu.main_stack.2560=2560
-Generic_nRF52833.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-Generic_nRF52833.menu.main_stack.3072=3072
-Generic_nRF52833.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-Generic_nRF52833.menu.main_stack.3584=3584
-Generic_nRF52833.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-Generic_nRF52833.menu.main_stack.4096=4096
-Generic_nRF52833.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-Generic_nRF52833.menu.main_stack.custom=Custom (config file)
-Generic_nRF52833.menu.main_stack.custom.build.main_stack_flags=
-
-Generic_nRF52833.menu.hs_stack.2048=2048
-Generic_nRF52833.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-Generic_nRF52833.menu.hs_stack.2560=2560
-Generic_nRF52833.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-Generic_nRF52833.menu.hs_stack.3072=3072
-Generic_nRF52833.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-Generic_nRF52833.menu.hs_stack.3584=3584
-Generic_nRF52833.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-Generic_nRF52833.menu.hs_stack.4096=4096
-Generic_nRF52833.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-Generic_nRF52833.menu.hs_stack.custom=Custom (config file)
-Generic_nRF52833.menu.hs_stack.custom.build.hs_stack_flags=
 
 Generic_nRF52833.menu.role.all=All
 Generic_nRF52833.menu.role.all.build.nimble_flags=
@@ -2292,7 +1217,7 @@ nRF52833DK.build.variant=nRF8233_DK
 nRF52833DK.build.variant_system_lib=
 nRF52833DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52833DK.build.ldscript=nrf52833_xxaa.ld
-nRF52833DK.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
+nRF52833DK.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52833DK.menu.lfclk.lfxo=Crystal Oscillator
 nRF52833DK.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -2300,39 +1225,6 @@ nRF52833DK.menu.lfclk.lfrc=RC Oscillator
 nRF52833DK.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
 nRF52833DK.menu.lfclk.lfsynt=Synthesized
 nRF52833DK.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
-
-nRF52833DK.menu.custom_config.disable=Disabled
-nRF52833DK.menu.custom_config.enable=Enabled
-nRF52833DK.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-nRF52833DK.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-nRF52833DK.menu.main_stack.1536=1536
-nRF52833DK.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-nRF52833DK.menu.main_stack.2048=2048
-nRF52833DK.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-nRF52833DK.menu.main_stack.2560=2560
-nRF52833DK.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-nRF52833DK.menu.main_stack.3072=3072
-nRF52833DK.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-nRF52833DK.menu.main_stack.3584=3584
-nRF52833DK.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-nRF52833DK.menu.main_stack.4096=4096
-nRF52833DK.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-nRF52833DK.menu.main_stack.custom=Custom (config file)
-nRF52833DK.menu.main_stack.custom.build.main_stack_flags=
-
-nRF52833DK.menu.hs_stack.2048=2048
-nRF52833DK.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-nRF52833DK.menu.hs_stack.2560=2560
-nRF52833DK.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-nRF52833DK.menu.hs_stack.3072=3072
-nRF52833DK.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-nRF52833DK.menu.hs_stack.3584=3584
-nRF52833DK.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-nRF52833DK.menu.hs_stack.4096=4096
-nRF52833DK.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-nRF52833DK.menu.hs_stack.custom=Custom (config file)
-nRF52833DK.menu.hs_stack.custom.build.hs_stack_flags=
 
 nRF52833DK.menu.role.all=All
 nRF52833DK.menu.role.all.build.nimble_flags=
@@ -2379,40 +1271,7 @@ BBCmicrobitV2.build.variant_system_lib=
 BBCmicrobitV2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BBCmicrobitV2.build.ldscript=nrf52833_xxaa.ld
 BBCmicrobitV2.build.lfclk_flags=-DUSE_LFSYNT
-BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.main_stack_flags} {build.hs_stack_flags} {build.nimble_flags}
-
-BBCmicrobitV2.menu.custom_config.disable=Disabled
-BBCmicrobitV2.menu.custom_config.enable=Enabled
-BBCmicrobitV2.menu.custom_config.enable.compiler.c.extra_flags=-include "{build.source.path}/custom_config.h"
-BBCmicrobitV2.menu.custom_config.enable.compiler.cpp.extra_flags=-include "{build.source.path}/custom_config.h"
-
-BBCmicrobitV2.menu.main_stack.1536=1536
-BBCmicrobitV2.menu.main_stack.1536.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=1536
-BBCmicrobitV2.menu.main_stack.2048=2048
-BBCmicrobitV2.menu.main_stack.2048.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2048
-BBCmicrobitV2.menu.main_stack.2560=2560
-BBCmicrobitV2.menu.main_stack.2560.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=2560
-BBCmicrobitV2.menu.main_stack.3072=3072
-BBCmicrobitV2.menu.main_stack.3072.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3072
-BBCmicrobitV2.menu.main_stack.3584=3584
-BBCmicrobitV2.menu.main_stack.3584.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=3584
-BBCmicrobitV2.menu.main_stack.4096=4096
-BBCmicrobitV2.menu.main_stack.4096.build.main_stack_flags=-DCONFIG_MAIN_TASK_STACK_SIZE=4096
-BBCmicrobitV2.menu.main_stack.custom=Custom (config file)
-BBCmicrobitV2.menu.main_stack.custom.build.main_stack_flags=
-
-BBCmicrobitV2.menu.hs_stack.2048=2048
-BBCmicrobitV2.menu.hs_stack.2048.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2048
-BBCmicrobitV2.menu.hs_stack.2560=2560
-BBCmicrobitV2.menu.hs_stack.2560.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=2560
-BBCmicrobitV2.menu.hs_stack.3072=3072
-BBCmicrobitV2.menu.hs_stack.3072.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3072
-BBCmicrobitV2.menu.hs_stack.3584=3584
-BBCmicrobitV2.menu.hs_stack.3584.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=3584
-BBCmicrobitV2.menu.hs_stack.4096=4096
-BBCmicrobitV2.menu.hs_stack.4096.build.hs_stack_flags=-DCONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE=4096
-BBCmicrobitV2.menu.hs_stack.custom=Custom (config file)
-BBCmicrobitV2.menu.hs_stack.custom.build.hs_stack_flags=
+BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BBCmicrobitV2.menu.role.all=All
 BBCmicrobitV2.menu.role.all.build.nimble_flags=

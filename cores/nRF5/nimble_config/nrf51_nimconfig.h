@@ -5,12 +5,6 @@
 #error NRF51 not defined
 #else
 
-#if defined __has_include
-#  if __has_include ("custom_config.h")
-#    include "custom_config.h"
-#  endif
-#endif
-
 #ifndef DEVICE_RAM_SIZE
 #error undefined ram size
 #endif
@@ -75,13 +69,8 @@
 #define CONFIG_BT_NIMBLE_ROLE_BROADCASTER
 #endif
 
-#if defined(CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE)
-#  if CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE > 2048
-#    undef CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE
-#    define CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE 2048
-#  endif
-#else
-#  define CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE 1600
+#ifndef CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE
+#define CONFIG_BT_NIMBLE_HOST_TASK_STACK_SIZE 1280
 #endif
 
 #ifndef CONFIG_NIMBLE_STACK_USE_MEM_POOLS

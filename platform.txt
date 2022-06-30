@@ -68,18 +68,29 @@ compiler.ar.extra_flags=
 compiler.elf2bin.extra_flags=
 compiler.elf2hex.extra_flags=
 
+# Custom build options
+build.opt.name=build_opt.h
+build.opt.path={build.path}/{build.opt.name}
+
+# Check if custom build options exist in the sketch folder
+recipe.hooks.prebuild.1.pattern=bash -c "[ ! -f "{build.source.path}"/build_opt.h ] || cp -f "{build.source.path}"/build_opt.h "{build.path}"/build_opt.h"
+recipe.hooks.prebuild.2.pattern=bash -c "[ -f "{build.path}"/build_opt.h ] || touch "{build.path}"/build_opt.h"
+
+recipe.hooks.prebuild.1.pattern.windows=cmd /c if exist "{build.source.path}\build_opt.h" COPY /y "{build.source.path}\build_opt.h" "{build.path}\build_opt.h"
+recipe.hooks.prebuild.2.pattern.windows=cmd /c if not exist "{build.path}\build_opt.h" type nul > "{build.path}\build_opt.h"
+
 
 # Compile patterns
 # ----------------
 
 ## Compile c files
-recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.c.extra_flags} {build.extra_flags} {compiler.nrf.flags} {build.lfclk_flags} {includes} "{source_file}" -o "{object_file}"
+recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.c.extra_flags} {build.extra_flags} {compiler.nrf.flags} {build.lfclk_flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
 
 ## Compile c++ files
-recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.cpp.extra_flags} {build.extra_flags} {compiler.nrf.flags} {build.lfclk_flags} {includes} "{source_file}" -o "{object_file}"
+recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.cpp.extra_flags} {build.extra_flags} {compiler.nrf.flags} {build.lfclk_flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
 
 ## Compile S files
-recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.S.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -D__HEAP_SIZE=0 {compiler.S.extra_flags} {build.extra_flags} {build.lfclk_flags} {includes} "{source_file}" -o "{object_file}"
+recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.S.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.S.extra_flags} {build.extra_flags} {build.lfclk_flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
 
 ## Create archives
 recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{archive_file_path}" "{object_file}"
