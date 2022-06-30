@@ -1078,7 +1078,7 @@ nRF52840_dongle.build.ldscript=nrf52840_dongle.ld
 nRF52840_dongle.build.vid=0x1915
 nRF52840_dongle.build.pid=0x521B
 nRF52840_dongle.build.lfclk_flags=-DUSE_LFXO
-nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 nRF52840_dongle.build.dfu_pattern={nrfutil.dfu_pattern}
 
 nRF52840_dongle.menu.role.all=All
@@ -1123,7 +1123,7 @@ BT5040.build.ldscript=nrf52840_dongle.ld
 BT5040.build.vid=0x1915
 BT5040.build.pid=0x521B
 BT5040.build.lfclk_flags=-DUSE_LFXO
-BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -DUSB_CDC_DEFAULT_SERIAL -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 BT5040.build.dfu_pattern={nrfutil.dfu_pattern}
 
 BT5040.menu.role.all=All

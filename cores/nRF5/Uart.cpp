@@ -41,7 +41,6 @@ Uart::Uart(NRF_UART_Type *_nrfUart, IRQn_Type _IRQn, uint8_t _pinRX, uint8_t _pi
   uc_hwFlow = 1;
 }
 
-#ifdef ARDUINO_GENERIC
 void Uart::setPins(uint8_t _pinRX, uint8_t _pinTX)
 {
   uc_pinRX = g_ADigitalPinMap[_pinRX];
@@ -55,7 +54,6 @@ void Uart::setPins(uint8_t _pinRX, uint8_t _pinTX, uint8_t _pinCTS, uint8_t _pin
   uc_pinCTS = g_ADigitalPinMap[_pinCTS];
   uc_pinRTS = g_ADigitalPinMap[_pinRTS];
 }
-#endif // ARDUINO_GENERIC
 
 void Uart::begin(unsigned long baudrate)
 {
@@ -239,20 +237,22 @@ size_t Uart::write(const uint8_t data)
 #  endif
 #endif
 
-#if defined(NRF52_SERIES)
+#if defined(PIN_SERIAL1_RX) && defined(PIN_SERIAL1_TX)
+#  if defined(PIN_SERIAL1_CTS) && defined(PIN_SERIAL1_RTS)
+      Uart Serial1( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PIN_SERIAL1_CTS, PIN_SERIAL1_RTS );
+#  else
+      Uart Serial1( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL1_RX, PIN_SERIAL1_TX );
+#  endif
+#endif
+
 extern "C"
 {
+#if defined(NRF52_SERIES)
   void UARTE0_UART0_IRQHandler()
+#elif defined(NRF51_SERIES)
+  void UART0_IRQHandler()
+#endif
   {
     SERIAL_PORT_HARDWARE.IrqHandler();
   }
 }
-#elif defined(NRF51_SERIES)
-extern "C"
-{
-  void UART0_IRQHandler()
-  {
-    Serial.IrqHandler();
-  }
-}
-#endif
