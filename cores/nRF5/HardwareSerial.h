@@ -81,4 +81,6 @@ class HardwareSerial : public Stream
 
 extern void serialEventRun(void) __attribute__((weak));
 
+extern void serialEvent() __attribute__((weak));
+extern void serialEvent1() __attribute__((weak));
 #endif

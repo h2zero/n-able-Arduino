@@ -78,21 +78,19 @@ class Uart : public HardwareSerial
 //
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
-#if !defined(USB_CDC_DEFAULT_SERIAL)
-  #define SERIAL_PORT_MONITOR         Serial
-  #define SERIAL_PORT_HARDWARE        Serial
-
-#else
+#if defined(USB_CDC_DEFAULT_SERIAL)
   #define SERIAL_PORT_MONITOR         Serial
   #define SERIAL_PORT_USBVIRTUAL      Serial
 
   #define SERIAL_PORT_HARDWARE        Serial1
   #define SERIAL_PORT_HARDWARE_OPEN   Serial1
-
+#else
+  #define SERIAL_PORT_MONITOR         Serial
+  #define SERIAL_PORT_HARDWARE        Serial
 #endif
 
 extern Uart SERIAL_PORT_HARDWARE;
 
-#if defined(PIN_SERIAL2_RX) && defined(PIN_SERIAL2_TX)
-extern Uart Serial2;
+#if defined(PIN_SERIAL1_RX) && defined(PIN_SERIAL1_TX)
+extern Uart Serial1;
 #endif
