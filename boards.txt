@@ -22,55 +22,946 @@ menu.cppDbgLvl=NimBLE debug log level
 menu.lfclk=Low Frequency Clock
 
 
+# nRF52832 variants
+###################
+
+Generic_nRF52832.name=Generic nRF52832
+
+Generic_nRF52832.upload.tool=openocd
+Generic_nRF52832.upload.target=nrf52
+Generic_nRF52832.upload.maximum_size=524288
+
+Generic_nRF52832.bootloader.tool=openocd
+
+Generic_nRF52832.build.mcu=cortex-m4
+Generic_nRF52832.build.f_cpu=64000000
+Generic_nRF52832.build.board=GENERIC
+Generic_nRF52832.build.core=nRF5
+Generic_nRF52832.build.variant=Generic
+Generic_nRF52832.build.variant_system_lib=
+Generic_nRF52832.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+Generic_nRF52832.build.ldscript=nrf52_xxaa.ld
+Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+Generic_nRF52832.menu.lfclk.lfxo=Crystal Oscillator
+Generic_nRF52832.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+Generic_nRF52832.menu.lfclk.lfrc=RC Oscillator
+Generic_nRF52832.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+Generic_nRF52832.menu.lfclk.lfsynt=Synthesized
+Generic_nRF52832.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+Generic_nRF52832.menu.role.all=All
+Generic_nRF52832.menu.role.all.build.nimble_flags=
+Generic_nRF52832.menu.role.periph=Peripheral
+Generic_nRF52832.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Generic_nRF52832.menu.role.adv=Advertiser
+Generic_nRF52832.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Generic_nRF52832.menu.role.scan=Scanner
+Generic_nRF52832.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Generic_nRF52832.menu.role.central=Client
+Generic_nRF52832.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Generic_nRF52832.menu.cppDbgLvl.none=None
+Generic_nRF52832.menu.cppDbgLvl.none.build.cpp_debug=0
+Generic_nRF52832.menu.cppDbgLvl.error=Error
+Generic_nRF52832.menu.cppDbgLvl.error.build.cpp_debug=1
+Generic_nRF52832.menu.cppDbgLvl.warn=Warn
+Generic_nRF52832.menu.cppDbgLvl.warn.build.cpp_debug=2
+Generic_nRF52832.menu.cppDbgLvl.info=Info
+Generic_nRF52832.menu.cppDbgLvl.info.build.cpp_debug=3
+Generic_nRF52832.menu.cppDbgLvl.debug=Debug
+Generic_nRF52832.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+nRF52DK.name=Nordic nRF52832DK (PCA10040)
+
+nRF52DK.vid.0=0x1366
+nRF52DK.pid.0=0x1015
+
+nRF52DK.upload.tool=openocd
+nRF52DK.upload.protocol=jlink
+nRF52DK.upload.target=nrf52
+nRF52DK.upload.maximum_size=524288
+
+nRF52DK.bootloader.tool=openocd
+
+nRF52DK.build.mcu=cortex-m4
+nRF52DK.build.f_cpu=64000000
+nRF52DK.build.board=NRF52_DK
+nRF52DK.build.core=nRF5
+nRF52DK.build.variant=nRF52832_DK
+nRF52DK.build.variant_system_lib=
+nRF52DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nRF52DK.build.ldscript=nrf52_xxaa.ld
+nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+nRF52DK.menu.role.all=All
+nRF52DK.menu.role.all.build.nimble_flags=
+nRF52DK.menu.role.periph=Peripheral
+nRF52DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nRF52DK.menu.role.adv=Advertiser
+nRF52DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nRF52DK.menu.role.scan=Scanner
+nRF52DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nRF52DK.menu.role.central=Client
+nRF52DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nRF52DK.menu.cppDbgLvl.none=None
+nRF52DK.menu.cppDbgLvl.none.build.cpp_debug=0
+nRF52DK.menu.cppDbgLvl.error=Error
+nRF52DK.menu.cppDbgLvl.error.build.cpp_debug=1
+nRF52DK.menu.cppDbgLvl.warn=Warn
+nRF52DK.menu.cppDbgLvl.warn.build.cpp_debug=2
+nRF52DK.menu.cppDbgLvl.info=Info
+nRF52DK.menu.cppDbgLvl.info.build.cpp_debug=3
+nRF52DK.menu.cppDbgLvl.debug=Debug
+nRF52DK.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+BT5032A-TB.name=Ebyte BT5032A-TB
+
+BT5032A-TB.upload.tool=openocd
+BT5032A-TB.upload.target=nrf52
+BT5032A-TB.upload.maximum_size=524288
+
+BT5032A-TB.bootloader.tool=openocd
+
+BT5032A-TB.build.mcu=cortex-m4
+BT5032A-TB.build.f_cpu=64000000
+BT5032A-TB.build.board=BT5032A_TB
+BT5032A-TB.build.core=nRF5
+BT5032A-TB.build.variant=BT5032A_TB
+BT5032A-TB.build.variant_system_lib=
+BT5032A-TB.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+BT5032A-TB.build.ldscript=nrf52832_xxaa.ld
+BT5032A-TB.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+BT5032A-TB.menu.role.all=All
+BT5032A-TB.menu.role.all.build.nimble_flags=
+BT5032A-TB.menu.role.periph=Peripheral
+BT5032A-TB.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BT5032A-TB.menu.role.adv=Advertiser
+BT5032A-TB.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BT5032A-TB.menu.role.scan=Scanner
+BT5032A-TB.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BT5032A-TB.menu.role.central=Client
+BT5032A-TB.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+BT5032A-TB.menu.cppDbgLvl.none=None
+BT5032A-TB.menu.cppDbgLvl.none.build.cpp_debug=0
+BT5032A-TB.menu.cppDbgLvl.error=Error
+BT5032A-TB.menu.cppDbgLvl.error.build.cpp_debug=1
+BT5032A-TB.menu.cppDbgLvl.warn=Warn
+BT5032A-TB.menu.cppDbgLvl.warn.build.cpp_debug=2
+BT5032A-TB.menu.cppDbgLvl.info=Info
+BT5032A-TB.menu.cppDbgLvl.info.build.cpp_debug=3
+BT5032A-TB.menu.cppDbgLvl.debug=Debug
+BT5032A-TB.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+bluey.name=Electronut labs bluey
+
+bluey.upload.tool=openocd
+bluey.upload.target=nrf52
+bluey.upload.maximum_size=524288
+
+bluey.bootloader.tool=openocd
+
+bluey.build.mcu=cortex-m4
+bluey.build.f_cpu=64000000
+bluey.build.board=ELECTRONUT_BLUEY
+bluey.build.core=nRF5
+bluey.build.variant=bluey
+bluey.build.variant_system_lib=
+bluey.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+bluey.build.ldscript=nrf52_xxaa.ld
+bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+bluey.menu.lfclk.lfxo=Crystal Oscillator
+bluey.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+bluey.menu.lfclk.lfrc=RC Oscillator
+bluey.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+bluey.menu.lfclk.lfsynt=Synthesized
+bluey.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+bluey.menu.role.all=All
+bluey.menu.role.all.build.nimble_flags=
+bluey.menu.role.periph=Peripheral
+bluey.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+bluey.menu.role.adv=Advertiser
+bluey.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+bluey.menu.role.scan=Scanner
+bluey.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+bluey.menu.role.central=Client
+bluey.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+bluey.menu.cppDbgLvl.none=None
+bluey.menu.cppDbgLvl.none.build.cpp_debug=0
+bluey.menu.cppDbgLvl.error=Error
+bluey.menu.cppDbgLvl.error.build.cpp_debug=1
+bluey.menu.cppDbgLvl.warn=Warn
+bluey.menu.cppDbgLvl.warn.build.cpp_debug=2
+bluey.menu.cppDbgLvl.info=Info
+bluey.menu.cppDbgLvl.info.build.cpp_debug=3
+bluey.menu.cppDbgLvl.debug=Debug
+bluey.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+hackaBLE.name=Electronut labs hackaBLE
+
+hackaBLE.upload.tool=openocd
+hackaBLE.upload.target=nrf52
+hackaBLE.upload.maximum_size=524288
+
+hackaBLE.bootloader.tool=openocd
+
+hackaBLE.build.mcu=cortex-m4
+hackaBLE.build.f_cpu=64000000
+hackaBLE.build.board=ELECTRONUT_HACKABLE
+hackaBLE.build.core=nRF5
+hackaBLE.build.variant=hackaBLE
+hackaBLE.build.variant_system_lib=
+hackaBLE.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+hackaBLE.build.ldscript=nrf52_xxaa.ld
+hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+hackaBLE.menu.lfclk.lfxo=Crystal Oscillator
+hackaBLE.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+hackaBLE.menu.lfclk.lfrc=RC Oscillator
+hackaBLE.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+hackaBLE.menu.lfclk.lfsynt=Synthesized
+hackaBLE.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+hackaBLE.menu.role.all=All
+hackaBLE.menu.role.all.build.nimble_flags=
+hackaBLE.menu.role.periph=Peripheral
+hackaBLE.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+hackaBLE.menu.role.adv=Advertiser
+hackaBLE.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+hackaBLE.menu.role.scan=Scanner
+hackaBLE.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+hackaBLE.menu.role.central=Client
+hackaBLE.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+hackaBLE.menu.cppDbgLvl.none=None
+hackaBLE.menu.cppDbgLvl.none.build.cpp_debug=0
+hackaBLE.menu.cppDbgLvl.error=Error
+hackaBLE.menu.cppDbgLvl.error.build.cpp_debug=1
+hackaBLE.menu.cppDbgLvl.warn=Warn
+hackaBLE.menu.cppDbgLvl.warn.build.cpp_debug=2
+hackaBLE.menu.cppDbgLvl.info=Info
+hackaBLE.menu.cppDbgLvl.info.build.cpp_debug=3
+hackaBLE.menu.cppDbgLvl.debug=Debug
+hackaBLE.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+hackaBLE_v2.name=Electronut labs hackaBLE_v2
+
+hackaBLE_v2.upload.tool=openocd
+hackaBLE_v2.upload.target=nrf52
+hackaBLE_v2.upload.maximum_size=524288
+
+hackaBLE_v2.bootloader.tool=openocd
+
+hackaBLE_v2.build.mcu=cortex-m4
+hackaBLE_v2.build.f_cpu=64000000
+hackaBLE_v2.build.board=ELECTRONUT_HACKABLE_V2
+hackaBLE_v2.build.core=nRF5
+hackaBLE_v2.build.variant=hackaBLE_v2
+hackaBLE_v2.build.variant_system_lib=
+hackaBLE_v2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+hackaBLE_v2.build.ldscript=nrf52_xxaa.ld
+hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+hackaBLE_v2.menu.lfclk.lfxo=Crystal Oscillator
+hackaBLE_v2.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+hackaBLE_v2.menu.lfclk.lfrc=RC Oscillator
+hackaBLE_v2.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+hackaBLE_v2.menu.lfclk.lfsynt=Synthesized
+hackaBLE_v2.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+hackaBLE_v2.menu.role.all=All
+hackaBLE_v2.menu.role.all.build.nimble_flags=
+hackaBLE_v2.menu.role.periph=Peripheral
+hackaBLE_v2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+hackaBLE_v2.menu.role.adv=Advertiser
+hackaBLE_v2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+hackaBLE_v2.menu.role.scan=Scanner
+hackaBLE_v2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+hackaBLE_v2.menu.role.central=Client
+hackaBLE_v2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+hackaBLE_v2.menu.cppDbgLvl.none=None
+hackaBLE_v2.menu.cppDbgLvl.none.build.cpp_debug=0
+hackaBLE_v2.menu.cppDbgLvl.error=Error
+hackaBLE_v2.menu.cppDbgLvl.error.build.cpp_debug=1
+hackaBLE_v2.menu.cppDbgLvl.warn=Warn
+hackaBLE_v2.menu.cppDbgLvl.warn.build.cpp_debug=2
+hackaBLE_v2.menu.cppDbgLvl.info=Info
+hackaBLE_v2.menu.cppDbgLvl.info.build.cpp_debug=3
+hackaBLE_v2.menu.cppDbgLvl.debug=Debug
+hackaBLE_v2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+Blend2.name=RedBear BLE Nano 2
+
+Blend2.vid.0=0x0204
+Blend2.pid.0=0x0d28
+
+Blend2.upload.tool=openocd
+Blend2.upload.target=nrf52
+Blend2.upload.maximum_size=524288
+Blend2.upload.protocol=cmsis-dap
+
+Blend2.bootloader.tool=openocd
+
+Blend2.build.mcu=cortex-m4
+Blend2.build.f_cpu=64000000
+Blend2.build.board=RB_BLEND_2
+Blend2.build.core=nRF5
+Blend2.build.variant=RedBear_Blend2
+Blend2.build.variant_system_lib=
+Blend2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+Blend2.build.ldscript=nrf52_xxaa.ld
+Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+Blend2.menu.role.all=All
+Blend2.menu.role.all.build.nimble_flags=
+Blend2.menu.role.periph=Peripheral
+Blend2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Blend2.menu.role.adv=Advertiser
+Blend2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Blend2.menu.role.scan=Scanner
+Blend2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Blend2.menu.role.central=Client
+Blend2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Blend2.menu.cppDbgLvl.none=None
+Blend2.menu.cppDbgLvl.none.build.cpp_debug=0
+Blend2.menu.cppDbgLvl.error=Error
+Blend2.menu.cppDbgLvl.error.build.cpp_debug=1
+Blend2.menu.cppDbgLvl.warn=Warn
+Blend2.menu.cppDbgLvl.warn.build.cpp_debug=2
+Blend2.menu.cppDbgLvl.info=Info
+Blend2.menu.cppDbgLvl.info.build.cpp_debug=3
+Blend2.menu.cppDbgLvl.debug=Debug
+Blend2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+BLENano2.name=RedBear BLE Nano 2
+
+BLENano2.vid.0=0x0204
+BLENano2.pid.0=0x0d28
+
+BLENano2.upload.tool=openocd
+BLENano2.upload.protocol=cmsis-dap
+BLENano2.upload.target=nrf52
+BLENano2.upload.maximum_size=524288
+
+BLENano2.bootloader.tool=openocd
+
+BLENano2.build.mcu=cortex-m4
+BLENano2.build.f_cpu=64000000
+BLENano2.build.board=RB_BLE_NANO_2
+BLENano2.build.core=nRF5
+BLENano2.build.variant=RedBear_BLENano2
+BLENano2.build.variant_system_lib=
+BLENano2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+BLENano2.build.ldscript=nrf52_xxaa.ld
+BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+BLENano2.menu.role.all=All
+BLENano2.menu.role.all.build.nimble_flags=
+BLENano2.menu.role.periph=Peripheral
+BLENano2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BLENano2.menu.role.adv=Advertiser
+BLENano2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BLENano2.menu.role.scan=Scanner
+BLENano2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BLENano2.menu.role.central=Client
+BLENano2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+BLENano2.menu.cppDbgLvl.none=None
+BLENano2.menu.cppDbgLvl.none.build.cpp_debug=0
+BLENano2.menu.cppDbgLvl.error=Error
+BLENano2.menu.cppDbgLvl.error.build.cpp_debug=1
+BLENano2.menu.cppDbgLvl.warn=Warn
+BLENano2.menu.cppDbgLvl.warn.build.cpp_debug=2
+BLENano2.menu.cppDbgLvl.info=Info
+BLENano2.menu.cppDbgLvl.info.build.cpp_debug=3
+BLENano2.menu.cppDbgLvl.debug=Debug
+BLENano2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+# nRF52840 variants
+###################
+
+Generic_nRF52840.name=Generic nRF52840
+
+Generic_nRF52840.upload.tool=openocd
+Generic_nRF52840.upload.target=nrf52
+Generic_nRF52840.upload.maximum_size=1048576
+
+Generic_nRF52840.bootloader.tool=openocd
+
+Generic_nRF52840.build.mcu=cortex-m4
+Generic_nRF52840.build.f_cpu=64000000
+Generic_nRF52840.build.board=GENERIC
+Generic_nRF52840.build.core=nRF5
+Generic_nRF52840.build.variant=Generic
+Generic_nRF52840.build.variant_system_lib=
+Generic_nRF52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+Generic_nRF52840.build.ldscript=nrf52840_xxaa.ld
+Generic_nRF52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+Generic_nRF52840.menu.lfclk.lfxo=Crystal Oscillator
+Generic_nRF52840.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+Generic_nRF52840.menu.lfclk.lfrc=RC Oscillator
+Generic_nRF52840.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+Generic_nRF52840.menu.lfclk.lfsynt=Synthesized
+Generic_nRF52840.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+Generic_nRF52840.menu.role.all=All
+Generic_nRF52840.menu.role.all.build.nimble_flags=
+Generic_nRF52840.menu.role.periph=Peripheral
+Generic_nRF52840.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Generic_nRF52840.menu.role.adv=Advertiser
+Generic_nRF52840.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Generic_nRF52840.menu.role.scan=Scanner
+Generic_nRF52840.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Generic_nRF52840.menu.role.central=Client
+Generic_nRF52840.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Generic_nRF52840.menu.cppDbgLvl.none=None
+Generic_nRF52840.menu.cppDbgLvl.none.build.cpp_debug=0
+Generic_nRF52840.menu.cppDbgLvl.error=Error
+Generic_nRF52840.menu.cppDbgLvl.error.build.cpp_debug=1
+Generic_nRF52840.menu.cppDbgLvl.warn=Warn
+Generic_nRF52840.menu.cppDbgLvl.warn.build.cpp_debug=2
+Generic_nRF52840.menu.cppDbgLvl.info=Info
+Generic_nRF52840.menu.cppDbgLvl.info.build.cpp_debug=3
+Generic_nRF52840.menu.cppDbgLvl.debug=Debug
+Generic_nRF52840.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+nRF52840_DK.name=Nordic nRF52840 DK
+nRF52840_DK.vid.0=0x1366
+nRF52840_DK.pid.0=0x1015
+
+nRF52840_DK.upload.tool=openocd
+nRF52840_DK.upload.target=nrf52
+nRF52840_DK.upload.maximum_size=1048576
+nRF52840_DK.upload.protocol=jlink
+
+nRF52840_DK.bootloader.tool=openocd
+
+nRF52840_DK.build.mcu=cortex-m4
+nRF52840_DK.build.f_cpu=64000000
+nRF52840_DK.build.board=NRF52840_DK
+nRF52840_DK.build.core=nRF5
+nRF52840_DK.build.variant=nRF52840_DK
+nRF52840_DK.build.variant_system_lib=
+nRF52840_DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nRF52840_DK.build.ldscript=nrf52840_xxaa.ld
+nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+nRF52840_DK.menu.role.all=All
+nRF52840_DK.menu.role.all.build.nimble_flags=
+nRF52840_DK.menu.role.periph=Peripheral
+nRF52840_DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nRF52840_DK.menu.role.adv=Advertiser
+nRF52840_DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nRF52840_DK.menu.role.scan=Scanner
+nRF52840_DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nRF52840_DK.menu.role.central=Client
+nRF52840_DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nRF52840_DK.menu.cppDbgLvl.none=None
+nRF52840_DK.menu.cppDbgLvl.none.build.cpp_debug=0
+nRF52840_DK.menu.cppDbgLvl.error=Error
+nRF52840_DK.menu.cppDbgLvl.error.build.cpp_debug=1
+nRF52840_DK.menu.cppDbgLvl.warn=Warn
+nRF52840_DK.menu.cppDbgLvl.warn.build.cpp_debug=2
+nRF52840_DK.menu.cppDbgLvl.info=Info
+nRF52840_DK.menu.cppDbgLvl.info.build.cpp_debug=3
+nRF52840_DK.menu.cppDbgLvl.debug=Debug
+nRF52840_DK.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+nRF52840_dongle.name=nRF52840_dongle
+
+nRF52840_dongle.vid.0=0x1915
+nRF52840_dongle.pid.0=0x521B
+nRF52840_dongle.vid.1=0x1915
+nRF52840_dongle.pid.1=0x521F
+
+nRF52840_dongle.upload.tool=nrfutil
+nRF52840_dongle.upload.target=nrf52
+nRF52840_dongle.upload.maximum_size=913408
+
+nRF52840_dongle.bootloader.tool=nrfutil
+
+nRF52840_dongle.build.mcu=cortex-m4
+nRF52840_dongle.build.f_cpu=64000000
+nRF52840_dongle.build.board=NRF52840_DONGLE
+nRF52840_dongle.build.core=nRF5
+nRF52840_dongle.build.variant=nRF52840_Dongle
+nRF52840_dongle.build.variant_system_lib=
+nRF52840_dongle.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nRF52840_dongle.build.ldscript=nrf52840_dongle.ld
+nRF52840_dongle.build.vid=0x1915
+nRF52840_dongle.build.pid=0x521B
+nRF52840_dongle.build.usb_manufacturer="Nordic Semiconductor"
+nRF52840_dongle.build.usb_product="nRF52840 Dongle"
+nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF52840_dongle.build.dfu_pattern={nrfutil.dfu_pattern}
+
+nRF52840_dongle.menu.role.all=All
+nRF52840_dongle.menu.role.all.build.nimble_flags=
+nRF52840_dongle.menu.role.periph=Peripheral
+nRF52840_dongle.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nRF52840_dongle.menu.role.adv=Advertiser
+nRF52840_dongle.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nRF52840_dongle.menu.role.scan=Scanner
+nRF52840_dongle.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nRF52840_dongle.menu.role.central=Client
+nRF52840_dongle.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nRF52840_dongle.menu.cppDbgLvl.none=None
+nRF52840_dongle.menu.cppDbgLvl.none.build.cpp_debug=0
+nRF52840_dongle.menu.cppDbgLvl.error=Error
+nRF52840_dongle.menu.cppDbgLvl.error.build.cpp_debug=1
+nRF52840_dongle.menu.cppDbgLvl.warn=Warn
+nRF52840_dongle.menu.cppDbgLvl.warn.build.cpp_debug=2
+nRF52840_dongle.menu.cppDbgLvl.info=Info
+nRF52840_dongle.menu.cppDbgLvl.info.build.cpp_debug=3
+nRF52840_dongle.menu.cppDbgLvl.debug=Debug
+nRF52840_dongle.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+BT5040.name=E104-BT5040
+
+BT5040.vid.0=0x1915
+BT5040.pid.0=0x521B
+BT5040.vid.1=0x1915
+BT5040.pid.1=0x521F
+
+BT5040.upload.tool=nrfutil
+BT5040.upload.target=nrf52
+BT5040.upload.maximum_size=913408
+
+BT5040.bootloader.tool=nrfutil
+
+BT5040.build.mcu=cortex-m4
+BT5040.build.f_cpu=64000000
+BT5040.build.board=BT5040
+BT5040.build.core=nRF5
+BT5040.build.variant=nRF52840_Dongle
+BT5040.build.variant_system_lib=
+BT5040.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+BT5040.build.ldscript=nrf52840_dongle.ld
+BT5040.build.vid=0x1915
+BT5040.build.pid=0x521B
+BT5040.build.usb_manufacturer="Ebyte"
+BT5040.build.usb_product="E104-BT5040UA"
+BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BT5040.build.dfu_pattern={nrfutil.dfu_pattern}
+
+BT5040.menu.role.all=All
+BT5040.menu.role.all.build.nimble_flags=
+BT5040.menu.role.periph=Peripheral
+BT5040.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BT5040.menu.role.adv=Advertiser
+BT5040.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BT5040.menu.role.scan=Scanner
+BT5040.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BT5040.menu.role.central=Client
+BT5040.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+BT5040.menu.cppDbgLvl.none=None
+BT5040.menu.cppDbgLvl.none.build.cpp_debug=0
+BT5040.menu.cppDbgLvl.error=Error
+BT5040.menu.cppDbgLvl.error.build.cpp_debug=1
+BT5040.menu.cppDbgLvl.warn=Warn
+BT5040.menu.cppDbgLvl.warn.build.cpp_debug=2
+BT5040.menu.cppDbgLvl.info=Info
+BT5040.menu.cppDbgLvl.info.build.cpp_debug=3
+BT5040.menu.cppDbgLvl.debug=Debug
+BT5040.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+# nRF52833 variants
+###################
+
+Generic_nRF52833.name=Generic nRF52833
+
+Generic_nRF52833.upload.tool=openocd
+Generic_nRF52833.upload.target=nrf52
+Generic_nRF52833.upload.maximum_size=524288
+
+Generic_nRF52833.bootloader.tool=openocd
+
+Generic_nRF52833.build.mcu=cortex-m4
+Generic_nRF52833.build.f_cpu=64000000
+Generic_nRF52833.build.board=GENERIC
+Generic_nRF52833.build.core=nRF5
+Generic_nRF52833.build.variant=Generic
+Generic_nRF52833.build.variant_system_lib=
+Generic_nRF52833.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+Generic_nRF52833.build.ldscript=nrf52833_xxaa.ld
+Generic_nRF52833.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+Generic_nRF52833.menu.lfclk.lfxo=Crystal Oscillator
+Generic_nRF52833.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+Generic_nRF52833.menu.lfclk.lfrc=RC Oscillator
+Generic_nRF52833.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+Generic_nRF52833.menu.lfclk.lfsynt=Synthesized
+Generic_nRF52833.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+Generic_nRF52833.menu.role.all=All
+Generic_nRF52833.menu.role.all.build.nimble_flags=
+Generic_nRF52833.menu.role.periph=Peripheral
+Generic_nRF52833.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Generic_nRF52833.menu.role.adv=Advertiser
+Generic_nRF52833.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Generic_nRF52833.menu.role.scan=Scanner
+Generic_nRF52833.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Generic_nRF52833.menu.role.central=Client
+Generic_nRF52833.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Generic_nRF52833.menu.cppDbgLvl.none=None
+Generic_nRF52833.menu.cppDbgLvl.none.build.cpp_debug=0
+Generic_nRF52833.menu.cppDbgLvl.error=Error
+Generic_nRF52833.menu.cppDbgLvl.error.build.cpp_debug=1
+Generic_nRF52833.menu.cppDbgLvl.warn=Warn
+Generic_nRF52833.menu.cppDbgLvl.warn.build.cpp_debug=2
+Generic_nRF52833.menu.cppDbgLvl.info=Info
+Generic_nRF52833.menu.cppDbgLvl.info.build.cpp_debug=3
+Generic_nRF52833.menu.cppDbgLvl.debug=Debug
+Generic_nRF52833.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+nRF52833DK.name=nRF52833 DK (PCA10100)
+nRF52833DK.vid.0=0x1366
+nRF52833DK.pid.0=0x1015
+
+nRF52833DK.upload.tool=openocd
+nRF52833DK.upload.protocol=jlink
+nRF52833DK.upload.target=nrf52
+nRF52833DK.upload.maximum_size=524288
+
+nRF52833DK.bootloader.tool=openocd
+
+nRF52833DK.build.mcu=cortex-m4
+nRF52833DK.build.f_cpu=64000000
+nRF52833DK.build.board=NRF52833_DK
+nRF52833DK.build.core=nRF5
+nRF52833DK.build.variant=nRF52833_DK
+nRF52833DK.build.variant_system_lib=
+nRF52833DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nRF52833DK.build.ldscript=nrf52833_xxaa.ld
+nRF52833DK.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+nRF52833DK.menu.role.all=All
+nRF52833DK.menu.role.all.build.nimble_flags=
+nRF52833DK.menu.role.periph=Peripheral
+nRF52833DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nRF52833DK.menu.role.adv=Advertiser
+nRF52833DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nRF52833DK.menu.role.scan=Scanner
+nRF52833DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nRF52833DK.menu.role.central=Client
+nRF52833DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nRF52833DK.menu.cppDbgLvl.none=None
+nRF52833DK.menu.cppDbgLvl.none.build.cpp_debug=0
+nRF52833DK.menu.cppDbgLvl.error=Error
+nRF52833DK.menu.cppDbgLvl.error.build.cpp_debug=1
+nRF52833DK.menu.cppDbgLvl.warn=Warn
+nRF52833DK.menu.cppDbgLvl.warn.build.cpp_debug=2
+nRF52833DK.menu.cppDbgLvl.info=Info
+nRF52833DK.menu.cppDbgLvl.info.build.cpp_debug=3
+nRF52833DK.menu.cppDbgLvl.debug=Debug
+nRF52833DK.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+BBCmicrobitV2.name=BBC micro:bit V2
+
+BBCmicrobitV2.vid.0=0x0d28
+BBCmicrobitV2.pid.0=0x0204
+
+BBCmicrobitV2.upload.tool=openocd
+BBCmicrobitV2.upload.protocol=cmsis-dap
+BBCmicrobitV2.upload.target=nrf52
+BBCmicrobitV2.upload.maximum_size=524288
+
+BBCmicrobitV2.bootloader.tool=openocd
+
+BBCmicrobitV2.build.mcu=cortex-m4
+BBCmicrobitV2.build.f_cpu=64000000
+BBCmicrobitV2.build.board=BBC_MICROBIT_V2
+BBCmicrobitV2.build.core=nRF5
+BBCmicrobitV2.build.variant=BBCmicrobitV2
+BBCmicrobitV2.build.variant_system_lib=
+BBCmicrobitV2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+BBCmicrobitV2.build.ldscript=nrf52833_xxaa.ld
+BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+BBCmicrobitV2.menu.role.all=All
+BBCmicrobitV2.menu.role.all.build.nimble_flags=
+BBCmicrobitV2.menu.role.periph=Peripheral
+BBCmicrobitV2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BBCmicrobitV2.menu.role.adv=Advertiser
+BBCmicrobitV2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BBCmicrobitV2.menu.role.scan=Scanner
+BBCmicrobitV2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BBCmicrobitV2.menu.role.central=Client
+BBCmicrobitV2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+BBCmicrobitV2.menu.cppDbgLvl.none=None
+BBCmicrobitV2.menu.cppDbgLvl.none.build.cpp_debug=0
+BBCmicrobitV2.menu.cppDbgLvl.error=Error
+BBCmicrobitV2.menu.cppDbgLvl.error.build.cpp_debug=1
+BBCmicrobitV2.menu.cppDbgLvl.warn=Warn
+BBCmicrobitV2.menu.cppDbgLvl.warn.build.cpp_debug=2
+BBCmicrobitV2.menu.cppDbgLvl.info=Info
+BBCmicrobitV2.menu.cppDbgLvl.info.build.cpp_debug=3
+BBCmicrobitV2.menu.cppDbgLvl.debug=Debug
+BBCmicrobitV2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
 # nRF51822 variants
 ###################
-Waveshare_BLE400.name=Waveshare BLE400
 
-Waveshare_BLE400.upload.tool=openocd
-Waveshare_BLE400.upload.target=nrf51
-Waveshare_BLE400.upload.maximum_size=262144
+Generic_nRF51822.name=Generic nRF51822
 
-Waveshare_BLE400.bootloader.tool=openocd
+Generic_nRF51822.upload.tool=openocd
+Generic_nRF51822.upload.target=nrf52
+Generic_nRF51822.upload.maximum_size=262144
 
-Waveshare_BLE400.build.mcu=cortex-m0
-Waveshare_BLE400.build.f_cpu=16000000
-Waveshare_BLE400.build.board=WAVESHARE_BLE400
-Waveshare_BLE400.build.core=nRF5
-Waveshare_BLE400.build.variant=Waveshare_BLE400
-Waveshare_BLE400.build.variant_system_lib=
-Waveshare_BLE400.build.float_flags=
-Waveshare_BLE400.build.ldscript=nrf51_{build.chip}.ld
-Waveshare_BLE400.build.lfclk_flags=-DUSE_LFXO
-Waveshare_BLE400.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF51822.bootloader.tool=openocd
 
-Waveshare_BLE400.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-Waveshare_BLE400.menu.chip.xxaa.build.chip=xxaa
-Waveshare_BLE400.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-Waveshare_BLE400.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-Waveshare_BLE400.menu.chip.xxac.build.chip=xxac
-Waveshare_BLE400.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+Generic_nRF51822.build.mcu=cortex-m0
+Generic_nRF51822.build.f_cpu=16000000
+Generic_nRF51822.build.board=GENERIC
+Generic_nRF51822.build.core=nRF5
+Generic_nRF51822.build.variant=Generic
+Generic_nRF51822.build.variant_system_lib=
+Generic_nRF51822.build.float_flags=
+Generic_nRF51822.build.ldscript=nrf51_{build.chip}.ld
+Generic_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
-Waveshare_BLE400.menu.role.all=All
-Waveshare_BLE400.menu.role.all.build.nimble_flags=
-Waveshare_BLE400.menu.role.periph=Peripheral
-Waveshare_BLE400.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-Waveshare_BLE400.menu.role.adv=Advertiser
-Waveshare_BLE400.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-Waveshare_BLE400.menu.role.scan=Scanner
-Waveshare_BLE400.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-Waveshare_BLE400.menu.role.central=Client
-Waveshare_BLE400.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+Generic_nRF51822.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
+Generic_nRF51822.menu.chip.xxaa.build.chip=xxaa
+Generic_nRF51822.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
+Generic_nRF51822.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
+Generic_nRF51822.menu.chip.xxac.build.chip=xxac
+Generic_nRF51822.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
 
-Waveshare_BLE400.menu.cppDbgLvl.none=None
-Waveshare_BLE400.menu.cppDbgLvl.none.build.cpp_debug=0
-Waveshare_BLE400.menu.cppDbgLvl.error=Error
-Waveshare_BLE400.menu.cppDbgLvl.error.build.cpp_debug=1
-Waveshare_BLE400.menu.cppDbgLvl.warn=Warn
-Waveshare_BLE400.menu.cppDbgLvl.warn.build.cpp_debug=2
-Waveshare_BLE400.menu.cppDbgLvl.info=Info
-Waveshare_BLE400.menu.cppDbgLvl.info.build.cpp_debug=3
-Waveshare_BLE400.menu.cppDbgLvl.debug=Debug
-Waveshare_BLE400.menu.cppDbgLvl.debug.build.cpp_debug=4
+Generic_nRF51822.menu.lfclk.lfxo=Crystal Oscillator
+Generic_nRF51822.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+Generic_nRF51822.menu.lfclk.lfrc=RC Oscillator
+Generic_nRF51822.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+Generic_nRF51822.menu.lfclk.lfsynt=Synthesized
+Generic_nRF51822.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+Generic_nRF51822.menu.role.all=All
+Generic_nRF51822.menu.role.all.build.nimble_flags=
+Generic_nRF51822.menu.role.periph=Peripheral
+Generic_nRF51822.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Generic_nRF51822.menu.role.adv=Advertiser
+Generic_nRF51822.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Generic_nRF51822.menu.role.scan=Scanner
+Generic_nRF51822.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Generic_nRF51822.menu.role.central=Client
+Generic_nRF51822.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Generic_nRF51822.menu.cppDbgLvl.none=None
+Generic_nRF51822.menu.cppDbgLvl.none.build.cpp_debug=0
+Generic_nRF51822.menu.cppDbgLvl.error=Error
+Generic_nRF51822.menu.cppDbgLvl.error.build.cpp_debug=1
+Generic_nRF51822.menu.cppDbgLvl.warn=Warn
+Generic_nRF51822.menu.cppDbgLvl.warn.build.cpp_debug=2
+Generic_nRF51822.menu.cppDbgLvl.info=Info
+Generic_nRF51822.menu.cppDbgLvl.info.build.cpp_debug=3
+Generic_nRF51822.menu.cppDbgLvl.debug=Debug
+Generic_nRF51822.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+nRF51DK.name=Nordic nRF51822DK (PCA10028)
+
+nRF51DK.upload.tool=openocd
+nRF51DK.upload.target=nrf51
+nRF51DK.upload.maximum_size=262144
+nRF51DK.upload.protocol=jlink
+
+nRF51DK.bootloader.tool=openocd
+
+nRF51DK.build.mcu=cortex-m0
+nRF51DK.build.f_cpu=16000000
+nRF51DK.build.board=NRF51_DK
+nRF51DK.build.core=nRF5
+nRF51DK.build.variant=nRF51822_DK
+nRF51DK.build.variant_system_lib=
+nRF51DK.build.float_flags=
+nRF51DK.build.ldscript=nrf51_xxaa.ld
+nRF51DK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+nRF51DK.menu.role.all=All
+nRF51DK.menu.role.all.build.nimble_flags=
+nRF51DK.menu.role.periph=Peripheral
+nRF51DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nRF51DK.menu.role.adv=Advertiser
+nRF51DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nRF51DK.menu.role.scan=Scanner
+nRF51DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nRF51DK.menu.role.central=Client
+nRF51DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nRF51DK.menu.cppDbgLvl.none=None
+nRF51DK.menu.cppDbgLvl.none.build.cpp_debug=0
+nRF51DK.menu.cppDbgLvl.error=Error
+nRF51DK.menu.cppDbgLvl.error.build.cpp_debug=1
+nRF51DK.menu.cppDbgLvl.warn=Warn
+nRF51DK.menu.cppDbgLvl.warn.build.cpp_debug=2
+nRF51DK.menu.cppDbgLvl.info=Info
+nRF51DK.menu.cppDbgLvl.info.build.cpp_debug=3
+nRF51DK.menu.cppDbgLvl.debug=Debug
+nRF51DK.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+BBCmicrobit.name=BBC micro:bit
+BBCmicrobit.vid.0=0x0d28
+BBCmicrobit.pid.0=0x0204
+
+BBCmicrobit.upload.tool=openocd
+BBCmicrobit.upload.protocol=cmsis-dap
+BBCmicrobit.upload.target=nrf51
+BBCmicrobit.upload.maximum_size=262144
+
+BBCmicrobit.bootloader.tool=openocd
+
+BBCmicrobit.build.mcu=cortex-m0
+BBCmicrobit.build.f_cpu=16000000
+BBCmicrobit.build.board=BBC_MICROBIT
+BBCmicrobit.build.core=nRF5
+BBCmicrobit.build.variant=BBCmicrobit
+BBCmicrobit.build.variant_system_lib=
+BBCmicrobit.build.float_flags=
+BBCmicrobit.build.ldscript=nrf51_xxaa.ld
+BBCmicrobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+BBCmicrobit.menu.role.all=All
+BBCmicrobit.menu.role.all.build.nimble_flags=
+BBCmicrobit.menu.role.periph=Peripheral
+BBCmicrobit.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BBCmicrobit.menu.role.adv=Advertiser
+BBCmicrobit.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BBCmicrobit.menu.role.scan=Scanner
+BBCmicrobit.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BBCmicrobit.menu.role.central=Client
+BBCmicrobit.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+BBCmicrobit.menu.cppDbgLvl.none=None
+BBCmicrobit.menu.cppDbgLvl.none.build.cpp_debug=0
+BBCmicrobit.menu.cppDbgLvl.error=Error
+BBCmicrobit.menu.cppDbgLvl.error.build.cpp_debug=1
+BBCmicrobit.menu.cppDbgLvl.warn=Warn
+BBCmicrobit.menu.cppDbgLvl.warn.build.cpp_debug=2
+BBCmicrobit.menu.cppDbgLvl.info=Info
+BBCmicrobit.menu.cppDbgLvl.info.build.cpp_debug=3
+BBCmicrobit.menu.cppDbgLvl.debug=Debug
+BBCmicrobit.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+Beacon_PCA20006.name=Nordic Beacon Kit (PCA20006)
+
+Beacon_PCA20006.upload.tool=openocd
+Beacon_PCA20006.upload.target=nrf51
+Beacon_PCA20006.upload.maximum_size=262144
+
+Beacon_PCA20006.bootloader.tool=openocd
+
+Beacon_PCA20006.build.mcu=cortex-m0
+Beacon_PCA20006.build.f_cpu=16000000
+Beacon_PCA20006.build.board=BEACON_PCA20006
+Beacon_PCA20006.build.core=nRF5
+Beacon_PCA20006.build.variant=PCA20006
+Beacon_PCA20006.build.variant_system_lib=
+Beacon_PCA20006.build.float_flags=
+Beacon_PCA20006.build.ldscript=nrf51_xxaa.ld
+Beacon_PCA20006.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+Beacon_PCA20006.menu.role.all=All
+Beacon_PCA20006.menu.role.all.build.nimble_flags=
+Beacon_PCA20006.menu.role.periph=Peripheral
+Beacon_PCA20006.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Beacon_PCA20006.menu.role.adv=Advertiser
+Beacon_PCA20006.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Beacon_PCA20006.menu.role.scan=Scanner
+Beacon_PCA20006.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Beacon_PCA20006.menu.role.central=Client
+Beacon_PCA20006.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Beacon_PCA20006.menu.cppDbgLvl.none=None
+Beacon_PCA20006.menu.cppDbgLvl.none.build.cpp_debug=0
+Beacon_PCA20006.menu.cppDbgLvl.error=Error
+Beacon_PCA20006.menu.cppDbgLvl.error.build.cpp_debug=1
+Beacon_PCA20006.menu.cppDbgLvl.warn=Warn
+Beacon_PCA20006.menu.cppDbgLvl.warn.build.cpp_debug=2
+Beacon_PCA20006.menu.cppDbgLvl.info=Info
+Beacon_PCA20006.menu.cppDbgLvl.info.build.cpp_debug=3
+Beacon_PCA20006.menu.cppDbgLvl.debug=Debug
+Beacon_PCA20006.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+BLENano.name=RedBearLab BLE Nano
+
+BLENano.upload.tool=openocd
+BLENano.upload.target=nrf51
+BLENano.upload.maximum_size=262144
+BLENano.upload.protocol=cmsis-dap
+
+BLENano.bootloader.tool=openocd
+
+BLENano.build.mcu=cortex-m0
+BLENano.build.f_cpu=16000000
+BLENano.build.board=BLE_NANO
+BLENano.build.core=nRF5
+BLENano.build.variant=BLENano
+BLENano.build.variant_system_lib=
+BLENano.build.float_flags=
+BLENano.build.ldscript=nrf51_{build.chip}.ld
+BLENano.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+BLENano.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
+BLENano.menu.chip.xxaa.build.chip=xxaa
+BLENano.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
+BLENano.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
+BLENano.menu.chip.xxac.build.chip=xxac
+BLENano.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+
+BLENano.menu.role.all=All
+BLENano.menu.role.all.build.nimble_flags=
+BLENano.menu.role.periph=Peripheral
+BLENano.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+BLENano.menu.role.adv=Advertiser
+BLENano.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+BLENano.menu.role.scan=Scanner
+BLENano.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+BLENano.menu.role.central=Client
+BLENano.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+BLENano.menu.cppDbgLvl.none=None
+BLENano.menu.cppDbgLvl.none.build.cpp_debug=0
+BLENano.menu.cppDbgLvl.error=Error
+BLENano.menu.cppDbgLvl.error.build.cpp_debug=1
+BLENano.menu.cppDbgLvl.warn=Warn
+BLENano.menu.cppDbgLvl.warn.build.cpp_debug=2
+BLENano.menu.cppDbgLvl.info=Info
+BLENano.menu.cppDbgLvl.info.build.cpp_debug=3
+BLENano.menu.cppDbgLvl.debug=Debug
+BLENano.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 
 BluzDK.name=BluzDK
@@ -88,16 +979,8 @@ BluzDK.build.core=nRF5
 BluzDK.build.variant=BluzDK
 BluzDK.build.variant_system_lib=
 BluzDK.build.float_flags=
-BluzDK.build.ldscript=nrf51_{build.chip}.ld
-BluzDK.build.lfclk_flags=-DUSE_LFXO
-BluzDK.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-BluzDK.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-BluzDK.menu.chip.xxaa.build.chip=xxaa
-BluzDK.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-BluzDK.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-BluzDK.menu.chip.xxac.build.chip=xxac
-BluzDK.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+BluzDK.build.ldscript=nrf51_xxaa.ld
+BluzDK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BluzDK.menu.role.all=All
 BluzDK.menu.role.all.build.nimble_flags=
@@ -124,6 +1007,9 @@ BluzDK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 CalliopeMini.name=Calliope mini
 
+CalliopeMini.vid.0=0x0d28
+CalliopeMini.pid.0=0x0204
+
 CalliopeMini.upload.tool=openocd
 CalliopeMini.upload.protocol=cmsis-dap
 CalliopeMini.upload.target=nrf51
@@ -138,16 +1024,8 @@ CalliopeMini.build.core=nRF5
 CalliopeMini.build.variant=CalliopeMini
 CalliopeMini.build.variant_system_lib=
 CalliopeMini.build.float_flags=
-CalliopeMini.build.ldscript=nrf51_{build.chip}.ld
-CalliopeMini.build.lfclk_flags=-DUSE_LFXO
-CalliopeMini.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-CalliopeMini.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-CalliopeMini.menu.chip.xxaa.build.chip=xxaa
-CalliopeMini.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-CalliopeMini.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-CalliopeMini.menu.chip.xxac.build.chip=xxac
-CalliopeMini.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+CalliopeMini.build.ldscript=nrf51_xxaa.ld
+CalliopeMini.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 CalliopeMini.menu.role.all=All
 CalliopeMini.menu.role.all.build.nimble_flags=
@@ -184,19 +1062,11 @@ ng_beacon.build.mcu=cortex-m0
 ng_beacon.build.f_cpu=16000000
 ng_beacon.build.board=NG_BEACON
 ng_beacon.build.core=nRF5
-ng_beacon.build.variant=ng_beacon
+ng_beacon.build.variant=ng-beacon
 ng_beacon.build.variant_system_lib=
 ng_beacon.build.float_flags=
-ng_beacon.build.ldscript=nrf51_{build.chip}.ld
-ng_beacon.build.lfclk_flags=-DUSE_LFXO
-ng_beacon.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-ng_beacon.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-ng_beacon.menu.chip.xxaa.build.chip=xxaa
-ng_beacon.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-ng_beacon.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-ng_beacon.menu.chip.xxac.build.chip=xxac
-ng_beacon.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+ng_beacon.build.ldscript=nrf51_xxaa.ld
+ng_beacon.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 ng_beacon.menu.role.all=All
 ng_beacon.menu.role.all.build.nimble_flags=
@@ -221,147 +1091,12 @@ ng_beacon.menu.cppDbgLvl.debug=Debug
 ng_beacon.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 
-Beacon_PCA20006.name=Nordic Beacon Kit (PCA20006)
-
-Beacon_PCA20006.upload.tool=openocd
-Beacon_PCA20006.upload.target=nrf51
-Beacon_PCA20006.upload.maximum_size=262144
-
-Beacon_PCA20006.bootloader.tool=openocd
-
-Beacon_PCA20006.build.mcu=cortex-m0
-Beacon_PCA20006.build.f_cpu=16000000
-Beacon_PCA20006.build.board=BEACON_PCA20006
-Beacon_PCA20006.build.core=nRF5
-Beacon_PCA20006.build.variant=Beacon_PCA20006
-Beacon_PCA20006.build.variant_system_lib=
-Beacon_PCA20006.build.float_flags=
-Beacon_PCA20006.build.ldscript=nrf51_{build.chip}.ld
-Beacon_PCA20006.build.lfclk_flags=-DUSE_LFXO
-Beacon_PCA20006.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-Beacon_PCA20006.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-Beacon_PCA20006.menu.chip.xxaa.build.chip=xxaa
-Beacon_PCA20006.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-Beacon_PCA20006.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-Beacon_PCA20006.menu.chip.xxac.build.chip=xxac
-Beacon_PCA20006.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-Beacon_PCA20006.menu.cppDbgLvl.none=None
-Beacon_PCA20006.menu.cppDbgLvl.none.build.cpp_debug=0
-Beacon_PCA20006.menu.cppDbgLvl.error=Error
-Beacon_PCA20006.menu.cppDbgLvl.error.build.cpp_debug=1
-Beacon_PCA20006.menu.cppDbgLvl.warn=Warn
-Beacon_PCA20006.menu.cppDbgLvl.warn.build.cpp_debug=2
-Beacon_PCA20006.menu.cppDbgLvl.info=Info
-Beacon_PCA20006.menu.cppDbgLvl.info.build.cpp_debug=3
-Beacon_PCA20006.menu.cppDbgLvl.debug=Debug
-Beacon_PCA20006.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-BBCmicrobit.name=BBC micro:bit
-
-BBCmicrobit.upload.tool=openocd
-BBCmicrobit.upload.target=nrf51
-BBCmicrobit.upload.maximum_size=262144
-
-BBCmicrobit.bootloader.tool=openocd
-
-BBCmicrobit.build.mcu=cortex-m0
-BBCmicrobit.build.f_cpu=16000000
-BBCmicrobit.build.board=BBC_MICROBIT
-BBCmicrobit.build.core=nRF5
-BBCmicrobit.build.variant=BBCmicrobit
-BBCmicrobit.build.variant_system_lib=
-BBCmicrobit.build.float_flags=
-BBCmicrobit.build.ldscript=nrf51_{build.chip}.ld
-BBCmicrobit.build.lfclk_flags=-DUSE_LFXO
-BBCmicrobit.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-BBCmicrobit.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-BBCmicrobit.menu.chip.xxaa.build.chip=xxaa
-BBCmicrobit.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-BBCmicrobit.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-BBCmicrobit.menu.chip.xxac.build.chip=xxac
-BBCmicrobit.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-BBCmicrobit.menu.role.all=All
-BBCmicrobit.menu.role.all.build.nimble_flags=
-BBCmicrobit.menu.role.periph=Peripheral
-BBCmicrobit.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-BBCmicrobit.menu.role.adv=Advertiser
-BBCmicrobit.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-BBCmicrobit.menu.role.scan=Scanner
-BBCmicrobit.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-BBCmicrobit.menu.role.central=Client
-BBCmicrobit.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-BBCmicrobit.menu.cppDbgLvl.none=None
-BBCmicrobit.menu.cppDbgLvl.none.build.cpp_debug=0
-BBCmicrobit.menu.cppDbgLvl.error=Error
-BBCmicrobit.menu.cppDbgLvl.error.build.cpp_debug=1
-BBCmicrobit.menu.cppDbgLvl.warn=Warn
-BBCmicrobit.menu.cppDbgLvl.warn.build.cpp_debug=2
-BBCmicrobit.menu.cppDbgLvl.info=Info
-BBCmicrobit.menu.cppDbgLvl.info.build.cpp_debug=3
-BBCmicrobit.menu.cppDbgLvl.debug=Debug
-BBCmicrobit.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-nRF51DK.name=Nordic Semiconductor nRF51 DK
-
-nRF51DK.upload.tool=openocd
-nRF51DK.upload.target=nrf51
-nRF51DK.upload.maximum_size=262144
-
-nRF51DK.bootloader.tool=openocd
-
-nRF51DK.build.mcu=cortex-m0
-nRF51DK.build.f_cpu=16000000
-nRF51DK.build.board=NRF51_DK
-nRF51DK.build.core=nRF5
-nRF51DK.build.variant=nRF51DK
-nRF51DK.build.variant_system_lib=
-nRF51DK.build.float_flags=
-nRF51DK.build.ldscript=nrf51_{build.chip}.ld
-nRF51DK.build.lfclk_flags=-DUSE_LFXO
-nRF51DK.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-nRF51DK.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-nRF51DK.menu.chip.xxaa.build.chip=xxaa
-nRF51DK.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-nRF51DK.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-nRF51DK.menu.chip.xxac.build.chip=xxac
-nRF51DK.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-nRF51DK.menu.role.all=All
-nRF51DK.menu.role.all.build.nimble_flags=
-nRF51DK.menu.role.periph=Peripheral
-nRF51DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-nRF51DK.menu.role.adv=Advertiser
-nRF51DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-nRF51DK.menu.role.scan=Scanner
-nRF51DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-nRF51DK.menu.role.central=Client
-nRF51DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-nRF51DK.menu.cppDbgLvl.none=None
-nRF51DK.menu.cppDbgLvl.none.build.cpp_debug=0
-nRF51DK.menu.cppDbgLvl.error=Error
-nRF51DK.menu.cppDbgLvl.error.build.cpp_debug=1
-nRF51DK.menu.cppDbgLvl.warn=Warn
-nRF51DK.menu.cppDbgLvl.warn.build.cpp_debug=2
-nRF51DK.menu.cppDbgLvl.info=Info
-nRF51DK.menu.cppDbgLvl.info.build.cpp_debug=3
-nRF51DK.menu.cppDbgLvl.debug=Debug
-nRF51DK.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
 nRF51Dongle.name=Nordic nRF51 Dongle
 
 nRF51Dongle.upload.tool=openocd
 nRF51Dongle.upload.target=nrf51
 nRF51Dongle.upload.maximum_size=262144
+nRF51Dongle.upload.protocol=cmsis-dap
 
 nRF51Dongle.bootloader.tool=openocd
 
@@ -372,16 +1107,8 @@ nRF51Dongle.build.core=nRF5
 nRF51Dongle.build.variant=nRF51_Dongle
 nRF51Dongle.build.variant_system_lib=
 nRF51Dongle.build.float_flags=
-nRF51Dongle.build.ldscript=nrf51_{build.chip}.ld
-nRF51Dongle.build.lfclk_flags=-DUSE_LFXO
-nRF51Dongle.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-nRF51Dongle.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-nRF51Dongle.menu.chip.xxaa.build.chip=xxaa
-nRF51Dongle.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-nRF51Dongle.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-nRF51Dongle.menu.chip.xxac.build.chip=xxac
-nRF51Dongle.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+nRF51Dongle.build.ldscript=nrf51_xxac.ld
+nRF51Dongle.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF51Dongle.menu.role.all=All
 nRF51Dongle.menu.role.all.build.nimble_flags=
@@ -421,16 +1148,8 @@ OSHChip.build.core=nRF5
 OSHChip.build.variant=OSHChip
 OSHChip.build.variant_system_lib=
 OSHChip.build.float_flags=
-OSHChip.build.ldscript=nrf51_{build.chip}.ld
-OSHChip.build.lfclk_flags=-DUSE_LFXO
-OSHChip.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-OSHChip.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-OSHChip.menu.chip.xxaa.build.chip=xxaa
-OSHChip.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-OSHChip.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-OSHChip.menu.chip.xxac.build.chip=xxac
-OSHChip.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+OSHChip.build.ldscript=nrf51_xxac.ld
+OSHChip.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 OSHChip.menu.role.all=All
 OSHChip.menu.role.all.build.nimble_flags=
@@ -460,6 +1179,7 @@ RedBearLab_nRF51822.name=RedBearLab nRF51822
 RedBearLab_nRF51822.upload.tool=openocd
 RedBearLab_nRF51822.upload.target=nrf51
 RedBearLab_nRF51822.upload.maximum_size=262144
+RedBearLab_nRF51822.upload.protocol=cmsis-dap
 
 RedBearLab_nRF51822.bootloader.tool=openocd
 
@@ -471,8 +1191,7 @@ RedBearLab_nRF51822.build.variant=RedBearLab_nRF51822
 RedBearLab_nRF51822.build.variant_system_lib=
 RedBearLab_nRF51822.build.float_flags=
 RedBearLab_nRF51822.build.ldscript=nrf51_{build.chip}.ld
-RedBearLab_nRF51822.build.lfclk_flags=-DUSE_LFXO
-RedBearLab_nRF51822.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+RedBearLab_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 RedBearLab_nRF51822.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 RedBearLab_nRF51822.menu.chip.xxaa.build.chip=xxaa
@@ -504,109 +1223,15 @@ RedBearLab_nRF51822.menu.cppDbgLvl.debug=Debug
 RedBearLab_nRF51822.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 
-BLENano.name=RedBearLab BLE Nano
-
-BLENano.upload.tool=openocd
-BLENano.upload.target=nrf51
-BLENano.upload.maximum_size=262144
-
-BLENano.bootloader.tool=openocd
-
-BLENano.build.mcu=cortex-m0
-BLENano.build.f_cpu=16000000
-BLENano.build.board=BLE_NANO
-BLENano.build.core=nRF5
-BLENano.build.variant=BLENano
-BLENano.build.variant_system_lib=
-BLENano.build.float_flags=
-BLENano.build.ldscript=nrf51_{build.chip}.ld
-BLENano.build.lfclk_flags=-DUSE_LFXO
-BLENano.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-BLENano.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-BLENano.menu.chip.xxaa.build.chip=xxaa
-BLENano.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-BLENano.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-BLENano.menu.chip.xxac.build.chip=xxac
-BLENano.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-BLENano.menu.role.all=All
-BLENano.menu.role.all.build.nimble_flags=
-BLENano.menu.role.periph=Peripheral
-BLENano.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-BLENano.menu.role.adv=Advertiser
-BLENano.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-BLENano.menu.role.scan=Scanner
-BLENano.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-BLENano.menu.role.central=Client
-BLENano.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-BLENano.menu.cppDbgLvl.none=None
-BLENano.menu.cppDbgLvl.none.build.cpp_debug=0
-BLENano.menu.cppDbgLvl.error=Error
-BLENano.menu.cppDbgLvl.error.build.cpp_debug=1
-BLENano.menu.cppDbgLvl.warn=Warn
-BLENano.menu.cppDbgLvl.warn.build.cpp_debug=2
-BLENano.menu.cppDbgLvl.info=Info
-BLENano.menu.cppDbgLvl.info.build.cpp_debug=3
-BLENano.menu.cppDbgLvl.debug=Debug
-BLENano.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-TinyBLE.name=TinyBLE
-
-TinyBLE.upload.tool=openocd
-TinyBLE.upload.target=nrf51
-TinyBLE.upload.maximum_size=262144
-
-TinyBLE.bootloader.tool=openocd
-
-TinyBLE.build.mcu=cortex-m0
-TinyBLE.build.f_cpu=16000000
-TinyBLE.build.board=TINYBLE
-TinyBLE.build.core=nRF5
-TinyBLE.build.variant=TinyBLE
-TinyBLE.build.variant_system_lib=
-TinyBLE.build.float_flags=
-TinyBLE.build.ldscript=nrf51_{build.chip}.ld
-TinyBLE.build.lfclk_flags=-DUSE_LFXO
-TinyBLE.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-TinyBLE.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-TinyBLE.menu.chip.xxaa.build.chip=xxaa
-TinyBLE.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-TinyBLE.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-TinyBLE.menu.chip.xxac.build.chip=xxac
-TinyBLE.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
-
-TinyBLE.menu.role.all=All
-TinyBLE.menu.role.all.build.nimble_flags=
-TinyBLE.menu.role.periph=Peripheral
-TinyBLE.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-TinyBLE.menu.role.adv=Advertiser
-TinyBLE.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-TinyBLE.menu.role.scan=Scanner
-TinyBLE.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-TinyBLE.menu.role.central=Client
-TinyBLE.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-TinyBLE.menu.cppDbgLvl.none=None
-TinyBLE.menu.cppDbgLvl.none.build.cpp_debug=0
-TinyBLE.menu.cppDbgLvl.error=Error
-TinyBLE.menu.cppDbgLvl.error.build.cpp_debug=1
-TinyBLE.menu.cppDbgLvl.warn=Warn
-TinyBLE.menu.cppDbgLvl.warn.build.cpp_debug=2
-TinyBLE.menu.cppDbgLvl.info=Info
-TinyBLE.menu.cppDbgLvl.info.build.cpp_debug=3
-TinyBLE.menu.cppDbgLvl.debug=Debug
-TinyBLE.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
 Sinobit.name=Sino:bit
+
+Sinobit.vid.0=0x0d28
+Sinobit.pid.0=0x0204
 
 Sinobit.upload.tool=openocd
 Sinobit.upload.target=nrf51
 Sinobit.upload.maximum_size=262144
+Sinobit.upload.protocol=cmsis-dap
 
 Sinobit.bootloader.tool=openocd
 
@@ -617,16 +1242,8 @@ Sinobit.build.core=nRF5
 Sinobit.build.variant=Sinobit
 Sinobit.build.variant_system_lib=
 Sinobit.build.float_flags=
-Sinobit.build.ldscript=nrf51_{build.chip}.ld
-Sinobit.build.lfclk_flags=-DUSE_LFXO
-Sinobit.build.extra_flags=-DNRF51 -D__STACK_SIZE=400 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-Sinobit.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
-Sinobit.menu.chip.xxaa.build.chip=xxaa
-Sinobit.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
-Sinobit.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-Sinobit.menu.chip.xxac.build.chip=xxac
-Sinobit.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+Sinobit.build.ldscript=nrf51_xxaa.ld
+Sinobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Sinobit.menu.role.all=All
 Sinobit.menu.role.all.build.nimble_flags=
@@ -651,646 +1268,91 @@ Sinobit.menu.cppDbgLvl.debug=Debug
 Sinobit.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 
-# nRF52832 variants
-###################
-
-Generic_nRF52832.name=Generic nRF52
-
-Generic_nRF52832.upload.tool=openocd
-Generic_nRF52832.upload.target=nrf52
-Generic_nRF52832.upload.maximum_size=524288
-
-Generic_nRF52832.bootloader.tool=openocd
-
-Generic_nRF52832.build.mcu=cortex-m4
-Generic_nRF52832.build.f_cpu=64000000
-Generic_nRF52832.build.board=GENERIC
-Generic_nRF52832.build.core=nRF5
-Generic_nRF52832.build.variant=Generic
-Generic_nRF52832.build.variant_system_lib=
-Generic_nRF52832.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-Generic_nRF52832.build.ldscript=nrf52_xxaa.ld
-Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-Generic_nRF52832.menu.lfclk.lfxo=Crystal Oscillator
-Generic_nRF52832.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
-Generic_nRF52832.menu.lfclk.lfrc=RC Oscillator
-Generic_nRF52832.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
-Generic_nRF52832.menu.lfclk.lfsynt=Synthesized
-Generic_nRF52832.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
-
-Generic_nRF52832.menu.role.all=All
-Generic_nRF52832.menu.role.all.build.nimble_flags=
-Generic_nRF52832.menu.role.periph=Peripheral
-Generic_nRF52832.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-Generic_nRF52832.menu.role.adv=Advertiser
-Generic_nRF52832.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-Generic_nRF52832.menu.role.scan=Scanner
-Generic_nRF52832.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-Generic_nRF52832.menu.role.central=Client
-Generic_nRF52832.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-Generic_nRF52832.menu.cppDbgLvl.none=None
-Generic_nRF52832.menu.cppDbgLvl.none.build.cpp_debug=0
-Generic_nRF52832.menu.cppDbgLvl.error=Error
-Generic_nRF52832.menu.cppDbgLvl.error.build.cpp_debug=1
-Generic_nRF52832.menu.cppDbgLvl.warn=Warn
-Generic_nRF52832.menu.cppDbgLvl.warn.build.cpp_debug=2
-Generic_nRF52832.menu.cppDbgLvl.info=Info
-Generic_nRF52832.menu.cppDbgLvl.info.build.cpp_debug=3
-Generic_nRF52832.menu.cppDbgLvl.debug=Debug
-Generic_nRF52832.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-nRF52DK.name=Nordic nRF52832DK (PCA10040)
-
-nRF52DK.vid.0=0x1366
-nRF52DK.pid.0=0x1015
-
-nRF52DK.upload.tool=openocd
-nRF52DK.upload.protocol=jlink
-nRF52DK.upload.target=nrf52
-nRF52DK.upload.maximum_size=524288
-nRF52DK.upload.setup_command=transport select swd;
-nRF52DK.upload.use_1200bps_touch=false
-nRF52DK.upload.wait_for_upload_port=false
-nRF52DK.upload.native_usb=false
-
-nRF52DK.bootloader.tool=openocd
-
-nRF52DK.build.mcu=cortex-m4
-nRF52DK.build.f_cpu=64000000
-nRF52DK.build.board=NRF52_DK
-nRF52DK.build.core=nRF5
-nRF52DK.build.variant=nRF52832_DK
-nRF52DK.build.variant_system_lib=
-nRF52DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-nRF52DK.build.ldscript=nrf52_xxaa.ld
-nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-nRF52DK.build.lfclk_flags=-DUSE_LFXO
-
-nRF52DK.menu.role.all=All
-nRF52DK.menu.role.all.build.nimble_flags=
-nRF52DK.menu.role.periph=Peripheral
-nRF52DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-nRF52DK.menu.role.adv=Advertiser
-nRF52DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-nRF52DK.menu.role.scan=Scanner
-nRF52DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-nRF52DK.menu.role.central=Client
-nRF52DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-nRF52DK.menu.cppDbgLvl.none=None
-nRF52DK.menu.cppDbgLvl.none.build.cpp_debug=0
-nRF52DK.menu.cppDbgLvl.error=Error
-nRF52DK.menu.cppDbgLvl.error.build.cpp_debug=1
-nRF52DK.menu.cppDbgLvl.warn=Warn
-nRF52DK.menu.cppDbgLvl.warn.build.cpp_debug=2
-nRF52DK.menu.cppDbgLvl.info=Info
-nRF52DK.menu.cppDbgLvl.info.build.cpp_debug=3
-nRF52DK.menu.cppDbgLvl.debug=Debug
-nRF52DK.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-BT5032A-TB.name=Ebyte BT5032A-TB
-
-BT5032A-TB.upload.tool=openocd
-BT5032A-TB.upload.target=nrf52
-BT5032A-TB.upload.maximum_size=524288
-
-BT5032A-TB.bootloader.tool=openocd
-
-BT5032A-TB.build.mcu=cortex-m4
-BT5032A-TB.build.f_cpu=64000000
-BT5032A-TB.build.board=BT5032A_TB
-BT5032A-TB.build.core=nRF5
-BT5032A-TB.build.variant=BT5032A_TB
-BT5032A-TB.build.variant_system_lib=
-BT5032A-TB.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-BT5032A-TB.build.ldscript=nrf52832_xxaa.ld
-BT5032A-TB.build.lfclk_flags=-DUSE_LFXO
-BT5032A-TB.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-BT5032A-TB.menu.role.all=All
-BT5032A-TB.menu.role.all.build.nimble_flags=
-BT5032A-TB.menu.role.periph=Peripheral
-BT5032A-TB.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-BT5032A-TB.menu.role.adv=Advertiser
-BT5032A-TB.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-BT5032A-TB.menu.role.scan=Scanner
-BT5032A-TB.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-BT5032A-TB.menu.role.central=Client
-BT5032A-TB.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-BT5032A-TB.menu.cppDbgLvl.none=None
-BT5032A-TB.menu.cppDbgLvl.none.build.cpp_debug=0
-BT5032A-TB.menu.cppDbgLvl.error=Error
-BT5032A-TB.menu.cppDbgLvl.error.build.cpp_debug=1
-BT5032A-TB.menu.cppDbgLvl.warn=Warn
-BT5032A-TB.menu.cppDbgLvl.warn.build.cpp_debug=2
-BT5032A-TB.menu.cppDbgLvl.info=Info
-BT5032A-TB.menu.cppDbgLvl.info.build.cpp_debug=3
-BT5032A-TB.menu.cppDbgLvl.debug=Debug
-BT5032A-TB.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-bluey.name=Electronut labs bluey
-
-bluey.upload.tool=openocd
-bluey.upload.target=nrf52
-bluey.upload.maximum_size=524288
-
-bluey.bootloader.tool=openocd
-
-bluey.build.mcu=cortex-m4
-bluey.build.f_cpu=64000000
-bluey.build.board=ELECTRONUT_BLUEY
-bluey.build.core=nRF5
-bluey.build.variant=bluey
-bluey.build.variant_system_lib=
-bluey.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-bluey.build.ldscript=nrf52_xxaa.ld
-bluey.build.lfclk_flags=-DUSE_LFXO
-bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-bluey.menu.role.all=All
-bluey.menu.role.all.build.nimble_flags=
-bluey.menu.role.periph=Peripheral
-bluey.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-bluey.menu.role.adv=Advertiser
-bluey.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-bluey.menu.role.scan=Scanner
-bluey.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-bluey.menu.role.central=Client
-bluey.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-bluey.menu.cppDbgLvl.none=None
-bluey.menu.cppDbgLvl.none.build.cpp_debug=0
-bluey.menu.cppDbgLvl.error=Error
-bluey.menu.cppDbgLvl.error.build.cpp_debug=1
-bluey.menu.cppDbgLvl.warn=Warn
-bluey.menu.cppDbgLvl.warn.build.cpp_debug=2
-bluey.menu.cppDbgLvl.info=Info
-bluey.menu.cppDbgLvl.info.build.cpp_debug=3
-bluey.menu.cppDbgLvl.debug=Debug
-bluey.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-hackaBLE.name=Electronut labs hackaBLE
-
-hackaBLE.upload.tool=openocd
-hackaBLE.upload.target=nrf52
-hackaBLE.upload.maximum_size=524288
-
-hackaBLE.bootloader.tool=openocd
-
-hackaBLE.build.mcu=cortex-m4
-hackaBLE.build.f_cpu=64000000
-hackaBLE.build.board=ELECTRONUT_HACKABLE
-hackaBLE.build.core=nRF5
-hackaBLE.build.variant=hackaBLE
-hackaBLE.build.variant_system_lib=
-hackaBLE.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-hackaBLE.build.ldscript=nrf52_xxaa.ld
-hackaBLE.build.lfclk_flags=-DUSE_LFXO
-hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-hackaBLE.menu.role.all=All
-hackaBLE.menu.role.all.build.nimble_flags=
-hackaBLE.menu.role.periph=Peripheral
-hackaBLE.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-hackaBLE.menu.role.adv=Advertiser
-hackaBLE.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-hackaBLE.menu.role.scan=Scanner
-hackaBLE.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-hackaBLE.menu.role.central=Client
-hackaBLE.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-hackaBLE.menu.cppDbgLvl.none=None
-hackaBLE.menu.cppDbgLvl.none.build.cpp_debug=0
-hackaBLE.menu.cppDbgLvl.error=Error
-hackaBLE.menu.cppDbgLvl.error.build.cpp_debug=1
-hackaBLE.menu.cppDbgLvl.warn=Warn
-hackaBLE.menu.cppDbgLvl.warn.build.cpp_debug=2
-hackaBLE.menu.cppDbgLvl.info=Info
-hackaBLE.menu.cppDbgLvl.info.build.cpp_debug=3
-hackaBLE.menu.cppDbgLvl.debug=Debug
-hackaBLE.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-hackaBLE_v2.name=Electronut labs hackaBLE_v2
-
-hackaBLE_v2.upload.tool=openocd
-hackaBLE_v2.upload.target=nrf52
-hackaBLE_v2.upload.maximum_size=524288
-
-hackaBLE_v2.bootloader.tool=openocd
-
-hackaBLE_v2.build.mcu=cortex-m4
-hackaBLE_v2.build.f_cpu=64000000
-hackaBLE_v2.build.board=ELECTRONUT_HACKABLE_V2
-hackaBLE_v2.build.core=nRF5
-hackaBLE_v2.build.variant=hackaBLE_v2
-hackaBLE_v2.build.variant_system_lib=
-hackaBLE_v2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-hackaBLE_v2.build.ldscript=nrf52_xxaa.ld
-hackaBLE_v2.build.lfclk_flags=-DUSE_LFXO
-hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-hackaBLE_v2.menu.role.all=All
-hackaBLE_v2.menu.role.all.build.nimble_flags=
-hackaBLE_v2.menu.role.periph=Peripheral
-hackaBLE_v2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-hackaBLE_v2.menu.role.adv=Advertiser
-hackaBLE_v2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-hackaBLE_v2.menu.role.scan=Scanner
-hackaBLE_v2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-hackaBLE_v2.menu.role.central=Client
-hackaBLE_v2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-hackaBLE_v2.menu.cppDbgLvl.none=None
-hackaBLE_v2.menu.cppDbgLvl.none.build.cpp_debug=0
-hackaBLE_v2.menu.cppDbgLvl.error=Error
-hackaBLE_v2.menu.cppDbgLvl.error.build.cpp_debug=1
-hackaBLE_v2.menu.cppDbgLvl.warn=Warn
-hackaBLE_v2.menu.cppDbgLvl.warn.build.cpp_debug=2
-hackaBLE_v2.menu.cppDbgLvl.info=Info
-hackaBLE_v2.menu.cppDbgLvl.info.build.cpp_debug=3
-hackaBLE_v2.menu.cppDbgLvl.debug=Debug
-hackaBLE_v2.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-Blend2.name=RedBear BLE Nano 2
-
-Blend2.upload.tool=openocd
-Blend2.upload.target=nrf52
-Blend2.upload.maximum_size=913408
-
-Blend2.bootloader.tool=openocd
-
-Blend2.build.mcu=cortex-m4
-Blend2.build.f_cpu=64000000
-Blend2.build.board=RB_BLEND_2
-Blend2.build.core=nRF5
-Blend2.build.variant=RedBear_Blend2
-Blend2.build.variant_system_lib=
-Blend2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-Blend2.build.ldscript=nrf52_xxaa.ld
-Blend2.build.lfclk_flags=-DUSE_LFXO
-Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-Blend2.menu.role.all=All
-Blend2.menu.role.all.build.nimble_flags=
-Blend2.menu.role.periph=Peripheral
-Blend2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-Blend2.menu.role.adv=Advertiser
-Blend2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-Blend2.menu.role.scan=Scanner
-Blend2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-Blend2.menu.role.central=Client
-Blend2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-Blend2.menu.cppDbgLvl.none=None
-Blend2.menu.cppDbgLvl.none.build.cpp_debug=0
-Blend2.menu.cppDbgLvl.error=Error
-Blend2.menu.cppDbgLvl.error.build.cpp_debug=1
-Blend2.menu.cppDbgLvl.warn=Warn
-Blend2.menu.cppDbgLvl.warn.build.cpp_debug=2
-Blend2.menu.cppDbgLvl.info=Info
-Blend2.menu.cppDbgLvl.info.build.cpp_debug=3
-Blend2.menu.cppDbgLvl.debug=Debug
-Blend2.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-BLENano2.name=RedBear BLE Nano 2
-
-BLENano2.upload.tool=openocd
-BLENano2.upload.target=nrf52
-BLENano2.upload.maximum_size=913408
-
-BLENano2.bootloader.tool=openocd
-
-BLENano2.build.mcu=cortex-m4
-BLENano2.build.f_cpu=64000000
-BLENano2.build.board=RB_BLE_NANO_2
-BLENano2.build.core=nRF5
-BLENano2.build.variant=RedBear_BLENano2
-BLENano2.build.variant_system_lib=
-BLENano2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-BLENano2.build.ldscript=nrf52_xxaa.ld
-BLENano2.build.lfclk_flags=-DUSE_LFXO
-BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-BLENano2.menu.role.all=All
-BLENano2.menu.role.all.build.nimble_flags=
-BLENano2.menu.role.periph=Peripheral
-BLENano2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-BLENano2.menu.role.adv=Advertiser
-BLENano2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-BLENano2.menu.role.scan=Scanner
-BLENano2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-BLENano2.menu.role.central=Client
-BLENano2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-BLENano2.menu.cppDbgLvl.none=None
-BLENano2.menu.cppDbgLvl.none.build.cpp_debug=0
-BLENano2.menu.cppDbgLvl.error=Error
-BLENano2.menu.cppDbgLvl.error.build.cpp_debug=1
-BLENano2.menu.cppDbgLvl.warn=Warn
-BLENano2.menu.cppDbgLvl.warn.build.cpp_debug=2
-BLENano2.menu.cppDbgLvl.info=Info
-BLENano2.menu.cppDbgLvl.info.build.cpp_debug=3
-BLENano2.menu.cppDbgLvl.debug=Debug
-BLENano2.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-# nRF52840 variants
-###################
-
-nRF52840_DK.name=Nordic nRF52840 DK
-
-nRF52840_DK.upload.tool=nrfutil
-nRF52840_DK.upload.target=nrf52
-nRF52840_DK.upload.maximum_size=1048576
-
-nRF52840_DK.bootloader.tool=openocd
-
-nRF52840_DK.build.mcu=cortex-m4
-nRF52840_DK.build.f_cpu=64000000
-nRF52840_DK.build.board=NRF52840_DK
-nRF52840_DK.build.core=nRF5
-nRF52840_DK.build.variant=nRF52840_DK
-nRF52840_DK.build.variant_system_lib=
-nRF52840_DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-nRF52840_DK.build.ldscript=nRF52840_DK.ld
-nRF52840_DK.build.lfclk_flags=-DUSE_LFXO
-nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-nRF52840_DK.menu.role.all=All
-nRF52840_DK.menu.role.all.build.nimble_flags=
-nRF52840_DK.menu.role.periph=Peripheral
-nRF52840_DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-nRF52840_DK.menu.role.adv=Advertiser
-nRF52840_DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-nRF52840_DK.menu.role.scan=Scanner
-nRF52840_DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-nRF52840_DK.menu.role.central=Client
-nRF52840_DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-nRF52840_DK.menu.cppDbgLvl.none=None
-nRF52840_DK.menu.cppDbgLvl.none.build.cpp_debug=0
-nRF52840_DK.menu.cppDbgLvl.error=Error
-nRF52840_DK.menu.cppDbgLvl.error.build.cpp_debug=1
-nRF52840_DK.menu.cppDbgLvl.warn=Warn
-nRF52840_DK.menu.cppDbgLvl.warn.build.cpp_debug=2
-nRF52840_DK.menu.cppDbgLvl.info=Info
-nRF52840_DK.menu.cppDbgLvl.info.build.cpp_debug=3
-nRF52840_DK.menu.cppDbgLvl.debug=Debug
-nRF52840_DK.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-nRF52840_dongle.name=nRF52840_dongle
-
-nRF52840_dongle.upload.tool=nrfutil
-nRF52840_dongle.upload.target=nrf52
-nRF52840_dongle.upload.maximum_size=913408
-
-nRF52840_dongle.bootloader.tool=openocd
-
-nRF52840_dongle.build.mcu=cortex-m4
-nRF52840_dongle.build.f_cpu=64000000
-nRF52840_dongle.build.board=NRF52840_DONGLE
-nRF52840_dongle.build.core=nRF5
-nRF52840_dongle.build.variant=nRF52840_Dongle
-nRF52840_dongle.build.variant_system_lib=
-nRF52840_dongle.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-nRF52840_dongle.build.ldscript=nrf52840_dongle.ld
-nRF52840_dongle.build.vid=0x1915
-nRF52840_dongle.build.pid=0x521B
-nRF52840_dongle.build.lfclk_flags=-DUSE_LFXO
-nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-nRF52840_dongle.build.dfu_pattern={nrfutil.dfu_pattern}
-
-nRF52840_dongle.menu.role.all=All
-nRF52840_dongle.menu.role.all.build.nimble_flags=
-nRF52840_dongle.menu.role.periph=Peripheral
-nRF52840_dongle.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-nRF52840_dongle.menu.role.adv=Advertiser
-nRF52840_dongle.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-nRF52840_dongle.menu.role.scan=Scanner
-nRF52840_dongle.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-nRF52840_dongle.menu.role.central=Client
-nRF52840_dongle.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-nRF52840_dongle.menu.cppDbgLvl.none=None
-nRF52840_dongle.menu.cppDbgLvl.none.build.cpp_debug=0
-nRF52840_dongle.menu.cppDbgLvl.error=Error
-nRF52840_dongle.menu.cppDbgLvl.error.build.cpp_debug=1
-nRF52840_dongle.menu.cppDbgLvl.warn=Warn
-nRF52840_dongle.menu.cppDbgLvl.warn.build.cpp_debug=2
-nRF52840_dongle.menu.cppDbgLvl.info=Info
-nRF52840_dongle.menu.cppDbgLvl.info.build.cpp_debug=3
-nRF52840_dongle.menu.cppDbgLvl.debug=Debug
-nRF52840_dongle.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-BT5040.name=E104-BT5040
-
-BT5040.upload.tool=nrfutil
-BT5040.upload.target=nrf52
-BT5040.upload.maximum_size=913408
-
-BT5040.bootloader.tool=openocd
-
-BT5040.build.mcu=cortex-m4
-BT5040.build.f_cpu=64000000
-BT5040.build.board=BT5040
-BT5040.build.core=nRF5
-BT5040.build.variant=nRF52840_Dongle
-BT5040.build.variant_system_lib=
-BT5040.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-BT5040.build.ldscript=nrf52840_dongle.ld
-BT5040.build.vid=0x1915
-BT5040.build.pid=0x521B
-BT5040.build.lfclk_flags=-DUSE_LFXO
-BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-BT5040.build.dfu_pattern={nrfutil.dfu_pattern}
-
-BT5040.menu.role.all=All
-BT5040.menu.role.all.build.nimble_flags=
-BT5040.menu.role.periph=Peripheral
-BT5040.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-BT5040.menu.role.adv=Advertiser
-BT5040.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-BT5040.menu.role.scan=Scanner
-BT5040.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-BT5040.menu.role.central=Client
-BT5040.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-BT5040.menu.cppDbgLvl.none=None
-BT5040.menu.cppDbgLvl.none.build.cpp_debug=0
-BT5040.menu.cppDbgLvl.error=Error
-BT5040.menu.cppDbgLvl.error.build.cpp_debug=1
-BT5040.menu.cppDbgLvl.warn=Warn
-BT5040.menu.cppDbgLvl.warn.build.cpp_debug=2
-BT5040.menu.cppDbgLvl.info=Info
-BT5040.menu.cppDbgLvl.info.build.cpp_debug=3
-BT5040.menu.cppDbgLvl.debug=Debug
-BT5040.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-
-# nRF52833 variants
-###################
-
-Generic_nRF52833.name=Generic nRF52833
-
-Generic_nRF52833.upload.tool=openocd
-Generic_nRF52833.upload.target=nrf52
-Generic_nRF52833.upload.maximum_size=524288
-
-Generic_nRF52833.bootloader.tool=openocd
-
-Generic_nRF52833.build.mcu=cortex-m4
-Generic_nRF52833.build.f_cpu=64000000
-Generic_nRF52833.build.board=GENERIC_NRF52833
-Generic_nRF52833.build.core=nRF5
-Generic_nRF52833.build.variant=Generic
-Generic_nRF52833.build.variant_system_lib=
-Generic_nRF52833.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-Generic_nRF52833.build.ldscript=nrf52833_xxaa.ld
-Generic_nRF52833.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-Generic_nRF52833.menu.lfclk.lfxo=Crystal Oscillator
-Generic_nRF52833.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
-Generic_nRF52833.menu.lfclk.lfrc=RC Oscillator
-Generic_nRF52833.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
-Generic_nRF52833.menu.lfclk.lfsynt=Synthesized
-Generic_nRF52833.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
-
-Generic_nRF52833.menu.role.all=All
-Generic_nRF52833.menu.role.all.build.nimble_flags=
-Generic_nRF52833.menu.role.periph=Peripheral
-Generic_nRF52833.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-Generic_nRF52833.menu.role.adv=Advertiser
-Generic_nRF52833.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-Generic_nRF52833.menu.role.scan=Scanner
-Generic_nRF52833.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-Generic_nRF52833.menu.role.central=Client
-Generic_nRF52833.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-Generic_nRF52833.menu.cppDbgLvl.none=None
-Generic_nRF52833.menu.cppDbgLvl.none.build.cpp_debug=0
-Generic_nRF52833.menu.cppDbgLvl.error=Error
-Generic_nRF52833.menu.cppDbgLvl.error.build.cpp_debug=1
-Generic_nRF52833.menu.cppDbgLvl.warn=Warn
-Generic_nRF52833.menu.cppDbgLvl.warn.build.cpp_debug=2
-Generic_nRF52833.menu.cppDbgLvl.info=Info
-Generic_nRF52833.menu.cppDbgLvl.info.build.cpp_debug=3
-Generic_nRF52833.menu.cppDbgLvl.debug=Debug
-Generic_nRF52833.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-nRF52833DK.name=nRF52833 Dev Kit
-
-nRF52833DK.upload.tool=openocd
-nRF52833DK.upload.target=nrf52
-nRF52833DK.upload.maximum_size=524288
-
-nRF52833DK.bootloader.tool=openocd
-
-nRF52833DK.build.mcu=cortex-m4
-nRF52833DK.build.f_cpu=64000000
-nRF52833DK.build.board=NRF52833_DK
-nRF52833DK.build.core=nRF5
-nRF52833DK.build.variant=nRF8233_DK
-nRF52833DK.build.variant_system_lib=
-nRF52833DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-nRF52833DK.build.ldscript=nrf52833_xxaa.ld
-nRF52833DK.build.extra_flags=-DNRF52_SERIES DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-nRF52833DK.menu.lfclk.lfxo=Crystal Oscillator
-nRF52833DK.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
-nRF52833DK.menu.lfclk.lfrc=RC Oscillator
-nRF52833DK.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
-nRF52833DK.menu.lfclk.lfsynt=Synthesized
-nRF52833DK.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
-
-nRF52833DK.menu.role.all=All
-nRF52833DK.menu.role.all.build.nimble_flags=
-nRF52833DK.menu.role.periph=Peripheral
-nRF52833DK.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-nRF52833DK.menu.role.adv=Advertiser
-nRF52833DK.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-nRF52833DK.menu.role.scan=Scanner
-nRF52833DK.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-nRF52833DK.menu.role.central=Client
-nRF52833DK.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-nRF52833DK.menu.cppDbgLvl.none=None
-nRF52833DK.menu.cppDbgLvl.none.build.cpp_debug=0
-nRF52833DK.menu.cppDbgLvl.error=Error
-nRF52833DK.menu.cppDbgLvl.error.build.cpp_debug=1
-nRF52833DK.menu.cppDbgLvl.warn=Warn
-nRF52833DK.menu.cppDbgLvl.warn.build.cpp_debug=2
-nRF52833DK.menu.cppDbgLvl.info=Info
-nRF52833DK.menu.cppDbgLvl.info.build.cpp_debug=3
-nRF52833DK.menu.cppDbgLvl.debug=Debug
-nRF52833DK.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-
-BBCmicrobitV2.name=BBC micro:bit V2
-
-BBCmicrobitV2.vid.0=0x0d28
-BBCmicrobitV2.pid.0=0x0204
-
-BBCmicrobitV2.upload.tool=openocd
-BBCmicrobitV2.upload.protocol=cmsis-dap
-BBCmicrobitV2.upload.target=nrf52
-BBCmicrobitV2.upload.maximum_size=524288
-BBCmicrobitV2.upload.setup_command=transport select swd;
-
-BBCmicrobitV2.bootloader.tool=openocd
-
-BBCmicrobitV2.build.mcu=cortex-m4
-BBCmicrobitV2.build.f_cpu=64000000
-BBCmicrobitV2.build.board=BBC_MICROBIT_V2
-BBCmicrobitV2.build.core=nRF5
-BBCmicrobitV2.build.variant=BBCmicrobitV2
-BBCmicrobitV2.build.variant_system_lib=
-BBCmicrobitV2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-BBCmicrobitV2.build.ldscript=nrf52833_xxaa.ld
-BBCmicrobitV2.build.lfclk_flags=-DUSE_LFSYNT
-BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DUSE_TINYUSB -D__STACK_SIZE=2048 -DUSB_VID={build.vid} -DUSB_PID={build.pid} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-
-BBCmicrobitV2.menu.role.all=All
-BBCmicrobitV2.menu.role.all.build.nimble_flags=
-BBCmicrobitV2.menu.role.periph=Peripheral
-BBCmicrobitV2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-BBCmicrobitV2.menu.role.adv=Advertiser
-BBCmicrobitV2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-BBCmicrobitV2.menu.role.scan=Scanner
-BBCmicrobitV2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-BBCmicrobitV2.menu.role.central=Client
-BBCmicrobitV2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-BBCmicrobitV2.menu.cppDbgLvl.none=None
-BBCmicrobitV2.menu.cppDbgLvl.none.build.cpp_debug=0
-BBCmicrobitV2.menu.cppDbgLvl.error=Error
-BBCmicrobitV2.menu.cppDbgLvl.error.build.cpp_debug=1
-BBCmicrobitV2.menu.cppDbgLvl.warn=Warn
-BBCmicrobitV2.menu.cppDbgLvl.warn.build.cpp_debug=2
-BBCmicrobitV2.menu.cppDbgLvl.info=Info
-BBCmicrobitV2.menu.cppDbgLvl.info.build.cpp_debug=3
-BBCmicrobitV2.menu.cppDbgLvl.debug=Debug
-BBCmicrobitV2.menu.cppDbgLvl.debug.build.cpp_debug=4
+TinyBLE.name=TinyBLE
+
+TinyBLE.upload.tool=openocd
+TinyBLE.upload.target=nrf51
+TinyBLE.upload.maximum_size=262144
+TinyBLE.upload.protocol=cmsis-dap
+
+TinyBLE.bootloader.tool=openocd
+
+TinyBLE.build.mcu=cortex-m0
+TinyBLE.build.f_cpu=16000000
+TinyBLE.build.board=TINYBLE
+TinyBLE.build.core=nRF5
+TinyBLE.build.variant=TinyBLE
+TinyBLE.build.variant_system_lib=
+TinyBLE.build.float_flags=
+TinyBLE.build.ldscript=nrf51_xxaa.ld
+TinyBLE.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+TinyBLE.menu.role.all=All
+TinyBLE.menu.role.all.build.nimble_flags=
+TinyBLE.menu.role.periph=Peripheral
+TinyBLE.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+TinyBLE.menu.role.adv=Advertiser
+TinyBLE.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+TinyBLE.menu.role.scan=Scanner
+TinyBLE.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+TinyBLE.menu.role.central=Client
+TinyBLE.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+TinyBLE.menu.cppDbgLvl.none=None
+TinyBLE.menu.cppDbgLvl.none.build.cpp_debug=0
+TinyBLE.menu.cppDbgLvl.error=Error
+TinyBLE.menu.cppDbgLvl.error.build.cpp_debug=1
+TinyBLE.menu.cppDbgLvl.warn=Warn
+TinyBLE.menu.cppDbgLvl.warn.build.cpp_debug=2
+TinyBLE.menu.cppDbgLvl.info=Info
+TinyBLE.menu.cppDbgLvl.info.build.cpp_debug=3
+TinyBLE.menu.cppDbgLvl.debug=Debug
+TinyBLE.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+
+Waveshare_BLE400.name=Waveshare BLE400
+
+Waveshare_BLE400.upload.tool=openocd
+Waveshare_BLE400.upload.target=nrf51
+Waveshare_BLE400.upload.maximum_size=262144
+
+Waveshare_BLE400.bootloader.tool=openocd
+
+Waveshare_BLE400.build.mcu=cortex-m0
+Waveshare_BLE400.build.f_cpu=16000000
+Waveshare_BLE400.build.board=WAVESHARE_BLE400
+Waveshare_BLE400.build.core=nRF5
+Waveshare_BLE400.build.variant=Waveshare_BLE400
+Waveshare_BLE400.build.variant_system_lib=
+Waveshare_BLE400.build.float_flags=
+Waveshare_BLE400.build.ldscript=nrf51_{build.chip}.ld
+Waveshare_BLE400.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+Waveshare_BLE400.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
+Waveshare_BLE400.menu.chip.xxaa.build.chip=xxaa
+Waveshare_BLE400.menu.chip.xxaa.build.ram_size=-DDEVICE_RAM_SIZE=16
+Waveshare_BLE400.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
+Waveshare_BLE400.menu.chip.xxac.build.chip=xxac
+Waveshare_BLE400.menu.chip.xxac.build.ram_size=-DDEVICE_RAM_SIZE=32
+
+Waveshare_BLE400.menu.role.all=All
+Waveshare_BLE400.menu.role.all.build.nimble_flags=
+Waveshare_BLE400.menu.role.periph=Peripheral
+Waveshare_BLE400.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Waveshare_BLE400.menu.role.adv=Advertiser
+Waveshare_BLE400.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Waveshare_BLE400.menu.role.scan=Scanner
+Waveshare_BLE400.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Waveshare_BLE400.menu.role.central=Client
+Waveshare_BLE400.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Waveshare_BLE400.menu.cppDbgLvl.none=None
+Waveshare_BLE400.menu.cppDbgLvl.none.build.cpp_debug=0
+Waveshare_BLE400.menu.cppDbgLvl.error=Error
+Waveshare_BLE400.menu.cppDbgLvl.error.build.cpp_debug=1
+Waveshare_BLE400.menu.cppDbgLvl.warn=Warn
+Waveshare_BLE400.menu.cppDbgLvl.warn.build.cpp_debug=2
+Waveshare_BLE400.menu.cppDbgLvl.info=Info
+Waveshare_BLE400.menu.cppDbgLvl.info.build.cpp_debug=3
+Waveshare_BLE400.menu.cppDbgLvl.debug=Debug
+Waveshare_BLE400.menu.cppDbgLvl.debug.build.cpp_debug=4

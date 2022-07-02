@@ -27,6 +27,10 @@
 #define VARIANT_MCK       (16000000ul)
 #endif
 
+#if !defined(USE_LFXO) && !defined(USE_LFRC) && !defined(USE_LFSYNT)
+#define USE_LFRC
+#endif
+
 /*----------------------------------------------------------------------------
  *        Headers
  *----------------------------------------------------------------------------*/

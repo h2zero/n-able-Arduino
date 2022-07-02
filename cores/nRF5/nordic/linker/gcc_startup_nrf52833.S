@@ -1,6 +1,6 @@
 #if defined(ARDUINO) && defined(NRF52833_XXAA)
 /*
- 
+
 Copyright (c) 2009-2020 ARM Limited. All rights reserved.
 
     SPDX-License-Identifier: Apache-2.0
@@ -40,7 +40,7 @@ NOTICE: This file has been modified by Nordic Semiconductor ASA.
     .equ    Stack_Size, __STACK_SIZE
 #else
     .align 3
-    .equ    Stack_Size, 8192
+    .equ    Stack_Size, 2048
 #endif
     .globl __StackTop
     .globl __StackLimit

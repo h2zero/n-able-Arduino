@@ -19,6 +19,9 @@
 
 /** Master clock frequency */
 #define VARIANT_MCK       (64000000ul)
+#if !defined(USE_LFXO) && !defined(USE_LFRC) && !defined(USE_LFSYNT)
+#define USE_LFRC
+#endif
 
 /*----------------------------------------------------------------------------
  *        Headers

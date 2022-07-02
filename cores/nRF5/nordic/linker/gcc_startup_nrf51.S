@@ -1,6 +1,6 @@
 #if defined(ARDUINO) && defined(NRF51)
 /*
- 
+
 Copyright (c) 2009-2020 ARM Limited. All rights reserved.
 
     SPDX-License-Identifier: Apache-2.0
@@ -38,6 +38,14 @@ NOTICE: This file has been modified by Nordic Semiconductor ASA.
 #elif defined(__STACK_SIZE)
     .align 3
     .equ    Stack_Size, __STACK_SIZE
+#elif defined(DEVICE_RAM_SIZE)
+#if DEVICE_RAM_SIZE > 16
+    .align 3
+    .equ    Stack_Size, 1024
+#else
+    .align 3
+    .equ    Stack_Size, 400
+#endif
 #else
     .align 3
     .equ    Stack_Size, 2048
@@ -141,7 +149,7 @@ __isr_vector:
 Reset_Handler:
 
     MOVS    R1, #NRF_POWER_RAMONx_RAMxON_ONMODE_Msk
-    
+
     LDR     R0, =NRF_POWER_RAMON_ADDRESS
     LDR     R2, [R0]
     ORRS    R2, R1

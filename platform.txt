@@ -51,10 +51,10 @@ compiler.define=-DARDUINO=
 
 # this can be overriden in boards.txt
 build.extra_flags=
-build.lfclk_flags=
 build.dfu_pattern=echo
 
-nrf52.dfu_pattern="{tools.nrfutil.cmd}" pkg generate --hw-version 52 --debug-mode --sd-req 0 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
+build.flags.usb= -DUSBCON -DUSE_TINYUSB -DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
+nrfutil.dfu_pattern="{tools.nrfutil.cmd}" pkg generate --hw-version 52 --debug-mode --sd-req 0 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
 nordic.path={build.core.path}/nordic
 
 compiler.nrf.flags=-DNRF5 -DARDUINO_ARCH_NRF5 "-I{build.core.path}/nimble_config" "-I{nordic.path}/nrfx" "-I{nordic.path}/nrfx/hal" "-I{nordic.path}/nrfx/mdk" "-I{nordic.path}/nrfx/soc" "-I{nordic.path}/nrfx/drivers/include" "-I{nordic.path}/nrfx/drivers/src" "-I{build.core.path}/CMSIS/Include" "-I{build.core.path}/FC_Store" "-I{build.core.path}/BLEBond_nvs" "-I{build.core.path}/TinyUSB" "-I{build.core.path}/TinyUSB/Adafruit_TinyUSB_ArduinoCore" "-I{build.core.path}/TinyUSB/Adafruit_TinyUSB_ArduinoCore/tinyusb/src"
@@ -84,13 +84,13 @@ recipe.hooks.prebuild.2.pattern.windows=cmd /c if not exist "{build.path}\build_
 # ----------------
 
 ## Compile c files
-recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.c.extra_flags} {build.extra_flags} {compiler.nrf.flags} {build.lfclk_flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
+recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.c.extra_flags} {build.extra_flags} {compiler.nrf.flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
 
 ## Compile c++ files
-recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.cpp.extra_flags} {build.extra_flags} {compiler.nrf.flags} {build.lfclk_flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
+recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.cpp.extra_flags} {build.extra_flags} {compiler.nrf.flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
 
 ## Compile S files
-recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.S.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.S.extra_flags} {build.extra_flags} {build.lfclk_flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
+recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.S.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} {compiler.S.extra_flags} {build.extra_flags} "@{build.opt.path}" {includes} "{source_file}" -o "{object_file}"
 
 ## Create archives
 recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{archive_file_path}" "{object_file}"
@@ -185,3 +185,7 @@ tools.nrfutil.cmd.macosx={runtime.platform.path}/tools/nrfutil/nrfutil-mac
 tools.nrfutil.upload.params.verbose=
 tools.nrfutil.upload.params.quiet=
 tools.nrfutil.upload.pattern="{cmd}" dfu serial -pkg "{build.path}/{build.project_name}.zip" -p {serial.port} -b 115200
+
+tools.nrfutil.program.params.verbose=
+tools.nrfutil.program.params.quiet=
+tools.nrfutil.program.pattern="{cmd}" dfu serial -pkg "{build.path}/{build.project_name}.zip" -p {serial.port} -b 115200

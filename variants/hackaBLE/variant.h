@@ -19,6 +19,9 @@
 
 /** Master clock frequency */
 #define VARIANT_MCK       (64000000ul)
+#if !defined(USE_LFXO) && !defined(USE_LFRC) && !defined(USE_LFSYNT)
+#define USE_LFRC
+#endif
 
 /*----------------------------------------------------------------------------
  *        Headers
@@ -85,7 +88,7 @@ static const uint8_t AREF = PIN_AREF;
 #define PIN_SPI_MOSI         (5)
 #define PIN_SPI_SCK          (6)
 #define PIN_SPI_SS           (3)
-  
+
 static const uint8_t SS   = PIN_SPI_SS ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t MISO = PIN_SPI_MISO ;

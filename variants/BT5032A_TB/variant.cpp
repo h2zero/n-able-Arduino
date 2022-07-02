@@ -18,41 +18,61 @@
 */
 
 #include "variant.h"
+#include "wiring_constants.h"
+#include "wiring_digital.h"
+#include "nrf.h"
 
 const uint32_t g_ADigitalPinMap[] = {
   // D0 - D7
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
+  0,  // xtal 1
+  1,  // xtal 2
+  2,  // a0
+  3,  // a1
+  4,  // a2
+  5,  // a3
+  6,  // a4
+  7,  // AREF
 
   // D8 - D13
-  19,
-  20,
-  22,
-  23,
-  24,
-  25,
+  8,  // GPIO #8
 
-  // A0 - A7
-  3,
-  4,
-  28,
-  29,
-  30,
-  31,
-  5, // AIN3 (P0.05)
-  2, // AIN0 (P0.02) / AREF
+  9,  // NFC1
+  10, // NFC2
 
-  // SDA, SCL
-  26,
-  27,
+  11, // GPIO #11
 
-  // RX, TX
-  8,
-  6
+  12, // GPIO #12
+  13, // GPIO #13
+  14, // GPIO #14
+
+  15, // GPIO #15
+  16, // GPIO #16
+
+  // function set pins
+  17,
+  18, // TXD SWO
+  19, // GPIO #19
+  20, // GPIO #20
+  21, // Reset
+  (uint32_t)-1, // N/A
+  (uint32_t)-1, // N/A
+  (uint32_t)-1, // N/A
+
+  25, // MISO
+  26, // MOSI
+  27, // SS
+  28, // SCK
+  29, // BUTTON 1 = DISC = DFU
+  30, // LED #2 (blue - also a red)
+  31, // LED #1 (red)
 };
+
+void initVariant()
+{
+  // LED1 & LED2
+  pinMode(PIN_LED1, OUTPUT);
+  ledOff(PIN_LED1);
+
+  pinMode(PIN_LED2, OUTPUT);
+  ledOff(PIN_LED2);
+}
