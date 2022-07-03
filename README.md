@@ -14,7 +14,7 @@ If you are interested in assisting the development of this project please submit
 * Supports `printf` and `Serial.printf`
 * Uses FreeRTOS.
 * Designed to maximize battery life using tickless idle. This allows the MCU to sleep any time `delay` is called.
-* Custom configuration of FreeRTOS and NimBLE compile options supported by providing a `user_config.h` file in your sketch.
+* Custom configuration of FreeRTOS and NimBLE compile options supported by providing a `build_opt.h` file in your sketch.
 
 ## Why do this?
 
@@ -22,7 +22,7 @@ I wanted to have a consistent BLE API on all of the devices I work with. NimBLE 
 
 ## BLE
 
-This Arduino Core does **not** contain any BLE functionality. It has been designed to support using the [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) library for BLE operation.  
+This Arduino Core does **not** contain any BLE functionality. It has been designed to support using the [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) library for BLE operation.
 **Note:** Currently only the master branch of NimBLE-Arduino supports Arm devices and no releases have been made yet with Arm support.
 
 ## Installation
@@ -45,7 +45,7 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
  5. Extract OpenOCD and copy the contents to ```<ARDUINO_FOLDER>/hardware/n-able/arm-ble/tools/openocd```
  6. Extract GCC and copy the contents to ```<ARDUINO_FOLDER>/hardware/n-able/arm-ble/tools/gcc-arm-none-eabi/9_0_2020q2```
  7. Restart the Arduino IDE
- 
+
 ### Driver Setup for Segger J-Link
 
  1. Download [Zadig](http://zadig.akeo.ie)
@@ -64,7 +64,7 @@ __NOTE__: To roll back to the original driver go to: Device Manager -> Right cli
 3. Select a programmer (J-Link, ST-Link V2, CMSIS-DAP, or Black Magic Probe) from the Tools -> "Programmer: " menu
 4. Connect your programmer to the device and click Upload
 
-**Note:** Currently no bootloader is provided or required.  
+**Note:** Currently no bootloader is provided or required.
 Instead you will need to erase any bootloader currently installed on your device. To do this, select your board from the board menu and click "Burn Bootloader", this will completely erase the device flash memory.
 
 ## Credits
