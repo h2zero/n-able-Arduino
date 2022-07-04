@@ -28,11 +28,6 @@
 #define FREERTOS_CONFIG_H
 
 #include <assert.h>
-#if defined __has_include
-#  if __has_include ("custom_config.h")
-#    include "custom_config.h"
-#  endif
-#endif
 
 /*-----------------------------------------------------------
  * Possible configurations for system timer
@@ -55,36 +50,37 @@
 #define CONFIG_RTOS_TICK_RATE_HZ       (1024)
 #endif
 
-#ifndef CONFIG_RTOS_MAX_PRIORITIES
-#  ifdef NRF51
-#    define CONFIG_RTOS_MAX_PRIORITIES (3)
-#  else
-#    define CONFIG_RTOS_MAX_PRIORITIES (5)
+#if defined(DEVICE_RAM_SIZE)
+#  if DEVICE_RAM_SIZE < 32
+#    ifndef CONFIG_RTOS_MAX_PRIORITIES
+#      define CONFIG_RTOS_MAX_PRIORITIES (3)
+#    endif
+#    ifndef CONFIG_RTOS_MIN_TASK_SIZE
+#      define CONFIG_RTOS_MIN_TASK_SIZE (48)
+#    endif
+#    ifndef CONFIG_RTOS_TIMER_QUEUE_LENGTH
+#      define CONFIG_RTOS_TIMER_QUEUE_LENGTH (6)
+#    endif
+#    ifndef CONFIG_RTOS_TIMER_STACK_DEPTH
+#      define CONFIG_RTOS_TIMER_STACK_DEPTH (64)
+#    endif
 #  endif
+#endif
+
+#ifndef CONFIG_RTOS_MAX_PRIORITIES
+#define CONFIG_RTOS_MAX_PRIORITIES (5)
 #endif
 
 #ifndef CONFIG_RTOS_MIN_TASK_SIZE
-#  ifdef NRF51
-#    define CONFIG_RTOS_MIN_TASK_SIZE (48)
-#  else
-#    define CONFIG_RTOS_MIN_TASK_SIZE (80)
-#  endif
+#define CONFIG_RTOS_MIN_TASK_SIZE (80)
 #endif
 
 #ifndef CONFIG_RTOS_TIMER_QUEUE_LENGTH
-#  ifdef NRF51
-#    define CONFIG_RTOS_TIMER_QUEUE_LENGTH (6)
-#  else
-#    define CONFIG_RTOS_TIMER_QUEUE_LENGTH (32)
-#  endif
+#define CONFIG_RTOS_TIMER_QUEUE_LENGTH (32)
 #endif
 
 #ifndef CONFIG_RTOS_TIMER_STACK_DEPTH
-#  ifdef NRF51
-#    define CONFIG_RTOS_TIMER_STACK_DEPTH (64)
-#  else
-#    define CONFIG_RTOS_TIMER_STACK_DEPTH (256)
-#  endif
+#define CONFIG_RTOS_TIMER_STACK_DEPTH (256)
 #endif
 
 

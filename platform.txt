@@ -172,15 +172,14 @@ tools.blackmagicprobe.program.pattern.windows="{path}{cmd}" -quiet -cd "{build.p
 
 tools.blackmagicprobe.bootloader.params.verbose=
 tools.blackmagicprobe.bootloader.params.quiet=-q --batch-silent
-tools.blackmagicprobe.bootloader.pattern="{path}{cmd}" -quiet -cd "{runtime.platform.path}/cores/nRF5/SDK/components/softdevice/{softdevice}/hex/" -ex "target extended-remote {serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex "detach" -ex "quit"
-tools.blackmagicprobe.bootloader.pattern.windows="{path}{cmd}" -quiet -cd "{runtime.platform.path}/cores/nRF5/SDK/components/softdevice/{softdevice}/hex/" -ex "target extended-remote \\.\{serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex "detach" -ex "quit"
+tools.blackmagicprobe.bootloader.pattern="{path}{cmd}" -quiet -ex "target extended-remote {serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex "detach" -ex "quit"
+tools.blackmagicprobe.bootloader.pattern.windows="{path}{cmd}" -quiet -ex "target extended-remote \\.\{serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex "detach" -ex "quit"
 
 #
 # nrfutil upload
 #
-tools.nrfutil.cmd={runtime.platform.path}/tools/nrfutil/nrfutil-linux
-tools.nrfutil.cmd.windows={runtime.platform.path}/tools/nrfutil/nrfutil.exe
-tools.nrfutil.cmd.macosx={runtime.platform.path}/tools/nrfutil/nrfutil-mac
+tools.nrfutil.cmd={runtime.tools.nrfutil-6.1.4.path}/nrfutil
+tools.nrfutil.cmd.windows={runtime.tools.nrfutil-6.1.4.path}/nrfutil.exe
 
 tools.nrfutil.upload.params.verbose=
 tools.nrfutil.upload.params.quiet=
