@@ -51,41 +51,37 @@
 extern "C" {
 #endif
 
-static const char * _resetReason;
+static uint32_t _resetReason;
 
 void init( void )
 {
-  #if defined(USE_LFXO)
+
+    _resetReason = NRF_POWER->RESETREAS;
+    NRF_POWER->RESETREAS |= NRF_POWER->RESETREAS;
+
+#if defined(USE_LFXO)
     NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
-  #elif defined(USE_LFSYNT)
+#elif defined(USE_LFSYNT)
     NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_Synth << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
-  #else //USE_LFRC
+#else //USE_LFRC
     NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_RC << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
-  #endif
-  NRF_CLOCK->TASKS_LFCLKSTART = 1UL;
+#endif
+    NRF_CLOCK->TASKS_LFCLKSTART = 1UL;
 
-  #if defined(RESET_PIN)
-  if (((NRF_UICR->PSELRESET[0] & UICR_PSELRESET_CONNECT_Msk) != (UICR_PSELRESET_CONNECT_Connected << UICR_PSELRESET_CONNECT_Pos)) ||
-      ((NRF_UICR->PSELRESET[1] & UICR_PSELRESET_CONNECT_Msk) != (UICR_PSELRESET_CONNECT_Connected << UICR_PSELRESET_CONNECT_Pos))){
-      NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Wen << NVMC_CONFIG_WEN_Pos;
-      while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
-      NRF_UICR->PSELRESET[0] = RESET_PIN;
-      while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
-      NRF_UICR->PSELRESET[1] = RESET_PIN;
-      while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
-      NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Ren << NVMC_CONFIG_WEN_Pos;
-      while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
-      NVIC_SystemReset();
-  }
-  #endif
-
-    if(NRF_POWER->RESETREAS & (POWER_RESETREAS_DOG_Detected << POWER_RESETREAS_DOG_Pos))
-    {
-        _resetReason = "Watchdog timeout";
-        NRF_POWER->RESETREAS = 0xffffffff;
-    } else {
-        _resetReason = "Device power on";
+#if defined(RESET_PIN)
+    if (((NRF_UICR->PSELRESET[0] & UICR_PSELRESET_CONNECT_Msk) != (UICR_PSELRESET_CONNECT_Connected << UICR_PSELRESET_CONNECT_Pos)) ||
+        ((NRF_UICR->PSELRESET[1] & UICR_PSELRESET_CONNECT_Msk) != (UICR_PSELRESET_CONNECT_Connected << UICR_PSELRESET_CONNECT_Pos))){
+        NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Wen << NVMC_CONFIG_WEN_Pos;
+        while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
+        NRF_UICR->PSELRESET[0] = RESET_PIN;
+        while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
+        NRF_UICR->PSELRESET[1] = RESET_PIN;
+        while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
+        NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Ren << NVMC_CONFIG_WEN_Pos;
+        while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}
+        NVIC_SystemReset();
     }
+#endif
 
     // Set vendor IRQ's to default priority level
     for (unsigned i = 0; i < NUM_IRQS; i++) {
@@ -99,7 +95,7 @@ void init( void )
 	NRF_WDT->TASKS_START = 1;  //Start the Watchdog timer
 }
 
-const char * get_reset_reason(void) {
+uint32_t readResetReason(void) {
     return _resetReason;
 }
 
@@ -109,8 +105,8 @@ void systemPowerOff(void) {
 
 __attribute__ ((__weak__))
 void enterSerialDfu(void) {
-  NRF_POWER->GPREGRET = DFU_MAGIC_SERIAL_ONLY_RESET;
-  NVIC_SystemReset();
+    NRF_POWER->GPREGRET = DFU_MAGIC_SERIAL_ONLY_RESET;
+    NVIC_SystemReset();
 }
 
 #ifdef __cplusplus

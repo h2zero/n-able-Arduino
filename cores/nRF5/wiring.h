@@ -25,7 +25,7 @@ extern "C" {
 extern void init(void);
 void enterSerialDfu(void);
 void systemPowerOff(void);
-const char * get_reset_reason(void);
+uint32_t readResetReason(void);
 
 #ifdef __cplusplus
 }
