@@ -22,10 +22,16 @@
 #include "freertos/task.h"
 #include "Arduino.h"
 
-#ifdef CONFIG_MAIN_TASK_STACK_SIZE
-#define MAIN_TASK_STACK_SIZE CONFIG_MAIN_TASK_STACK_SIZE
+#if defined(CONFIG_MAIN_TASK_STACK_SIZE)
+#  define MAIN_TASK_STACK_SIZE CONFIG_MAIN_TASK_STACK_SIZE
+#elif defined(DEVICE_RAM_SIZE)
+#  if DEVICE_RAM_SIZE < 32
+#    define MAIN_TASK_STACK_SIZE 1024
+#  else
+#    define MAIN_TASK_STACK_SIZE 2048
+#  endif
 #else
-#define MAIN_TASK_STACK_SIZE 1024
+#  define MAIN_TASK_STACK_SIZE 2048
 #endif
 
 // Weak empty variant initialization function.
@@ -71,4 +77,8 @@ int main( void )
   NVIC_SystemReset();
 
   return 0;
+}
+
+uint32_t getMainTaskHwm() {
+  return uxTaskGetStackHighWaterMark(_loopTaskHandle);
 }
