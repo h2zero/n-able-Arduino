@@ -82,6 +82,7 @@ nRF52DK.upload.tool=openocd
 nRF52DK.upload.protocol=jlink
 nRF52DK.upload.target=nrf52
 nRF52DK.upload.maximum_size=524288
+nRF52DK.upload.setup_command=transport select swd;
 
 nRF52DK.bootloader.tool=openocd
 
@@ -312,6 +313,7 @@ Blend2.upload.tool=openocd
 Blend2.upload.target=nrf52
 Blend2.upload.maximum_size=524288
 Blend2.upload.protocol=cmsis-dap
+Blend2.upload.setup_command=transport select swd;
 
 Blend2.bootloader.tool=openocd
 
@@ -357,6 +359,7 @@ BLENano2.upload.tool=openocd
 BLENano2.upload.protocol=cmsis-dap
 BLENano2.upload.target=nrf52
 BLENano2.upload.maximum_size=524288
+BLENano2.upload.setup_command=transport select swd;
 
 BLENano2.bootloader.tool=openocd
 
@@ -449,9 +452,10 @@ nRF52840_DK.vid.0=0x1366
 nRF52840_DK.pid.0=0x1015
 
 nRF52840_DK.upload.tool=openocd
+nRF52840_DK.upload.protocol=jlink
 nRF52840_DK.upload.target=nrf52
 nRF52840_DK.upload.maximum_size=1048576
-nRF52840_DK.upload.protocol=jlink
+nRF52840_DK.upload.setup_command=transport select swd;
 
 nRF52840_DK.bootloader.tool=openocd
 
@@ -649,6 +653,7 @@ nRF52833DK.upload.tool=openocd
 nRF52833DK.upload.protocol=jlink
 nRF52833DK.upload.target=nrf52
 nRF52833DK.upload.maximum_size=524288
+nRF52833DK.upload.setup_command=transport select swd;
 
 nRF52833DK.bootloader.tool=openocd
 
@@ -694,6 +699,7 @@ BBCmicrobitV2.upload.tool=openocd
 BBCmicrobitV2.upload.protocol=cmsis-dap
 BBCmicrobitV2.upload.target=nrf52
 BBCmicrobitV2.upload.maximum_size=524288
+BBCmicrobitV2.upload.setup_command=transport select swd;
 
 BBCmicrobitV2.bootloader.tool=openocd
 
@@ -791,9 +797,10 @@ Generic_nRF51822.menu.cppDbgLvl.debug.build.cpp_debug=4
 nRF51DK.name=Nordic nRF51822DK (PCA10028)
 
 nRF51DK.upload.tool=openocd
+nRF51DK.upload.protocol=jlink
 nRF51DK.upload.target=nrf51
 nRF51DK.upload.maximum_size=262144
-nRF51DK.upload.protocol=jlink
+nRF51DK.upload.setup_command=transport select swd;
 
 nRF51DK.bootloader.tool=openocd
 
@@ -838,6 +845,7 @@ BBCmicrobit.upload.tool=openocd
 BBCmicrobit.upload.protocol=cmsis-dap
 BBCmicrobit.upload.target=nrf51
 BBCmicrobit.upload.maximum_size=262144
+BBCmicrobit.upload.setup_command=transport select swd;
 
 BBCmicrobit.bootloader.tool=openocd
 
@@ -921,6 +929,7 @@ BLENano.upload.tool=openocd
 BLENano.upload.target=nrf51
 BLENano.upload.maximum_size=262144
 BLENano.upload.protocol=cmsis-dap
+BLENano.upload.setup_command=transport select swd;
 
 BLENano.bootloader.tool=openocd
 
@@ -1014,6 +1023,7 @@ CalliopeMini.upload.tool=openocd
 CalliopeMini.upload.protocol=cmsis-dap
 CalliopeMini.upload.target=nrf51
 CalliopeMini.upload.maximum_size=262144
+CalliopeMini.upload.setup_command=transport select swd;
 
 CalliopeMini.bootloader.tool=openocd
 
@@ -1097,6 +1107,7 @@ nRF51Dongle.upload.tool=openocd
 nRF51Dongle.upload.target=nrf51
 nRF51Dongle.upload.maximum_size=262144
 nRF51Dongle.upload.protocol=cmsis-dap
+nRF51Dongle.upload.setup_command=transport select swd;
 
 nRF51Dongle.bootloader.tool=openocd
 
@@ -1180,6 +1191,7 @@ RedBearLab_nRF51822.upload.tool=openocd
 RedBearLab_nRF51822.upload.target=nrf51
 RedBearLab_nRF51822.upload.maximum_size=262144
 RedBearLab_nRF51822.upload.protocol=cmsis-dap
+RedBearLab_nRF51822.upload.setup_command=transport select swd;
 
 RedBearLab_nRF51822.bootloader.tool=openocd
 
@@ -1232,6 +1244,7 @@ Sinobit.upload.tool=openocd
 Sinobit.upload.target=nrf51
 Sinobit.upload.maximum_size=262144
 Sinobit.upload.protocol=cmsis-dap
+Sinobit.upload.setup_command=transport select swd;
 
 Sinobit.bootloader.tool=openocd
 
@@ -1274,6 +1287,7 @@ TinyBLE.upload.tool=openocd
 TinyBLE.upload.target=nrf51
 TinyBLE.upload.maximum_size=262144
 TinyBLE.upload.protocol=cmsis-dap
+TinyBLE.upload.setup_command=transport select swd;
 
 TinyBLE.bootloader.tool=openocd
 
