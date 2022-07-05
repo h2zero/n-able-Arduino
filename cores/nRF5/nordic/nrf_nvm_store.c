@@ -4,10 +4,12 @@
 #include "nrf.h"
 #include "nrfx_nvmc.h"
 
-#ifdef USE_TINYUSB
-#define BOOTLOADER_PAGE_SIZE 32
+#if defined(USE_ADA_BL)
+#  define BOOTLOADER_PAGE_SIZE 12
+#elif defined(USE_NORDIC_BL)
+#  define BOOTLOADER_PAGE_SIZE 32
 #else
-#define BOOTLOADER_PAGE_SIZE 0
+#  define BOOTLOADER_PAGE_SIZE 0
 #endif
 
 #define FLASH_WAIT_READY while (NRF_NVMC->READY == NVMC_READY_READY_Busy){}

@@ -30,6 +30,13 @@ blackmagicprobe.program.tool=blackmagicprobe
 blackmagicprobe.bootloader.tool=blackmagicprobe
 blackmagicprobe.program.extra_params=;
 
+adafruit-nrfutil.name=adafruit-nrfutil
+adafruit-nrfutil.communication=USB
+adafruit-nrfutil.protocol=
+adafruit-nrfutil.program.protocol=
+adafruit-nrfutil.program.tool=adafruit-nrfutil
+adafruit-nrfutil.program.extra_params=;
+
 nrfutil.name=nrfutil
 nrfutil.communication=USB
 nrfutil.protocol=
