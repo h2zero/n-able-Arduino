@@ -62,7 +62,7 @@
 #      define CONFIG_RTOS_TIMER_QUEUE_LENGTH (6)
 #    endif
 #    ifndef CONFIG_RTOS_TIMER_STACK_DEPTH
-#      define CONFIG_RTOS_TIMER_STACK_DEPTH (64)
+#      define CONFIG_RTOS_TIMER_STACK_DEPTH (72)
 #    endif
 #  endif
 #endif
@@ -72,7 +72,7 @@
 #endif
 
 #ifndef CONFIG_RTOS_MIN_TASK_SIZE
-#define CONFIG_RTOS_MIN_TASK_SIZE (80)
+#define CONFIG_RTOS_MIN_TASK_SIZE (120)
 #endif
 
 #ifndef CONFIG_RTOS_TIMER_QUEUE_LENGTH
@@ -87,7 +87,11 @@
 #define configTICK_SOURCE                                                         FREERTOS_USE_RTC
 
 #define configUSE_PREEMPTION                                                      1
+#ifdef NRF51
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION                                   0
+#else
+#define configUSE_PORT_OPTIMISED_TASK_SELECTION                                   1
+#endif
 #define configUSE_TICKLESS_IDLE                                                   1
 #define configUSE_TICKLESS_IDLE_SIMPLE_DEBUG                                      1 /* See into vPortSuppressTicksAndSleep source code for explanation */
 #define configCPU_CLOCK_HZ                                                        ( SystemCoreClock )
