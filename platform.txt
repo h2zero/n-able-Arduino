@@ -60,7 +60,7 @@ nordic.path={build.core.path}/nordic
 compiler.nrf.flags=-DNRF5 -DARDUINO_ARCH_NRF5 "-I{build.core.path}/nimble_config" "-I{nordic.path}/nrfx" "-I{nordic.path}/nrfx/hal" "-I{nordic.path}/nrfx/mdk" "-I{nordic.path}/nrfx/soc" "-I{nordic.path}/nrfx/drivers/include" "-I{nordic.path}/nrfx/drivers/src" "-I{build.core.path}/CMSIS/Include" "-I{build.core.path}/FC_Store" "-I{build.core.path}/BLEBond_nvs" "-I{build.core.path}/TinyUSB" "-I{build.core.path}/TinyUSB/Adafruit_TinyUSB_ArduinoCore" "-I{build.core.path}/TinyUSB/Adafruit_TinyUSB_ArduinoCore/tinyusb/src"
 
 # These can be overridden in platform.local.txt
-compiler.c.extra_flags=-DRIOT_VERSION=1
+compiler.c.extra_flags=
 compiler.c.elf.extra_flags=
 compiler.cpp.extra_flags=
 compiler.S.extra_flags=
