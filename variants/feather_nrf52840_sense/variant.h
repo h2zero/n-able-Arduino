@@ -100,6 +100,7 @@ static const uint8_t AREF = PIN_AREF;
  */
 #define PIN_SERIAL1_RX       (1)
 #define PIN_SERIAL1_TX       (0)
+#define USB_CDC_DEFAULT_SERIAL 1
 
 /*
  * SPI Interfaces
