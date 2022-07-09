@@ -35,7 +35,19 @@
 #define NRFX_POWER_ENABLED              1
 #define NRFX_POWER_DEFAULT_CONFIG_IRQ_PRIORITY  7
 
-#define NRFX_CLOCK_ENABLED 0
+#define NRFX_CLOCK_ENABLED 1
+
+// <0=> RC
+// <1=> XTAL
+// <2=> Synth
+#if defined(USE_LFRC)
+#define NRFX_CLOCK_CONFIG_LF_SRC 0
+#define NRFX_CLOCK_CONFIG_LF_CAL_ENABLED 1
+#elif defined(USE_LFXO)
+#define NRFX_CLOCK_CONFIG_LF_SRC 1
+#elif defined(USE_LFSYNT)
+#define NRFX_CLOCK_CONFIG_LF_SRC 2
+#endif
 
 #define NRFX_SPIM_ENABLED            1
 #define NRFX_SPIM_MISO_PULL_CFG      1 // pulldown

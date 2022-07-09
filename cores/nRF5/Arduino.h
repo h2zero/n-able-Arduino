@@ -10,6 +10,7 @@
 #include "nrf.h"
 #include "nrf_power.h"
 #include "nrf_peripherals.h"
+#include "freertos/FreeRTOS.h"
 
 typedef bool boolean;
 typedef uint8_t byte;

@@ -3,7 +3,6 @@
 
 // Master clock frequency
 #define VARIANT_MCK (64000000ul)
-#define USE_LFXO
 
 #include "WVariant.h"
 

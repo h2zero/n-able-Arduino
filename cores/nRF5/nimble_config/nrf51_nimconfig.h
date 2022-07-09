@@ -83,6 +83,10 @@
 #define CONFIG_NIMBLE_STACK_USE_MEM_POOLS 0
 #endif
 
+#ifdef USE_LFRC
+#define MYNEWT_VAL_BLE_LL_SCA (500)
+#endif
+
 
 /**
  * This macro exists to ensure code includes this header when needed.  If code
@@ -311,10 +315,6 @@
 
 #ifndef MYNEWT_VAL_BLE_LL_NUM_SCAN_RSP_ADVS
 #define MYNEWT_VAL_BLE_LL_NUM_SCAN_RSP_ADVS (8)
-#endif
-
-#ifndef MYNEWT_VAL_BLE_LL_OUR_SCA
-#define MYNEWT_VAL_BLE_LL_OUR_SCA (60)
 #endif
 
 #ifndef MYNEWT_VAL_BLE_LL_SCA

@@ -19,7 +19,12 @@
 
 #include "Arduino.h"
 #include <nrf.h>
+#include <nrfx_clock.h>
 #include <stdio.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define DFU_MAGIC_SERIAL_ONLY_RESET   0x4e
 
@@ -46,27 +51,50 @@
     #define NUM_IRQS              (26U)
 #endif
 
-
-#ifdef __cplusplus
-extern "C" {
+#if !defined(USE_LFXO) && !defined(USE_LFRC) && !defined(USE_LFSYNT)
+#warning Low frequency clock source not defined - using RC
 #endif
 
 static uint32_t _resetReason;
+static uint8_t hw_clock_hfxo_refcnt;
+
+static void hw_clock_evt_handler(nrfx_clock_evt_type_t event) {
+    switch(event){
+#if defined(USE_LFRC)
+        case NRFX_CLOCK_EVT_CTTO:
+            hw_clock_hfxo_request();
+            if (nrfx_clock_calibration_start() != NRFX_SUCCESS) {
+                nrfx_clock_calibration_timer_start(16);
+            }
+            break;
+        case NRFX_CLOCK_EVT_CAL_DONE:
+            hw_clock_hfxo_release();
+            // Calibrate every 4 seconds
+            nrfx_clock_calibration_timer_start(16);
+            break;
+#endif
+        default:
+            break;
+    }
+}
 
 void init( void )
 {
-
     _resetReason = NRF_POWER->RESETREAS;
     NRF_POWER->RESETREAS |= NRF_POWER->RESETREAS;
 
-#if defined(USE_LFXO)
-    NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
-#elif defined(USE_LFSYNT)
-    NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_Synth << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
-#else //USE_LFRC
-    NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_RC << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
+    nrfx_clock_init(hw_clock_evt_handler);
+    nrfx_clock_enable();
+#if defined(USE_LFSYNT)
+    // LFSYNT requires the HF XTAL to always be running.
+    hw_clock_hfxo_request();
 #endif
-    NRF_CLOCK->TASKS_LFCLKSTART = 1UL;
+    nrfx_clock_start(NRF_CLOCK_DOMAIN_LFCLK);
+    while(!nrfx_clock_is_running(NRF_CLOCK_DOMAIN_LFCLK, NULL)){}
+
+#if defined(USE_LFRC)
+    nrfx_clock_calibration_timer_start(0);
+#endif
 
 #if defined(RESET_PIN)
     if (((NRF_UICR->PSELRESET[0] & UICR_PSELRESET_CONNECT_Msk) != (UICR_PSELRESET_CONNECT_Connected << UICR_PSELRESET_CONNECT_Pos)) ||
@@ -107,6 +135,42 @@ __attribute__ ((__weak__))
 void enterSerialDfu(void) {
     NRF_POWER->GPREGRET = DFU_MAGIC_SERIAL_ONLY_RESET;
     NVIC_SystemReset();
+}
+
+int hw_clock_hfxo_request(void) {
+    int started = 0;
+    nrf_clock_hfclk_t clk_src;
+
+    portENTER_CRITICAL();
+    assert(hw_clock_hfxo_refcnt < 0xff);
+    if (hw_clock_hfxo_refcnt == 0) {
+        if (!nrfx_clock_is_running(NRF_CLOCK_DOMAIN_HFCLK, &clk_src) ||
+           (clk_src != NRF_CLOCK_HFCLK_HIGH_ACCURACY)) {
+            nrfx_clock_start(NRF_CLOCK_DOMAIN_HFCLK);
+            while (!nrfx_clock_is_running(NRF_CLOCK_DOMAIN_HFCLK, &clk_src) ||
+                (clk_src != NRF_CLOCK_HFCLK_HIGH_ACCURACY)){}
+        }
+        started = 1;
+    }
+    ++hw_clock_hfxo_refcnt;
+    portEXIT_CRITICAL();
+
+    return started;
+}
+
+int hw_clock_hfxo_release(void) {
+    int stopped = 0;
+
+    portENTER_CRITICAL();
+    assert(hw_clock_hfxo_refcnt != 0);
+    --hw_clock_hfxo_refcnt;
+    if (hw_clock_hfxo_refcnt == 0) {
+        nrfx_clock_stop(NRF_CLOCK_DOMAIN_HFCLK);
+        stopped = 1;
+    }
+    portEXIT_CRITICAL();
+
+    return stopped;
 }
 
 #ifdef __cplusplus

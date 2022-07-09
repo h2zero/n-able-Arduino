@@ -85,6 +85,9 @@
 #  endif
 #endif
 
+#ifdef USE_LFRC
+#define MYNEWT_VAL_BLE_LL_SCA (500)
+#endif
 
 /**
  * This macro exists to ensure code includes this header when needed.  If code

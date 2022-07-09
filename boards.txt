@@ -42,7 +42,7 @@ Generic_nRF52832.build.variant=Generic
 Generic_nRF52832.build.variant_system_lib=
 Generic_nRF52832.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52832.build.ldscript=nrf52_xxaa.ld
-Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52832.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52832.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -95,6 +95,7 @@ nRF52DK.build.variant=nRF52832_DK
 nRF52DK.build.variant_system_lib=
 nRF52DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52DK.build.ldscript=nrf52_xxaa.ld
+nRF52DK.build.lfclk_flags=-DUSE_LFXO
 nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52DK.menu.role.all=All
@@ -136,6 +137,7 @@ feather52832.build.variant=feather_nrf52832
 feather52832.build.variant_system_lib=
 feather52832.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 feather52832.build.ldscript=nrf52_xxaa.ld
+feather52832.build.lfclk_flags=-DUSE_LFXO
 feather52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 feather52832.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
@@ -189,6 +191,7 @@ BT5032A-TB.build.variant=BT5032A_TB
 BT5032A-TB.build.variant_system_lib=
 BT5032A-TB.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BT5032A-TB.build.ldscript=nrf52832_xxaa.ld
+BT5032A-TB.build.lfclk_flags=-DUSE_LFXO
 BT5032A-TB.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BT5032A-TB.menu.role.all=All
@@ -240,7 +243,7 @@ bluey.build.variant=bluey
 bluey.build.variant_system_lib=
 bluey.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 bluey.build.ldscript=nrf52_xxaa.ld
-bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 bluey.menu.lfclk.lfxo=Crystal Oscillator
 bluey.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -288,7 +291,7 @@ hackaBLE.build.variant=hackaBLE
 hackaBLE.build.variant_system_lib=
 hackaBLE.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 hackaBLE.build.ldscript=nrf52_xxaa.ld
-hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 hackaBLE.menu.lfclk.lfxo=Crystal Oscillator
 hackaBLE.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -336,7 +339,7 @@ hackaBLE_v2.build.variant=hackaBLE_v2
 hackaBLE_v2.build.variant_system_lib=
 hackaBLE_v2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 hackaBLE_v2.build.ldscript=nrf52_xxaa.ld
-hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 hackaBLE_v2.menu.lfclk.lfxo=Crystal Oscillator
 hackaBLE_v2.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -389,6 +392,7 @@ Blend2.build.variant=RedBear_Blend2
 Blend2.build.variant_system_lib=
 Blend2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Blend2.build.ldscript=nrf52_xxaa.ld
+Blend2.build.lfclk_flags=-DUSE_LFXO
 Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Blend2.menu.role.all=All
@@ -435,6 +439,7 @@ BLENano2.build.variant=RedBear_BLENano2
 BLENano2.build.variant_system_lib=
 BLENano2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BLENano2.build.ldscript=nrf52_xxaa.ld
+BLENano2.build.lfclk_flags=-DUSE_LFXO
 BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BLENano2.menu.role.all=All
@@ -479,7 +484,7 @@ Generic_nRF52840.build.variant=Generic
 Generic_nRF52840.build.variant_system_lib=
 Generic_nRF52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52840.build.ldscript=nrf52840_xxaa.ld
-Generic_nRF52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52840.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52840.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -531,6 +536,7 @@ nRF52840_DK.build.variant=nRF52840_DK
 nRF52840_DK.build.variant_system_lib=
 nRF52840_DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52840_DK.build.ldscript=nrf52840_xxaa.ld
+nRF52840_DK.build.lfclk_flags=-DUSE_LFXO
 nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52840_DK.menu.role.all=All
@@ -582,6 +588,7 @@ nRF52840_dongle.build.vid=0x1915
 nRF52840_dongle.build.pid=0x521B
 nRF52840_dongle.build.usb_manufacturer="Nordic Semiconductor"
 nRF52840_dongle.build.usb_product="nRF52840 Dongle"
+nRF52840_dongle.build.lfclk_flags=-DUSE_LFXO
 nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_NORDIC_BL {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 nRF52840_dongle.build.dfu_pattern={nrfutil.dfu_pattern}
 
@@ -634,6 +641,7 @@ BT5040.build.vid=0x1915
 BT5040.build.pid=0x521B
 BT5040.build.usb_manufacturer="Ebyte"
 BT5040.build.usb_product="E104-BT5040UA"
+BT5040.build.lfclk_flags=-DUSE_LFXO
 BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_NORDIC_BL {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 BT5040.build.dfu_pattern={nrfutil.dfu_pattern}
 
@@ -691,6 +699,7 @@ feather52840.build.vid=0x239A
 feather52840.build.pid=0x8029
 feather52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 feather52840.build.ldscript=nrf52840_xxaa.ld
+feather52840.build.lfclk_flags=-DUSE_LFXO
 feather52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 feather52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
@@ -759,6 +768,7 @@ feather52840sense.build.vid=0x239A
 feather52840sense.build.pid=0x8087
 feather52840sense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 feather52840sense.build.ldscript=nrf52840_xxaa.ld
+feather52840sense.build.lfclk_flags=-DUSE_LFRC
 feather52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 feather52840sense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
@@ -827,6 +837,7 @@ itsybitsy52840.build.vid=0x239A
 itsybitsy52840.build.pid=0x8051
 itsybitsy52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 itsybitsy52840.build.ldscript=nrf52840_xxaa.ld
+itsybitsy52840.build.lfclk_flags=-DUSE_LFXO
 itsybitsy52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 itsybitsy52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
@@ -893,6 +904,7 @@ cplaynrf52840.build.vid=0x239A
 cplaynrf52840.build.pid=0x8045
 cplaynrf52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 cplaynrf52840.build.ldscript=nrf52840_xxaa.ld
+cplaynrf52840.build.lfclk_flags=-DUSE_LFRC
 cplaynrf52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 cplaynrf52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
@@ -959,6 +971,7 @@ cluenrf52840.build.vid=0x239A
 cluenrf52840.build.pid=0x8071
 cluenrf52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 cluenrf52840.build.ldscript=nrf52840_xxaa.ld
+cluenrf52840.build.lfclk_flags=-DUSE_LFRC
 cluenrf52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 cluenrf52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
@@ -1015,7 +1028,7 @@ Generic_nRF52833.build.variant=Generic
 Generic_nRF52833.build.variant_system_lib=
 Generic_nRF52833.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52833.build.ldscript=nrf52833_xxaa.ld
-Generic_nRF52833.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF52833.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52833.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52833.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -1067,6 +1080,7 @@ nRF52833DK.build.variant=nRF52833_DK
 nRF52833DK.build.variant_system_lib=
 nRF52833DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52833DK.build.ldscript=nrf52833_xxaa.ld
+nRF52833DK.build.lfclk_flags=-DUSE_LFXO
 nRF52833DK.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52833DK.menu.role.all=All
@@ -1113,6 +1127,7 @@ BBCmicrobitV2.build.variant=BBCmicrobitV2
 BBCmicrobitV2.build.variant_system_lib=
 BBCmicrobitV2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BBCmicrobitV2.build.ldscript=nrf52833_xxaa.ld
+BBCmicrobitV2.build.lfclk_flags=-DUSE_LFSYNT
 BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BBCmicrobitV2.menu.role.all=All
@@ -1157,7 +1172,7 @@ Generic_nRF51822.build.variant=Generic
 Generic_nRF51822.build.variant_system_lib=
 Generic_nRF51822.build.float_flags=
 Generic_nRF51822.build.ldscript=nrf51_{build.chip}.ld
-Generic_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} {build.lfclk_flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF51822.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Generic_nRF51822.menu.chip.xxaa.build.chip=xxaa
@@ -1214,6 +1229,7 @@ nRF51DK.build.variant=nRF51822_DK
 nRF51DK.build.variant_system_lib=
 nRF51DK.build.float_flags=
 nRF51DK.build.ldscript=nrf51_xxaa.ld
+nRF51DK.build.lfclk_flags=-DUSE_LFXO
 nRF51DK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF51DK.menu.role.all=All
@@ -1259,6 +1275,7 @@ BBCmicrobit.build.variant=BBCmicrobit
 BBCmicrobit.build.variant_system_lib=
 BBCmicrobit.build.float_flags=
 BBCmicrobit.build.ldscript=nrf51_xxaa.ld
+BBCmicrobit.build.lfclk_flags=-DUSE_LFSYNT
 BBCmicrobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BBCmicrobit.menu.role.all=All
@@ -1300,6 +1317,7 @@ Beacon_PCA20006.build.variant=PCA20006
 Beacon_PCA20006.build.variant_system_lib=
 Beacon_PCA20006.build.float_flags=
 Beacon_PCA20006.build.ldscript=nrf51_xxaa.ld
+Beacon_PCA20006.build.lfclk_flags=-DUSE_LFXO
 Beacon_PCA20006.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Beacon_PCA20006.menu.role.all=All
@@ -1343,6 +1361,7 @@ BLENano.build.variant=BLENano
 BLENano.build.variant_system_lib=
 BLENano.build.float_flags=
 BLENano.build.ldscript=nrf51_{build.chip}.ld
+BLENano.build.lfclk_flags=-DUSE_LFXO
 BLENano.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BLENano.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
@@ -1391,6 +1410,7 @@ BluzDK.build.variant=BluzDK
 BluzDK.build.variant_system_lib=
 BluzDK.build.float_flags=
 BluzDK.build.ldscript=nrf51_xxaa.ld
+BluzDK.build.lfclk_flags=-DUSE_LFXO
 BluzDK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BluzDK.menu.role.all=All
@@ -1437,6 +1457,7 @@ CalliopeMini.build.variant=CalliopeMini
 CalliopeMini.build.variant_system_lib=
 CalliopeMini.build.float_flags=
 CalliopeMini.build.ldscript=nrf51_xxaa.ld
+CalliopeMini.build.lfclk_flags=-DUSE_LFRC
 CalliopeMini.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 CalliopeMini.menu.role.all=All
@@ -1478,6 +1499,7 @@ ng_beacon.build.variant=ng-beacon
 ng_beacon.build.variant_system_lib=
 ng_beacon.build.float_flags=
 ng_beacon.build.ldscript=nrf51_xxaa.ld
+ng_beacon.build.lfclk_flags=-DUSE_LFRC
 ng_beacon.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 ng_beacon.menu.role.all=All
@@ -1521,6 +1543,7 @@ nRF51Dongle.build.variant=nRF51_Dongle
 nRF51Dongle.build.variant_system_lib=
 nRF51Dongle.build.float_flags=
 nRF51Dongle.build.ldscript=nrf51_xxac.ld
+nRF51Dongle.build.lfclk_flags=-DUSE_LFXO
 nRF51Dongle.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF51Dongle.menu.role.all=All
@@ -1562,6 +1585,7 @@ OSHChip.build.variant=OSHChip
 OSHChip.build.variant_system_lib=
 OSHChip.build.float_flags=
 OSHChip.build.ldscript=nrf51_xxac.ld
+OSHChip.build.lfclk_flags=-DUSE_LFRC
 OSHChip.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 OSHChip.menu.role.all=All
@@ -1605,6 +1629,7 @@ RedBearLab_nRF51822.build.variant=RedBearLab_nRF51822
 RedBearLab_nRF51822.build.variant_system_lib=
 RedBearLab_nRF51822.build.float_flags=
 RedBearLab_nRF51822.build.ldscript=nrf51_{build.chip}.ld
+RedBearLab_nRF51822.build.lfclk_flags=-DUSE_LFXO
 RedBearLab_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 RedBearLab_nRF51822.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
@@ -1658,6 +1683,7 @@ Sinobit.build.variant=Sinobit
 Sinobit.build.variant_system_lib=
 Sinobit.build.float_flags=
 Sinobit.build.ldscript=nrf51_xxaa.ld
+Sinobit.build.lfclk_flags=-DUSE_LFRC
 Sinobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Sinobit.menu.role.all=All
@@ -1701,6 +1727,7 @@ TinyBLE.build.variant=TinyBLE
 TinyBLE.build.variant_system_lib=
 TinyBLE.build.float_flags=
 TinyBLE.build.ldscript=nrf51_xxaa.ld
+TinyBLE.build.lfclk_flags=-DUSE_LFXO
 TinyBLE.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 TinyBLE.menu.role.all=All
@@ -1742,6 +1769,7 @@ Waveshare_BLE400.build.variant=Waveshare_BLE400
 Waveshare_BLE400.build.variant_system_lib=
 Waveshare_BLE400.build.float_flags=
 Waveshare_BLE400.build.ldscript=nrf51_{build.chip}.ld
+Waveshare_BLE400.build.lfclk_flags=-DUSE_LFXO
 Waveshare_BLE400.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Waveshare_BLE400.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)

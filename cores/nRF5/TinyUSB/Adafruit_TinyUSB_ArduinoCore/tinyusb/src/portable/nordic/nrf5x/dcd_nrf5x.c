@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License (MIT)
  *
  * Copyright (c) 2019 Ha Thach (tinyusb.org)
@@ -466,7 +466,7 @@ void dcd_int_handler(uint8_t rhport)
     // DMA complete move data from SRAM -> Endpoint
     edpt_dma_end();
   }
- 
+
   // Setup tokens are specific to the Control endpoint.
   if ( int_status & USBD_INTEN_EP0SETUP_Msk )
   {
@@ -647,6 +647,7 @@ static bool hfclk_running(void)
 
 static void hfclk_enable(void)
 {
+#if 0
   // already running, nothing to do
   if ( hfclk_running() ) return;
 
@@ -660,10 +661,14 @@ static void hfclk_enable(void)
 
   nrf_clock_event_clear(NRF_CLOCK, NRF_CLOCK_EVENT_HFCLKSTARTED);
   nrf_clock_task_trigger(NRF_CLOCK, NRF_CLOCK_TASK_HFCLKSTART);
+#else
+  hw_clock_hfxo_request();
+#endif
 }
 
 static void hfclk_disable(void)
 {
+#if 0
 #ifdef SOFTDEVICE_PRESENT
   if ( is_sd_enabled() )
   {
@@ -673,6 +678,9 @@ static void hfclk_disable(void)
 #endif
 
   nrf_clock_task_trigger(NRF_CLOCK, NRF_CLOCK_TASK_HFCLKSTOP);
+#else
+  hw_clock_hfxo_release();
+#endif
 }
 
 // Power & Clock Peripheral on nRF5x to manage USB

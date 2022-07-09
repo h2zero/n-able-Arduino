@@ -33,6 +33,20 @@
 #define NRFX_CONFIG_NRF51_H__
 
 #define NRFX_NVMC_ENABLED 1
+#define NRFX_CLOCK_ENABLED 1
+
+// <0=> RC
+// <1=> XTAL
+// <2=> Synth
+#if defined(USE_LFRC)
+#define NRFX_CLOCK_CONFIG_LF_SRC 0
+#define NRFX_CLOCK_CONFIG_LF_CAL_ENABLED 1
+#elif defined(USE_LFXO)
+#define NRFX_CLOCK_CONFIG_LF_SRC 1
+#elif defined(USE_LFSYNT)
+#define NRFX_CLOCK_CONFIG_LF_SRC 2
+#endif
+
 
 // <<< Use Configuration Wizard in Context Menu >>>\n
 

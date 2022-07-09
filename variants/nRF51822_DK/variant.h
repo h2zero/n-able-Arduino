@@ -21,7 +21,6 @@
 
 /** Master clock frequency */
 #define VARIANT_MCK       (16000000)
-#define USE_LFXO
 
 /*----------------------------------------------------------------------------
  *        Headers
