@@ -41,13 +41,11 @@ TwoWire::TwoWire(NRF_TWIM_Type * p_twim, NRF_TWIS_Type * p_twis, IRQn_Type IRQn,
   transmissionBegun = false;
 }
 
-#ifdef ARDUINO_GENERIC
 void TwoWire::setPins(uint8_t pinSDA, uint8_t pinSCL)
 {
   this->_uc_pinSDA = pinSDA;
   this->_uc_pinSCL = pinSCL;
 }
-#endif // ARDUINO_GENERIC
 
 void TwoWire::begin(void) {
   //Master Mode

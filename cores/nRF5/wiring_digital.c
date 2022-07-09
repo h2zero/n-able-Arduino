@@ -31,6 +31,8 @@ void pinMode( uint32_t ulPin, uint32_t ulMode )
     return;
   }
 
+  ulPin = g_ADigitalPinMap[ulPin];
+
   // Set pin mode according to chapter '22.6.3 I/O Pin Configuration'
   switch ( ulMode )
   {
@@ -66,6 +68,8 @@ void digitalWrite( uint32_t ulPin, uint32_t ulVal )
     return;
   }
 
+  ulPin = g_ADigitalPinMap[ulPin];
+
   if (ulVal == LOW) {
       nrf_gpio_pin_clear(ulPin);
   } else {
@@ -81,6 +85,8 @@ int digitalRead( uint32_t ulPin )
     return 0;
   }
 
+  ulPin = g_ADigitalPinMap[ulPin];
+
   if (nrf_gpio_pin_dir_get(ulPin) == NRF_GPIO_PIN_DIR_INPUT) {
     return nrf_gpio_pin_read(ulPin);
   } else {
@@ -88,9 +94,14 @@ int digitalRead( uint32_t ulPin )
   }
 }
 
-void digitalToggle( uint32_t pin )
+void digitalToggle( uint32_t ulPin )
 {
-  nrf_gpio_pin_toggle(pin);
+  if (ulPin >= PINS_COUNT) {
+    return;
+  }
+
+  ulPin = g_ADigitalPinMap[ulPin];
+  nrf_gpio_pin_toggle(ulPin);
 }
 
 #ifdef LED_STATE_ON
