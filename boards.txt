@@ -30,7 +30,7 @@ Generic_nRF52832.name=Generic nRF52832
 
 Generic_nRF52832.upload.tool=openocd
 Generic_nRF52832.upload.target=nrf52
-Generic_nRF52832.upload.maximum_size=524288
+Generic_nRF52832.upload.maximum_size=507904
 
 Generic_nRF52832.bootloader.tool=openocd
 
@@ -82,7 +82,7 @@ nRF52DK.pid.0=0x1015
 nRF52DK.upload.tool=openocd
 nRF52DK.upload.protocol=jlink
 nRF52DK.upload.target=nrf52
-nRF52DK.upload.maximum_size=524288
+nRF52DK.upload.maximum_size=507904
 nRF52DK.upload.setup_command=transport select swd;
 
 nRF52DK.bootloader.tool=openocd
@@ -125,7 +125,7 @@ feather52832.name=Adafruit Feather nRF52832
 
 feather52832.upload.tool=openocd
 feather52832.upload.target=nrf52
-feather52832.upload.maximum_size=471040
+feather52832.upload.maximum_size=454656
 
 feather52832.bootloader.tool=openocd
 
@@ -172,14 +172,14 @@ feather52832.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pa
 feather52832.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 feather52832.menu.bootloader.none=No bootloader
 feather52832.menu.bootloader.none.bootloader.flags=
-feather52832.menu.bootloader.none.upload.maximum_size=524288
+feather52832.menu.bootloader.none.upload.maximum_size=507904
 
 
 BT5032A-TB.name=Ebyte BT5032A-TB
 
 BT5032A-TB.upload.tool=openocd
 BT5032A-TB.upload.target=nrf52
-BT5032A-TB.upload.maximum_size=524288
+BT5032A-TB.upload.maximum_size=507904
 
 BT5032A-TB.bootloader.tool=openocd
 
@@ -222,7 +222,7 @@ BT5032A-TB.menu.bootloader.adafruit=Adafruit (No softdevice)
 BT5032A-TB.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
 BT5032A-TB.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
 BT5032A-TB.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-BT5032A-TB.menu.bootloader.adafruit.upload.maximum_size=471040
+BT5032A-TB.menu.bootloader.adafruit.upload.maximum_size=454656
 BT5032A-TB.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
 BT5032A-TB.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 BT5032A-TB.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
@@ -231,7 +231,7 @@ bluey.name=Electronut labs bluey
 
 bluey.upload.tool=openocd
 bluey.upload.target=nrf52
-bluey.upload.maximum_size=524288
+bluey.upload.maximum_size=507904
 
 bluey.bootloader.tool=openocd
 
@@ -279,7 +279,7 @@ hackaBLE.name=Electronut labs hackaBLE
 
 hackaBLE.upload.tool=openocd
 hackaBLE.upload.target=nrf52
-hackaBLE.upload.maximum_size=524288
+hackaBLE.upload.maximum_size=507904
 
 hackaBLE.bootloader.tool=openocd
 
@@ -327,7 +327,7 @@ hackaBLE_v2.name=Electronut labs hackaBLE_v2
 
 hackaBLE_v2.upload.tool=openocd
 hackaBLE_v2.upload.target=nrf52
-hackaBLE_v2.upload.maximum_size=524288
+hackaBLE_v2.upload.maximum_size=507904
 
 hackaBLE_v2.bootloader.tool=openocd
 
@@ -378,7 +378,7 @@ Blend2.pid.0=0x0d28
 
 Blend2.upload.tool=openocd
 Blend2.upload.target=nrf52
-Blend2.upload.maximum_size=524288
+Blend2.upload.maximum_size=507904
 Blend2.upload.protocol=cmsis-dap
 Blend2.upload.setup_command=transport select swd;
 
@@ -426,7 +426,7 @@ BLENano2.pid.0=0x0d28
 BLENano2.upload.tool=openocd
 BLENano2.upload.protocol=cmsis-dap
 BLENano2.upload.target=nrf52
-BLENano2.upload.maximum_size=524288
+BLENano2.upload.maximum_size=507904
 BLENano2.upload.setup_command=transport select swd;
 
 BLENano2.bootloader.tool=openocd
@@ -472,7 +472,7 @@ Generic_nRF52840.name=Generic nRF52840
 
 Generic_nRF52840.upload.tool=openocd
 Generic_nRF52840.upload.target=nrf52
-Generic_nRF52840.upload.maximum_size=1048576
+Generic_nRF52840.upload.maximum_size=1032192
 
 Generic_nRF52840.bootloader.tool=openocd
 
@@ -523,7 +523,7 @@ nRF52840_DK.pid.0=0x1015
 nRF52840_DK.upload.tool=openocd
 nRF52840_DK.upload.protocol=jlink
 nRF52840_DK.upload.target=nrf52
-nRF52840_DK.upload.maximum_size=1048576
+nRF52840_DK.upload.maximum_size=1032192
 nRF52840_DK.upload.setup_command=transport select swd;
 
 nRF52840_DK.bootloader.tool=openocd
@@ -572,7 +572,7 @@ nRF52840_dongle.pid.1=0x521F
 nRF52840_dongle.upload.tool=nrfutil
 nRF52840_dongle.upload.target=nrf52
 nRF52840_dongle.upload.protocol=nrfutil
-nRF52840_dongle.upload.maximum_size=913408
+nRF52840_dongle.upload.maximum_size=897024
 
 nRF52840_dongle.bootloader.tool=nrfutil
 
@@ -625,7 +625,7 @@ BT5040.pid.1=0x521F
 BT5040.upload.tool=nrfutil
 BT5040.upload.target=nrf52
 BT5040.upload.protocol=nrfutil
-BT5040.upload.maximum_size=913408
+BT5040.upload.maximum_size=897024
 
 BT5040.bootloader.tool=nrfutil
 
@@ -683,7 +683,7 @@ feather52840.upload.tool=openocd
 feather52840.upload.target=nrf52
 feather52840.upload.use_1200bps_touch=true
 feather52840.upload.wait_for_upload_port=true
-feather52840.upload.maximum_size=995328
+feather52840.upload.maximum_size=978944
 
 feather52840.bootloader.tool=openocd
 
@@ -734,7 +734,7 @@ feather52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pa
 feather52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 feather52840.menu.bootloader.none=No bootloader
 feather52840.menu.bootloader.none.bootloader.flags=
-feather52840.menu.bootloader.none.upload.maximum_size=1048576
+feather52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 feather52840sense.name=Adafruit Feather nRF52840 Sense
@@ -752,7 +752,7 @@ feather52840sense.upload.tool=openocd
 feather52840sense.upload.target=nrf52
 feather52840sense.upload.use_1200bps_touch=true
 feather52840sense.upload.wait_for_upload_port=true
-feather52840sense.upload.maximum_size=995328
+feather52840sense.upload.maximum_size=978944
 
 feather52840sense.bootloader.tool=openocd
 
@@ -803,7 +803,7 @@ feather52840sense.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.d
 feather52840sense.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 feather52840sense.menu.bootloader.none=No bootloader
 feather52840sense.menu.bootloader.none.bootloader.flags=
-feather52840sense.menu.bootloader.none.upload.maximum_size=1048576
+feather52840sense.menu.bootloader.none.upload.maximum_size=1032192
 
 
 itsybitsy52840.name=Adafruit ItsyBitsy nRF52840 Express
@@ -821,7 +821,7 @@ itsybitsy52840.upload.tool=openocd
 itsybitsy52840.upload.target=nrf52
 itsybitsy52840.upload.use_1200bps_touch=true
 itsybitsy52840.upload.wait_for_upload_port=true
-itsybitsy52840.upload.maximum_size=995328
+itsybitsy52840.upload.maximum_size=978944
 
 itsybitsy52840.bootloader.tool=openocd
 
@@ -872,7 +872,7 @@ itsybitsy52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_
 itsybitsy52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 itsybitsy52840.menu.bootloader.none=No bootloader
 itsybitsy52840.menu.bootloader.none.bootloader.flags=
-itsybitsy52840.menu.bootloader.none.upload.maximum_size=1048576
+itsybitsy52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 cplaynrf52840.name=Adafruit Circuit Playground Bluefruit
@@ -888,7 +888,7 @@ cplaynrf52840.upload.tool=openocd
 cplaynrf52840.upload.target=nrf52
 cplaynrf52840.upload.use_1200bps_touch=true
 cplaynrf52840.upload.wait_for_upload_port=true
-cplaynrf52840.upload.maximum_size=995328
+cplaynrf52840.upload.maximum_size=978944
 
 cplaynrf52840.bootloader.tool=openocd
 
@@ -939,7 +939,7 @@ cplaynrf52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_p
 cplaynrf52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 cplaynrf52840.menu.bootloader.none=No bootloader
 cplaynrf52840.menu.bootloader.none.bootloader.flags=
-cplaynrf52840.menu.bootloader.none.upload.maximum_size=1048576
+cplaynrf52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 cluenrf52840.name=Adafruit CLUE
@@ -955,7 +955,7 @@ cluenrf52840.upload.tool=openocd
 cluenrf52840.upload.target=nrf52
 cluenrf52840.upload.use_1200bps_touch=true
 cluenrf52840.upload.wait_for_upload_port=true
-cluenrf52840.upload.maximum_size=995328
+cluenrf52840.upload.maximum_size=978944
 
 cluenrf52840.bootloader.tool=openocd
 
@@ -1006,7 +1006,7 @@ cluenrf52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pa
 cluenrf52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 cluenrf52840.menu.bootloader.none=No bootloader
 cluenrf52840.menu.bootloader.none.bootloader.flags=
-cluenrf52840.menu.bootloader.none.upload.maximum_size=1048576
+cluenrf52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 # nRF52833 variants
@@ -1016,7 +1016,7 @@ Generic_nRF52833.name=Generic nRF52833
 
 Generic_nRF52833.upload.tool=openocd
 Generic_nRF52833.upload.target=nrf52
-Generic_nRF52833.upload.maximum_size=524288
+Generic_nRF52833.upload.maximum_size=507904
 
 Generic_nRF52833.bootloader.tool=openocd
 
@@ -1067,7 +1067,7 @@ nRF52833DK.pid.0=0x1015
 nRF52833DK.upload.tool=openocd
 nRF52833DK.upload.protocol=jlink
 nRF52833DK.upload.target=nrf52
-nRF52833DK.upload.maximum_size=524288
+nRF52833DK.upload.maximum_size=507904
 nRF52833DK.upload.setup_command=transport select swd;
 
 nRF52833DK.bootloader.tool=openocd
@@ -1114,7 +1114,7 @@ BBCmicrobitV2.pid.0=0x0204
 BBCmicrobitV2.upload.tool=openocd
 BBCmicrobitV2.upload.protocol=cmsis-dap
 BBCmicrobitV2.upload.target=nrf52
-BBCmicrobitV2.upload.maximum_size=524288
+BBCmicrobitV2.upload.maximum_size=507904
 BBCmicrobitV2.upload.setup_command=transport select swd;
 
 BBCmicrobitV2.bootloader.tool=openocd
@@ -1160,7 +1160,7 @@ Generic_nRF51822.name=Generic nRF51822
 
 Generic_nRF51822.upload.tool=openocd
 Generic_nRF51822.upload.target=nrf52
-Generic_nRF51822.upload.maximum_size=262144
+Generic_nRF51822.upload.maximum_size=258048
 
 Generic_nRF51822.bootloader.tool=openocd
 
@@ -1216,7 +1216,7 @@ nRF51DK.name=Nordic nRF51822DK (PCA10028)
 nRF51DK.upload.tool=openocd
 nRF51DK.upload.protocol=jlink
 nRF51DK.upload.target=nrf51
-nRF51DK.upload.maximum_size=262144
+nRF51DK.upload.maximum_size=258048
 nRF51DK.upload.setup_command=transport select swd;
 
 nRF51DK.bootloader.tool=openocd
@@ -1262,7 +1262,7 @@ BBCmicrobit.pid.0=0x0204
 BBCmicrobit.upload.tool=openocd
 BBCmicrobit.upload.protocol=cmsis-dap
 BBCmicrobit.upload.target=nrf51
-BBCmicrobit.upload.maximum_size=262144
+BBCmicrobit.upload.maximum_size=258048
 BBCmicrobit.upload.setup_command=transport select swd;
 
 BBCmicrobit.bootloader.tool=openocd
@@ -1305,7 +1305,7 @@ Beacon_PCA20006.name=Nordic Beacon Kit (PCA20006)
 
 Beacon_PCA20006.upload.tool=openocd
 Beacon_PCA20006.upload.target=nrf51
-Beacon_PCA20006.upload.maximum_size=262144
+Beacon_PCA20006.upload.maximum_size=258048
 
 Beacon_PCA20006.bootloader.tool=openocd
 
@@ -1347,7 +1347,7 @@ BLENano.name=RedBearLab BLE Nano
 
 BLENano.upload.tool=openocd
 BLENano.upload.target=nrf51
-BLENano.upload.maximum_size=262144
+BLENano.upload.maximum_size=258048
 BLENano.upload.protocol=cmsis-dap
 BLENano.upload.setup_command=transport select swd;
 
@@ -1398,7 +1398,7 @@ BluzDK.name=BluzDK
 
 BluzDK.upload.tool=openocd
 BluzDK.upload.target=nrf51
-BluzDK.upload.maximum_size=262144
+BluzDK.upload.maximum_size=258048
 
 BluzDK.bootloader.tool=openocd
 
@@ -1444,7 +1444,7 @@ CalliopeMini.pid.0=0x0204
 CalliopeMini.upload.tool=openocd
 CalliopeMini.upload.protocol=cmsis-dap
 CalliopeMini.upload.target=nrf51
-CalliopeMini.upload.maximum_size=262144
+CalliopeMini.upload.maximum_size=258048
 CalliopeMini.upload.setup_command=transport select swd;
 
 CalliopeMini.bootloader.tool=openocd
@@ -1487,7 +1487,7 @@ ng_beacon.name=ng-beacon
 
 ng_beacon.upload.tool=openocd
 ng_beacon.upload.target=nrf51
-ng_beacon.upload.maximum_size=262144
+ng_beacon.upload.maximum_size=258048
 
 ng_beacon.bootloader.tool=openocd
 
@@ -1529,7 +1529,7 @@ nRF51Dongle.name=Nordic nRF51 Dongle
 
 nRF51Dongle.upload.tool=openocd
 nRF51Dongle.upload.target=nrf51
-nRF51Dongle.upload.maximum_size=262144
+nRF51Dongle.upload.maximum_size=258048
 nRF51Dongle.upload.protocol=cmsis-dap
 nRF51Dongle.upload.setup_command=transport select swd;
 
@@ -1573,7 +1573,7 @@ OSHChip.name=OSHChip
 
 OSHChip.upload.tool=openocd
 OSHChip.upload.target=nrf51
-OSHChip.upload.maximum_size=262144
+OSHChip.upload.maximum_size=258048
 
 OSHChip.bootloader.tool=openocd
 
@@ -1615,7 +1615,7 @@ RedBearLab_nRF51822.name=RedBearLab nRF51822
 
 RedBearLab_nRF51822.upload.tool=openocd
 RedBearLab_nRF51822.upload.target=nrf51
-RedBearLab_nRF51822.upload.maximum_size=262144
+RedBearLab_nRF51822.upload.maximum_size=258048
 RedBearLab_nRF51822.upload.protocol=cmsis-dap
 RedBearLab_nRF51822.upload.setup_command=transport select swd;
 
@@ -1669,7 +1669,7 @@ Sinobit.pid.0=0x0204
 
 Sinobit.upload.tool=openocd
 Sinobit.upload.target=nrf51
-Sinobit.upload.maximum_size=262144
+Sinobit.upload.maximum_size=258048
 Sinobit.upload.protocol=cmsis-dap
 Sinobit.upload.setup_command=transport select swd;
 
@@ -1713,7 +1713,7 @@ TinyBLE.name=TinyBLE
 
 TinyBLE.upload.tool=openocd
 TinyBLE.upload.target=nrf51
-TinyBLE.upload.maximum_size=262144
+TinyBLE.upload.maximum_size=258048
 TinyBLE.upload.protocol=cmsis-dap
 TinyBLE.upload.setup_command=transport select swd;
 
@@ -1757,7 +1757,7 @@ Waveshare_BLE400.name=Waveshare BLE400
 
 Waveshare_BLE400.upload.tool=openocd
 Waveshare_BLE400.upload.target=nrf51
-Waveshare_BLE400.upload.maximum_size=262144
+Waveshare_BLE400.upload.maximum_size=258048
 
 Waveshare_BLE400.bootloader.tool=openocd
 
