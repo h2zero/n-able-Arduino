@@ -1,0 +1,10 @@
+
+#!/bin/bash
+
+echo h > "$1".jlink
+echo loadbin "$1" , 0x0 >> "$1".jlink
+echo r >> "$1".jlink
+echo q >> "$1".jlink
+
+JLinkExe -device "$2" -if SWD -speed auto -autoconnect 1 -NoGui 1 -CommanderScript "$1".jlink
+rm "$1".jlink

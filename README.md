@@ -2,8 +2,6 @@
 
 An Arduino Core for ARM based BLE boards supported by the NimBLE stack.
 
-**This core is currently still in development and not yet available through the Arduino board manager. Manual installation, described below, is required to use this core.**
-
 If you are interested in assisting the development of this project please submit issues and PR's. Or become a collaborator!
 
 ## Features
@@ -12,65 +10,117 @@ If you are interested in assisting the development of this project please submit
 * No softdevice, NimBLE provides a complete BLE stack.
 * Contains a subset of the EEPROM library to support basic config storage in flash.
 * Supports `printf` and `Serial.printf`
-* Uses FreeRTOS.
+* Uses/includes FreeRTOS.
 * Designed to maximize battery life using tickless idle. This allows the MCU to sleep any time `delay` is called.
 * Custom configuration of FreeRTOS and NimBLE compile options supported by providing a `build_opt.h` file in your sketch.
 
-## Why do this?
+## Why?
 
 I wanted to have a consistent BLE API on all of the devices I work with. NimBLE is the best choice for this as it is the most feature complete and fully open source library available for Arduino.
+
+## Supported boards
+
+### nRF52840
+ * [Generic nRF52840 MCU](https://www.nordicsemi.com/Products/nRF52840)
+ * [Nordic nRF52840 DK](https://www.nordicsemi.com/Products/Development-hardware/nRF52840-DK)
+ * [Nordic nRF52840 Dongle](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle)
+ * [Adafruit CLUE nRF52840](https://www.adafruit.com/product/4500)
+ * [Adafruit Circuit Playground Bluefruit](https://www.adafruit.com/product/4333)
+ * [Adafruit Feather nRF52840 Express](https://www.adafruit.com/product/4062)
+ * [Adafruit Feather nRF52840 Sense](https://www.adafruit.com/product/4516)
+ * [Adafruit ItsyBitsy nRF52840 Express](https://www.adafruit.com/product/4481)
+ * [Ebyte E104-BT5040U](https://www.ebyte.com/en/product-view-news.html?id=1185)
+
+### nRF52833
+ * [Generic nRF52833 MCU](https://www.nordicsemi.com/Products/nRF52833)
+ * [Nordic nRF52833 DK](https://www.nordicsemi.com/Products/Development-hardware/nRF52833-DK)
+ * [BBC micro:bit v2](https://microbit.org/new-microbit/)
+
+### nRF52832
+ * [Generic nRF52832 MCU](https://www.nordicsemi.com/Products/nRF52832)
+ * [Nordic nRF52832 DK](https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF52-DK)
+ * [RedBear Blend 2](https://github.com/redbear/nRF5x#blend-2)
+ * [RedBear Nano 2](https://github.com/redbear/nRF5x#ble-nano-2)
+ * [Bluey](https://github.com/electronut/ElectronutLabs-bluey)
+ * [hackaBLE](https://github.com/electronut/ElectronutLabs-hackaBLE)
+ * [hackaBLE_v2](https://github.com/electronut/ElectronutLabs-hackaBLE)
+ * [Adafruit Feather nRF52832](https://www.adafruit.com/product/3406)
+ * [Ebyte E104-BT5032A-TB](https://www.ebyte.com/en/product-view-news.html?id=956)
+
+### nRF51
+ * [Generic nRF51 MCU](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822)
+ * [BBC micro:bit](https://microbit.org)
+ * [Calliope mini](https://calliope.cc/en)
+ * [Bluz DK](http://bluz.io)
+ * Nordic Semiconductor  [nRF51822 Development Kit](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822-Development-Kit)
+ * [Nordic Semiconductor NRF51 Smart Beacon Kit](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822-Bluetooth-Smart-Beacon-Kit)
+ * [Nordic Semiconductor NRF51 Dongle](http://www.nordicsemi.com/eng/Products/nRF51-Dongle)
+ * [OSHChip](http://www.oshchip.org/)
+ * [RedBearLab BLE Nano](http://redbearlab.com/blenano/)
+ * [RedBearLab nRF51822](http://redbearlab.com/redbearlab-nrf51822/)
+ * [Waveshare BLE400](http://www.waveshare.com/wiki/BLE400)
+ * [ng-beacon](https://github.com/urish/ng-beacon)
+ * [TinyBLE](https://www.seeedstudio.com/Seeed-Tiny-BLE-BLE-%2B-6DOF-Mbed-Platform-p-2268.html)
+ * [Sino:bit](http://sinobit.org)
+
+## Installing
+
+### Board Manager
+
+ 1. [Download and install the Arduino IDE](https://www.arduino.cc/en/Main/Software) (At least v1.6.12)
+ 2. Start the Arduino IDE
+ 3. Go into Preferences
+ 4. Add ```https://h2zero.github.io/n-able-Arduino/package_n-able_boards_index.json``` as an "Additional Board Manager URL"
+ 5. Open the Boards Manager from the Tools -> Board menu and install "Arm BLE Boards"
+ 6. Select your board from the Tools -> Board menu
+
+### From git (for core development)
+
+ 1. Follow steps from Board Manager section above
+ 2. ```cd <SKETCHBOOK>```, where ```<SKETCHBOOK>``` is your Arduino Sketch folder:
+  * OS X: ```~/Documents/Arduino```
+  * Linux: ```~/Arduino```
+  * Windows: ```~/Documents/Arduino```
+ 3. Create a folder named ```hardware```, if it does not exist, and change directories to it
+ 4. Clone this repo: ```git clone https://github.com/h2zero/n-able-Arduino.git```
+ 5. Restart the Arduino IDE
+
+## Flashing your device
+
+1. Select your board from the Tools -> Board menu
+2. Select any options you want
+3. Select a programmer (J-Link, ST-Link V2, CMSIS-DAP, Black Magic Probe, adafruit-nrfutil or nrfutil) from the Tools -> "Programmer: " menu
+4. Connect your programmer to the device and click Upload
+
+### Uploading via Segger J-Link
+ 1. Make sure you have [Segger J-Link](https://www.segger.com/downloads/jlink) installed on your system.
+ 2. (For Windows) add the JLink.exe path to your environment variables.
+ 3. Select J-Link as the firmware uploader in the tools menu.
+
+### Uploading via adafruit-nrfutil (for Adafruit bootloader devices only)
+ 1. Install adafruit-nrfutil if not already installed `pip install adafruit-nrfutil`
+ 2. Select adafruit-nrfutil as the firmware uploader in the tools menu.
+
+### Uploading via (Nordic) nrfutil (for Nordic bootloader devices only)
+ 1. Install nrfutil if not already installed `pip install nrfutil`
+ 2. Select nrfutil as the firmware uploader in the tools menu.
 
 ## BLE
 
 This Arduino Core does **not** contain any BLE functionality. It has been designed to support using the [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) library for BLE operation.
-**Note:** Currently only the master branch of NimBLE-Arduino supports Arm devices and no releases have been made yet with Arm support.
+**Note:** Currently only the release version 1.4.0 and above of [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) supports Arm devices.
 
-## Installation
+## Bootloader
+Currently only some boards have Adafruit bootloaders available which are provided as options. You may choose to use the bootloader or none.  
+The provided Adafruit bootloaders have no softdevice, if you currently are using the softdevice based Adafruit bootloader on your nRF52 board you will need to update it to the one provided by selecting it from the boards menu and clicking `Burn Bootloader`.
 
- 1. Go to your Arduino folder:
-  * OS X: ```~/Documents/Arduino```
-  * Linux: ```~/Arduino```
-  * Windows: ```~/Documents/Arduino```
- 2. Create a folder named ```hardware```, if it does not exist, and change directories to it
- 3. Clone this repo: ```git clone https://github.com/h2zero/n-able.git n-able/arm-ble```
- 4. Download the tools: (these need to be manually downloaded/installed for now)
-  * GCC:
-    * [OS X](https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-mac.tar.bz2?revision=d0d318de-b746-489f-98b0-9d89648ce910&hash=601DBEFBB7540F434D54B7BFF7890875)
-    * [Linux](https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2?revision=05382cca-1721-44e1-ae19-1e7c3dc96118&hash=AE874AE7513FAE5077350E4E23B1AC08)
-    * [Windows](https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-win32.zip?revision=95631fd0-0c29-41f4-8d0c-3702650bdd74&hash=1223A90FC1ACF69AD82680A87E0AEDD0)
-  * OpenOCD:
-    * [OS X](https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-1/xpack-openocd-0.11.0-1-darwin-x64.tar.gz)
-    * [Linux](https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-1/xpack-openocd-0.11.0-1-linux-x64.tar.gz)
-    * [Windows](https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-1/xpack-openocd-0.11.0-1-win32-x64.zip)
- 5. Extract OpenOCD and copy the contents to ```<ARDUINO_FOLDER>/hardware/n-able/arm-ble/tools/openocd```
- 6. Extract GCC and copy the contents to ```<ARDUINO_FOLDER>/hardware/n-able/arm-ble/tools/gcc-arm-none-eabi/9_0_2020q2```
- 7. Restart the Arduino IDE
-
-### Driver Setup for Segger J-Link
-
- 1. Download [Zadig](http://zadig.akeo.ie)
- 2. Plugin Segger J-Link or DK board
- 3. Start ```Zadig```
- 4. Select ```Options -> List All Devices```
- 5. Plug and unplug your device to find what changes, and select the ```Interface 2``` from the device dropdown
- 6. Click ```Replace Driver```
-
-__NOTE__: To roll back to the original driver go to: Device Manager -> Right click on device -> Check box for "Delete the driver software for this device" and click Uninstall
-
-### Flashing your device
-
-1. Select your board from the Tools -> Board menu
-2. Select any options you want
-3. Select a programmer (J-Link, ST-Link V2, CMSIS-DAP, or Black Magic Probe) from the Tools -> "Programmer: " menu
-4. Connect your programmer to the device and click Upload
-
-**Note:** Currently no bootloader is provided or required.
-Instead you will need to erase any bootloader currently installed on your device. To do this, select your board from the board menu and click "Burn Bootloader", this will completely erase the device flash memory.
+For boards without the Adafruit bootloader option clicking `Burn Bootloader` will simply erase the flash memory on the device. This is required if you have any bootloader flashed already.
 
 ## Credits
 
 This core is based on [Arduino-nRF5](https://github.com/sandeepmistry/arduino-nRF5) by Sandeep Mistry,
-which in turn is based on the [Arduino SAMD Core](https://github.com/arduino/ArduinoCore-samd).
+which is based on the [Arduino SAMD Core](https://github.com/arduino/ArduinoCore-samd).
+With some code from [Adafruit_nRF52_Arduino](https://github.com/adafruit/Adafruit_nRF52_Arduino)
 
 The following libraries are used:
 

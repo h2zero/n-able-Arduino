@@ -30,6 +30,7 @@ Generic_nRF52832.name=Generic nRF52832
 
 Generic_nRF52832.upload.tool=openocd
 Generic_nRF52832.upload.target=nrf52
+Generic_nRF52832.upload.jlink_device=nRF52832_xxAA
 Generic_nRF52832.upload.maximum_size=507904
 
 Generic_nRF52832.bootloader.tool=openocd
@@ -42,7 +43,7 @@ Generic_nRF52832.build.variant=Generic
 Generic_nRF52832.build.variant_system_lib=
 Generic_nRF52832.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52832.build.ldscript=nrf52_xxaa.ld
-Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF52832.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52832.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52832.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -73,15 +74,20 @@ Generic_nRF52832.menu.cppDbgLvl.info.build.cpp_debug=3
 Generic_nRF52832.menu.cppDbgLvl.debug=Debug
 Generic_nRF52832.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+Generic_nRF52832.menu.bootloader.none=No bootloader
+Generic_nRF52832.menu.bootloader.none.bootloader.flags=
+Generic_nRF52832.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 nRF52DK.name=Nordic nRF52832DK (PCA10040)
 
 nRF52DK.vid.0=0x1366
 nRF52DK.pid.0=0x1015
 
-nRF52DK.upload.tool=openocd
+nRF52DK.upload.tool=jlink
 nRF52DK.upload.protocol=jlink
 nRF52DK.upload.target=nrf52
+nRF52DK.upload.jlink_device=nRF52832_xxAA
 nRF52DK.upload.maximum_size=507904
 nRF52DK.upload.setup_command=transport select swd;
 
@@ -96,7 +102,7 @@ nRF52DK.build.variant_system_lib=
 nRF52DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52DK.build.ldscript=nrf52_xxaa.ld
 nRF52DK.build.lfclk_flags=-DUSE_LFXO
-nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF52DK.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52DK.menu.role.all=All
 nRF52DK.menu.role.all.build.nimble_flags=
@@ -120,11 +126,15 @@ nRF52DK.menu.cppDbgLvl.info.build.cpp_debug=3
 nRF52DK.menu.cppDbgLvl.debug=Debug
 nRF52DK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+nRF52DK.menu.bootloader.none=No bootloader
+nRF52DK.menu.bootloader.none.bootloader.flags=
+nRF52DK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
 feather52832.name=Adafruit Feather nRF52832
 
 feather52832.upload.tool=openocd
 feather52832.upload.target=nrf52
+feather52832.upload.jlink_device=nRF52832_xxAA
 feather52832.upload.maximum_size=454656
 
 feather52832.bootloader.tool=openocd
@@ -172,6 +182,7 @@ feather52832.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pa
 feather52832.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 feather52832.menu.bootloader.none=No bootloader
 feather52832.menu.bootloader.none.bootloader.flags=
+feather52832.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 feather52832.menu.bootloader.none.upload.maximum_size=507904
 
 
@@ -179,6 +190,7 @@ BT5032A-TB.name=Ebyte BT5032A-TB
 
 BT5032A-TB.upload.tool=openocd
 BT5032A-TB.upload.target=nrf52
+BT5032A-TB.upload.jlink_device=nRF52832_xxAA
 BT5032A-TB.upload.maximum_size=507904
 
 BT5032A-TB.bootloader.tool=openocd
@@ -218,6 +230,7 @@ BT5032A-TB.menu.cppDbgLvl.debug.build.cpp_debug=4
 
 BT5032A-TB.menu.bootloader.none=No bootloader
 BT5032A-TB.menu.bootloader.none.bootloader.flags=
+BT5032A-TB.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 BT5032A-TB.menu.bootloader.adafruit=Adafruit (No softdevice)
 BT5032A-TB.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
 BT5032A-TB.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
@@ -231,6 +244,7 @@ bluey.name=Electronut labs bluey
 
 bluey.upload.tool=openocd
 bluey.upload.target=nrf52
+bluey.upload.jlink_device=nRF52832_xxAA
 bluey.upload.maximum_size=507904
 
 bluey.bootloader.tool=openocd
@@ -243,7 +257,7 @@ bluey.build.variant=bluey
 bluey.build.variant_system_lib=
 bluey.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 bluey.build.ldscript=nrf52_xxaa.ld
-bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+bluey.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 bluey.menu.lfclk.lfxo=Crystal Oscillator
 bluey.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -274,11 +288,16 @@ bluey.menu.cppDbgLvl.info.build.cpp_debug=3
 bluey.menu.cppDbgLvl.debug=Debug
 bluey.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+bluey.menu.bootloader.none=No bootloader
+bluey.menu.bootloader.none.bootloader.flags=
+bluey.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 hackaBLE.name=Electronut labs hackaBLE
 
 hackaBLE.upload.tool=openocd
 hackaBLE.upload.target=nrf52
+hackaBLE.upload.jlink_device=nRF52832_xxAA
 hackaBLE.upload.maximum_size=507904
 
 hackaBLE.bootloader.tool=openocd
@@ -291,7 +310,7 @@ hackaBLE.build.variant=hackaBLE
 hackaBLE.build.variant_system_lib=
 hackaBLE.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 hackaBLE.build.ldscript=nrf52_xxaa.ld
-hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+hackaBLE.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 hackaBLE.menu.lfclk.lfxo=Crystal Oscillator
 hackaBLE.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -322,11 +341,16 @@ hackaBLE.menu.cppDbgLvl.info.build.cpp_debug=3
 hackaBLE.menu.cppDbgLvl.debug=Debug
 hackaBLE.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+hackaBLE.menu.bootloader.none=No bootloader
+hackaBLE.menu.bootloader.none.bootloader.flags=
+hackaBLE.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 hackaBLE_v2.name=Electronut labs hackaBLE_v2
 
 hackaBLE_v2.upload.tool=openocd
 hackaBLE_v2.upload.target=nrf52
+hackaBLE_v2.upload.jlink_device=nRF52832_xxAA
 hackaBLE_v2.upload.maximum_size=507904
 
 hackaBLE_v2.bootloader.tool=openocd
@@ -339,7 +363,7 @@ hackaBLE_v2.build.variant=hackaBLE_v2
 hackaBLE_v2.build.variant_system_lib=
 hackaBLE_v2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 hackaBLE_v2.build.ldscript=nrf52_xxaa.ld
-hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+hackaBLE_v2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 hackaBLE_v2.menu.lfclk.lfxo=Crystal Oscillator
 hackaBLE_v2.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -370,6 +394,10 @@ hackaBLE_v2.menu.cppDbgLvl.info.build.cpp_debug=3
 hackaBLE_v2.menu.cppDbgLvl.debug=Debug
 hackaBLE_v2.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+hackaBLE_v2.menu.bootloader.none=No bootloader
+hackaBLE_v2.menu.bootloader.none.bootloader.flags=
+hackaBLE_v2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 Blend2.name=RedBear BLE Nano 2
 
@@ -378,6 +406,7 @@ Blend2.pid.0=0x0d28
 
 Blend2.upload.tool=openocd
 Blend2.upload.target=nrf52
+Blend2.upload.jlink_device=nRF52832_xxAA
 Blend2.upload.maximum_size=507904
 Blend2.upload.protocol=cmsis-dap
 Blend2.upload.setup_command=transport select swd;
@@ -393,7 +422,7 @@ Blend2.build.variant_system_lib=
 Blend2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Blend2.build.ldscript=nrf52_xxaa.ld
 Blend2.build.lfclk_flags=-DUSE_LFXO
-Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Blend2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Blend2.menu.role.all=All
 Blend2.menu.role.all.build.nimble_flags=
@@ -417,6 +446,10 @@ Blend2.menu.cppDbgLvl.info.build.cpp_debug=3
 Blend2.menu.cppDbgLvl.debug=Debug
 Blend2.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+Blend2.menu.bootloader.none=No bootloader
+Blend2.menu.bootloader.none.bootloader.flags=
+Blend2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 BLENano2.name=RedBear BLE Nano 2
 
@@ -426,6 +459,7 @@ BLENano2.pid.0=0x0d28
 BLENano2.upload.tool=openocd
 BLENano2.upload.protocol=cmsis-dap
 BLENano2.upload.target=nrf52
+BLENano2.upload.jlink_device=nRF52832_xxAA
 BLENano2.upload.maximum_size=507904
 BLENano2.upload.setup_command=transport select swd;
 
@@ -440,7 +474,7 @@ BLENano2.build.variant_system_lib=
 BLENano2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BLENano2.build.ldscript=nrf52_xxaa.ld
 BLENano2.build.lfclk_flags=-DUSE_LFXO
-BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BLENano2.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BLENano2.menu.role.all=All
 BLENano2.menu.role.all.build.nimble_flags=
@@ -464,6 +498,10 @@ BLENano2.menu.cppDbgLvl.info.build.cpp_debug=3
 BLENano2.menu.cppDbgLvl.debug=Debug
 BLENano2.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+BLENano2.menu.bootloader.none=No bootloader
+BLENano2.menu.bootloader.none.bootloader.flags=
+BLENano2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 # nRF52840 variants
 ###################
@@ -472,6 +510,7 @@ Generic_nRF52840.name=Generic nRF52840
 
 Generic_nRF52840.upload.tool=openocd
 Generic_nRF52840.upload.target=nrf52
+Generic_nRF52840.upload.jlink_device=nRF52840_xxAA
 Generic_nRF52840.upload.maximum_size=1032192
 
 Generic_nRF52840.bootloader.tool=openocd
@@ -484,7 +523,7 @@ Generic_nRF52840.build.variant=Generic
 Generic_nRF52840.build.variant_system_lib=
 Generic_nRF52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52840.build.ldscript=nrf52840_xxaa.ld
-Generic_nRF52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52840.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52840.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -515,14 +554,19 @@ Generic_nRF52840.menu.cppDbgLvl.info.build.cpp_debug=3
 Generic_nRF52840.menu.cppDbgLvl.debug=Debug
 Generic_nRF52840.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+Generic_nRF52840.menu.bootloader.none=No bootloader
+Generic_nRF52840.menu.bootloader.none.bootloader.flags=
+Generic_nRF52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 nRF52840_DK.name=Nordic nRF52840 DK
 nRF52840_DK.vid.0=0x1366
 nRF52840_DK.pid.0=0x1015
 
-nRF52840_DK.upload.tool=openocd
+nRF52840_DK.upload.tool=jlink
 nRF52840_DK.upload.protocol=jlink
 nRF52840_DK.upload.target=nrf52
+nRF52840_DK.upload.jlink_device=nRF52840_xxAA
 nRF52840_DK.upload.maximum_size=1032192
 nRF52840_DK.upload.setup_command=transport select swd;
 
@@ -537,7 +581,7 @@ nRF52840_DK.build.variant_system_lib=
 nRF52840_DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52840_DK.build.ldscript=nrf52840_xxaa.ld
 nRF52840_DK.build.lfclk_flags=-DUSE_LFXO
-nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF52840_DK.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52840_DK.menu.role.all=All
 nRF52840_DK.menu.role.all.build.nimble_flags=
@@ -561,8 +605,12 @@ nRF52840_DK.menu.cppDbgLvl.info.build.cpp_debug=3
 nRF52840_DK.menu.cppDbgLvl.debug=Debug
 nRF52840_DK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+nRF52840_DK.menu.bootloader.none=No bootloader
+nRF52840_DK.menu.bootloader.none.bootloader.flags=
+nRF52840_DK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
-nRF52840_dongle.name=nRF52840_dongle
+
+nRF52840_dongle.name=nRF52840 Dongle
 
 nRF52840_dongle.vid.0=0x1915
 nRF52840_dongle.pid.0=0x521B
@@ -571,6 +619,7 @@ nRF52840_dongle.pid.1=0x521F
 
 nRF52840_dongle.upload.tool=nrfutil
 nRF52840_dongle.upload.target=nrf52
+nRF52840_dongle.upload.jlink_device=nRF52840_xxAA
 nRF52840_dongle.upload.protocol=nrfutil
 nRF52840_dongle.upload.maximum_size=897024
 
@@ -589,7 +638,7 @@ nRF52840_dongle.build.pid=0x521B
 nRF52840_dongle.build.usb_manufacturer="Nordic Semiconductor"
 nRF52840_dongle.build.usb_product="nRF52840 Dongle"
 nRF52840_dongle.build.lfclk_flags=-DUSE_LFXO
-nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_NORDIC_BL {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF52840_dongle.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 nRF52840_dongle.build.dfu_pattern={nrfutil.dfu_pattern}
 
 nRF52840_dongle.menu.role.all=All
@@ -614,6 +663,10 @@ nRF52840_dongle.menu.cppDbgLvl.info.build.cpp_debug=3
 nRF52840_dongle.menu.cppDbgLvl.debug=Debug
 nRF52840_dongle.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+nRF52840_dongle.menu.bootloader.none=Nordic bootloader
+nRF52840_dongle.menu.bootloader.none.bootloader.flags=-DUSE_NORDIC_BL
+nRF52840_dongle.menu.bootloader.none.build.bootloader.file=
+
 
 BT5040.name=E104-BT5040
 
@@ -624,6 +677,7 @@ BT5040.pid.1=0x521F
 
 BT5040.upload.tool=nrfutil
 BT5040.upload.target=nrf52
+BT5040.upload.jlink_device=nRF52840_xxAA
 BT5040.upload.protocol=nrfutil
 BT5040.upload.maximum_size=897024
 
@@ -642,7 +696,7 @@ BT5040.build.pid=0x521B
 BT5040.build.usb_manufacturer="Ebyte"
 BT5040.build.usb_product="E104-BT5040UA"
 BT5040.build.lfclk_flags=-DUSE_LFXO
-BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA -DUSE_NORDIC_BL {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BT5040.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 BT5040.build.dfu_pattern={nrfutil.dfu_pattern}
 
 BT5040.menu.role.all=All
@@ -667,6 +721,10 @@ BT5040.menu.cppDbgLvl.info.build.cpp_debug=3
 BT5040.menu.cppDbgLvl.debug=Debug
 BT5040.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+BT5040.menu.bootloader.none=Nordic bootloader
+BT5040.menu.bootloader.none.bootloader.flags=-DUSE_NORDIC_BL
+BT5040.menu.bootloader.none.build.bootloader.file=
+
 
 feather52840.name=Adafruit Feather nRF52840 Express
 
@@ -681,6 +739,7 @@ feather52840.pid.3=0x802A
 
 feather52840.upload.tool=openocd
 feather52840.upload.target=nrf52
+feather52840.upload.jlink_device=nRF52840_xxAA
 feather52840.upload.use_1200bps_touch=true
 feather52840.upload.wait_for_upload_port=true
 feather52840.upload.maximum_size=978944
@@ -734,6 +793,7 @@ feather52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pa
 feather52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 feather52840.menu.bootloader.none=No bootloader
 feather52840.menu.bootloader.none.bootloader.flags=
+feather52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 feather52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
@@ -750,6 +810,7 @@ feather52840sense.pid.3=0x8088
 
 feather52840sense.upload.tool=openocd
 feather52840sense.upload.target=nrf52
+feather52840sense.upload.jlink_device=nRF52840_xxAA
 feather52840sense.upload.use_1200bps_touch=true
 feather52840sense.upload.wait_for_upload_port=true
 feather52840sense.upload.maximum_size=978944
@@ -803,6 +864,7 @@ feather52840sense.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.d
 feather52840sense.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 feather52840sense.menu.bootloader.none=No bootloader
 feather52840sense.menu.bootloader.none.bootloader.flags=
+feather52840sense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 feather52840sense.menu.bootloader.none.upload.maximum_size=1032192
 
 
@@ -819,6 +881,7 @@ itsybitsy52840.pid.3=0x8052
 
 itsybitsy52840.upload.tool=openocd
 itsybitsy52840.upload.target=nrf52
+itsybitsy52840.upload.jlink_device=nRF52840_xxAA
 itsybitsy52840.upload.use_1200bps_touch=true
 itsybitsy52840.upload.wait_for_upload_port=true
 itsybitsy52840.upload.maximum_size=978944
@@ -872,6 +935,7 @@ itsybitsy52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_
 itsybitsy52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 itsybitsy52840.menu.bootloader.none=No bootloader
 itsybitsy52840.menu.bootloader.none.bootloader.flags=
+itsybitsy52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 itsybitsy52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
@@ -886,6 +950,7 @@ cplaynrf52840.pid.2=0x8046
 
 cplaynrf52840.upload.tool=openocd
 cplaynrf52840.upload.target=nrf52
+cplaynrf52840.upload.jlink_device=nRF52840_xxAA
 cplaynrf52840.upload.use_1200bps_touch=true
 cplaynrf52840.upload.wait_for_upload_port=true
 cplaynrf52840.upload.maximum_size=978944
@@ -939,6 +1004,7 @@ cplaynrf52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_p
 cplaynrf52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 cplaynrf52840.menu.bootloader.none=No bootloader
 cplaynrf52840.menu.bootloader.none.bootloader.flags=
+cplaynrf52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 cplaynrf52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
@@ -953,6 +1019,7 @@ cluenrf52840.pid.2=0x8072
 
 cluenrf52840.upload.tool=openocd
 cluenrf52840.upload.target=nrf52
+cluenrf52840.upload.jlink_device=nRF52840_xxAA
 cluenrf52840.upload.use_1200bps_touch=true
 cluenrf52840.upload.wait_for_upload_port=true
 cluenrf52840.upload.maximum_size=978944
@@ -1006,6 +1073,7 @@ cluenrf52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pa
 cluenrf52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
 cluenrf52840.menu.bootloader.none=No bootloader
 cluenrf52840.menu.bootloader.none.bootloader.flags=
+cluenrf52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 cluenrf52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
@@ -1016,6 +1084,7 @@ Generic_nRF52833.name=Generic nRF52833
 
 Generic_nRF52833.upload.tool=openocd
 Generic_nRF52833.upload.target=nrf52
+Generic_nRF52833.upload.jlink_device=nRF52833_xxAA
 Generic_nRF52833.upload.maximum_size=507904
 
 Generic_nRF52833.bootloader.tool=openocd
@@ -1028,7 +1097,7 @@ Generic_nRF52833.build.variant=Generic
 Generic_nRF52833.build.variant_system_lib=
 Generic_nRF52833.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 Generic_nRF52833.build.ldscript=nrf52833_xxaa.ld
-Generic_nRF52833.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF52833.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF52833.menu.lfclk.lfxo=Crystal Oscillator
 Generic_nRF52833.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
@@ -1059,14 +1128,19 @@ Generic_nRF52833.menu.cppDbgLvl.info.build.cpp_debug=3
 Generic_nRF52833.menu.cppDbgLvl.debug=Debug
 Generic_nRF52833.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+Generic_nRF52833.menu.bootloader.none=No bootloader
+Generic_nRF52833.menu.bootloader.none.bootloader.flags=
+Generic_nRF52833.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 nRF52833DK.name=nRF52833 DK (PCA10100)
 nRF52833DK.vid.0=0x1366
 nRF52833DK.pid.0=0x1015
 
-nRF52833DK.upload.tool=openocd
+nRF52833DK.upload.tool=jlink
 nRF52833DK.upload.protocol=jlink
 nRF52833DK.upload.target=nrf52
+nRF52833DK.upload.jlink_device=nRF52833_xxAA
 nRF52833DK.upload.maximum_size=507904
 nRF52833DK.upload.setup_command=transport select swd;
 
@@ -1081,7 +1155,7 @@ nRF52833DK.build.variant_system_lib=
 nRF52833DK.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 nRF52833DK.build.ldscript=nrf52833_xxaa.ld
 nRF52833DK.build.lfclk_flags=-DUSE_LFXO
-nRF52833DK.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF52833DK.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF52833DK.menu.role.all=All
 nRF52833DK.menu.role.all.build.nimble_flags=
@@ -1105,6 +1179,10 @@ nRF52833DK.menu.cppDbgLvl.info.build.cpp_debug=3
 nRF52833DK.menu.cppDbgLvl.debug=Debug
 nRF52833DK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+nRF52833DK.menu.bootloader.none=No bootloader
+nRF52833DK.menu.bootloader.none.bootloader.flags=
+nRF52833DK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 BBCmicrobitV2.name=BBC micro:bit V2
 
@@ -1114,6 +1192,7 @@ BBCmicrobitV2.pid.0=0x0204
 BBCmicrobitV2.upload.tool=openocd
 BBCmicrobitV2.upload.protocol=cmsis-dap
 BBCmicrobitV2.upload.target=nrf52
+BBCmicrobitV2.upload.jlink_device=nRF52833_xxAA
 BBCmicrobitV2.upload.maximum_size=507904
 BBCmicrobitV2.upload.setup_command=transport select swd;
 
@@ -1128,7 +1207,7 @@ BBCmicrobitV2.build.variant_system_lib=
 BBCmicrobitV2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 BBCmicrobitV2.build.ldscript=nrf52833_xxaa.ld
 BBCmicrobitV2.build.lfclk_flags=-DUSE_LFSYNT
-BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BBCmicrobitV2.build.extra_flags=-DNRF52_SERIES -DNRF52833_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BBCmicrobitV2.menu.role.all=All
 BBCmicrobitV2.menu.role.all.build.nimble_flags=
@@ -1152,6 +1231,10 @@ BBCmicrobitV2.menu.cppDbgLvl.info.build.cpp_debug=3
 BBCmicrobitV2.menu.cppDbgLvl.debug=Debug
 BBCmicrobitV2.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+BBCmicrobitV2.menu.bootloader.none=No bootloader
+BBCmicrobitV2.menu.bootloader.none.bootloader.flags=
+BBCmicrobitV2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 # nRF51822 variants
 ###################
@@ -1160,6 +1243,7 @@ Generic_nRF51822.name=Generic nRF51822
 
 Generic_nRF51822.upload.tool=openocd
 Generic_nRF51822.upload.target=nrf52
+Generic_nRF51822.upload.jlink_device=nRF51802_{build.chip}
 Generic_nRF51822.upload.maximum_size=258048
 
 Generic_nRF51822.bootloader.tool=openocd
@@ -1172,7 +1256,7 @@ Generic_nRF51822.build.variant=Generic
 Generic_nRF51822.build.variant_system_lib=
 Generic_nRF51822.build.float_flags=
 Generic_nRF51822.build.ldscript=nrf51_{build.chip}.ld
-Generic_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Generic_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Generic_nRF51822.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Generic_nRF51822.menu.chip.xxaa.build.chip=xxaa
@@ -1210,12 +1294,17 @@ Generic_nRF51822.menu.cppDbgLvl.info.build.cpp_debug=3
 Generic_nRF51822.menu.cppDbgLvl.debug=Debug
 Generic_nRF51822.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+Generic_nRF51822.menu.bootloader.none=No bootloader
+Generic_nRF51822.menu.bootloader.none.bootloader.flags=
+Generic_nRF51822.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 nRF51DK.name=Nordic nRF51822DK (PCA10028)
 
-nRF51DK.upload.tool=openocd
+nRF51DK.upload.tool=jlink
 nRF51DK.upload.protocol=jlink
 nRF51DK.upload.target=nrf51
+nRF51DK.upload.jlink_device=nRF51802_xxaa
 nRF51DK.upload.maximum_size=258048
 nRF51DK.upload.setup_command=transport select swd;
 
@@ -1230,7 +1319,7 @@ nRF51DK.build.variant_system_lib=
 nRF51DK.build.float_flags=
 nRF51DK.build.ldscript=nrf51_xxaa.ld
 nRF51DK.build.lfclk_flags=-DUSE_LFXO
-nRF51DK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF51DK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF51DK.menu.role.all=All
 nRF51DK.menu.role.all.build.nimble_flags=
@@ -1254,6 +1343,10 @@ nRF51DK.menu.cppDbgLvl.info.build.cpp_debug=3
 nRF51DK.menu.cppDbgLvl.debug=Debug
 nRF51DK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+nRF51DK.menu.bootloader.none=No bootloader
+nRF51DK.menu.bootloader.none.bootloader.flags=
+nRF51DK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 BBCmicrobit.name=BBC micro:bit
 BBCmicrobit.vid.0=0x0d28
@@ -1262,6 +1355,7 @@ BBCmicrobit.pid.0=0x0204
 BBCmicrobit.upload.tool=openocd
 BBCmicrobit.upload.protocol=cmsis-dap
 BBCmicrobit.upload.target=nrf51
+BBCmicrobit.upload.jlink_device=nRF51802_xxaa
 BBCmicrobit.upload.maximum_size=258048
 BBCmicrobit.upload.setup_command=transport select swd;
 
@@ -1276,7 +1370,7 @@ BBCmicrobit.build.variant_system_lib=
 BBCmicrobit.build.float_flags=
 BBCmicrobit.build.ldscript=nrf51_xxaa.ld
 BBCmicrobit.build.lfclk_flags=-DUSE_LFSYNT
-BBCmicrobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BBCmicrobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BBCmicrobit.menu.role.all=All
 BBCmicrobit.menu.role.all.build.nimble_flags=
@@ -1300,11 +1394,16 @@ BBCmicrobit.menu.cppDbgLvl.info.build.cpp_debug=3
 BBCmicrobit.menu.cppDbgLvl.debug=Debug
 BBCmicrobit.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+BBCmicrobit.menu.bootloader.none=No bootloader
+BBCmicrobit.menu.bootloader.none.bootloader.flags=
+BBCmicrobit.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 Beacon_PCA20006.name=Nordic Beacon Kit (PCA20006)
 
-Beacon_PCA20006.upload.tool=openocd
+Beacon_PCA20006.upload.tool=jlink
 Beacon_PCA20006.upload.target=nrf51
+Beacon_PCA20006.upload.jlink_device=nRF51802_xxaa
 Beacon_PCA20006.upload.maximum_size=258048
 
 Beacon_PCA20006.bootloader.tool=openocd
@@ -1318,7 +1417,7 @@ Beacon_PCA20006.build.variant_system_lib=
 Beacon_PCA20006.build.float_flags=
 Beacon_PCA20006.build.ldscript=nrf51_xxaa.ld
 Beacon_PCA20006.build.lfclk_flags=-DUSE_LFXO
-Beacon_PCA20006.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Beacon_PCA20006.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Beacon_PCA20006.menu.role.all=All
 Beacon_PCA20006.menu.role.all.build.nimble_flags=
@@ -1342,11 +1441,16 @@ Beacon_PCA20006.menu.cppDbgLvl.info.build.cpp_debug=3
 Beacon_PCA20006.menu.cppDbgLvl.debug=Debug
 Beacon_PCA20006.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+Beacon_PCA20006.menu.bootloader.none=No bootloader
+Beacon_PCA20006.menu.bootloader.none.bootloader.flags=
+Beacon_PCA20006.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 BLENano.name=RedBearLab BLE Nano
 
 BLENano.upload.tool=openocd
 BLENano.upload.target=nrf51
+BLENano.upload.jlink_device=nRF51802_{build.chip}
 BLENano.upload.maximum_size=258048
 BLENano.upload.protocol=cmsis-dap
 BLENano.upload.setup_command=transport select swd;
@@ -1362,7 +1466,7 @@ BLENano.build.variant_system_lib=
 BLENano.build.float_flags=
 BLENano.build.ldscript=nrf51_{build.chip}.ld
 BLENano.build.lfclk_flags=-DUSE_LFXO
-BLENano.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BLENano.build.extra_flags=-DNRF51 {build.ram_size} {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BLENano.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 BLENano.menu.chip.xxaa.build.chip=xxaa
@@ -1393,11 +1497,16 @@ BLENano.menu.cppDbgLvl.info.build.cpp_debug=3
 BLENano.menu.cppDbgLvl.debug=Debug
 BLENano.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+BLENano.menu.bootloader.none=No bootloader
+BLENano.menu.bootloader.none.bootloader.flags=
+BLENano.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 BluzDK.name=BluzDK
 
 BluzDK.upload.tool=openocd
 BluzDK.upload.target=nrf51
+BluzDK.upload.jlink_device=nRF51802_xxaa
 BluzDK.upload.maximum_size=258048
 
 BluzDK.bootloader.tool=openocd
@@ -1411,7 +1520,7 @@ BluzDK.build.variant_system_lib=
 BluzDK.build.float_flags=
 BluzDK.build.ldscript=nrf51_xxaa.ld
 BluzDK.build.lfclk_flags=-DUSE_LFXO
-BluzDK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+BluzDK.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 BluzDK.menu.role.all=All
 BluzDK.menu.role.all.build.nimble_flags=
@@ -1435,6 +1544,10 @@ BluzDK.menu.cppDbgLvl.info.build.cpp_debug=3
 BluzDK.menu.cppDbgLvl.debug=Debug
 BluzDK.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+BluzDK.menu.bootloader.none=No bootloader
+BluzDK.menu.bootloader.none.bootloader.flags=
+BluzDK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 CalliopeMini.name=Calliope mini
 
@@ -1444,6 +1557,7 @@ CalliopeMini.pid.0=0x0204
 CalliopeMini.upload.tool=openocd
 CalliopeMini.upload.protocol=cmsis-dap
 CalliopeMini.upload.target=nrf51
+CalliopeMini.upload.jlink_device=nRF51802_xxaa
 CalliopeMini.upload.maximum_size=258048
 CalliopeMini.upload.setup_command=transport select swd;
 
@@ -1458,7 +1572,7 @@ CalliopeMini.build.variant_system_lib=
 CalliopeMini.build.float_flags=
 CalliopeMini.build.ldscript=nrf51_xxaa.ld
 CalliopeMini.build.lfclk_flags=-DUSE_LFRC
-CalliopeMini.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+CalliopeMini.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 CalliopeMini.menu.role.all=All
 CalliopeMini.menu.role.all.build.nimble_flags=
@@ -1482,11 +1596,16 @@ CalliopeMini.menu.cppDbgLvl.info.build.cpp_debug=3
 CalliopeMini.menu.cppDbgLvl.debug=Debug
 CalliopeMini.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+CalliopeMini.menu.bootloader.none=No bootloader
+CalliopeMini.menu.bootloader.none.bootloader.flags=
+CalliopeMini.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 ng_beacon.name=ng-beacon
 
 ng_beacon.upload.tool=openocd
 ng_beacon.upload.target=nrf51
+ng_beacon.upload.jlink_device=nRF51802_xxaa
 ng_beacon.upload.maximum_size=258048
 
 ng_beacon.bootloader.tool=openocd
@@ -1500,7 +1619,7 @@ ng_beacon.build.variant_system_lib=
 ng_beacon.build.float_flags=
 ng_beacon.build.ldscript=nrf51_xxaa.ld
 ng_beacon.build.lfclk_flags=-DUSE_LFRC
-ng_beacon.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+ng_beacon.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 ng_beacon.menu.role.all=All
 ng_beacon.menu.role.all.build.nimble_flags=
@@ -1524,13 +1643,18 @@ ng_beacon.menu.cppDbgLvl.info.build.cpp_debug=3
 ng_beacon.menu.cppDbgLvl.debug=Debug
 ng_beacon.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+ng_beacon.menu.bootloader.none=No bootloader
+ng_beacon.menu.bootloader.none.bootloader.flags=
+ng_beacon.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 nRF51Dongle.name=Nordic nRF51 Dongle
 
-nRF51Dongle.upload.tool=openocd
+nRF51Dongle.upload.tool=jlink
 nRF51Dongle.upload.target=nrf51
+nRF51Dongle.upload.jlink_device=nRF51802_xxac
 nRF51Dongle.upload.maximum_size=258048
-nRF51Dongle.upload.protocol=cmsis-dap
+nRF51Dongle.upload.protocol=jlink
 nRF51Dongle.upload.setup_command=transport select swd;
 
 nRF51Dongle.bootloader.tool=openocd
@@ -1544,7 +1668,7 @@ nRF51Dongle.build.variant_system_lib=
 nRF51Dongle.build.float_flags=
 nRF51Dongle.build.ldscript=nrf51_xxac.ld
 nRF51Dongle.build.lfclk_flags=-DUSE_LFXO
-nRF51Dongle.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nRF51Dongle.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 nRF51Dongle.menu.role.all=All
 nRF51Dongle.menu.role.all.build.nimble_flags=
@@ -1568,11 +1692,16 @@ nRF51Dongle.menu.cppDbgLvl.info.build.cpp_debug=3
 nRF51Dongle.menu.cppDbgLvl.debug=Debug
 nRF51Dongle.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+nRF51Dongle.menu.bootloader.none=No bootloader
+nRF51Dongle.menu.bootloader.none.bootloader.flags=
+nRF51Dongle.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 OSHChip.name=OSHChip
 
 OSHChip.upload.tool=openocd
 OSHChip.upload.target=nrf51
+OSHChip.upload.jlink_device=nRF51802_xxac
 OSHChip.upload.maximum_size=258048
 
 OSHChip.bootloader.tool=openocd
@@ -1586,7 +1715,7 @@ OSHChip.build.variant_system_lib=
 OSHChip.build.float_flags=
 OSHChip.build.ldscript=nrf51_xxac.ld
 OSHChip.build.lfclk_flags=-DUSE_LFRC
-OSHChip.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+OSHChip.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=32 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 OSHChip.menu.role.all=All
 OSHChip.menu.role.all.build.nimble_flags=
@@ -1610,11 +1739,16 @@ OSHChip.menu.cppDbgLvl.info.build.cpp_debug=3
 OSHChip.menu.cppDbgLvl.debug=Debug
 OSHChip.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+OSHChip.menu.bootloader.none=No bootloader
+OSHChip.menu.bootloader.none.bootloader.flags=
+OSHChip.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 RedBearLab_nRF51822.name=RedBearLab nRF51822
 
 RedBearLab_nRF51822.upload.tool=openocd
 RedBearLab_nRF51822.upload.target=nrf51
+RedBearLab_nRF51822.upload.jlink_device=nRF51802_{build.chip}
 RedBearLab_nRF51822.upload.maximum_size=258048
 RedBearLab_nRF51822.upload.protocol=cmsis-dap
 RedBearLab_nRF51822.upload.setup_command=transport select swd;
@@ -1630,7 +1764,7 @@ RedBearLab_nRF51822.build.variant_system_lib=
 RedBearLab_nRF51822.build.float_flags=
 RedBearLab_nRF51822.build.ldscript=nrf51_{build.chip}.ld
 RedBearLab_nRF51822.build.lfclk_flags=-DUSE_LFXO
-RedBearLab_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+RedBearLab_nRF51822.build.extra_flags=-DNRF51 {build.ram_size} {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 RedBearLab_nRF51822.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 RedBearLab_nRF51822.menu.chip.xxaa.build.chip=xxaa
@@ -1661,6 +1795,10 @@ RedBearLab_nRF51822.menu.cppDbgLvl.info.build.cpp_debug=3
 RedBearLab_nRF51822.menu.cppDbgLvl.debug=Debug
 RedBearLab_nRF51822.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+RedBearLab_nRF51822.menu.bootloader.none=No bootloader
+RedBearLab_nRF51822.menu.bootloader.none.bootloader.flags=
+RedBearLab_nRF51822.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 Sinobit.name=Sino:bit
 
@@ -1669,6 +1807,7 @@ Sinobit.pid.0=0x0204
 
 Sinobit.upload.tool=openocd
 Sinobit.upload.target=nrf51
+Sinobit.upload.jlink_device=nRF51802_xxaa
 Sinobit.upload.maximum_size=258048
 Sinobit.upload.protocol=cmsis-dap
 Sinobit.upload.setup_command=transport select swd;
@@ -1684,7 +1823,7 @@ Sinobit.build.variant_system_lib=
 Sinobit.build.float_flags=
 Sinobit.build.ldscript=nrf51_xxaa.ld
 Sinobit.build.lfclk_flags=-DUSE_LFRC
-Sinobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Sinobit.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Sinobit.menu.role.all=All
 Sinobit.menu.role.all.build.nimble_flags=
@@ -1708,11 +1847,16 @@ Sinobit.menu.cppDbgLvl.info.build.cpp_debug=3
 Sinobit.menu.cppDbgLvl.debug=Debug
 Sinobit.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+Sinobit.menu.bootloader.none=No bootloader
+Sinobit.menu.bootloader.none.bootloader.flags=
+Sinobit.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 TinyBLE.name=TinyBLE
 
 TinyBLE.upload.tool=openocd
 TinyBLE.upload.target=nrf51
+TinyBLE.upload.jlink_device=nRF51802_xxaa
 TinyBLE.upload.maximum_size=258048
 TinyBLE.upload.protocol=cmsis-dap
 TinyBLE.upload.setup_command=transport select swd;
@@ -1728,7 +1872,7 @@ TinyBLE.build.variant_system_lib=
 TinyBLE.build.float_flags=
 TinyBLE.build.ldscript=nrf51_xxaa.ld
 TinyBLE.build.lfclk_flags=-DUSE_LFXO
-TinyBLE.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+TinyBLE.build.extra_flags=-DNRF51 -DDEVICE_RAM_SIZE=16 {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 TinyBLE.menu.role.all=All
 TinyBLE.menu.role.all.build.nimble_flags=
@@ -1752,11 +1896,16 @@ TinyBLE.menu.cppDbgLvl.info.build.cpp_debug=3
 TinyBLE.menu.cppDbgLvl.debug=Debug
 TinyBLE.menu.cppDbgLvl.debug.build.cpp_debug=4
 
+TinyBLE.menu.bootloader.none=No bootloader
+TinyBLE.menu.bootloader.none.bootloader.flags=
+TinyBLE.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
 
 Waveshare_BLE400.name=Waveshare BLE400
 
 Waveshare_BLE400.upload.tool=openocd
 Waveshare_BLE400.upload.target=nrf51
+Waveshare_BLE400.upload.jlink_device=nRF51802_{build.chip}
 Waveshare_BLE400.upload.maximum_size=258048
 
 Waveshare_BLE400.bootloader.tool=openocd
@@ -1770,7 +1919,7 @@ Waveshare_BLE400.build.variant_system_lib=
 Waveshare_BLE400.build.float_flags=
 Waveshare_BLE400.build.ldscript=nrf51_{build.chip}.ld
 Waveshare_BLE400.build.lfclk_flags=-DUSE_LFXO
-Waveshare_BLE400.build.extra_flags=-DNRF51 {build.ram_size} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+Waveshare_BLE400.build.extra_flags=-DNRF51 {build.ram_size} {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
 Waveshare_BLE400.menu.chip.xxaa=16 kB RAM, 256 kB flash (xxaa)
 Waveshare_BLE400.menu.chip.xxaa.build.chip=xxaa
@@ -1800,3 +1949,7 @@ Waveshare_BLE400.menu.cppDbgLvl.info=Info
 Waveshare_BLE400.menu.cppDbgLvl.info.build.cpp_debug=3
 Waveshare_BLE400.menu.cppDbgLvl.debug=Debug
 Waveshare_BLE400.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+Waveshare_BLE400.menu.bootloader.none=No bootloader
+Waveshare_BLE400.menu.bootloader.none.bootloader.flags=
+Waveshare_BLE400.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex

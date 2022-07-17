@@ -53,7 +53,7 @@ compiler.define=-DARDUINO=
 build.extra_flags=
 build.lfclk_flags=-DUSE_LFRC
 build.dfu_pattern=echo Not building DFU package
-build.bootloader.file=variants/Generic/none_bootloader.hex
+build.bootloader.file=tools/none_bootloader.hex
 build.flags.usb= -DUSBCON -DUSE_TINYUSB -DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
 
 nrfutil.dfu_pattern="{tools.nrfutil.cmd}" pkg generate --hw-version 52 --debug-mode --sd-req 0 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
@@ -129,6 +129,27 @@ recipe.output.tmp_file={build.project_name}.hex
 recipe.output.save_file={build.project_name}.{build.variant}.hex
 
 #
+# JLink sketch upload
+#
+tools.jlink.cmd=jlink_upload
+tools.jlink.cmd.windows=jlink_upload.bat
+tools.jlink.path={runtime.platform.path}/tools
+
+tools.jlink.upload.params.verbose=-d
+tools.jlink.upload.params.quiet=n
+tools.jlink.upload.pattern="{path}/{cmd}" "{build.path}/{build.project_name}.bin" {upload.jlink_device}
+
+tools.jlink.erase_cmd=JLinkExe
+tools.jlink.erase_cmd.windows=JLink.exe
+tools.jlink.erase.params.verbose=-d
+tools.jlink.erase.params.quiet=-n
+tools.jlink.erase.pattern={erase_cmd} -device {upload.jlink_device} -if SWD -speed auto -autoconnect 1 -NoGui 1 -CommanderScript "{runtime.platform.path}/tools/erase.jlink"
+
+tools.jlink.bootloader.params.verbose=-d
+tools.jlink.bootloader.params.quiet=n
+tools.jlink.bootloader.pattern="{path}/{cmd}" "{runtime.platform.path}/{build.bootloader.file}" {upload.jlink_device}
+
+#
 # OpenOCD sketch upload
 #
 tools.openocd.path={runtime.tools.openocd-0.11.0-4.path}/bin/
@@ -145,11 +166,11 @@ tools.openocd.program.pattern="{path}/{cmd}" {program.verbose} -f interface/{pro
 
 tools.openocd.erase.params.verbose=-d2
 tools.openocd.erase.params.quiet=-d0
-tools.openocd.erase.pattern=
+tools.openocd.erase.pattern="{path}/{cmd}" {erase.verbose} -f interface/{program.protocol}.cfg -c "{program.setup_command}" -f target/{upload.target}.cfg -c "init; halt; {upload.target} mass_erase; reset; shutdown;"
 
 tools.openocd.bootloader.params.verbose=-d2
 tools.openocd.bootloader.params.quiet=-d0
-tools.openocd.bootloader.pattern="{path}/{cmd}" {bootloader.verbose} -f interface/{program.protocol}.cfg -c "{program.setup_command}" -f target/{upload.target}.cfg -c "init; halt; {upload.target} mass_erase; program {runtime.platform.path}/{build.bootloader.file} verify reset; shutdown;"
+tools.openocd.bootloader.pattern="{path}/{cmd}" {bootloader.verbose} -f interface/{program.protocol}.cfg -c "{program.setup_command}" -f target/{upload.target}.cfg -c "init; halt; program {runtime.platform.path}/{build.bootloader.file} verify reset; shutdown;"
 
 #
 # blackmagic probe upload
@@ -176,8 +197,8 @@ tools.blackmagicprobe.program.pattern.windows="{path}{cmd}" -quiet -cd "{build.p
 
 tools.blackmagicprobe.bootloader.params.verbose=
 tools.blackmagicprobe.bootloader.params.quiet=-q --batch-silent
-tools.blackmagicprobe.bootloader.pattern="{path}{cmd}" -quiet -ex "target extended-remote {serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex "load {runtime.platform.path}/{build.bootloader.file}" -ex "echo \nBootloader flash complete!\n" -ex "detach" -ex "quit"
-tools.blackmagicprobe.bootloader.pattern.windows="{path}{cmd}" -quiet -ex "target extended-remote \\.\{serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "monitor erase mass" -ex load {runtime.platform.path}\{build.bootloader.file} -ex "echo \nBootloader flash complete!\n" -ex "detach" -ex "quit"
+tools.blackmagicprobe.bootloader.pattern="{path}{cmd}" -quiet -ex "target extended-remote {serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex "load {runtime.platform.path}/{build.bootloader.file}" -ex "echo \nBootloader flash complete!\n" -ex "detach" -ex "quit"
+tools.blackmagicprobe.bootloader.pattern.windows="{path}{cmd}" -quiet -ex "target extended-remote \\.\{serial.port}" -ex "monitor swdp_scan" -ex "attach 1" -ex load {runtime.platform.path}\{build.bootloader.file} -ex "echo \nBootloader flash complete!\n" -ex "detach" -ex "quit"
 
 #
 # nrfutil upload

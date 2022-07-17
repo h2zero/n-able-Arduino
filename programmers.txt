@@ -1,10 +1,10 @@
 jlink.name=J-Link
 jlink.communication=USB
-jlink.protocol=jlink
-jlink.program.protocol=jlink
-jlink.program.tool=openocd
-jlink.bootloader.tool=openocd
-jlink.program.setup_command=transport select swd; set WORKAREASIZE 0;
+jlink.protocol=
+jlink.program.protocol=
+jlink.program.tool=jlink
+jlink.bootloader.tool=jlink
+jlink.program.setup_command=;
 
 stlink.name=ST-Link V2
 stlink.communication=USB
