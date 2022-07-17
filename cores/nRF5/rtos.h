@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2015 Arduino LLC.  All right reserved.
+  Copyright (c) 2021 Ryan Powell.  All right reserved.
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -16,18 +16,24 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#pragma once
+#ifndef NABLERTOS_H
+#define NABLERTOS_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <stdint.h>
 
-extern void init(void);
-void enterSerialDfu(void);
-void systemPowerOff(void);
-void systemRestart(void);
-uint32_t getResetReason(void);
+class nableRtos {
+public:
+    nableRtos() {}
+    ~nableRtos() {}
+    uint32_t getIsrStackHwm();
+    uint32_t getMainTaskHwm();
+    uint32_t getFreeHeap();
+    uint32_t getIdleTaskHwm();
+    uint32_t getTimerTaskHwm();
+    uint32_t getBleHostTaskHwm();
+    uint32_t getBleLLTaskHwm();
+};
 
-#ifdef __cplusplus
-}
+extern nableRtos RTOS;
+
 #endif

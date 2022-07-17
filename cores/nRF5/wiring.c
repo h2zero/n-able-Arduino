@@ -123,12 +123,16 @@ void init( void )
 	NRF_WDT->TASKS_START = 1;  //Start the Watchdog timer
 }
 
-uint32_t readResetReason(void) {
+uint32_t getResetReason(void) {
     return _resetReason;
 }
 
 void systemPowerOff(void) {
     nrf_power_system_off(NRF_POWER);
+}
+
+void systemRestart(void) {
+    NVIC_SystemReset();
 }
 
 __attribute__ ((__weak__))

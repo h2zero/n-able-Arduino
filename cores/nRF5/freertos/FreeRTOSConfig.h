@@ -55,8 +55,8 @@
 #    ifndef CONFIG_RTOS_MAX_PRIORITIES
 #      define CONFIG_RTOS_MAX_PRIORITIES (3)
 #    endif
-#    ifndef CONFIG_RTOS_MIN_TASK_SIZE
-#      define CONFIG_RTOS_MIN_TASK_SIZE (48)
+#    ifndef CONFIG_RTOS_MIN_TASK_STACK_SIZE
+#      define CONFIG_RTOS_MIN_TASK_STACK_SIZE (48)
 #    endif
 #    ifndef CONFIG_RTOS_TIMER_QUEUE_LENGTH
 #      define CONFIG_RTOS_TIMER_QUEUE_LENGTH (6)
@@ -71,8 +71,8 @@
 #define CONFIG_RTOS_MAX_PRIORITIES (5)
 #endif
 
-#ifndef CONFIG_RTOS_MIN_TASK_SIZE
-#define CONFIG_RTOS_MIN_TASK_SIZE (120)
+#ifndef CONFIG_RTOS_MIN_TASK_STACK_SIZE
+#define CONFIG_RTOS_MIN_TASK_STACK_SIZE (120)
 #endif
 
 #ifndef CONFIG_RTOS_TIMER_QUEUE_LENGTH
@@ -97,7 +97,7 @@
 #define configCPU_CLOCK_HZ                                                        ( SystemCoreClock )
 #define configTICK_RATE_HZ                                                        CONFIG_RTOS_TICK_RATE_HZ
 #define configMAX_PRIORITIES                                                      CONFIG_RTOS_MAX_PRIORITIES
-#define configMINIMAL_STACK_SIZE                                                  CONFIG_RTOS_MIN_TASK_SIZE
+#define configMINIMAL_STACK_SIZE                                                  CONFIG_RTOS_MIN_TASK_STACK_SIZE
 #define configTOTAL_HEAP_SIZE                                                     ( 4096 ) //unused - modified heap_4 uses remaining available RAM
 #define configMAX_TASK_NAME_LEN                                                   ( 4 )
 #define configUSE_16_BIT_TICKS                                                    0

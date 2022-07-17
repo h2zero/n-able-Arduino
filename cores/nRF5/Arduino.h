@@ -39,8 +39,6 @@ void yield( void ) ;
 /* sketch */
 void setup( void ) ;
 void loop( void ) ;
-uint32_t get_isr_stack_hwm(void);
-uint32_t getMainTaskHwm(void);
 
 #include "WVariant.h"
 
@@ -136,6 +134,7 @@ uint32_t getMainTaskHwm(void);
 
 #ifdef __cplusplus
 #include "Uart.h"
+#include "rtos.h"
 #endif // __cplusplus
 
 #endif // Arduino_h

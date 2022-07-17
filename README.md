@@ -18,6 +18,10 @@ If you are interested in assisting the development of this project please submit
 
 I wanted to have a consistent BLE API on all of the devices I work with. NimBLE is the best choice for this as it is the most feature complete and fully open source library available for Arduino.
 
+## BLE
+This Arduino Core does **not** contain any BLE functionality. It has been designed to support using the [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) library for BLE operation.
+**Note:** Only the release version 1.4.0 and above of [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) supports Arm devices.
+
 ## Supported boards
 
 ### nRF52840
@@ -52,7 +56,7 @@ I wanted to have a consistent BLE API on all of the devices I work with. NimBLE 
  * [BBC micro:bit](https://microbit.org)
  * [Calliope mini](https://calliope.cc/en)
  * [Bluz DK](http://bluz.io)
- * Nordic Semiconductor  [nRF51822 Development Kit](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822-Development-Kit)
+ * [Nordic Semiconductor nRF51822 Development Kit](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822-Development-Kit)
  * [Nordic Semiconductor NRF51 Smart Beacon Kit](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822-Bluetooth-Smart-Beacon-Kit)
  * [Nordic Semiconductor NRF51 Dongle](http://www.nordicsemi.com/eng/Products/nRF51-Dongle)
  * [OSHChip](http://www.oshchip.org/)
@@ -66,7 +70,6 @@ I wanted to have a consistent BLE API on all of the devices I work with. NimBLE 
 ## Installing
 
 ### Board Manager
-
  1. [Download and install the Arduino IDE](https://www.arduino.cc/en/Main/Software) (At least v1.6.12)
  2. Start the Arduino IDE
  3. Go into Preferences
@@ -75,7 +78,6 @@ I wanted to have a consistent BLE API on all of the devices I work with. NimBLE 
  6. Select your board from the Tools -> Board menu
 
 ### From git (for core development)
-
  1. Follow steps from Board Manager section above
  2. ```cd <SKETCHBOOK>```, where ```<SKETCHBOOK>``` is your Arduino Sketch folder:
   * OS X: ```~/Documents/Arduino```
@@ -86,7 +88,6 @@ I wanted to have a consistent BLE API on all of the devices I work with. NimBLE 
  5. Restart the Arduino IDE
 
 ## Flashing your device
-
 1. Select your board from the Tools -> Board menu
 2. Select any options you want
 3. Select a programmer (J-Link, ST-Link V2, CMSIS-DAP, Black Magic Probe, adafruit-nrfutil or nrfutil) from the Tools -> "Programmer: " menu
@@ -105,10 +106,36 @@ I wanted to have a consistent BLE API on all of the devices I work with. NimBLE 
  1. Install nrfutil if not already installed `pip install nrfutil`
  2. Select nrfutil as the firmware uploader in the tools menu.
 
-## BLE
+## Configuration (optional)
+You can change the configuration for many settings by creating a `build_opt.h` file in your sketch folder.  
+In here you can set compile time definitions for settings that will be included directly on the command line.  
+For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=2048'` This will set the main task stack size to 2048 bytes.
 
-This Arduino Core does **not** contain any BLE functionality. It has been designed to support using the [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) library for BLE operation.
-**Note:** Currently only the release version 1.4.0 and above of [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino) supports Arm devices.
+### Configuration option list
+ * `CONFIG_MAIN_TASK_STACK_SIZE` - sets the size **in bytes** of the main loop task.
+ * `CONFIG_RTOS_TICK_RATE_HZ` - set the tick rate for FreeRTOS (default 1024).
+ * `CONFIG_RTOS_MAX_PRIORITIES` - set the maximum priority level for FreeRTOS tasks.
+ * `CONFIG_RTOS_MIN_TASK_STACK_SIZE` - set the minimum task stack size.
+ * `CONFIG_RTOS_TIMER_QUEUE_LENGTH` - set the queue size for the FreeRTOS timers.
+ * `CONFIG_RTOS_TIMER_STACK_DEPTH` - set the timer task stack size **in 32bit words**.
+ * Nimble configuration options can also be included, the list of those can be found [here](https://h2zero.github.io/NimBLE-Arduino/md__command_line_config.html)
+ * Other compiler options or definitions for other libraries can also be specified.
+
+## API
+There are a few useful functions available to help with your project.
+### RTOS class functions
+* `uint32_t RTOS.getMainTaskHwm();` - Returns the high water mark of the Main task stack **in 32bit words**.
+* `uint32_t RTOS.getIsrStackHwm();` - Returns the high water mark of the ISR stack **in 32bit words**.
+* `uint32_t RTOS.getIdleTaskHwm();` - Returns the high water mark of the Idle task stack **in 32bit words**.
+* `uint32_t RTOS.getTimerTaskHwm()` - Returns the high water mark of the Timer task stack **in 32bit words**.
+* `uint32_t RTOS.getBleHostTaskHwm();` - Returns the high water mark of the NimBLE Host task stack **in 32bit words**.
+* `uint32_t RTOS.getBleLLTaskHwm()` - Returns the high water mark of the NimBLE Link Layer task stack **in 32bit words**.
+* `uint32_t RTOS.getFreeHeap();` - Returns the currently free heap size **in bytes**.
+
+### General system functions
+* `uint32_t getResetReason();` - Returns the reset reason for the last boot.
+* `void systemPowerOff();` - Shuts down the MCU.
+* `void systemRestart();` - Reboot.
 
 ## Bootloader
 Currently only some boards have Adafruit bootloaders available which are provided as options. You may choose to use the bootloader or none.  
@@ -116,8 +143,11 @@ The provided Adafruit bootloaders have no softdevice, if you currently are using
 
 For boards without the Adafruit bootloader option clicking `Burn Bootloader` will simply erase the flash memory on the device. This is required if you have any bootloader flashed already.
 
-## Credits
+## Important notes
+ * The last four pages of flash, before the bootloader (if applicable) are reserved for user storage and bond information storage (2 pages each).
+ * Careful attention should be paid to selecting the correct bootloader (tools->Bootloader Type) for your build (if applicable) to ensure the correct linkage.
 
+## Credits
 This core is based on [Arduino-nRF5](https://github.com/sandeepmistry/arduino-nRF5) by Sandeep Mistry,
 which is based on the [Arduino SAMD Core](https://github.com/arduino/ArduinoCore-samd).
 With some code from [Adafruit_nRF52_Arduino](https://github.com/adafruit/Adafruit_nRF52_Arduino)

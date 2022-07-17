@@ -21,9 +21,6 @@
 #include "compiler_abstraction.h"
 #include <stdlib.h>
 
-extern uint32_t __StackTop;
-extern uint32_t __StackLimit;
-
 struct exception_frame {
     uint32_t r0;
     uint32_t r1;
@@ -109,21 +106,5 @@ void HardFault_Handler(void)
     );
 }
 #endif
-
-uint32_t get_isr_stack_hwm(void)
-{
-   uint32_t offset = 0;
-   uint32_t *address = (uint32_t *) &__StackLimit;
-
-   for (; offset<((uint32_t)&__StackTop-(uint32_t)&__StackLimit); offset += 4)
-   {
-      if (*(address + offset) != 0xB1E4B1E5 )
-      {
-         break;
-      }
-   }
-
-   return offset;
-}
 
 } // extern "C"

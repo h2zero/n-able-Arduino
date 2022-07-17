@@ -79,6 +79,6 @@ int main( void )
   return 0;
 }
 
-uint32_t getMainTaskHwm() {
-  return uxTaskGetStackHighWaterMark(_loopTaskHandle);
+TaskHandle_t getMainLoopTaskHandle() {
+  return _loopTaskHandle;
 }
