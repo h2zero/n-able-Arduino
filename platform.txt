@@ -166,12 +166,11 @@ tools.openocd.program.pattern="{path}/{cmd}" {program.verbose} -f interface/{pro
 
 tools.openocd.erase.params.verbose=-d2
 tools.openocd.erase.params.quiet=-d0
-tools.openocd.erase.pattern="{path}/{cmd}" {erase.verbose} -f interface/{program.protocol}.cfg -c "{program.setup_command}" -f target/{upload.target}.cfg -c "init; halt; {upload.target} mass_erase; reset; shutdown;"
+tools.openocd.erase.pattern="{path}/{cmd}" {bootloader.verbose} -f interface/{program.protocol}.cfg -c "{program.setup_command}" -f target/{upload.target}.cfg -c "init; halt; nrf5 mass_erase; reset; shutdown;"
 
 tools.openocd.bootloader.params.verbose=-d2
 tools.openocd.bootloader.params.quiet=-d0
-tools.openocd.bootloader.pattern="{path}/{cmd}" {bootloader.verbose} -f interface/{program.protocol}.cfg -c "{program.setup_command}" -f target/{upload.target}.cfg -c "init; halt; program {runtime.platform.path}/{build.bootloader.file} verify reset; shutdown;"
-
+tools.openocd.bootloader.pattern="{path}/{cmd}" {bootloader.verbose} -f interface/{program.protocol}.cfg -c "{program.setup_command}" -f target/{upload.target}.cfg -c "init; halt; program {{runtime.platform.path}/{build.bootloader.file}} reset; shutdown;"
 #
 # blackmagic probe upload
 #
