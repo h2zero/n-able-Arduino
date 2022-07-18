@@ -107,8 +107,8 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
  2. Select nrfutil as the firmware uploader in the tools menu.
 
 ## Configuration (optional)
-You can change the configuration for many settings by creating a `build_opt.h` file in your sketch folder.  
-In here you can set compile time definitions for settings that will be included directly on the command line.  
+You can change the configuration for many settings by creating a `build_opt.h` file in your sketch folder.
+In here you can set compile time definitions for settings that will be included directly on the command line.
 For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=2048'` This will set the main task stack size to 2048 bytes.
 
 ### Configuration option list
@@ -118,6 +118,7 @@ For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=2048'` This will set the main task 
  * `CONFIG_RTOS_MIN_TASK_STACK_SIZE` - set the minimum task stack size.
  * `CONFIG_RTOS_TIMER_QUEUE_LENGTH` - set the queue size for the FreeRTOS timers.
  * `CONFIG_RTOS_TIMER_STACK_DEPTH` - set the timer task stack size **in 32bit words**.
+ * `CONFIG_WDT_TIMEOUT_SECONDS` - set the number of seconds before the watchdog times out (0 = disable watchdog, default = 5).
  * Nimble configuration options can also be included, the list of those can be found [here](https://h2zero.github.io/NimBLE-Arduino/md__command_line_config.html)
  * Other compiler options or definitions for other libraries can also be specified.
 
@@ -138,7 +139,7 @@ There are a few useful functions available to help with your project.
 * `void systemRestart();` - Reboot.
 
 ## Bootloader
-Currently only some boards have Adafruit bootloaders available which are provided as options. You may choose to use the bootloader or none.  
+Currently only some boards have Adafruit bootloaders available which are provided as options. You may choose to use the bootloader or none.
 The provided Adafruit bootloaders have no softdevice, if you currently are using the softdevice based Adafruit bootloader on your nRF52 board you will need to update it to the one provided by selecting it from the boards menu and clicking `Burn Bootloader`.
 
 For boards without the Adafruit bootloader option clicking `Burn Bootloader` will simply erase the flash memory on the device. This is required if you have any bootloader flashed already.

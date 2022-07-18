@@ -26,6 +26,10 @@
 extern "C" {
 #endif
 
+#ifndef CONFIG_WDT_TIMEOUT_SECONDS
+#define CONFIG_WDT_TIMEOUT_SECONDS 5
+#endif
+
 #define DFU_MAGIC_SERIAL_ONLY_RESET   0x4e
 
 #ifdef NRF52_SERIES
@@ -116,11 +120,13 @@ void init( void )
         NVIC_SetPriority((IRQn_Type) i, DEFAULT_IRQ_PRIO);
     }
 
-     //Configure Watchdog. Pause watchdog while the CPU is halted by the debugger or sleeping.
+#if CONFIG_WDT_TIMEOUT_SECONDS
+    //Configure Watchdog. Pause watchdog while the CPU is halted by the debugger or sleeping.
     NRF_WDT->CONFIG = (WDT_CONFIG_HALT_Pause << WDT_CONFIG_HALT_Pos) | ( WDT_CONFIG_SLEEP_Pause << WDT_CONFIG_SLEEP_Pos);
-	NRF_WDT->CRV = 5*32768; //5 second timeout
+	NRF_WDT->CRV = CONFIG_WDT_TIMEOUT_SECONDS*32768;
 	NRF_WDT->RREN |= WDT_RREN_RR0_Msk;
 	NRF_WDT->TASKS_START = 1;  //Start the Watchdog timer
+#endif
 }
 
 uint32_t getResetReason(void) {
