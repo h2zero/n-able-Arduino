@@ -85,15 +85,15 @@ class EEPROMClass {
     //Functionality to 'get' and 'put' objects to and from EEPROM.
     template< typename T > T &get( int id, T &t ){
         static_assert(std::is_trivially_copyable<T>::value,"You can not use this type with EEPROM.get" ); // the code below only makes sense if you can "memcpy" T
-        _store.read(id, (uint8_t*)t, sizeof(T));
+        _store.read(id, (uint8_t*)&t, sizeof(T));
         return t;
     }
 
     template< typename T > const T &put( int id, const T &t ){
         static_assert(std::is_trivially_copyable<T>::value, "You can not use this type with EEPROM.put"); // the code below only makes sense if you can "memcpy" T
-        if(!_store.write(id, (uint8_t*)t, sizeof(T))) {
+        if(!_store.write(id, (uint8_t*)&t, sizeof(T))) {
             _store.defrag();
-            _store.write(id, (uint8_t*)t, sizeof(T));
+            _store.write(id, (uint8_t*)&t, sizeof(T));
         }
         return t;
     }
