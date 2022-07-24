@@ -105,13 +105,8 @@ bool FCStore::write (uint32_t id, uint8_t* buf, uint16_t len) {
     uint8_t numWords = len / WORD_BYTES;
     uint8_t numBytes = len & (uint16_t)0x03;
 
-    // store the word length in the lower 16 bits
-    if (numBytes > 0) {
-        len += WORD_BYTES - numBytes;
-    }
-    storeDesc.setStoreLength(len);
-
-    if ((nextWriteAddr + sizeof(FCStoreDesc) + len) > lastPage) {
+    // Make sure we check with +1 to the word count if there are stray bytes.
+    if ((nextWriteAddr + sizeof(FCStoreDesc) + (numBytes ? len + 1 : len)) > lastPage) {
         STORE_PRINTF("Error not enough storage\n");
         return false;
     }
@@ -121,12 +116,11 @@ bool FCStore::write (uint32_t id, uint8_t* buf, uint16_t len) {
     nextWriteAddr += sizeof(storeDesc);
     cbf->flashWriteWords(nextWriteAddr, (uint32_t*)buf, numWords);
     nextWriteAddr += numWords * WORD_BYTES;
-    buf += numWords * WORD_BYTES;
 
     if (numBytes) {
         // convert the leftover bytes to a word to maintain alignment
         uint32_t val32 = 0;
-        memcpy(&val32, buf, numBytes);
+        memcpy(&val32, buf + (numWords * WORD_BYTES), numBytes);
         cbf->flashWriteWord(nextWriteAddr, val32);
         nextWriteAddr += WORD_BYTES;
     }
@@ -143,9 +137,10 @@ bool FCStore::write (uint32_t id, uint8_t* buf, uint16_t len) {
         return false;
     }
 
-    uint16_t datalen = desc->getByteLength();
+    size_t datalen = desc->getByteLength();
     uint32_t dataAddr = (uint32_t)desc + sizeof(FCStoreDesc);
     if (datalen == len && memcmp(buf, (uint8_t*)dataAddr, datalen) == 0) {
+        STORE_PRINTF("Data stored successfully\n");
         return true;
     }
 
@@ -183,6 +178,7 @@ void FCStore::format() {
     eraseAll();
     cbf->flashWriteWord(firstPage, FC_STORE_MAGIC_VAL);
     nextWriteAddr = firstPage + WORD_BYTES;
+    initialized = true;
 }
 
 bool FCStore::defrag() {

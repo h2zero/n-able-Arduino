@@ -24,11 +24,13 @@
 #define FC_STORE_MAGIC_VAL 0xf1a5c0f5UL
 #define FC_STORE_EMPTY_VAL 0xFFFFFFFFUL
 
+#ifndef FC_WORD_BYTES
 #define WORD_BYTES 4
+#else
+#define WORD_BYTES FC_WORD_BYTES
+#endif
 
-//#define STORE_DEBUG
-
-#ifdef STORE_DEBUG
+#ifdef FC_STORE_DEBUG
 #define STORE_PRINTF(msg, ...) printf((msg), ##__VA_ARGS__);
 #else
 #define STORE_PRINTF(msg, ...) void(msg)
@@ -51,10 +53,12 @@ class FCStoreDesc {
 
 public:
     FCStoreDesc(uint32_t val) { id = val; newAddress = FC_STORE_EMPTY_VAL; length = 0; }
-    uint16_t getByteLength(){ return (uint16_t)((length >> 16) & (uint32_t)0x0000FFFF); }
-    uint16_t getStoreLength(){ return (uint16_t)(length & (uint32_t)0x0000FFFF); }
-    void     setByteLength(uint16_t len) { length = (uint32_t)((len << 16) & (uint32_t)0xFFFF0000); }
-    void     setStoreLength(uint16_t len) { length |= (uint32_t)(len & (uint32_t)0x0000FFFF); }
+    uint16_t getByteLength() { return (uint16_t)((length >> 16) & (uint32_t)0x0000FFFF); }
+    uint16_t getStoreLength() {
+        uint16_t Blen = getByteLength();
+        return (uint16_t)(Blen + WORD_BYTES - (Blen & (uint16_t)(WORD_BYTES  - 1)));
+    }
+    void     setByteLength(uint16_t len) { length = (uint32_t)((len << 16) | (uint32_t)0x0000FFFF); }
     void     setId(uint32_t val) { id = val;}
     uint32_t getId() { return id; }
     uint32_t getNewAddress() { return newAddress; }
