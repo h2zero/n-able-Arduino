@@ -43,7 +43,7 @@ class bondStoreCBs : public FCStoreCallbacks {
 };
 
 static bondStoreCBs _callbacks;
-static FCStore bondStore(&_callbacks , 1024);
+static FCStore bondStore(&_callbacks , flash_get_page_size());
 
 int ble_bond_nvs_save_entry(uint32_t id, char *value) {
     if (!bondStore.write(id, (uint8_t*)value, strlen(value) + 1)) {

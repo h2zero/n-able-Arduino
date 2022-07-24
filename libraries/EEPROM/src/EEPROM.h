@@ -27,16 +27,12 @@
 #include <FC_Store.h>
 #include <type_traits>
 
-#ifndef EEPROM_SIZE_BYTES
-#define EEPROM_SIZE_BYTES 4096
-#endif
-
 class EEPROMStoreCBs : public FCStoreCallbacks {
     uint32_t getPageSize() {
         return flash_get_page_size();
     }
     uint32_t getStoreBeginPage() {
-        return flash_get_store_page(EEPROM_SIZE_BYTES * 2);
+        return flash_get_store_page(flash_get_page_size() * 2);
     }
     void flashWriteWord(uint32_t address, uint32_t value) {
         flash_write_word(address, value);
@@ -54,7 +50,7 @@ class EEPROMClass {
     FCStore _store;
 
   public:
-    EEPROMClass(): _store(&_eepCBs, EEPROM_SIZE_BYTES){}
+    EEPROMClass(): _store(&_eepCBs, flash_get_page_size()){}
 
     void begin() { _store.begin();}
 
