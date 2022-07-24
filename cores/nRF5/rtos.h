@@ -20,6 +20,11 @@
 #define NABLERTOS_H
 
 #include <stdint.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/timers.h"
+#include "freertos/queue.h"
+#include "freertos/semphr.h"
 
 class nableRtos {
 public:
