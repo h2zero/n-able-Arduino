@@ -26,12 +26,12 @@
 #  define MAIN_TASK_STACK_SIZE CONFIG_MAIN_TASK_STACK_SIZE
 #elif defined(DEVICE_RAM_SIZE)
 #  if DEVICE_RAM_SIZE < 32
-#    define MAIN_TASK_STACK_SIZE 1024
+#    define MAIN_TASK_STACK_SIZE 256
 #  else
-#    define MAIN_TASK_STACK_SIZE 2048
+#    define MAIN_TASK_STACK_SIZE 512
 #  endif
 #else
-#  define MAIN_TASK_STACK_SIZE 2048
+#  define MAIN_TASK_STACK_SIZE 512
 #endif
 
 // Weak empty variant initialization function.
@@ -40,7 +40,7 @@ void initVariant() __attribute__((weak));
 void initVariant() { }
 
 static TaskHandle_t _loopTaskHandle = NULL;
-static StackType_t _mainStack[ (MAIN_TASK_STACK_SIZE / 4) ];
+static StackType_t _mainStack[ MAIN_TASK_STACK_SIZE ];
 static StaticTask_t _mainTaskBuffer;
 
 void loopTask(void *pvParameters)
@@ -67,8 +67,8 @@ int main( void )
   Adafruit_TinyUSB_Core_init();
   #endif
 
-  _loopTaskHandle = xTaskCreateStatic(loopTask, "mlt", (MAIN_TASK_STACK_SIZE / 4),
-                                     NULL, 1, _mainStack, &_mainTaskBuffer);
+  _loopTaskHandle = xTaskCreateStatic(loopTask, "mlt", MAIN_TASK_STACK_SIZE,
+                                      NULL, 1, _mainStack, &_mainTaskBuffer);
 
   SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
 

@@ -69,7 +69,20 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
 
 ## Installing
 
-### Board Manager
+### Platformio
+1. [Install PlatformIO](https://platformio.org)
+2. Create PlatformIO project and configure a platform option in [platformio.ini](http://docs.platformio.org/page/projectconf.html) file:
+
+```ini
+[env]
+platform = https://github.com/h2zero/platform-n-able.git
+framework = arduino
+lib_deps = h2zero/NimBLE-Arduino@^1.4.0
+board = ...
+...
+```
+
+### Arduino Board Manager
  1. [Download and install the Arduino IDE](https://www.arduino.cc/en/Main/Software) (At least v1.6.12)
  2. Start the Arduino IDE
  3. Go into Preferences
@@ -77,7 +90,7 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
  5. Open the Boards Manager from the Tools -> Board menu and install "Arm BLE Boards"
  6. Select your board from the Tools -> Board menu
 
-### From git (for core development)
+#### From git (for core development)
  1. Follow steps from Board Manager section above
  2. ```cd <SKETCHBOOK>```, where ```<SKETCHBOOK>``` is your Arduino Sketch folder:
   * OS X: ```~/Documents/Arduino```
@@ -109,10 +122,10 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
 ## Configuration (optional)
 You can change the configuration for many settings by creating a `build_opt.h` file in your sketch folder.
 In here you can set compile time definitions for settings that will be included directly on the command line.
-For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=2048'` This will set the main task stack size to 2048 bytes.
+For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=512'` This will set the main task stack size to 512 words (2048 bytes).
 
 ### Configuration option list
- * `CONFIG_MAIN_TASK_STACK_SIZE` - sets the size **in bytes** of the main loop task.
+ * `CONFIG_MAIN_TASK_STACK_SIZE` - sets the size **in 32bit words** of the main loop task.
  * `CONFIG_RTOS_TICK_RATE_HZ` - set the tick rate for FreeRTOS (default 1024).
  * `CONFIG_RTOS_MAX_PRIORITIES` - set the maximum priority level for FreeRTOS tasks.
  * `CONFIG_RTOS_MIN_TASK_STACK_SIZE` - set the minimum task stack size.
