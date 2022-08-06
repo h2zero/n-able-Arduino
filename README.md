@@ -75,7 +75,7 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
 
 ```ini
 [env]
-platform = https://github.com/h2zero/platform-n-able.git
+platform = n-able
 framework = arduino
 lib_deps = h2zero/NimBLE-Arduino@^1.4.0
 board = ...
@@ -99,6 +99,10 @@ board = ...
  3. Create a folder named ```hardware```, if it does not exist, and change directories to it
  4. Clone this repo: ```git clone https://github.com/h2zero/n-able-Arduino.git```
  5. Restart the Arduino IDE
+
+### Install NimBLE-Arduino
+ 1. Arduino Library manager: Go to `sketch` -> `Include Library` -> `Manage Libraries`, search for NimBLE and install version 1.4.0 or greater.
+ 2. Add `#include "NimBLEDevice.h"` at the beginning of your sketch.
 
 ## Flashing your device
 1. Select your board from the Tools -> Board menu
