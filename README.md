@@ -75,7 +75,7 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
 
 ```ini
 [env]
-platform = n-able
+platform = https://github.com/h2zero/platform-n-able.git#1.0.0
 framework = arduino
 lib_deps = h2zero/NimBLE-Arduino@^1.4.0
 board = ...
