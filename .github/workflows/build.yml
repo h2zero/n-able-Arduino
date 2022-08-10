@@ -1,0 +1,36 @@
+name: Build Examples
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - "libraries/n-able/examples/FreeRTOS"
+          - "libraries/n-able/examples/BLE_Advertiser"
+          - "libraries/n-able/examples/BLE_Scan"
+        variant:
+          - Generic_nRF51822:chip=xxaa
+          - Generic_nRF52832
+          - Generic_nRF52833
+          - Generic_nRF52840
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build n-able Arduino
+        uses: arduino/compile-sketches@v1
+        with:
+          cli-version: latest
+          platforms: |
+            - name: "h2zero:arm-ble"
+              source-url: "https://h2zero.github.io/n-able-Arduino/package_n-able_boards_index.json"
+              version: latest
+            - name: "h2zero:arm-ble"
+              source-path: .
+          libraries: |
+            - name: NimBLE-Arduino
+          fqbn: "h2zero:arm-ble:${{ matrix.variant }}"
+          sketch-paths: ${{ matrix.example }}
