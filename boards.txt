@@ -759,7 +759,7 @@ feather52840.build.pid=0x8029
 feather52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 feather52840.build.ldscript=nrf52840_xxaa.ld
 feather52840.build.lfclk_flags=-DUSE_LFXO
-feather52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+feather52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 feather52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
 feather52840.menu.role.all=All
@@ -830,7 +830,7 @@ feather52840sense.build.pid=0x8087
 feather52840sense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 feather52840sense.build.ldscript=nrf52840_xxaa.ld
 feather52840sense.build.lfclk_flags=-DUSE_LFRC
-feather52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+feather52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 feather52840sense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
 feather52840sense.menu.role.all=All
@@ -901,7 +901,7 @@ itsybitsy52840.build.pid=0x8051
 itsybitsy52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 itsybitsy52840.build.ldscript=nrf52840_xxaa.ld
 itsybitsy52840.build.lfclk_flags=-DUSE_LFXO
-itsybitsy52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+itsybitsy52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 itsybitsy52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
 itsybitsy52840.menu.role.all=All
@@ -970,7 +970,7 @@ cplaynrf52840.build.pid=0x8045
 cplaynrf52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 cplaynrf52840.build.ldscript=nrf52840_xxaa.ld
 cplaynrf52840.build.lfclk_flags=-DUSE_LFRC
-cplaynrf52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+cplaynrf52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 cplaynrf52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
 cplaynrf52840.menu.role.all=All
@@ -1039,7 +1039,7 @@ cluenrf52840.build.pid=0x8071
 cluenrf52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 cluenrf52840.build.ldscript=nrf52840_xxaa.ld
 cluenrf52840.build.lfclk_flags=-DUSE_LFRC
-cluenrf52840.build.extra_flags=-DNRF52_SERIES -DNRF52832_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+cluenrf52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 cluenrf52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 
 cluenrf52840.menu.role.all=All
