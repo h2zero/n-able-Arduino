@@ -70,6 +70,68 @@
               "version": "0.11.0-4"
             }
           ]
+        },
+        {
+          "name": "Arm (Nim)BLE Boards",
+          "architecture": "arm-ble",
+          "version": "0.1.1",
+          "category": "Contributed",
+          "help": {
+            "online": "https://github.com/h2zero/n-able-Arduino/issues"
+          },
+          "url": "https://github.com/h2zero/n-able-Arduino/archive/0.1.1.tar.gz",
+          "archiveFileName": "n-able-Arduino-0.1.1.tar.gz",
+          "checksum": "SHA-256:c1b60a8c474045a79f0562de2c3d68ab8bcc3f58d5455866d1ec588d326b8e68",
+          "size": "1947535",
+          "boards": [
+            {"name": "Adafruit CLUE nRF52840"},
+            {"name": "Adafruit Circuit Playground Bluefruit"},
+            {"name": "Adafruit Feather nRF52832"},
+            {"name": "Adafruit Feather nRF52840 Express"},
+            {"name": "Adafruit Feather nRF52840 Sense"},
+            {"name": "Adafruit ItsyBitsy nRF52840 Express"},
+            {"name": "BBC micro:bit"},
+            {"name": "BBC micro:bit v2"},
+            {"name": "Bluz DK"},
+            {"name": "Calliope mini"},
+            {"name": "Ebyte E104-BT5032A-TB"},
+            {"name": "Ebyte E104-BT5040UA Dongle"},
+            {"name": "Electronut labs bluey"},
+            {"name": "Electronut labs hackaBLE"},
+            {"name": "Electronut labs hackaBLE v2"},
+            {"name": "Generic nRF51822"},
+            {"name": "Generic nRF52832"},
+            {"name": "Generic nRF52833"},
+            {"name": "Generic nRF52840"},
+            {"name": "ng-beacon"},
+            {"name": "nRF51 Dongle"},
+            {"name": "nRF51822 DK"},
+            {"name": "nRF52832 DK"},
+            {"name": "nRF52833 DK"},
+            {"name": "nRF52840 DK"},
+            {"name": "nRF52840 Dongle"},
+            {"name": "Nordic Beacon Kit"},
+            {"name": "OSHChip"},
+            {"name": "RedBear BLE Nano"},
+            {"name": "RedBear BLE Nano 2"},
+            {"name": "RedBear Blend 2"},
+            {"name": "RedBear nRF51822"},
+            {"name": "Sino:bit"},
+            {"name": "TinyBLE"},
+            {"name": "Waveshare BLE400"}
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "h2zero",
+              "name": "gcc-arm-none-eabi",
+              "version": "9.3.1-1"
+            },
+            {
+              "packager": "h2zero",
+              "name": "openocd",
+              "version": "0.11.0-4"
+            }
+          ]
         }
       ],
       "tools":[
