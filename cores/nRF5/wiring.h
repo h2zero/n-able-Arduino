@@ -28,6 +28,12 @@ void systemPowerOff(void);
 void systemRestart(void);
 uint32_t getResetReason(void);
 
+// Test if in interrupt mode
+static inline bool isInISR(void)
+{
+  return (SCB->ICSR & SCB_ICSR_VECTACTIVE_Msk) != 0 ;
+}
+
 #ifdef __cplusplus
 }
 #endif

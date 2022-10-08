@@ -54,6 +54,7 @@ void loop( void ) ;
   #include "WMath.h"
   #include "HardwareSerial.h"
   #include "pulse.h"
+  #include "HardwarePWM.h"
 #endif
 #include "delay.h"
 #include "binary.h"
