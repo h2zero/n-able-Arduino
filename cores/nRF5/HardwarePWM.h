@@ -33,6 +33,9 @@
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /**************************************************************************/
+
+#ifdef NRF52_SERIES
+
 #ifndef HARDWAREPWM_H_
 #define HARDWAREPWM_H_
 
@@ -136,3 +139,4 @@ extern HardwarePWM HwPWM3;
 extern HardwarePWM* HwPWMx[];
 
 #endif /* HARDWAREPWM_H_ */
+#endif /* NRF52_SERIES */

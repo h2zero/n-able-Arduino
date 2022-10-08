@@ -23,6 +23,7 @@
  * THE SOFTWARE.
  */
 
+#ifdef NRF52_SERIES
 
 #include "Arduino.h"
 #include "HardwarePWM.h"
@@ -288,3 +289,5 @@ bool HardwarePWM::releaseOwnership(uint32_t token)
   // Use C++11 atomic CAS operation
   return this->_owner_token.compare_exchange_strong(token, 0U);
 }
+
+#endif /* NRF52_SERIES */
