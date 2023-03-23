@@ -40,6 +40,7 @@ class Print
     void setWriteError(int err = 1) { write_error = err; }
   public:
     Print() : write_error(0) {}
+    virtual ~Print() {}
 
     int getWriteError() { return write_error; }
     void clearWriteError() { setWriteError(0); }
@@ -54,6 +55,10 @@ class Print
       return write((const uint8_t *)buffer, size);
     }
 
+    // add availableForWrite to make compatible with Arduino Print.h
+    // default to zero, meaning "a single write may block"
+    // should be overriden by subclasses with buffering
+    virtual int availableForWrite() { return 0; }
     size_t print(const __FlashStringHelper *);
     size_t print(const String &);
     size_t print(const char[]);
@@ -78,7 +83,10 @@ class Print
     size_t println(double, int = 2);
     size_t println(const Printable&);
     size_t println(void);
-    int    printf(const char* format, ...);
+    int    printf(const char* format, ...) __attribute__ ((format (printf, 2, 3)));
+
+    virtual void flush() { /* Empty implementation for backward compatibility */ }
+
 };
 
 #endif
