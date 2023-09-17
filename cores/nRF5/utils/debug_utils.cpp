@@ -39,10 +39,11 @@ void Hardfault_handler_cpp( uint32_t *p_stack_address )
 {
     exception_frame* ef = (exception_frame*)p_stack_address;
 
-    Serial.printf("Unhandled exception 0x%08x ", SCB->ICSR & SCB_ICSR_VECTACTIVE_Msk);
-    Serial.printf(", exception sp 0x%08x\n", (uint32_t)p_stack_address);
-    Serial.printf("R0: 0x%08x, , R1: 0x%08x , R2: 0x%08x, R3: 0x%08x, R12: 0x%08x\n", ef->r0, ef->r1, ef->r2, ef->r3, ef->r12);
-    Serial.printf("LR: 0x%08x, PC: 0x%08x, PSR: 0x%08x\n", ef->lr, ef->pc, ef->psr);
+    Serial.printf("Unhandled exception 0x%08lx ", SCB->ICSR & SCB_ICSR_VECTACTIVE_Msk);
+    Serial.printf(", exception sp 0x%08lx\n", (uint32_t)p_stack_address);
+    Serial.printf("R0: 0x%08lx, , R1: 0x%08lx , R2: 0x%08lx, R3: 0x%08lx, R12: 0x%08lx\n",
+                  ef->r0, ef->r1, ef->r2, ef->r3, ef->r12);
+    Serial.printf("LR: 0x%08lx, PC: 0x%08lx, PSR: 0x%08lx\n", ef->lr, ef->pc, ef->psr);
 
     NVIC_SystemReset();
 }
