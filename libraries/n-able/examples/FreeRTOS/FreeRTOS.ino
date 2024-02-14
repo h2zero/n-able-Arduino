@@ -39,7 +39,7 @@ void BlinkTask(void *pvParameters) {
 
     for (;;) { // A Task shall never return or exit.
         digitalToggle(LED_BUILTIN);
-        Serial.printf("Free heap: %u\n", RTOS.getFreeHeap());
+        Serial.printf("Free heap: %lu\n", RTOS.getFreeHeap());
         delay(500);
     }
 }

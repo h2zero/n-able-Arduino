@@ -34,7 +34,7 @@ void loop() {
 
     // Start advertising the data
     pAdvertising->start(5);
-    Serial.printf("Advertising count = %d\n", count);
+    Serial.printf("Advertising count = %lu\n", count);
     count++;
   }
 
