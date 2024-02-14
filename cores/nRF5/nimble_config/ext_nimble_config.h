@@ -9,3 +9,7 @@
 #else
 #error No supported mcu config specified
 #endif
+
+#ifndef min
+#define min(a, b) ((a)<(b)?(a):(b))
+#endif
