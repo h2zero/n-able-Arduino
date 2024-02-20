@@ -89,6 +89,10 @@
 #define MYNEWT_VAL_BLE_LL_SCA (500)
 #endif
 
+#ifndef MYNEWT_VAL_MCU_TARGET__nRF52840
+#define MYNEWT_VAL_MCU_TARGET__nRF52840 (1)
+#endif
+
 /**
  * This macro exists to ensure code includes this header when needed.  If code
  * checks the existence of a setting directly via ifdef without including this
@@ -261,11 +265,11 @@
 #endif
 
 #ifndef MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_2M_PHY
-#define MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_2M_PHY (0)
+#define MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_2M_PHY (MYNEWT_VAL_BLE_EXT_ADV)
 #endif
 
 #ifndef MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_CODED_PHY
-#define MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_CODED_PHY (0)
+#define MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_CODED_PHY (MYNEWT_VAL_BLE_EXT_ADV)
 #endif
 
 /* Overridden by @apache-mynewt-nimble/nimble/controller (defined by @apache-mynewt-nimble/nimble/controller) */
