@@ -27,7 +27,7 @@ extern "C" {
 #endif
 
 #ifndef CONFIG_WDT_TIMEOUT_SECONDS
-#define CONFIG_WDT_TIMEOUT_SECONDS 5
+#define CONFIG_WDT_TIMEOUT_SECONDS 0
 #endif
 
 #define DFU_MAGIC_SERIAL_ONLY_RESET   0x4e

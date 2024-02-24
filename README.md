@@ -135,7 +135,7 @@ For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=512'` This will set the main task s
  * `CONFIG_RTOS_MIN_TASK_STACK_SIZE` - set the minimum task stack size.
  * `CONFIG_RTOS_TIMER_QUEUE_LENGTH` - set the queue size for the FreeRTOS timers.
  * `CONFIG_RTOS_TIMER_STACK_DEPTH` - set the timer task stack size **in 32bit words**.
- * `CONFIG_WDT_TIMEOUT_SECONDS` - set the number of seconds before the watchdog times out (0 = disable watchdog, default = 5).
+ * `CONFIG_WDT_TIMEOUT_SECONDS` - set the number of seconds before the watchdog times out (0 = disable watchdog, default = 0).
  * Nimble configuration options can also be included, the list of those can be found [here](https://h2zero.github.io/NimBLE-Arduino/md__command_line_config.html)
  * Other compiler options or definitions for other libraries can also be specified.
 
