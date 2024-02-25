@@ -51,9 +51,9 @@ jobs:
       fail-fast: false
       matrix:
         example:
-          - "libraries/n-able/examples/FreeRTOS"
-          - "libraries/n-able/examples/BLE_Advertiser"
-          - "libraries/n-able/examples/BLE_Scan"
+          - "example/framework/libraries/n-able/examples/FreeRTOS"
+          - "example/framework/libraries/n-able/examples/BLE_Advertiser"
+          - "example/framework/libraries/n-able/examples/BLE_Scan"
           - "example/lib/examples/Bluetooth_5/NimBLE_extended_server/"
         variant:
           - generic_nrf52832
