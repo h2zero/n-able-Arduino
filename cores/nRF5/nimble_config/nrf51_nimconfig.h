@@ -87,6 +87,14 @@
 #define MYNEWT_VAL_BLE_LL_SCA (500)
 #endif
 
+/**** NIMBLE 1.5.0 config ****/
+#ifndef MYNEWT_VAL_BLE_TRANSPORT_EVT_COUNT
+#define MYNEWT_VAL_BLE_TRANSPORT_EVT_COUNT (2)
+#endif
+
+#ifndef MYNEWT_VAL_BLE_TRANSPORT_EVT_DISCARDABLE_COUNT
+#define MYNEWT_VAL_BLE_TRANSPORT_EVT_DISCARDABLE_COUNT (8)
+#endif
 
 /**
  * This macro exists to ensure code includes this header when needed.  If code
