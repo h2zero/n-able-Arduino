@@ -224,6 +224,10 @@ int Uart::read()
 
 size_t Uart::write(const uint8_t data)
 {
+  if (!nrfUart->ENABLE) {
+    return 0;
+  }
+
   nrfUart->TXD = data;
 
   while(!nrfUart->EVENTS_TXDRDY);
