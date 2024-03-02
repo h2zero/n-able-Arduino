@@ -52,12 +52,15 @@ compiler.define=-DARDUINO=
 # this can be overriden in boards.txt
 build.extra_flags=
 build.lfclk_flags=-DUSE_LFRC
-build.dfu_pattern=echo Not building DFU package
+build.dfu_pattern={none.dfu_pattern.path}/{none.dfu_pattern.cmd}
 build.bootloader.file=tools/none_bootloader.hex
 build.flags.usb= -DUSBCON -DUSE_TINYUSB -DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
 
 nrfutil.dfu_pattern="{tools.nrfutil.cmd}" pkg generate --hw-version 52 --debug-mode --sd-req 0 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
 adafruit-nrfutil.dfu_pattern="{tools.adafruit-nrfutil.cmd}" dfu genpkg --dev-type 0x0052 --application "{build.path}/{build.project_name}.hex" "{build.path}/{build.project_name}.zip"
+none.dfu_pattern.cmd=no_dfu
+none.dfu_pattern.cmd.windows=no_dfu.bat
+none.dfu_pattern.path={runtime.platform.path}/tools
 
 nordic.path={build.core.path}/nordic
 
