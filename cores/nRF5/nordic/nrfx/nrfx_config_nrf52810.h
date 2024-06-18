@@ -34,6 +34,12 @@
 
 // <<< Use Configuration Wizard in Context Menu >>>\n
 
+#define NRFX_POWER_ENABLED              1
+#define NRFX_POWER_DEFAULT_CONFIG_IRQ_PRIORITY  7
+#define NRFX_CLOCK_ENABLED 1
+#define NRFX_NVMC_ENABLED  1       // nrf_nvm_store.c
+#define NRFX_CLOCK_CONFIG_LF_SRC  0  // use built-in LF RC by default
+
 // <h> nRF_Drivers
 
 // <e> NRFX_CLOCK_ENABLED - nrfx_clock - CLOCK peripheral driver

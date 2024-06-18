@@ -242,6 +242,7 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
             else
 #endif
             {
+#if (__FPU_PRESENT == 1U)
                 // Fix ERRATA 87 (https://infocenter.nordicsemi.com/index.jsp?topic=%252Fcom.nordic.infocenter.sdk5.v11.0.0%252Findex.html&cp=4_0_0)
                 // Clear FPU interrupt before going to sleep. This prevent unexpected wake-up.
                 #define FPU_EXCEPTION_MASK 0x0000009F
@@ -249,6 +250,7 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
                 __set_FPSCR(__get_FPSCR()  & ~(FPU_EXCEPTION_MASK));
                 (void) __get_FPSCR();
                 NVIC_ClearPendingIRQ(FPU_IRQn);
+#endif
 
                 /* No SD -  we would just block interrupts globally.
                 * BASEPRI cannot be used for that because it would prevent WFE from wake up.

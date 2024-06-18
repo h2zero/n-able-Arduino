@@ -1,5 +1,7 @@
 #if defined(NRF51)
 #include "nrf51_nimconfig.h"
+#elif defined(NRF52810_XXAA)
+#include "nrf52810_nimconfig.h"
 #elif defined(NRF52832_XXAA) || defined(NRF52832_XXAB)
 #include "nrf52832_nimconfig.h"
 #elif defined(NRF52833_XXAA)
