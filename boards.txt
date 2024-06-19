@@ -1953,3 +1953,58 @@ Waveshare_BLE400.menu.cppDbgLvl.debug.build.cpp_debug=4
 Waveshare_BLE400.menu.bootloader.none=No bootloader
 Waveshare_BLE400.menu.bootloader.none.bootloader.flags=
 Waveshare_BLE400.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
+# nRF52810 variants
+###################
+
+Generic_nRF52810.name=Generic nRF52810
+
+Generic_nRF52810.upload.tool=openocd
+Generic_nRF52810.upload.target=nrf52
+Generic_nRF52810.upload.jlink_device=nRF52810_xxAA
+Generic_nRF52810.upload.maximum_size=155648
+
+Generic_nRF52810.bootloader.tool=openocd
+
+Generic_nRF52810.build.mcu=cortex-m4
+Generic_nRF52810.build.f_cpu=64000000
+Generic_nRF52810.build.board=GENERIC
+Generic_nRF52810.build.core=nRF5
+Generic_nRF52810.build.variant=Generic
+Generic_nRF52810.build.variant_system_lib=
+Generic_nRF52810.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+Generic_nRF52810.build.ldscript=nRF52810_xxaa.ld
+Generic_nRF52810.build.extra_flags=-DNRF52_SERIES -DnRF52810_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+
+Generic_nRF52810.menu.lfclk.lfxo=Crystal Oscillator
+Generic_nRF52810.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+Generic_nRF52810.menu.lfclk.lfrc=RC Oscillator
+Generic_nRF52810.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+Generic_nRF52810.menu.lfclk.lfsynt=Synthesized
+Generic_nRF52810.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+Generic_nRF52810.menu.role.all=All
+Generic_nRF52810.menu.role.all.build.nimble_flags=
+Generic_nRF52810.menu.role.periph=Peripheral
+Generic_nRF52810.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+Generic_nRF52810.menu.role.adv=Advertiser
+Generic_nRF52810.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+Generic_nRF52810.menu.role.scan=Scanner
+Generic_nRF52810.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+Generic_nRF52810.menu.role.central=Client
+Generic_nRF52810.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+Generic_nRF52810.menu.cppDbgLvl.none=None
+Generic_nRF52810.menu.cppDbgLvl.none.build.cpp_debug=0
+Generic_nRF52810.menu.cppDbgLvl.error=Error
+Generic_nRF52810.menu.cppDbgLvl.error.build.cpp_debug=1
+Generic_nRF52810.menu.cppDbgLvl.warn=Warn
+Generic_nRF52810.menu.cppDbgLvl.warn.build.cpp_debug=2
+Generic_nRF52810.menu.cppDbgLvl.info=Info
+Generic_nRF52810.menu.cppDbgLvl.info.build.cpp_debug=3
+Generic_nRF52810.menu.cppDbgLvl.debug=Debug
+Generic_nRF52810.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+Generic_nRF52810.menu.bootloader.none=No bootloader
+Generic_nRF52810.menu.bootloader.none.bootloader.flags=
+Generic_nRF52810.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
