@@ -1972,7 +1972,7 @@ Generic_nRF52810.build.board=GENERIC
 Generic_nRF52810.build.core=nRF5
 Generic_nRF52810.build.variant=Generic
 Generic_nRF52810.build.variant_system_lib=
-Generic_nRF52810.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+Generic_nRF52810.build.float_flags=
 Generic_nRF52810.build.ldscript=nRF52810_xxaa.ld
 Generic_nRF52810.build.extra_flags=-DNRF52_SERIES -DnRF52810_XXAA {bootloader.flags} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
 
