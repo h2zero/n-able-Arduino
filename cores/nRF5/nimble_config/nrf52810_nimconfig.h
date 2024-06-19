@@ -1,8 +1,8 @@
 #ifndef _NRF52810_CONFIG_H
 #define _NRF52810_CONFIG_H
 
-#if !defined(NRF52810_XXAA) && !defined(NRF52810_XXAB)
-#error NRF52810_XXAA/B not defined
+#if !defined(NRF52810_XXAA)
+#error NRF52810_XXAA not defined
 #else
 
 #ifndef CONFIG_BT_NIMBLE_MAX_CONNECTIONS
@@ -109,7 +109,7 @@
 #endif
 
 #ifndef MYNEWT_VAL_MSYS_1_BLOCK_SIZE
-#define MYNEWT_VAL_MSYS_1_BLOCK_SIZE (292)
+#define MYNEWT_VAL_MSYS_1_BLOCK_SIZE (88)
 #endif
 
 #ifndef MYNEWT_VAL_MSYS_2_BLOCK_COUNT
