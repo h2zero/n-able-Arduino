@@ -1962,7 +1962,7 @@ Generic_nRF52810.name=Generic nRF52810
 Generic_nRF52810.upload.tool=openocd
 Generic_nRF52810.upload.target=nrf52
 Generic_nRF52810.upload.jlink_device=nRF52810_xxAA
-Generic_nRF52810.upload.maximum_size=155648
+Generic_nRF52810.upload.maximum_size=180224
 
 Generic_nRF52810.bootloader.tool=openocd
 
