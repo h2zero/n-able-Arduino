@@ -36,9 +36,10 @@
 #include "app_util_platform.h"
 #endif
 
-#if !(__FPU_USED) && !(__LINT__)
-    #error This port can only be used when the project options are configured to enable hardware floating point support.
-#endif
+//* see https://devzone.nordicsemi.com/f/nordic-q-a/30103/freertos-on-nrf52810
+// #if !(__FPU_USED) && !(__LINT__)
+//     #error This port can only be used when the project options are configured to enable hardware floating point support.
+// #endif
 
 #if configMAX_SYSCALL_INTERRUPT_PRIORITY == 0
     #error configMAX_SYSCALL_INTERRUPT_PRIORITY must not be set to 0. See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html
@@ -227,8 +228,10 @@ BaseType_t xPortStartScheduler( void )
     /* Ensure the VFP is enabled - it should be anyway. */
     vPortEnableVFP();
 
+#if (__FPU_PRESENT == 1U)
     /* Lazy save always. */
     FPU->FPCCR |= FPU_FPCCR_ASPEN_Msk | FPU_FPCCR_LSPEN_Msk;
+#endif
 
     /* Finally this port requires SEVONPEND to be active */
     SCB->SCR |= SCB_SCR_SEVONPEND_Msk;

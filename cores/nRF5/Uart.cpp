@@ -21,6 +21,15 @@
 #include "Arduino.h"
 #include "wiring_private.h"
 
+// these nRF52s have different UART PSEL definition
+#if defined(NRF52810_XXAA) || defined(NRF52805_XXAA) \
+  || defined(NRF52811_XXAA) || defined(NRF52833_XXAA) \
+  || defined(NRF52840_XXAA)
+#define PSELTXD  PSEL.TXD
+#define PSELRXD  PSEL.RXD
+#define PSELCTS  PSEL.CTS
+#define PSELRTS  PSEL.RTS
+#endif
 
 void serialEventRun(void)
 {

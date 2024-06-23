@@ -34,6 +34,20 @@
 
 // <<< Use Configuration Wizard in Context Menu >>>\n
 
+#define NRFX_POWER_ENABLED              1
+#define NRFX_POWER_DEFAULT_CONFIG_IRQ_PRIORITY  7
+#define NRFX_CLOCK_ENABLED 1
+#define NRFX_NVMC_ENABLED  1       // needed by nrf_nvm_store.c
+
+#if defined(USE_LFRC)
+#define NRFX_CLOCK_CONFIG_LF_SRC 0
+#define NRFX_CLOCK_CONFIG_LF_CAL_ENABLED 1
+#elif defined(USE_LFXO)
+#define NRFX_CLOCK_CONFIG_LF_SRC 1
+#elif defined(USE_LFSYNT)
+#define NRFX_CLOCK_CONFIG_LF_SRC 2
+#endif
+
 // <h> nRF_Drivers
 
 // <e> NRFX_CLOCK_ENABLED - nrfx_clock - CLOCK peripheral driver
@@ -50,7 +64,7 @@
 // <196609=> External Full Swing
 
 #ifndef NRFX_CLOCK_CONFIG_LF_SRC
-#define NRFX_CLOCK_CONFIG_LF_SRC 1
+#define NRFX_CLOCK_CONFIG_LF_SRC 0
 #endif
 
 // <q> NRFX_CLOCK_CONFIG_LF_CAL_ENABLED  - Enables LF Clock Calibration Support
