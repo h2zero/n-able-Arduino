@@ -3,7 +3,7 @@ name: Build Examples
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
+  build_arduino:
     strategy:
       fail-fast: false
       matrix:
@@ -45,3 +45,42 @@ jobs:
             - name: NimBLE-Arduino
           fqbn: "h2zero:arm-ble:${{ matrix.variant }}"
           sketch-paths: ${{ matrix.example }}
+
+  build_pio:
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - "libraries/n-able/examples/FreeRTOS"
+          - "libraries/n-able/examples/BLE_Advertiser"
+          - "libraries/n-able/examples/BLE_Scan"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install platformio
+        run: |
+          python -m pip install --upgrade pip
+          pip install platformio
+      - name: Build n-able PIO
+        run: |
+          mkdir -p example/framework
+          rsync -Rr . example/framework
+          mkdir  example/src
+          cat > example/platformio.ini << EOF
+            [env]
+            platform = https://github.com/h2zero/platform-n-able.git#1.0.0
+            platform_packages = framework-n-able-arduino @ file://./framework
+            framework = arduino
+            lib_deps = h2zero/NimBLE-Arduino
+
+            [env:generic_nrf52840]
+            board = generic_nrf52840
+          EOF
+          cp ${{ matrix.example }}/* example/src/
+          platformio run -d example
