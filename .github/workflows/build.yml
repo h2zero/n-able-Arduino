@@ -1,6 +1,11 @@
 name: Build Examples
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+   branches:
+     -master
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build_arduino:
@@ -11,8 +16,11 @@ jobs:
           - "libraries/n-able/examples/FreeRTOS"
           - "libraries/n-able/examples/BLE_Advertiser"
           - "libraries/n-able/examples/BLE_Scan"
+          - "libraries/SPI/examples/BarometricPressureSensor"
+          - "libraries/Wire/examples/digital_potentiometer"
         variant:
           - Generic_nRF51822:chip=xxaa
+          - Generic_nRF52810
           - Generic_nRF52832
           - Generic_nRF52833
           - Generic_nRF52840
@@ -56,6 +64,7 @@ jobs:
           - "example/lib/examples/NimBLE_Client"
         variant:
           - generic_nrf51822_xxaa
+          - generic_nrf52810
           - generic_nrf52832
           - generic_nrf52833
           - generic_nrf52840
