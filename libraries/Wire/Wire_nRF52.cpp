@@ -151,6 +151,7 @@ uint8_t TwoWire::requestFrom(uint8_t address, size_t quantity, bool stopBit)
   {
     return 0;
   }
+  uint32_t start;
 
   size_t byteRead = 0;
   rxBuffer.clear();
@@ -162,22 +163,42 @@ uint8_t TwoWire::requestFrom(uint8_t address, size_t quantity, bool stopBit)
   _p_twim->RXD.MAXCNT = quantity;
   _p_twim->TASKS_STARTRX = 0x1UL;
 
-  while(!_p_twim->EVENTS_RXSTARTED && !_p_twim->EVENTS_ERROR);
+  start = millis();
+  while(!_p_twim->EVENTS_RXSTARTED && !_p_twim->EVENTS_ERROR) {
+    if (millis() - start >= 3) {
+      return 0;
+    }
+  }
   _p_twim->EVENTS_RXSTARTED = 0x0UL;
 
-  while(!_p_twim->EVENTS_LASTRX && !_p_twim->EVENTS_ERROR);
+  start = millis();
+  while(!_p_twim->EVENTS_LASTRX && !_p_twim->EVENTS_ERROR) {
+    if (millis() - start >= 3) {
+      return 0;
+    }
+  }
   _p_twim->EVENTS_LASTRX = 0x0UL;
 
   if (stopBit || _p_twim->EVENTS_ERROR)
   {
     _p_twim->TASKS_STOP = 0x1UL;
-    while(!_p_twim->EVENTS_STOPPED);
+    start = millis();
+    while(!_p_twim->EVENTS_STOPPED) {
+      if (millis() - start >= 3) {
+        return 0;
+      }
+    }
     _p_twim->EVENTS_STOPPED = 0x0UL;
   }
   else
   {
     _p_twim->TASKS_SUSPEND = 0x1UL;
-    while(!_p_twim->EVENTS_SUSPENDED);
+    start = millis();
+    while(!_p_twim->EVENTS_SUSPENDED) {
+      if (millis() - start >= 3) {
+        return 0;
+      }
+    }
     _p_twim->EVENTS_SUSPENDED = 0x0UL;
   }
 
@@ -212,6 +233,7 @@ void TwoWire::beginTransmission(uint8_t address) {
 //  4 : Other error
 uint8_t TwoWire::endTransmission(bool stopBit)
 {
+  uint32_t start;
   transmissionBegun = false ;
 
   // Start I2C transmission
@@ -224,24 +246,44 @@ uint8_t TwoWire::endTransmission(bool stopBit)
 
   _p_twim->TASKS_STARTTX = 0x1UL;
 
-  while(!_p_twim->EVENTS_TXSTARTED && !_p_twim->EVENTS_ERROR);
+  start = millis();
+  while(!_p_twim->EVENTS_TXSTARTED && !_p_twim->EVENTS_ERROR) {
+    if (millis() - start >= 3) {
+      return 4;
+    }
+  }
   _p_twim->EVENTS_TXSTARTED = 0x0UL;
 
+  start = millis();
   if (txBuffer.available()) {
-    while(!_p_twim->EVENTS_LASTTX && !_p_twim->EVENTS_ERROR);
+    while(!_p_twim->EVENTS_LASTTX && !_p_twim->EVENTS_ERROR) {
+      if (millis() - start >= 3) {
+        return 4;
+      }
+    }
   }
   _p_twim->EVENTS_LASTTX = 0x0UL;
 
   if (stopBit || _p_twim->EVENTS_ERROR)
   {
     _p_twim->TASKS_STOP = 0x1UL;
-    while(!_p_twim->EVENTS_STOPPED);
+    start = millis();
+    while(!_p_twim->EVENTS_STOPPED) {
+      if (millis() - start >= 3) {
+        return 4;
+      }
+    }
     _p_twim->EVENTS_STOPPED = 0x0UL;
   }
   else
   {
     _p_twim->TASKS_SUSPEND = 0x1UL;
-    while(!_p_twim->EVENTS_SUSPENDED);
+    start = millis();
+    while(!_p_twim->EVENTS_SUSPENDED) {
+      if (millis() - start >= 3) {
+        return 4;
+      }
+    }
     _p_twim->EVENTS_SUSPENDED = 0x0UL;
   }
 
