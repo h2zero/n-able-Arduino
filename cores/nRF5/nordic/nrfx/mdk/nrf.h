@@ -73,10 +73,16 @@ POSSIBILITY OF SUCH DAMAGE.
     #ifndef NRF52_SERIES
         #define NRF52_SERIES
     #endif
+    #ifdef __cplusplus
+    extern "C" {
+    #endif
     #define nrf52_clock_hfxo_request hw_clock_hfxo_request
     #define nrf52_clock_hfxo_release hw_clock_hfxo_release
     int hw_clock_hfxo_request(void);
     int hw_clock_hfxo_release(void);
+    #ifdef __cplusplus
+    }
+    #endif
 #endif
 
 /* Define NRF53_SERIES for common use in nRF53 series devices. */
@@ -174,4 +180,3 @@ POSSIBILITY OF SUCH DAMAGE.
 #endif /* _WIN32 || __unix || __APPLE__ */
 
 #endif /* NRF_H */
-
