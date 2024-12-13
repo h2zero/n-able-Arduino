@@ -71,6 +71,10 @@
 #define CONFIG_NIMBLE_STACK_USE_MEM_POOLS 0
 #endif
 
+#ifndef CONFIG_NIMBLE_USE_SECURE_CONNECTIONS
+#define CONFIG_NIMBLE_USE_SECURE_CONNECTIONS 1
+#endif
+
 #if CONFIG_BT_NIMBLE_ENABLE_PERIODIC_ADV && !CONFIG_BT_NIMBLE_EXT_ADV
 #  error Extended advertising must be enabled to use periodic advertising.
 #endif
@@ -740,7 +744,7 @@
 #endif
 
 #ifndef MYNEWT_VAL_BLE_SM_SC
-#define MYNEWT_VAL_BLE_SM_SC (0)
+#define MYNEWT_VAL_BLE_SM_SC (CONFIG_NIMBLE_USE_SECURE_CONNECTIONS)
 #endif
 
 #ifndef MYNEWT_VAL_BLE_SM_SC_DEBUG_KEYS
