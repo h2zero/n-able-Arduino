@@ -12,14 +12,14 @@
 #include "NimBLEDevice.h"
 
 NimBLEScan* pBLEScan;
-uint32_t scanTime = 30; // Scan duration in seconds (0 = forever)
+uint32_t scanTimeMs = 30 * 1000; // Scan duration in seconds (0 = forever)
 
 // Callback class for received advertisements
-class MyAdvertisedDeviceCallbacks: public NimBLEAdvertisedDeviceCallbacks {
-    void onResult(NimBLEAdvertisedDevice* advertisedDevice) {
+class ScanCallbacks: public NimBLEScanCallbacks {
+    void onResult(const NimBLEAdvertisedDevice* advertisedDevice) {
       Serial.printf("Advertised Device: %s \n", advertisedDevice->toString().c_str());
     }
-};
+} scanCallbacks;
 
 void setup() {
   Serial.begin(115200);
@@ -32,16 +32,16 @@ void setup() {
   pBLEScan = NimBLEDevice::getScan();
 
   // Set the callback for when devices are discovered, no duplicates.
-  pBLEScan->setAdvertisedDeviceCallbacks(new MyAdvertisedDeviceCallbacks(), false);
+  pBLEScan->setScanCallbacks(&scanCallbacks, false);
 
   // Set active scanning, this will get scan response data from the advertiser.
   pBLEScan->setActiveScan(true);
 
   // Set how often the scan occurs/switches channels; in milliseconds,
-  pBLEScan->setInterval(97);
+  pBLEScan->setInterval(100);
 
   // How long to scan during the interval; in milliseconds.
-  pBLEScan->setWindow(37);
+  pBLEScan->setWindow(100);
 
   // Do not store the scan results, use callback only.
   pBLEScan->setMaxResults(0);
@@ -51,7 +51,7 @@ void loop() {
   // When the scan stops, restart it. This will cause duplicate devices to be reported again.
   if(pBLEScan->isScanning() == false) {
       // Start scan with: duration = scanTime (seconds), no scan ended callback, not a continuation of a previous scan.
-      pBLEScan->start(scanTime, nullptr, false);
+      pBLEScan->start(scanTimeMs);
   }
 
   // Short delay to allow the stack to reset states.

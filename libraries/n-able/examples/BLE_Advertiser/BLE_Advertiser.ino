@@ -30,7 +30,7 @@ void setup() {
 void loop() {
   if (!pAdvertising->isAdvertising()) {
     // Update the advertised data
-    pAdvertising->setServiceData(dataUuid, std::string((char*)&count, sizeof(count)));
+    pAdvertising->setServiceData(dataUuid, reinterpret_cast<uint8_t*>(&count), sizeof(count));
 
     // Start advertising the data
     pAdvertising->start(5);
