@@ -68,3 +68,5 @@
 #ifndef max
 #define max(a, b) ((a)>(b)?(a):(b))
 #endif
+
+#define CONFIG_BT_NIMBLE_LEGACY_VHCI_ENABLE 1
