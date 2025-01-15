@@ -22,8 +22,14 @@
 #include <string.h>
 #include <math.h>
 #include "Arduino.h"
+#include "libc/printf/printf.h"
 
 #include "Print.h"
+
+extern "C" void streamOutput(char c, void* arg)
+{
+  (static_cast<Print *>(arg))->write(c);
+}
 
 // Public Methods //////////////////////////////////////////////////////////////
 
@@ -191,7 +197,7 @@ int Print::printf(const char* format, ...)
 {
   va_list va;
   va_start(va, format);
-  int ret = vprintf(format, va);
+  int ret = vfctprintf(&streamOutput, this, format, va);
   va_end(va);
   return ret;
 }
