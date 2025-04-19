@@ -237,11 +237,11 @@ size_t Uart::write(const uint8_t data)
     return 0;
   }
 
+  nrfUart->EVENTS_TXDRDY = 0x0UL;
+
   nrfUart->TXD = data;
 
   while(!nrfUart->EVENTS_TXDRDY);
-
-  nrfUart->EVENTS_TXDRDY = 0x0UL;
 
   return 1;
 }
