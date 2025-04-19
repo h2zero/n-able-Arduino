@@ -83,6 +83,9 @@
 #define CONFIG_RTOS_TIMER_STACK_DEPTH (256)
 #endif
 
+#ifndef CONFIG_RTOS_TIMER_TASK_PRIORITY
+#define CONFIG_RTOS_TIMER_TASK_PRIORITY (2)
+#endif
 
 #define configTICK_SOURCE                                                         FREERTOS_USE_RTC
 
@@ -130,7 +133,7 @@
 
 /* Software timer definitions. */
 #define configUSE_TIMERS                                                          1
-#define configTIMER_TASK_PRIORITY                                                 ( configMAX_PRIORITIES - 1)
+#define configTIMER_TASK_PRIORITY                                                 CONFIG_RTOS_TIMER_TASK_PRIORITY
 #define configTIMER_QUEUE_LENGTH                                                  CONFIG_RTOS_TIMER_QUEUE_LENGTH
 #define configTIMER_TASK_STACK_DEPTH                                              CONFIG_RTOS_TIMER_STACK_DEPTH
 
