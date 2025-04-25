@@ -867,6 +867,75 @@ feather52840sense.menu.bootloader.none.bootloader.flags=
 feather52840sense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 feather52840sense.menu.bootloader.none.upload.maximum_size=1032192
 
+# Seedstudio
+seed52840sense.name=Seeed XIAO nRF52840 Sense
+
+seed52840sense.vid.0=0x2886
+seed52840sense.pid.0=0x8045
+seed52840sense.vid.1=0x2886
+seed52840sense.pid.1=0x0045
+seed52840sense.vid.2=0x2886
+seed52840sense.pid.2=0x0045
+seed52840sense.vid.3=0x2886
+seed52840sense.pid.3=0x8045
+
+
+seed52840sense.upload.tool=openocd
+seed52840sense.upload.target=nrf52
+seed52840sense.upload.jlink_device=nRF52840_xxAA
+seed52840sense.upload.use_1200bps_touch=true
+seed52840sense.upload.wait_for_upload_port=true
+seed52840sense.upload.maximum_size=978944
+seed52840sense.bootloader.tool=bootburn
+
+seed52840sense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+seed52840sense.build.mcu=cortex-m4
+seed52840sense.build.f_cpu=64000000
+seed52840sense.build.board=Seeed_XIAO_nRF52840_Sense
+seed52840sense.build.core=nRF5
+seed52840sense.build.variant=Seeed_XIAO_nRF52840_Sense
+seed52840sense.build.usb_manufacturer="Seeed"
+seed52840sense.build.usb_product="XIAO nRF52840 Sense"
+seed52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+seed52840sense.build.ldscript=nrf52840_s140_v7.ld
+seed52840sense.build.vid=0x2886
+seed52840sense.build.pid=0x8045
+seed52840sense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+
+seed52840sense.menu.role.all=All
+seed52840sense.menu.role.all.build.nimble_flags=
+seed52840sense.menu.role.periph=Peripheral
+seed52840sense.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+seed52840sense.menu.role.adv=Advertiser
+seed52840sense.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+seed52840sense.menu.role.scan=Scanner
+seed52840sense.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+seed52840sense.menu.role.central=Client
+seed52840sense.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+seed52840sense.menu.cppDbgLvl.none=None
+seed52840sense.menu.cppDbgLvl.none.build.cpp_debug=0
+seed52840sense.menu.cppDbgLvl.error=Error
+seed52840sense.menu.cppDbgLvl.error.build.cpp_debug=1
+seed52840sense.menu.cppDbgLvl.warn=Warn
+seed52840sense.menu.cppDbgLvl.warn.build.cpp_debug=2
+seed52840sense.menu.cppDbgLvl.info=Info
+seed52840sense.menu.cppDbgLvl.info.build.cpp_debug=3
+seed52840sense.menu.cppDbgLvl.debug=Debug
+seed52840sense.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+seed52840sense.menu.bootloader.adafruit=Adafruit (No softdevice)
+seed52840sense.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
+seed52840sense.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
+seed52840sense.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+seed52840sense.menu.bootloader.adafruit.bootloader.tool=bootburn
+seed52840sense.menu.bootloader.adafruit.bootloader.flags=
+seed52840sense.menu.bootloader.adafruit.build.ldscript=nrf52840_s140_v7.ld
+seed52840sense.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/Seeed_XIAO_nRF52840_Sense_bootloader-0.6.2_s140_7.3.0.hex
+seed52840sense.menu.bootloader.none=No bootloader
+seed52840sense.menu.bootloader.none.bootloader.flags=
+seed52840sense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+seed52840sense.menu.bootloader.none.upload.maximum_size=1032192
 
 itsybitsy52840.name=Adafruit ItsyBitsy nRF52840 Express
 

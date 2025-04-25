@@ -34,6 +34,7 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
  * [Adafruit Feather nRF52840 Sense](https://www.adafruit.com/product/4516)
  * [Adafruit ItsyBitsy nRF52840 Express](https://www.adafruit.com/product/4481)
  * [Ebyte E104-BT5040U](https://www.ebyte.com/en/product-view-news.html?id=1185)
+ * [XIAO nRF52840 Sense](https://wiki.seeedstudio.com/XIAO_BLE/)
 
 ### nRF52833
  * [Generic nRF52833 MCU](https://www.nordicsemi.com/Products/nRF52833)
