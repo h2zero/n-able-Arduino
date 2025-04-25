@@ -268,14 +268,6 @@
 #define MYNEWT_VAL_BLE_LL_CFG_FEAT_EXT_SCAN_FILT (0)
 #endif
 
-#ifndef MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_2M_PHY
-#define MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_2M_PHY (MYNEWT_VAL_BLE_EXT_ADV)
-#endif
-
-#ifndef MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_CODED_PHY
-#define MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_CODED_PHY (MYNEWT_VAL_BLE_EXT_ADV)
-#endif
-
 /* Overridden by @apache-mynewt-nimble/nimble/controller (defined by @apache-mynewt-nimble/nimble/controller) */
 #ifndef MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_CSA2
 #define MYNEWT_VAL_BLE_LL_CFG_FEAT_LE_CSA2 (1)
