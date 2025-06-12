@@ -885,7 +885,7 @@ seed52840sense.upload.target=nrf52
 seed52840sense.upload.jlink_device=nRF52840_xxAA
 seed52840sense.upload.use_1200bps_touch=true
 seed52840sense.upload.wait_for_upload_port=true
-seed52840sense.upload.maximum_size=978944
+seed52840sense.upload.maximum_size=823296
 seed52840sense.bootloader.tool=openocd
 
 seed52840sense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
