@@ -886,7 +886,7 @@ seed52840sense.upload.jlink_device=nRF52840_xxAA
 seed52840sense.upload.use_1200bps_touch=true
 seed52840sense.upload.wait_for_upload_port=true
 seed52840sense.upload.maximum_size=978944
-seed52840sense.bootloader.tool=bootburn
+seed52840sense.bootloader.tool=openocd
 
 seed52840sense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
 seed52840sense.build.mcu=cortex-m4
@@ -897,7 +897,7 @@ seed52840sense.build.variant=Seeed_XIAO_nRF52840_Sense
 seed52840sense.build.usb_manufacturer="Seeed"
 seed52840sense.build.usb_product="XIAO nRF52840 Sense"
 seed52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-seed52840sense.build.ldscript=nrf52840_s140_v7.ld
+seed52840sense.build.ldscript=nrf52840_s140_v7_seeed.ld
 seed52840sense.build.vid=0x2886
 seed52840sense.build.pid=0x8045
 seed52840sense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
@@ -928,7 +928,6 @@ seed52840sense.menu.bootloader.adafruit=Adafruit (No softdevice)
 seed52840sense.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
 seed52840sense.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
 seed52840sense.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-seed52840sense.menu.bootloader.adafruit.bootloader.tool=bootburn
 seed52840sense.menu.bootloader.adafruit.bootloader.flags=
 seed52840sense.menu.bootloader.adafruit.build.ldscript=nrf52840_s140_v7.ld
 seed52840sense.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/Seeed_XIAO_nRF52840_Sense_bootloader-0.6.2_s140_7.3.0.hex
