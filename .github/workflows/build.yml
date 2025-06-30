@@ -51,6 +51,7 @@ jobs:
               source-path: .
           libraries: |
             - name: NimBLE-Arduino
+              version: 1.4.3
           fqbn: "h2zero:arm-ble:${{ matrix.variant }}"
           sketch-paths: ${{ matrix.example }}
 
