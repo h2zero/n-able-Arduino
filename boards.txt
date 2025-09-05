@@ -897,7 +897,7 @@ seed52840sense.build.variant=Seeed_XIAO_nRF52840_Sense
 seed52840sense.build.usb_manufacturer="Seeed"
 seed52840sense.build.usb_product="XIAO nRF52840 Sense"
 seed52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-seed52840sense.build.ldscript=nrf52840_s140_v7_seeed.ld
+seed52840sense.build.ldscript=nrf52840_s140_v7_seeed_adabl.ld
 seed52840sense.build.vid=0x2886
 seed52840sense.build.pid=0x8045
 seed52840sense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
