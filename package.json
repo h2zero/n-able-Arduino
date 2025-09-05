@@ -1,6 +1,6 @@
 {
   "name": "framework-n-able-arduino",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Arduino Wiring-based Framework for Arm BLE devices supported by the NimBLE stack",
   "keywords": [
     "framework",

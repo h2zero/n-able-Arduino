@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2025-09-05
+
+### Fixed
+ - Arduino build with nRF52810 boards.
+ - potential endless loop in Wire Library.
+ - PCA20006 pinmap.
+ - Prevent possible endless loop in Uart::write/Serial::print.
+ - Increase HCI buffer size when extended advertising is enabled.
+
+### Changed
+ - Exposed hw_clock_hfxo_request and int hw_clock_hfxo_release for application use.
+ - Disable DLE if not using connections.
+ - Increase msys_1 blocks when privacy is enabled.
+ - Print::printf implementation now uses write to allow output redirection.
+ - Make PHY options configurable without extended advertising.
+
+### Added
+ - Config option for BLE secure connections.
+ - Support for Seeed xiao sense board.
+
 ## [0.2.0] 2024-06-28
 
 ### Fixed

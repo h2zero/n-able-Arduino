@@ -17,7 +17,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 name=ARM (Nim)BLE Boards
-version=0.2.0
+version=0.3.0
 
 # Compile variables
 # -----------------
