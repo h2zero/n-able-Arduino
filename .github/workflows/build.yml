@@ -10,7 +10,7 @@ on:
 jobs:
   build_arduino:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         example:
           - "libraries/n-able/examples/FreeRTOS"
@@ -70,11 +70,10 @@ jobs:
           - generic_nrf52840
           - adafruit_feather_nrf52840
         nimble_version:
-          - release/1.4
           - master
         include:
           - example: "example/lib/examples/Bluetooth_5/NimBLE_extended_server"
-            flags: build_flags = '-DCONFIG_BT_NIMBLE_EXT_ADV=1'
+            flags: build_flags = '-DMYNEWT_VAL_BLE_EXT_ADV=1'
           - variant: adafruit_feather_nrf52840
             bootloader: board_bootloader = adafruit
         exclude:
