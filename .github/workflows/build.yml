@@ -79,7 +79,6 @@ jobs:
             nimble_version: master
             flags: build_flags = '-DMYNEWT_VAL_BLE_EXT_ADV=1'
           - variant: adafruit_feather_nrf52840
-            bootloader: board_bootloader = adafruit
         exclude:
           - example: "example/lib/examples/Bluetooth_5/NimBLE_extended_server"
             variant: generic_nrf51822_xxaa
@@ -118,11 +117,10 @@ jobs:
         run: |
           cat > example/platformio.ini << EOF
             [env]
-            platform = https://github.com/h2zero/platform-n-able.git#cpp20
+            platform = https://github.com/h2zero/platform-n-able.git#dev
             platform_packages = framework-n-able-arduino @ file://./framework
             framework = arduino
             ${{ matrix.flags }}
-            ${{ matrix.bootloader }}
 
             [env:${{ matrix.variant }}]
             board = ${{ matrix.variant }}
