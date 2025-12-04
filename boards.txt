@@ -878,6 +878,8 @@ nRF52840_dongle.upload.tool=nrfutil
 nRF52840_dongle.upload.target=nrf52
 nRF52840_dongle.upload.jlink_device=nRF52840_xxAA
 nRF52840_dongle.upload.protocol=nrfutil
+nRF52840_dongle.upload.use_1200bps_touch=true
+nRF52840_dongle.upload.wait_for_upload_port=true
 nRF52840_dongle.upload.maximum_size=897024
 nRF52840_dongle.upload.maximum_data_size=262136
 
@@ -937,6 +939,8 @@ BT5040.upload.tool=nrfutil
 BT5040.upload.target=nrf52
 BT5040.upload.jlink_device=nRF52840_xxAA
 BT5040.upload.protocol=nrfutil
+BT5040.upload.use_1200bps_touch=true
+BT5040.upload.wait_for_upload_port=true
 BT5040.upload.maximum_size=897024
 BT5040.upload.maximum_data_size=262136
 

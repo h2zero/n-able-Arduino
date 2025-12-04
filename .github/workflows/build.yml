@@ -117,7 +117,7 @@ jobs:
         run: |
           cat > example/platformio.ini << EOF
             [env]
-            platform = https://github.com/h2zero/platform-n-able.git#dev
+            platform = https://github.com/h2zero/platform-n-able.git#1.1.3
             platform_packages = framework-n-able-arduino @ file://./framework
             framework = arduino
             ${{ matrix.flags }}
