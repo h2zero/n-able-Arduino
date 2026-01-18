@@ -10,7 +10,7 @@ on:
 jobs:
   build_arduino:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         example:
           - "libraries/n-able/examples/FreeRTOS"
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -44,14 +44,14 @@ jobs:
         with:
           cli-version: latest
           platforms: |
-            - name: "h2zero:arm-ble"
+            - name: "n-able-Arduino:arm-ble"
               source-url: "https://h2zero.github.io/n-able-Arduino/package_n-able_boards_index.json"
               version: latest
-            - name: "h2zero:arm-ble"
+            - name: "n-able-Arduino:arm-ble"
               source-path: .
           libraries: |
             - name: NimBLE-Arduino
-          fqbn: "h2zero:arm-ble:${{ matrix.variant }}"
+          fqbn: "n-able-Arduino:arm-ble:${{ matrix.variant }}"
           sketch-paths: ${{ matrix.example }}
 
   build_pio:
@@ -70,11 +70,14 @@ jobs:
           - generic_nrf52840
           - adafruit_feather_nrf52840
         nimble_version:
-          - release/1.4
+          - release/2.3
           - master
         include:
           - example: "example/lib/examples/Bluetooth_5/NimBLE_extended_server"
             flags: build_flags = '-DCONFIG_BT_NIMBLE_EXT_ADV=1'
+          - example: "example/lib/examples/Bluetooth_5/NimBLE_extended_server"
+            nimble_version: master
+            flags: build_flags = '-DMYNEWT_VAL_BLE_EXT_ADV=1'
           - variant: adafruit_feather_nrf52840
             bootloader: board_bootloader = adafruit
         exclude:
@@ -82,6 +85,8 @@ jobs:
             variant: generic_nrf51822_xxaa
           - example: "example/lib/examples/Bluetooth_5/NimBLE_extended_server"
             variant: generic_nrf52832
+          - example: "example/lib/examples/Bluetooth_5/NimBLE_extended_server"
+            variant: generic_nrf52810
 
     runs-on: ubuntu-latest
 
@@ -92,7 +97,7 @@ jobs:
           mkdir example/src
           mkdir example/lib
       - name: Checkout n-able-arduino
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: example/framework
       - name: Set up Python
@@ -104,7 +109,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install platformio
       - name: Checkout NimBLE_Arduino
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: h2zero/NimBLE-Arduino
           ref: ${{ matrix.nimble_version }}
@@ -113,7 +118,7 @@ jobs:
         run: |
           cat > example/platformio.ini << EOF
             [env]
-            platform = https://github.com/h2zero/platform-n-able.git@^1.0.0
+            platform = https://github.com/h2zero/platform-n-able.git
             platform_packages = framework-n-able-arduino @ file://./framework
             framework = arduino
             ${{ matrix.flags }}
