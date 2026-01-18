@@ -1,0 +1,107 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g., 6.6.6)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            VERSION=${{ github.event.release.tag_name }}
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            VERSION=${{ github.event.inputs.tag }}
+          fi
+          # Remove 'v' prefix if present
+          VERSION=${VERSION#v}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Create source archive
+        id: archive
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          ARCHIVE_NAME="n-able-Arduino-${VERSION}.tar.gz"
+          echo "Creating archive: ${ARCHIVE_NAME}"
+          
+          # Temporarily disable exit on error for tar (it may return 1 if files change during archiving)
+          set +e
+          tar --warning=no-file-changed -czf "${ARCHIVE_NAME}" \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=.gitignore \
+            --exclude=.gitattributes \
+            --exclude=node_modules \
+            --exclude=build \
+            --exclude=dist \
+            --exclude='*.tar.gz' \
+            --transform="s,^,n-able-Arduino-${VERSION}/," \
+            .
+          TAR_EXIT=$?
+          set -e
+          
+          # Tar exit codes: 0 = success, 1 = some files changed during archiving (but archive created)
+          if [ $TAR_EXIT -gt 1 ]; then
+            echo "Tar failed with exit code $TAR_EXIT"
+            ls -la
+            exit 1
+          fi
+          
+          # Calculate checksum and size
+          echo "Files in directory:"
+          ls -lh "${ARCHIVE_NAME}"
+          CHECKSUM=$(sha256sum "${ARCHIVE_NAME}" | cut -d ' ' -f 1)
+          if [ -f "${ARCHIVE_NAME}" ]; then
+            SIZE=$(stat -c%s "${ARCHIVE_NAME}")
+          else
+            echo "Archive not created!"
+            exit 1
+          fi
+          
+          echo "archive_name=${ARCHIVE_NAME}" >> $GITHUB_OUTPUT
+          echo "checksum=${CHECKSUM}" >> $GITHUB_OUTPUT
+          echo "size=${SIZE}" >> $GITHUB_OUTPUT
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Update package index
+        id: update-index
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          ARCHIVE_NAME: ${{ steps.archive.outputs.archive_name }}
+          CHECKSUM: ${{ steps.archive.outputs.checksum }}
+          SIZE: ${{ steps.archive.outputs.size }}
+        run: |
+          cd gh-pages
+          python ../.github/scripts/update_package_index.py
+
+      - name: Commit and push to gh-pages
+        working-directory: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git add package_n-able_boards_index.json
+          git commit -m "Update package index for v${{ steps.version.outputs.version }}" || echo "No changes to commit"
+          git push origin gh-pages
