@@ -12,7 +12,7 @@
         {
           "name": "Arm (Nim)BLE Boards",
           "architecture": "arm-ble",
-          "version": "0.3.1",
+          "version": "6.6.6",
           "category": "Contributed",
           "help": {
             "online": "https://github.com/h2zero/n-able-Arduino/issues"
@@ -138,7 +138,7 @@
             {
               "packager": "n-able-Arduino",
               "name": "gcc-arm-none-eabi",
-              "version": "9.3.1-1"
+              "version": "10.3.1-2.1"
             },
             {
               "packager": "n-able-Arduino",
@@ -686,6 +686,47 @@
         }
       ],
       "tools": [
+        {
+          "name": "gcc-arm-none-eabi",
+          "version": "10.3.1-2.1",
+          "systems": [
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-darwin-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.1-darwin-x64.tar.gz",
+              "checksum": "SHA-256:703dcbbbeaf6f2577cb7b3677072fa176b9d7e55256735e0b770b90952c626d9",
+              "size": "181589598"
+            },
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm64.tar.gz",
+              "checksum": "SHA-256:f78c2ec2177d29a005e43eb05aa36f361428f0d607b80046b3e032a08ae8232c",
+              "size": "182454272"
+            },
+            {
+              "host": "arm-linux-gnueabihf",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm.tar.gz",
+              "checksum": "SHA-256:7a264f45863f0006ab65da66cd4683b311977f6cda4e7ef18dde5e70717b6ea1",
+              "size": "177103872"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-x64.tar.gz",
+              "checksum": "SHA-256:eb4c7cb16ac1ab7d629ce807847692d5add9f13f23a3196fc545acc6f410a8cf",
+              "size": "183500288"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-win32-x64.zip",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.1-win32-x64.zip",
+              "checksum": "SHA-256:17c78c88efba6b6f3988b216044db908570af70392977c7a4680a5f08e098b61",
+              "size": "202366976"
+            }
+          ]
+        },
         {
           "name": "gcc-arm-none-eabi",
           "version": "9.3.1-1",
