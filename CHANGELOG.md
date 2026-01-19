@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.1] - 2026-01-18
+
+### Fixed
+- Use correct linker script when adafruit bootloader is selected
+
 ## [0.3.0] - 2025-09-05
 
 ### Fixed
