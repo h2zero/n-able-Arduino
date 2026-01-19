@@ -17,10 +17,10 @@
           "help": {
             "online": "https://github.com/h2zero/n-able-Arduino/issues"
           },
-          "url": "https://github.com/h2zero/n-able-Arduino/archive/0.3.1.tar.gz",
+          "url": "https://github.com/h2zero/n-able-Arduino/archive/refs/tags/0.3.1.tar.gz",
           "archiveFileName": "n-able-Arduino-0.3.1.tar.gz",
-          "checksum": "SHA-256:c2ca8a9f30ad3c1a739b1617629269c324ae563955a8a0c89bf2879a9c70a911",
-          "size": "2208105",
+          "checksum": "SHA-256:660cdb4862194d2985e1c0625cd7d4da480cd4184cb8132781c6b6e7a7e8d38e",
+          "size": "2175015",
           "boards": [
             {
               "name": "Adafruit CLUE nRF52840"
