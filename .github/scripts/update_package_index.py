@@ -13,9 +13,9 @@ def main():
     checksum = os.environ.get('CHECKSUM')
     size = os.environ.get('SIZE')
     
-    if not all([version, archive_name, checksum, size]):
+    if not all([version, checksum, size]):
         print("Error: Missing required environment variables")
-        print(f"VERSION={version}, ARCHIVE_NAME={archive_name}, CHECKSUM={checksum}, SIZE={size}")
+        print(f"VERSION={version}, CHECKSUM={checksum}, SIZE={size}")
         sys.exit(1)
     
     # Load existing package index
@@ -31,8 +31,8 @@ def main():
         "help": {
             "online": "https://github.com/h2zero/n-able-Arduino/issues"
         },
-        "url": f"https://github.com/h2zero/n-able-Arduino/archive/{version}.tar.gz",
-        "archiveFileName": archive_name,
+        "url": f"https://github.com/h2zero/n-able-Arduino/archive/refs/tags/{version}.tar.gz",
+        "archiveFileName": f"n-able-Arduino-{version}.tar.gz",
         "checksum": f"SHA-256:{checksum}",
         "size": str(size),
         "boards": [
