@@ -45,7 +45,7 @@ jobs:
           cli-version: latest
           platforms: |
             - name: "n-able-Arduino:arm-ble"
-              source-url: "https://h2zero.github.io/n-able-Arduino/package_n-able_boards_index.json"
+              source-url: "https://h2zero.github.io/n-able-Arduino/package_n-able_boards_test_index.json"
               version: latest
             - name: "n-able-Arduino:arm-ble"
               source-path: .
@@ -118,7 +118,7 @@ jobs:
         run: |
           cat > example/platformio.ini << EOF
             [env]
-            platform = https://github.com/h2zero/platform-n-able.git
+            platform = https://github.com/h2zero/platform-n-able.git#cpp20
             platform_packages = framework-n-able-arduino @ file://./framework
             framework = arduino
             ${{ matrix.flags }}
