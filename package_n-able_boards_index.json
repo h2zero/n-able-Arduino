@@ -12,6 +12,144 @@
         {
           "name": "Arm (Nim)BLE Boards",
           "architecture": "arm-ble",
+          "version": "0.3.1",
+          "category": "Contributed",
+          "help": {
+            "online": "https://github.com/h2zero/n-able-Arduino/issues"
+          },
+          "url": "https://github.com/h2zero/n-able-Arduino/archive/0.3.1.tar.gz",
+          "archiveFileName": "n-able-Arduino-0.3.1.tar.gz",
+          "checksum": "SHA-256:c2ca8a9f30ad3c1a739b1617629269c324ae563955a8a0c89bf2879a9c70a911",
+          "size": "2208105",
+          "boards": [
+            {
+              "name": "Adafruit CLUE nRF52840"
+            },
+            {
+              "name": "Adafruit Circuit Playground Bluefruit"
+            },
+            {
+              "name": "Adafruit Feather nRF52832"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Express"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Sense"
+            },
+            {
+              "name": "Adafruit ItsyBitsy nRF52840 Express"
+            },
+            {
+              "name": "BBC micro:bit"
+            },
+            {
+              "name": "BBC micro:bit v2"
+            },
+            {
+              "name": "Bluz DK"
+            },
+            {
+              "name": "Calliope mini"
+            },
+            {
+              "name": "Ebyte E104-BT5032A-TB"
+            },
+            {
+              "name": "Ebyte E104-BT5040UA Dongle"
+            },
+            {
+              "name": "Electronut labs bluey"
+            },
+            {
+              "name": "Electronut labs hackaBLE"
+            },
+            {
+              "name": "Electronut labs hackaBLE v2"
+            },
+            {
+              "name": "Generic nRF51822"
+            },
+            {
+              "name": "Generic nRF52810"
+            },
+            {
+              "name": "Generic nRF52832"
+            },
+            {
+              "name": "Generic nRF52833"
+            },
+            {
+              "name": "Generic nRF52840"
+            },
+            {
+              "name": "ng-beacon"
+            },
+            {
+              "name": "nRF51 Dongle"
+            },
+            {
+              "name": "nRF51822 DK"
+            },
+            {
+              "name": "nRF52832 DK"
+            },
+            {
+              "name": "nRF52833 DK"
+            },
+            {
+              "name": "nRF52840 DK"
+            },
+            {
+              "name": "nRF52840 Dongle"
+            },
+            {
+              "name": "Nordic Beacon Kit"
+            },
+            {
+              "name": "OSHChip"
+            },
+            {
+              "name": "RedBear BLE Nano"
+            },
+            {
+              "name": "RedBear BLE Nano 2"
+            },
+            {
+              "name": "RedBear Blend 2"
+            },
+            {
+              "name": "RedBear nRF51822"
+            },
+            {
+              "name": "Sino:bit"
+            },
+            {
+              "name": "TinyBLE"
+            },
+            {
+              "name": "Waveshare BLE400"
+            },
+            {
+              "name": "Seeed XIAO nRF52840 Sense"
+            }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "h2zero",
+              "name": "gcc-arm-none-eabi",
+              "version": "9.3.1-1"
+            },
+            {
+              "packager": "h2zero",
+              "name": "openocd",
+              "version": "0.11.0-4"
+            }
+          ]
+        },
+        {
+          "name": "Arm (Nim)BLE Boards",
+          "architecture": "arm-ble",
           "version": "0.3.0",
           "category": "Contributed",
           "help": {
@@ -22,43 +160,117 @@
           "checksum": "SHA-256:6019dd3fd923384553c3d578bb78be6276689845313a7fbbacc6e246167dad2d",
           "size": "2172058",
           "boards": [
-            {"name": "Adafruit CLUE nRF52840"},
-            {"name": "Adafruit Circuit Playground Bluefruit"},
-            {"name": "Adafruit Feather nRF52832"},
-            {"name": "Adafruit Feather nRF52840 Express"},
-            {"name": "Adafruit Feather nRF52840 Sense"},
-            {"name": "Adafruit ItsyBitsy nRF52840 Express"},
-            {"name": "BBC micro:bit"},
-            {"name": "BBC micro:bit v2"},
-            {"name": "Bluz DK"},
-            {"name": "Calliope mini"},
-            {"name": "Ebyte E104-BT5032A-TB"},
-            {"name": "Ebyte E104-BT5040UA Dongle"},
-            {"name": "Electronut labs bluey"},
-            {"name": "Electronut labs hackaBLE"},
-            {"name": "Electronut labs hackaBLE v2"},
-            {"name": "Generic nRF51822"},
-            {"name": "Generic nRF52810"},
-            {"name": "Generic nRF52832"},
-            {"name": "Generic nRF52833"},
-            {"name": "Generic nRF52840"},
-            {"name": "ng-beacon"},
-            {"name": "nRF51 Dongle"},
-            {"name": "nRF51822 DK"},
-            {"name": "nRF52832 DK"},
-            {"name": "nRF52833 DK"},
-            {"name": "nRF52840 DK"},
-            {"name": "nRF52840 Dongle"},
-            {"name": "Nordic Beacon Kit"},
-            {"name": "OSHChip"},
-            {"name": "RedBear BLE Nano"},
-            {"name": "RedBear BLE Nano 2"},
-            {"name": "RedBear Blend 2"},
-            {"name": "RedBear nRF51822"},
-            {"name": "Sino:bit"},
-            {"name": "TinyBLE"},
-            {"name": "Waveshare BLE400"},
-            {"name": "Seeed XIAO nRF52840 Sense"}
+            {
+              "name": "Adafruit CLUE nRF52840"
+            },
+            {
+              "name": "Adafruit Circuit Playground Bluefruit"
+            },
+            {
+              "name": "Adafruit Feather nRF52832"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Express"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Sense"
+            },
+            {
+              "name": "Adafruit ItsyBitsy nRF52840 Express"
+            },
+            {
+              "name": "BBC micro:bit"
+            },
+            {
+              "name": "BBC micro:bit v2"
+            },
+            {
+              "name": "Bluz DK"
+            },
+            {
+              "name": "Calliope mini"
+            },
+            {
+              "name": "Ebyte E104-BT5032A-TB"
+            },
+            {
+              "name": "Ebyte E104-BT5040UA Dongle"
+            },
+            {
+              "name": "Electronut labs bluey"
+            },
+            {
+              "name": "Electronut labs hackaBLE"
+            },
+            {
+              "name": "Electronut labs hackaBLE v2"
+            },
+            {
+              "name": "Generic nRF51822"
+            },
+            {
+              "name": "Generic nRF52810"
+            },
+            {
+              "name": "Generic nRF52832"
+            },
+            {
+              "name": "Generic nRF52833"
+            },
+            {
+              "name": "Generic nRF52840"
+            },
+            {
+              "name": "ng-beacon"
+            },
+            {
+              "name": "nRF51 Dongle"
+            },
+            {
+              "name": "nRF51822 DK"
+            },
+            {
+              "name": "nRF52832 DK"
+            },
+            {
+              "name": "nRF52833 DK"
+            },
+            {
+              "name": "nRF52840 DK"
+            },
+            {
+              "name": "nRF52840 Dongle"
+            },
+            {
+              "name": "Nordic Beacon Kit"
+            },
+            {
+              "name": "OSHChip"
+            },
+            {
+              "name": "RedBear BLE Nano"
+            },
+            {
+              "name": "RedBear BLE Nano 2"
+            },
+            {
+              "name": "RedBear Blend 2"
+            },
+            {
+              "name": "RedBear nRF51822"
+            },
+            {
+              "name": "Sino:bit"
+            },
+            {
+              "name": "TinyBLE"
+            },
+            {
+              "name": "Waveshare BLE400"
+            },
+            {
+              "name": "Seeed XIAO nRF52840 Sense"
+            }
           ],
           "toolsDependencies": [
             {
@@ -86,42 +298,114 @@
           "checksum": "SHA-256:1da98d530382dd845e51379735e75473cc9547923fbbff9202d365072eef6865",
           "size": "1951978",
           "boards": [
-            {"name": "Adafruit CLUE nRF52840"},
-            {"name": "Adafruit Circuit Playground Bluefruit"},
-            {"name": "Adafruit Feather nRF52832"},
-            {"name": "Adafruit Feather nRF52840 Express"},
-            {"name": "Adafruit Feather nRF52840 Sense"},
-            {"name": "Adafruit ItsyBitsy nRF52840 Express"},
-            {"name": "BBC micro:bit"},
-            {"name": "BBC micro:bit v2"},
-            {"name": "Bluz DK"},
-            {"name": "Calliope mini"},
-            {"name": "Ebyte E104-BT5032A-TB"},
-            {"name": "Ebyte E104-BT5040UA Dongle"},
-            {"name": "Electronut labs bluey"},
-            {"name": "Electronut labs hackaBLE"},
-            {"name": "Electronut labs hackaBLE v2"},
-            {"name": "Generic nRF51822"},
-            {"name": "Generic nRF52810"},
-            {"name": "Generic nRF52832"},
-            {"name": "Generic nRF52833"},
-            {"name": "Generic nRF52840"},
-            {"name": "ng-beacon"},
-            {"name": "nRF51 Dongle"},
-            {"name": "nRF51822 DK"},
-            {"name": "nRF52832 DK"},
-            {"name": "nRF52833 DK"},
-            {"name": "nRF52840 DK"},
-            {"name": "nRF52840 Dongle"},
-            {"name": "Nordic Beacon Kit"},
-            {"name": "OSHChip"},
-            {"name": "RedBear BLE Nano"},
-            {"name": "RedBear BLE Nano 2"},
-            {"name": "RedBear Blend 2"},
-            {"name": "RedBear nRF51822"},
-            {"name": "Sino:bit"},
-            {"name": "TinyBLE"},
-            {"name": "Waveshare BLE400"}
+            {
+              "name": "Adafruit CLUE nRF52840"
+            },
+            {
+              "name": "Adafruit Circuit Playground Bluefruit"
+            },
+            {
+              "name": "Adafruit Feather nRF52832"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Express"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Sense"
+            },
+            {
+              "name": "Adafruit ItsyBitsy nRF52840 Express"
+            },
+            {
+              "name": "BBC micro:bit"
+            },
+            {
+              "name": "BBC micro:bit v2"
+            },
+            {
+              "name": "Bluz DK"
+            },
+            {
+              "name": "Calliope mini"
+            },
+            {
+              "name": "Ebyte E104-BT5032A-TB"
+            },
+            {
+              "name": "Ebyte E104-BT5040UA Dongle"
+            },
+            {
+              "name": "Electronut labs bluey"
+            },
+            {
+              "name": "Electronut labs hackaBLE"
+            },
+            {
+              "name": "Electronut labs hackaBLE v2"
+            },
+            {
+              "name": "Generic nRF51822"
+            },
+            {
+              "name": "Generic nRF52810"
+            },
+            {
+              "name": "Generic nRF52832"
+            },
+            {
+              "name": "Generic nRF52833"
+            },
+            {
+              "name": "Generic nRF52840"
+            },
+            {
+              "name": "ng-beacon"
+            },
+            {
+              "name": "nRF51 Dongle"
+            },
+            {
+              "name": "nRF51822 DK"
+            },
+            {
+              "name": "nRF52832 DK"
+            },
+            {
+              "name": "nRF52833 DK"
+            },
+            {
+              "name": "nRF52840 DK"
+            },
+            {
+              "name": "nRF52840 Dongle"
+            },
+            {
+              "name": "Nordic Beacon Kit"
+            },
+            {
+              "name": "OSHChip"
+            },
+            {
+              "name": "RedBear BLE Nano"
+            },
+            {
+              "name": "RedBear BLE Nano 2"
+            },
+            {
+              "name": "RedBear Blend 2"
+            },
+            {
+              "name": "RedBear nRF51822"
+            },
+            {
+              "name": "Sino:bit"
+            },
+            {
+              "name": "TinyBLE"
+            },
+            {
+              "name": "Waveshare BLE400"
+            }
           ],
           "toolsDependencies": [
             {
@@ -149,41 +433,111 @@
           "checksum": "SHA-256:c1b60a8c474045a79f0562de2c3d68ab8bcc3f58d5455866d1ec588d326b8e68",
           "size": "1947535",
           "boards": [
-            {"name": "Adafruit CLUE nRF52840"},
-            {"name": "Adafruit Circuit Playground Bluefruit"},
-            {"name": "Adafruit Feather nRF52832"},
-            {"name": "Adafruit Feather nRF52840 Express"},
-            {"name": "Adafruit Feather nRF52840 Sense"},
-            {"name": "Adafruit ItsyBitsy nRF52840 Express"},
-            {"name": "BBC micro:bit"},
-            {"name": "BBC micro:bit v2"},
-            {"name": "Bluz DK"},
-            {"name": "Calliope mini"},
-            {"name": "Ebyte E104-BT5032A-TB"},
-            {"name": "Ebyte E104-BT5040UA Dongle"},
-            {"name": "Electronut labs bluey"},
-            {"name": "Electronut labs hackaBLE"},
-            {"name": "Electronut labs hackaBLE v2"},
-            {"name": "Generic nRF51822"},
-            {"name": "Generic nRF52832"},
-            {"name": "Generic nRF52833"},
-            {"name": "Generic nRF52840"},
-            {"name": "ng-beacon"},
-            {"name": "nRF51 Dongle"},
-            {"name": "nRF51822 DK"},
-            {"name": "nRF52832 DK"},
-            {"name": "nRF52833 DK"},
-            {"name": "nRF52840 DK"},
-            {"name": "nRF52840 Dongle"},
-            {"name": "Nordic Beacon Kit"},
-            {"name": "OSHChip"},
-            {"name": "RedBear BLE Nano"},
-            {"name": "RedBear BLE Nano 2"},
-            {"name": "RedBear Blend 2"},
-            {"name": "RedBear nRF51822"},
-            {"name": "Sino:bit"},
-            {"name": "TinyBLE"},
-            {"name": "Waveshare BLE400"}
+            {
+              "name": "Adafruit CLUE nRF52840"
+            },
+            {
+              "name": "Adafruit Circuit Playground Bluefruit"
+            },
+            {
+              "name": "Adafruit Feather nRF52832"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Express"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Sense"
+            },
+            {
+              "name": "Adafruit ItsyBitsy nRF52840 Express"
+            },
+            {
+              "name": "BBC micro:bit"
+            },
+            {
+              "name": "BBC micro:bit v2"
+            },
+            {
+              "name": "Bluz DK"
+            },
+            {
+              "name": "Calliope mini"
+            },
+            {
+              "name": "Ebyte E104-BT5032A-TB"
+            },
+            {
+              "name": "Ebyte E104-BT5040UA Dongle"
+            },
+            {
+              "name": "Electronut labs bluey"
+            },
+            {
+              "name": "Electronut labs hackaBLE"
+            },
+            {
+              "name": "Electronut labs hackaBLE v2"
+            },
+            {
+              "name": "Generic nRF51822"
+            },
+            {
+              "name": "Generic nRF52832"
+            },
+            {
+              "name": "Generic nRF52833"
+            },
+            {
+              "name": "Generic nRF52840"
+            },
+            {
+              "name": "ng-beacon"
+            },
+            {
+              "name": "nRF51 Dongle"
+            },
+            {
+              "name": "nRF51822 DK"
+            },
+            {
+              "name": "nRF52832 DK"
+            },
+            {
+              "name": "nRF52833 DK"
+            },
+            {
+              "name": "nRF52840 DK"
+            },
+            {
+              "name": "nRF52840 Dongle"
+            },
+            {
+              "name": "Nordic Beacon Kit"
+            },
+            {
+              "name": "OSHChip"
+            },
+            {
+              "name": "RedBear BLE Nano"
+            },
+            {
+              "name": "RedBear BLE Nano 2"
+            },
+            {
+              "name": "RedBear Blend 2"
+            },
+            {
+              "name": "RedBear nRF51822"
+            },
+            {
+              "name": "Sino:bit"
+            },
+            {
+              "name": "TinyBLE"
+            },
+            {
+              "name": "Waveshare BLE400"
+            }
           ],
           "toolsDependencies": [
             {
@@ -211,41 +565,111 @@
           "checksum": "SHA-256:a8fb4a26a1f39a6efb3714b9b9e7617160b86c92dedfb3e9a09a778548546e60",
           "size": "1946908",
           "boards": [
-            {"name": "Adafruit CLUE nRF52840"},
-            {"name": "Adafruit Circuit Playground Bluefruit"},
-            {"name": "Adafruit Feather nRF52832"},
-            {"name": "Adafruit Feather nRF52840 Express"},
-            {"name": "Adafruit Feather nRF52840 Sense"},
-            {"name": "Adafruit ItsyBitsy nRF52840 Express"},
-            {"name": "BBC micro:bit"},
-            {"name": "BBC micro:bit v2"},
-            {"name": "Bluz DK"},
-            {"name": "Calliope mini"},
-            {"name": "Ebyte E104-BT5032A-TB"},
-            {"name": "Ebyte E104-BT5040UA Dongle"},
-            {"name": "Electronut labs bluey"},
-            {"name": "Electronut labs hackaBLE"},
-            {"name": "Electronut labs hackaBLE v2"},
-            {"name": "Generic nRF51822"},
-            {"name": "Generic nRF52832"},
-            {"name": "Generic nRF52833"},
-            {"name": "Generic nRF52840"},
-            {"name": "ng-beacon"},
-            {"name": "nRF51 Dongle"},
-            {"name": "nRF51822 DK"},
-            {"name": "nRF52832 DK"},
-            {"name": "nRF52833 DK"},
-            {"name": "nRF52840 DK"},
-            {"name": "nRF52840 Dongle"},
-            {"name": "Nordic Beacon Kit"},
-            {"name": "OSHChip"},
-            {"name": "RedBear BLE Nano"},
-            {"name": "RedBear BLE Nano 2"},
-            {"name": "RedBear Blend 2"},
-            {"name": "RedBear nRF51822"},
-            {"name": "Sino:bit"},
-            {"name": "TinyBLE"},
-            {"name": "Waveshare BLE400"}
+            {
+              "name": "Adafruit CLUE nRF52840"
+            },
+            {
+              "name": "Adafruit Circuit Playground Bluefruit"
+            },
+            {
+              "name": "Adafruit Feather nRF52832"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Express"
+            },
+            {
+              "name": "Adafruit Feather nRF52840 Sense"
+            },
+            {
+              "name": "Adafruit ItsyBitsy nRF52840 Express"
+            },
+            {
+              "name": "BBC micro:bit"
+            },
+            {
+              "name": "BBC micro:bit v2"
+            },
+            {
+              "name": "Bluz DK"
+            },
+            {
+              "name": "Calliope mini"
+            },
+            {
+              "name": "Ebyte E104-BT5032A-TB"
+            },
+            {
+              "name": "Ebyte E104-BT5040UA Dongle"
+            },
+            {
+              "name": "Electronut labs bluey"
+            },
+            {
+              "name": "Electronut labs hackaBLE"
+            },
+            {
+              "name": "Electronut labs hackaBLE v2"
+            },
+            {
+              "name": "Generic nRF51822"
+            },
+            {
+              "name": "Generic nRF52832"
+            },
+            {
+              "name": "Generic nRF52833"
+            },
+            {
+              "name": "Generic nRF52840"
+            },
+            {
+              "name": "ng-beacon"
+            },
+            {
+              "name": "nRF51 Dongle"
+            },
+            {
+              "name": "nRF51822 DK"
+            },
+            {
+              "name": "nRF52832 DK"
+            },
+            {
+              "name": "nRF52833 DK"
+            },
+            {
+              "name": "nRF52840 DK"
+            },
+            {
+              "name": "nRF52840 Dongle"
+            },
+            {
+              "name": "Nordic Beacon Kit"
+            },
+            {
+              "name": "OSHChip"
+            },
+            {
+              "name": "RedBear BLE Nano"
+            },
+            {
+              "name": "RedBear BLE Nano 2"
+            },
+            {
+              "name": "RedBear Blend 2"
+            },
+            {
+              "name": "RedBear nRF51822"
+            },
+            {
+              "name": "Sino:bit"
+            },
+            {
+              "name": "TinyBLE"
+            },
+            {
+              "name": "Waveshare BLE400"
+            }
           ],
           "toolsDependencies": [
             {
@@ -261,7 +685,7 @@
           ]
         }
       ],
-      "tools":[
+      "tools": [
         {
           "name": "gcc-arm-none-eabi",
           "version": "9.3.1-1",
