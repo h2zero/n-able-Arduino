@@ -28,7 +28,7 @@ compiler.warning_flags.default=
 compiler.warning_flags.more=-Wall
 compiler.warning_flags.all=-Wall -Wextra
 
-compiler.path={runtime.tools.gcc-arm-none-eabi-9.3.1-1.path}/bin/
+compiler.path={runtime.tools.gcc-arm-none-eabi-10.3.1-2.1.path}/bin/
 compiler.c.cmd=arm-none-eabi-gcc
 compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g -Os {compiler.warning_flags} {build.float_flags} -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -std=gnu11 -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -MMD
 compiler.c.elf.cmd=arm-none-eabi-g++
