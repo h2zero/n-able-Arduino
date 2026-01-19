@@ -70,7 +70,9 @@ int main( void )
   _loopTaskHandle = xTaskCreateStatic(loopTask, "mlt", MAIN_TASK_STACK_SIZE,
                                       NULL, 1, _mainStack, &_mainTaskBuffer);
 
-  SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
+  uint32_t scr = SCB->SCR;
+  scr |= SCB_SCR_SLEEPDEEP_Msk;
+  SCB->SCR = scr;
 
   vTaskStartScheduler();
 
