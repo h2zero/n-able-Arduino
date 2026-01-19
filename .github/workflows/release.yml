@@ -32,46 +32,26 @@ jobs:
           VERSION=${VERSION#v}
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
 
-      - name: Create source archive
+      - name: Download release archive
         id: archive
         run: |
           VERSION=${{ steps.version.outputs.version }}
           ARCHIVE_NAME="n-able-Arduino-${VERSION}.tar.gz"
-          echo "Creating archive: ${ARCHIVE_NAME}"
+          ARCHIVE_URL="https://github.com/${{ github.repository }}/archive/refs/tags/${VERSION}.tar.gz"
           
-          # Temporarily disable exit on error for tar (it may return 1 if files change during archiving)
-          set +e
-          tar --warning=no-file-changed -czf "${ARCHIVE_NAME}" \
-            --exclude=.git \
-            --exclude=.github \
-            --exclude=.gitignore \
-            --exclude=.gitattributes \
-            --exclude=node_modules \
-            --exclude=build \
-            --exclude=dist \
-            --exclude='*.tar.gz' \
-            --transform="s,^,n-able-Arduino-${VERSION}/," \
-            .
-          TAR_EXIT=$?
-          set -e
+          echo "Downloading archive from: ${ARCHIVE_URL}"
+          curl -sL -o "${ARCHIVE_NAME}" "${ARCHIVE_URL}"
           
-          # Tar exit codes: 0 = success, 1 = some files changed during archiving (but archive created)
-          if [ $TAR_EXIT -gt 1 ]; then
-            echo "Tar failed with exit code $TAR_EXIT"
-            ls -la
+          if [ ! -f "${ARCHIVE_NAME}" ]; then
+            echo "Failed to download archive!"
             exit 1
           fi
           
           # Calculate checksum and size
-          echo "Files in directory:"
+          echo "Archive downloaded:"
           ls -lh "${ARCHIVE_NAME}"
           CHECKSUM=$(sha256sum "${ARCHIVE_NAME}" | cut -d ' ' -f 1)
-          if [ -f "${ARCHIVE_NAME}" ]; then
-            SIZE=$(stat -c%s "${ARCHIVE_NAME}")
-          else
-            echo "Archive not created!"
-            exit 1
-          fi
+          SIZE=$(stat -c%s "${ARCHIVE_NAME}")
           
           echo "archive_name=${ARCHIVE_NAME}" >> $GITHUB_OUTPUT
           echo "checksum=${CHECKSUM}" >> $GITHUB_OUTPUT
