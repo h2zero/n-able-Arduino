@@ -1,0 +1,87 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g., 6.6.6)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            VERSION=${{ github.event.release.tag_name }}
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            VERSION=${{ github.event.inputs.tag }}
+          fi
+          # Remove 'v' prefix if present
+          VERSION=${VERSION#v}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Download release archive
+        id: archive
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          ARCHIVE_NAME="n-able-Arduino-${VERSION}.tar.gz"
+          ARCHIVE_URL="https://github.com/${{ github.repository }}/archive/refs/tags/${VERSION}.tar.gz"
+          
+          echo "Downloading archive from: ${ARCHIVE_URL}"
+          curl -sL -o "${ARCHIVE_NAME}" "${ARCHIVE_URL}"
+          
+          if [ ! -f "${ARCHIVE_NAME}" ]; then
+            echo "Failed to download archive!"
+            exit 1
+          fi
+          
+          # Calculate checksum and size
+          echo "Archive downloaded:"
+          ls -lh "${ARCHIVE_NAME}"
+          CHECKSUM=$(sha256sum "${ARCHIVE_NAME}" | cut -d ' ' -f 1)
+          SIZE=$(stat -c%s "${ARCHIVE_NAME}")
+          
+          echo "archive_name=${ARCHIVE_NAME}" >> $GITHUB_OUTPUT
+          echo "checksum=${CHECKSUM}" >> $GITHUB_OUTPUT
+          echo "size=${SIZE}" >> $GITHUB_OUTPUT
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Update package index
+        id: update-index
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          ARCHIVE_NAME: ${{ steps.archive.outputs.archive_name }}
+          CHECKSUM: ${{ steps.archive.outputs.checksum }}
+          SIZE: ${{ steps.archive.outputs.size }}
+        run: |
+          cd gh-pages
+          python ../.github/scripts/update_package_index.py
+
+      - name: Commit and push to gh-pages
+        working-directory: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git add package_n-able_boards_index.json
+          git commit -m "Update package index for v${{ steps.version.outputs.version }}" || echo "No changes to commit"
+          git push origin gh-pages
