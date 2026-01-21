@@ -32,6 +32,7 @@ Generic_nRF52832.upload.tool=openocd
 Generic_nRF52832.upload.target=nrf52
 Generic_nRF52832.upload.jlink_device=nRF52832_xxAA
 Generic_nRF52832.upload.maximum_size=507904
+Generic_nRF52832.upload.maximum_data_size=65536
 
 Generic_nRF52832.bootloader.tool=openocd
 
@@ -78,6 +79,28 @@ Generic_nRF52832.menu.bootloader.none=No bootloader
 Generic_nRF52832.menu.bootloader.none.bootloader.flags=
 Generic_nRF52832.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+Generic_nRF52832.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+Generic_nRF52832.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+Generic_nRF52832.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52832.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+Generic_nRF52832.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52832.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+Generic_nRF52832.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+Generic_nRF52832.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Generic_nRF52832.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+Generic_nRF52832.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+Generic_nRF52832.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+Generic_nRF52832.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+Generic_nRF52832.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Generic_nRF52832.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+Generic_nRF52832.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Generic_nRF52832.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+Generic_nRF52832.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+Generic_nRF52832.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Generic_nRF52832.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+Generic_nRF52832.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 
 nRF52DK.name=Nordic nRF52832DK (PCA10040)
 
@@ -89,6 +112,7 @@ nRF52DK.upload.protocol=jlink
 nRF52DK.upload.target=nrf52
 nRF52DK.upload.jlink_device=nRF52832_xxAA
 nRF52DK.upload.maximum_size=507904
+nRF52DK.upload.maximum_data_size=65536
 nRF52DK.upload.setup_command=transport select swd;
 
 nRF52DK.bootloader.tool=openocd
@@ -130,12 +154,35 @@ nRF52DK.menu.bootloader.none=No bootloader
 nRF52DK.menu.bootloader.none.bootloader.flags=
 nRF52DK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+nRF52DK.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+nRF52DK.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+nRF52DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52DK.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+nRF52DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52DK.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+nRF52DK.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+nRF52DK.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nRF52DK.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+nRF52DK.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+nRF52DK.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+nRF52DK.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+nRF52DK.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nRF52DK.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+nRF52DK.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nRF52DK.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+nRF52DK.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+nRF52DK.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nRF52DK.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+nRF52DK.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 feather52832.name=Adafruit Feather nRF52832
 
 feather52832.upload.tool=openocd
 feather52832.upload.target=nrf52
 feather52832.upload.jlink_device=nRF52832_xxAA
-feather52832.upload.maximum_size=454656
+feather52832.upload.maximum_size=303104
+feather52832.upload.maximum_data_size=51712
 
 feather52832.bootloader.tool=openocd
 
@@ -173,18 +220,29 @@ feather52832.menu.cppDbgLvl.info.build.cpp_debug=3
 feather52832.menu.cppDbgLvl.debug=Debug
 feather52832.menu.cppDbgLvl.debug.build.cpp_debug=4
 
-feather52832.menu.bootloader.adafruit=Adafruit (No softdevice)
-feather52832.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
-feather52832.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-feather52832.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-feather52832.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
-feather52832.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-feather52832.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+feather52832.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+feather52832.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+feather52832.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52832.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+feather52832.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52832.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+feather52832.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+feather52832.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+feather52832.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+feather52832.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+feather52832.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+feather52832.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+feather52832.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+feather52832.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52832.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+feather52832.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 feather52832.menu.bootloader.none=No bootloader
 feather52832.menu.bootloader.none.bootloader.flags=
 feather52832.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 feather52832.menu.bootloader.none.upload.maximum_size=507904
-
+feather52832.menu.bootloader.none.upload.maximum_data_size=65536
 
 BT5032A-TB.name=Ebyte BT5032A-TB
 
@@ -192,6 +250,7 @@ BT5032A-TB.upload.tool=openocd
 BT5032A-TB.upload.target=nrf52
 BT5032A-TB.upload.jlink_device=nRF52832_xxAA
 BT5032A-TB.upload.maximum_size=507904
+BT5032A-TB.upload.maximum_data_size=65536
 
 BT5032A-TB.bootloader.tool=openocd
 
@@ -231,14 +290,29 @@ BT5032A-TB.menu.cppDbgLvl.debug.build.cpp_debug=4
 BT5032A-TB.menu.bootloader.none=No bootloader
 BT5032A-TB.menu.bootloader.none.bootloader.flags=
 BT5032A-TB.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
-BT5032A-TB.menu.bootloader.adafruit=Adafruit (No softdevice)
-BT5032A-TB.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
-BT5032A-TB.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-BT5032A-TB.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-BT5032A-TB.menu.bootloader.adafruit.upload.maximum_size=454656
-BT5032A-TB.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
-BT5032A-TB.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-BT5032A-TB.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+
+BT5032A-TB.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+BT5032A-TB.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+BT5032A-TB.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+BT5032A-TB.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+BT5032A-TB.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+BT5032A-TB.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+BT5032A-TB.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+BT5032A-TB.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+BT5032A-TB.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+BT5032A-TB.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+BT5032A-TB.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+BT5032A-TB.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+BT5032A-TB.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+BT5032A-TB.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+BT5032A-TB.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+BT5032A-TB.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+BT5032A-TB.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+BT5032A-TB.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+BT5032A-TB.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+BT5032A-TB.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 
 bluey.name=Electronut labs bluey
 
@@ -246,6 +320,7 @@ bluey.upload.tool=openocd
 bluey.upload.target=nrf52
 bluey.upload.jlink_device=nRF52832_xxAA
 bluey.upload.maximum_size=507904
+bluey.upload.maximum_data_size=65536
 
 bluey.bootloader.tool=openocd
 
@@ -292,6 +367,28 @@ bluey.menu.bootloader.none=No bootloader
 bluey.menu.bootloader.none.bootloader.flags=
 bluey.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+bluey.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+bluey.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+bluey.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+bluey.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+bluey.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+bluey.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+bluey.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+bluey.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+bluey.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+bluey.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+bluey.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+bluey.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+bluey.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+bluey.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+bluey.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+bluey.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+bluey.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+bluey.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+bluey.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+bluey.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 
 hackaBLE.name=Electronut labs hackaBLE
 
@@ -299,6 +396,7 @@ hackaBLE.upload.tool=openocd
 hackaBLE.upload.target=nrf52
 hackaBLE.upload.jlink_device=nRF52832_xxAA
 hackaBLE.upload.maximum_size=507904
+hackaBLE.upload.maximum_data_size=65536
 
 hackaBLE.bootloader.tool=openocd
 
@@ -345,6 +443,28 @@ hackaBLE.menu.bootloader.none=No bootloader
 hackaBLE.menu.bootloader.none.bootloader.flags=
 hackaBLE.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+hackaBLE.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+hackaBLE.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+hackaBLE.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+hackaBLE.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+hackaBLE.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+hackaBLE.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+hackaBLE.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+hackaBLE.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+hackaBLE.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+hackaBLE.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+hackaBLE.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+hackaBLE.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+hackaBLE.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+hackaBLE.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+hackaBLE.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+hackaBLE.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+hackaBLE.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+hackaBLE.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+hackaBLE.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+hackaBLE.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 
 hackaBLE_v2.name=Electronut labs hackaBLE_v2
 
@@ -352,6 +472,7 @@ hackaBLE_v2.upload.tool=openocd
 hackaBLE_v2.upload.target=nrf52
 hackaBLE_v2.upload.jlink_device=nRF52832_xxAA
 hackaBLE_v2.upload.maximum_size=507904
+hackaBLE_v2.upload.maximum_data_size=65536
 
 hackaBLE_v2.bootloader.tool=openocd
 
@@ -398,6 +519,28 @@ hackaBLE_v2.menu.bootloader.none=No bootloader
 hackaBLE_v2.menu.bootloader.none.bootloader.flags=
 hackaBLE_v2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+hackaBLE_v2.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+hackaBLE_v2.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+hackaBLE_v2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+hackaBLE_v2.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+hackaBLE_v2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+hackaBLE_v2.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+hackaBLE_v2.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+hackaBLE_v2.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+hackaBLE_v2.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+hackaBLE_v2.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+hackaBLE_v2.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+hackaBLE_v2.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+hackaBLE_v2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+hackaBLE_v2.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+hackaBLE_v2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+hackaBLE_v2.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+hackaBLE_v2.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+hackaBLE_v2.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+hackaBLE_v2.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+hackaBLE_v2.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 
 Blend2.name=RedBear BLE Nano 2
 
@@ -408,6 +551,7 @@ Blend2.upload.tool=openocd
 Blend2.upload.target=nrf52
 Blend2.upload.jlink_device=nRF52832_xxAA
 Blend2.upload.maximum_size=507904
+Blend2.upload.maximum_data_size=65536
 Blend2.upload.protocol=cmsis-dap
 Blend2.upload.setup_command=transport select swd;
 
@@ -450,6 +594,28 @@ Blend2.menu.bootloader.none=No bootloader
 Blend2.menu.bootloader.none.bootloader.flags=
 Blend2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+Blend2.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+Blend2.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+Blend2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Blend2.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+Blend2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Blend2.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+Blend2.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+Blend2.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Blend2.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+Blend2.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+Blend2.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+Blend2.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+Blend2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Blend2.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+Blend2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Blend2.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+Blend2.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+Blend2.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Blend2.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+Blend2.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 
 BLENano2.name=RedBear BLE Nano 2
 
@@ -461,6 +627,7 @@ BLENano2.upload.protocol=cmsis-dap
 BLENano2.upload.target=nrf52
 BLENano2.upload.jlink_device=nRF52832_xxAA
 BLENano2.upload.maximum_size=507904
+BLENano2.upload.maximum_data_size=65536
 BLENano2.upload.setup_command=transport select swd;
 
 BLENano2.bootloader.tool=openocd
@@ -502,6 +669,28 @@ BLENano2.menu.bootloader.none=No bootloader
 BLENano2.menu.bootloader.none.bootloader.flags=
 BLENano2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+BLENano2.menu.bootloader.adafruit_ble=Adafruit BLE (s132 softdevice)
+BLENano2.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+BLENano2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+BLENano2.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+BLENano2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+BLENano2.menu.bootloader.adafruit_ble.upload.maximum_size=303104
+BLENano2.menu.bootloader.adafruit_ble.upload.maximum_data_size=51712
+BLENano2.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+BLENano2.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52832_s132_v6_adabl.hex
+BLENano2.menu.bootloader.adafruit_ble.build.ldscript=nrf52832_s132_v6_adabl.ld
+
+BLENano2.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+BLENano2.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+BLENano2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+BLENano2.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+BLENano2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+BLENano2.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+BLENano2.menu.bootloader.adafruit_serial.upload.maximum_data_size=65528
+BLENano2.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+BLENano2.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52832_serial_adabl.hex
+BLENano2.menu.bootloader.adafruit_serial.build.ldscript=nrf52832_serial_adabl.ld
+
 
 # nRF52840 variants
 ###################
@@ -512,6 +701,7 @@ Generic_nRF52840.upload.tool=openocd
 Generic_nRF52840.upload.target=nrf52
 Generic_nRF52840.upload.jlink_device=nRF52840_xxAA
 Generic_nRF52840.upload.maximum_size=1032192
+Generic_nRF52840.upload.maximum_data_size=262144
 
 Generic_nRF52840.bootloader.tool=openocd
 
@@ -558,6 +748,39 @@ Generic_nRF52840.menu.bootloader.none=No bootloader
 Generic_nRF52840.menu.bootloader.none.bootloader.flags=
 Generic_nRF52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+Generic_nRF52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+Generic_nRF52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+Generic_nRF52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Generic_nRF52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+Generic_nRF52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+Generic_nRF52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+Generic_nRF52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+Generic_nRF52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+Generic_nRF52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Generic_nRF52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+Generic_nRF52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+Generic_nRF52840.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+Generic_nRF52840.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+Generic_nRF52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Generic_nRF52840.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+Generic_nRF52840.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+Generic_nRF52840.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Generic_nRF52840.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+Generic_nRF52840.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
 
 nRF52840_DK.name=Nordic nRF52840 DK
 nRF52840_DK.vid.0=0x1366
@@ -568,6 +791,7 @@ nRF52840_DK.upload.protocol=jlink
 nRF52840_DK.upload.target=nrf52
 nRF52840_DK.upload.jlink_device=nRF52840_xxAA
 nRF52840_DK.upload.maximum_size=1032192
+nRF52840_DK.upload.maximum_data_size=262144
 nRF52840_DK.upload.setup_command=transport select swd;
 
 nRF52840_DK.bootloader.tool=openocd
@@ -609,6 +833,39 @@ nRF52840_DK.menu.bootloader.none=No bootloader
 nRF52840_DK.menu.bootloader.none.bootloader.flags=
 nRF52840_DK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+nRF52840_DK.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+nRF52840_DK.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+nRF52840_DK.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nRF52840_DK.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+nRF52840_DK.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+nRF52840_DK.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+nRF52840_DK.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+nRF52840_DK.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+nRF52840_DK.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nRF52840_DK.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+nRF52840_DK.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+nRF52840_DK.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+nRF52840_DK.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+nRF52840_DK.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nRF52840_DK.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+nRF52840_DK.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+nRF52840_DK.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nRF52840_DK.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+nRF52840_DK.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
 
 nRF52840_dongle.name=nRF52840 Dongle
 
@@ -621,7 +878,10 @@ nRF52840_dongle.upload.tool=nrfutil
 nRF52840_dongle.upload.target=nrf52
 nRF52840_dongle.upload.jlink_device=nRF52840_xxAA
 nRF52840_dongle.upload.protocol=nrfutil
+nRF52840_dongle.upload.use_1200bps_touch=true
+nRF52840_dongle.upload.wait_for_upload_port=true
 nRF52840_dongle.upload.maximum_size=897024
+nRF52840_dongle.upload.maximum_data_size=262136
 
 nRF52840_dongle.bootloader.tool=nrfutil
 
@@ -679,7 +939,10 @@ BT5040.upload.tool=nrfutil
 BT5040.upload.target=nrf52
 BT5040.upload.jlink_device=nRF52840_xxAA
 BT5040.upload.protocol=nrfutil
+BT5040.upload.use_1200bps_touch=true
+BT5040.upload.wait_for_upload_port=true
 BT5040.upload.maximum_size=897024
+BT5040.upload.maximum_data_size=262136
 
 BT5040.bootloader.tool=nrfutil
 
@@ -726,6 +989,93 @@ BT5040.menu.bootloader.none.bootloader.flags=-DUSE_NORDIC_BL
 BT5040.menu.bootloader.none.build.bootloader.file=
 
 
+# Seeedstudio
+
+seeed52840sense.name=Seeed XIAO nRF52840 Sense
+
+seeed52840sense.vid.0=0x2886
+seeed52840sense.pid.0=0x8045
+seeed52840sense.vid.1=0x2886
+seeed52840sense.pid.1=0x0045
+seeed52840sense.vid.2=0x2886
+seeed52840sense.pid.2=0x0045
+seeed52840sense.vid.3=0x2886
+seeed52840sense.pid.3=0x8045
+
+seeed52840sense.upload.tool=openocd
+seeed52840sense.upload.target=nrf52
+seeed52840sense.upload.jlink_device=nRF52840_xxAA
+seeed52840sense.upload.use_1200bps_touch=true
+seeed52840sense.upload.wait_for_upload_port=true
+seeed52840sense.upload.maximum_size=1032192
+seeed52840sense.upload.maximum_data_size=262144
+seeed52840sense.bootloader.tool=openocd
+
+seeed52840sense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+seeed52840sense.build.mcu=cortex-m4
+seeed52840sense.build.f_cpu=64000000
+seeed52840sense.build.board=Seeed_XIAO_nRF52840_Sense
+seeed52840sense.build.core=nRF5
+seeed52840sense.build.variant=Seeed_XIAO_nRF52840_Sense
+seeed52840sense.build.usb_manufacturer="Seeed"
+seeed52840sense.build.usb_product="XIAO nRF52840 Sense"
+seeed52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+seeed52840sense.build.ldscript=nrf52840_xxaa.ld
+seeed52840sense.build.vid=0x2886
+seeed52840sense.build.pid=0x8045
+seeed52840sense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+
+seeed52840sense.menu.role.all=All
+seeed52840sense.menu.role.all.build.nimble_flags=
+seeed52840sense.menu.role.periph=Peripheral
+seeed52840sense.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+seeed52840sense.menu.role.adv=Advertiser
+seeed52840sense.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+seeed52840sense.menu.role.scan=Scanner
+seeed52840sense.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+seeed52840sense.menu.role.central=Client
+seeed52840sense.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+seeed52840sense.menu.cppDbgLvl.none=None
+seeed52840sense.menu.cppDbgLvl.none.build.cpp_debug=0
+seeed52840sense.menu.cppDbgLvl.error=Error
+seeed52840sense.menu.cppDbgLvl.error.build.cpp_debug=1
+seeed52840sense.menu.cppDbgLvl.warn=Warn
+seeed52840sense.menu.cppDbgLvl.warn.build.cpp_debug=2
+seeed52840sense.menu.cppDbgLvl.info=Info
+seeed52840sense.menu.cppDbgLvl.info.build.cpp_debug=3
+seeed52840sense.menu.cppDbgLvl.debug=Debug
+seeed52840sense.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+seeed52840sense.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+seeed52840sense.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+seeed52840sense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+seeed52840sense.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+seeed52840sense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+seeed52840sense.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+seeed52840sense.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+seeed52840sense.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+seeed52840sense.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+seeed52840sense.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+seeed52840sense.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+seeed52840sense.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+seeed52840sense.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+seeed52840sense.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+seeed52840sense.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+seeed52840sense.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+seeed52840sense.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+seeed52840sense.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+seeed52840sense.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+seeed52840sense.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
+seeed52840sense.menu.bootloader.none=No bootloader
+seeed52840sense.menu.bootloader.none.bootloader.flags=
+seeed52840sense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
+
+# Adafruit
+
 feather52840.name=Adafruit Feather nRF52840 Express
 
 feather52840.vid.0=0x239A
@@ -742,7 +1092,8 @@ feather52840.upload.target=nrf52
 feather52840.upload.jlink_device=nRF52840_xxAA
 feather52840.upload.use_1200bps_touch=true
 feather52840.upload.wait_for_upload_port=true
-feather52840.upload.maximum_size=978944
+feather52840.upload.maximum_size=1032192
+feather52840.upload.maximum_data_size=262144
 
 feather52840.bootloader.tool=openocd
 
@@ -784,17 +1135,42 @@ feather52840.menu.cppDbgLvl.info.build.cpp_debug=3
 feather52840.menu.cppDbgLvl.debug=Debug
 feather52840.menu.cppDbgLvl.debug.build.cpp_debug=4
 
-feather52840.menu.bootloader.adafruit=Adafruit (No softdevice)
-feather52840.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
-feather52840.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-feather52840.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-feather52840.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
-feather52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-feather52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+feather52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+feather52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+feather52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+feather52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+feather52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+feather52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+feather52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+feather52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+feather52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+feather52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+feather52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+feather52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+feather52840.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+feather52840.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+feather52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+feather52840.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+feather52840.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+feather52840.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52840.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+feather52840.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
 feather52840.menu.bootloader.none=No bootloader
 feather52840.menu.bootloader.none.bootloader.flags=
 feather52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
-feather52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 feather52840sense.name=Adafruit Feather nRF52840 Sense
@@ -813,7 +1189,8 @@ feather52840sense.upload.target=nrf52
 feather52840sense.upload.jlink_device=nRF52840_xxAA
 feather52840sense.upload.use_1200bps_touch=true
 feather52840sense.upload.wait_for_upload_port=true
-feather52840sense.upload.maximum_size=978944
+feather52840sense.upload.maximum_size=1032192
+feather52840sense.upload.maximum_data_size=262144
 
 feather52840sense.bootloader.tool=openocd
 
@@ -855,86 +1232,42 @@ feather52840sense.menu.cppDbgLvl.info.build.cpp_debug=3
 feather52840sense.menu.cppDbgLvl.debug=Debug
 feather52840sense.menu.cppDbgLvl.debug.build.cpp_debug=4
 
-feather52840sense.menu.bootloader.adafruit=Adafruit (No softdevice)
-feather52840sense.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
-feather52840sense.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-feather52840sense.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-feather52840sense.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
-feather52840sense.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-feather52840sense.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+feather52840sense.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+feather52840sense.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+feather52840sense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+feather52840sense.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+feather52840sense.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52840sense.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+feather52840sense.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+feather52840sense.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+feather52840sense.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+feather52840sense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+feather52840sense.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+feather52840sense.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52840sense.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+feather52840sense.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+feather52840sense.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+feather52840sense.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+feather52840sense.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+feather52840sense.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+feather52840sense.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+feather52840sense.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+feather52840sense.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+feather52840sense.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
 feather52840sense.menu.bootloader.none=No bootloader
 feather52840sense.menu.bootloader.none.bootloader.flags=
 feather52840sense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
-feather52840sense.menu.bootloader.none.upload.maximum_size=1032192
-
-# Seedstudio
-seed52840sense.name=Seeed XIAO nRF52840 Sense
-
-seed52840sense.vid.0=0x2886
-seed52840sense.pid.0=0x8045
-seed52840sense.vid.1=0x2886
-seed52840sense.pid.1=0x0045
-seed52840sense.vid.2=0x2886
-seed52840sense.pid.2=0x0045
-seed52840sense.vid.3=0x2886
-seed52840sense.pid.3=0x8045
-
-
-seed52840sense.upload.tool=openocd
-seed52840sense.upload.target=nrf52
-seed52840sense.upload.jlink_device=nRF52840_xxAA
-seed52840sense.upload.use_1200bps_touch=true
-seed52840sense.upload.wait_for_upload_port=true
-seed52840sense.upload.maximum_size=823296
-seed52840sense.bootloader.tool=openocd
-
-seed52840sense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-seed52840sense.build.mcu=cortex-m4
-seed52840sense.build.f_cpu=64000000
-seed52840sense.build.board=Seeed_XIAO_nRF52840_Sense
-seed52840sense.build.core=nRF5
-seed52840sense.build.variant=Seeed_XIAO_nRF52840_Sense
-seed52840sense.build.usb_manufacturer="Seeed"
-seed52840sense.build.usb_product="XIAO nRF52840 Sense"
-seed52840sense.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
-seed52840sense.build.ldscript=nrf52840_xxaa.ld
-seed52840sense.build.vid=0x2886
-seed52840sense.build.pid=0x8045
-seed52840sense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
-
-seed52840sense.menu.role.all=All
-seed52840sense.menu.role.all.build.nimble_flags=
-seed52840sense.menu.role.periph=Peripheral
-seed52840sense.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
-seed52840sense.menu.role.adv=Advertiser
-seed52840sense.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-seed52840sense.menu.role.scan=Scanner
-seed52840sense.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
-seed52840sense.menu.role.central=Client
-seed52840sense.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
-
-seed52840sense.menu.cppDbgLvl.none=None
-seed52840sense.menu.cppDbgLvl.none.build.cpp_debug=0
-seed52840sense.menu.cppDbgLvl.error=Error
-seed52840sense.menu.cppDbgLvl.error.build.cpp_debug=1
-seed52840sense.menu.cppDbgLvl.warn=Warn
-seed52840sense.menu.cppDbgLvl.warn.build.cpp_debug=2
-seed52840sense.menu.cppDbgLvl.info=Info
-seed52840sense.menu.cppDbgLvl.info.build.cpp_debug=3
-seed52840sense.menu.cppDbgLvl.debug=Debug
-seed52840sense.menu.cppDbgLvl.debug.build.cpp_debug=4
-
-seed52840sense.menu.bootloader.adafruit=Adafruit
-seed52840sense.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-seed52840sense.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-seed52840sense.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-seed52840sense.menu.bootloader.adafruit.bootloader.flags=
-seed52840sense.menu.bootloader.adafruit.build.ldscript=nrf52840_s140_v7_seeed_adabl.ld
-seed52840sense.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/Seeed_XIAO_nRF52840_Sense_bootloader-0.6.2_s140_7.3.0.hex
-seed52840sense.menu.bootloader.none=No bootloader
-seed52840sense.menu.bootloader.none.bootloader.flags=
-seed52840sense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
-seed52840sense.menu.bootloader.none.upload.maximum_size=1032192
 
 itsybitsy52840.name=Adafruit ItsyBitsy nRF52840 Express
 
@@ -952,7 +1285,8 @@ itsybitsy52840.upload.target=nrf52
 itsybitsy52840.upload.jlink_device=nRF52840_xxAA
 itsybitsy52840.upload.use_1200bps_touch=true
 itsybitsy52840.upload.wait_for_upload_port=true
-itsybitsy52840.upload.maximum_size=978944
+itsybitsy52840.upload.maximum_size=1032192
+itsybitsy52840.upload.maximum_data_size=262144
 
 itsybitsy52840.bootloader.tool=openocd
 
@@ -994,17 +1328,42 @@ itsybitsy52840.menu.cppDbgLvl.info.build.cpp_debug=3
 itsybitsy52840.menu.cppDbgLvl.debug=Debug
 itsybitsy52840.menu.cppDbgLvl.debug.build.cpp_debug=4
 
-itsybitsy52840.menu.bootloader.adafruit=Adafruit (No softdevice)
-itsybitsy52840.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
-itsybitsy52840.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-itsybitsy52840.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-itsybitsy52840.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
-itsybitsy52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-itsybitsy52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+itsybitsy52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+itsybitsy52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+itsybitsy52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+itsybitsy52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+itsybitsy52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+itsybitsy52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+itsybitsy52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+itsybitsy52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+itsybitsy52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+itsybitsy52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+itsybitsy52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+itsybitsy52840.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+itsybitsy52840.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+itsybitsy52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+itsybitsy52840.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+itsybitsy52840.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+itsybitsy52840.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+itsybitsy52840.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+itsybitsy52840.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
 itsybitsy52840.menu.bootloader.none=No bootloader
 itsybitsy52840.menu.bootloader.none.bootloader.flags=
 itsybitsy52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
-itsybitsy52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 cplaynrf52840.name=Adafruit Circuit Playground Bluefruit
@@ -1021,7 +1380,8 @@ cplaynrf52840.upload.target=nrf52
 cplaynrf52840.upload.jlink_device=nRF52840_xxAA
 cplaynrf52840.upload.use_1200bps_touch=true
 cplaynrf52840.upload.wait_for_upload_port=true
-cplaynrf52840.upload.maximum_size=978944
+cplaynrf52840.upload.maximum_size=1032192
+cplaynrf52840.upload.maximum_data_size=262144
 
 cplaynrf52840.bootloader.tool=openocd
 
@@ -1063,17 +1423,42 @@ cplaynrf52840.menu.cppDbgLvl.info.build.cpp_debug=3
 cplaynrf52840.menu.cppDbgLvl.debug=Debug
 cplaynrf52840.menu.cppDbgLvl.debug.build.cpp_debug=4
 
-cplaynrf52840.menu.bootloader.adafruit=Adafruit (No softdevice)
-cplaynrf52840.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
-cplaynrf52840.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-cplaynrf52840.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-cplaynrf52840.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
-cplaynrf52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-cplaynrf52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+cplaynrf52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+cplaynrf52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+cplaynrf52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+cplaynrf52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+cplaynrf52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+cplaynrf52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+cplaynrf52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+cplaynrf52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+cplaynrf52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+cplaynrf52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+cplaynrf52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+cplaynrf52840.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+cplaynrf52840.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+cplaynrf52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+cplaynrf52840.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+cplaynrf52840.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+cplaynrf52840.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+cplaynrf52840.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+cplaynrf52840.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
 cplaynrf52840.menu.bootloader.none=No bootloader
 cplaynrf52840.menu.bootloader.none.bootloader.flags=
 cplaynrf52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
-cplaynrf52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 cluenrf52840.name=Adafruit CLUE
@@ -1090,7 +1475,8 @@ cluenrf52840.upload.target=nrf52
 cluenrf52840.upload.jlink_device=nRF52840_xxAA
 cluenrf52840.upload.use_1200bps_touch=true
 cluenrf52840.upload.wait_for_upload_port=true
-cluenrf52840.upload.maximum_size=978944
+cluenrf52840.upload.maximum_size=1032192
+cluenrf52840.upload.maximum_data_size=262144
 
 cluenrf52840.bootloader.tool=openocd
 
@@ -1132,17 +1518,42 @@ cluenrf52840.menu.cppDbgLvl.info.build.cpp_debug=3
 cluenrf52840.menu.cppDbgLvl.debug=Debug
 cluenrf52840.menu.cppDbgLvl.debug.build.cpp_debug=4
 
-cluenrf52840.menu.bootloader.adafruit=Adafruit (No softdevice)
-cluenrf52840.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
-cluenrf52840.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
-cluenrf52840.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
-cluenrf52840.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
-cluenrf52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
-cluenrf52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+cluenrf52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+cluenrf52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+cluenrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+cluenrf52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+cluenrf52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+cluenrf52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+cluenrf52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+cluenrf52840.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+cluenrf52840.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+cluenrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+cluenrf52840.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+cluenrf52840.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+cluenrf52840.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+cluenrf52840.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+cluenrf52840.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+cluenrf52840.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+cluenrf52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+cluenrf52840.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+cluenrf52840.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+cluenrf52840.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+cluenrf52840.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+cluenrf52840.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
 cluenrf52840.menu.bootloader.none=No bootloader
 cluenrf52840.menu.bootloader.none.bootloader.flags=
 cluenrf52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
-cluenrf52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
 # nRF52833 variants
@@ -1154,6 +1565,7 @@ Generic_nRF52833.upload.tool=openocd
 Generic_nRF52833.upload.target=nrf52
 Generic_nRF52833.upload.jlink_device=nRF52833_xxAA
 Generic_nRF52833.upload.maximum_size=507904
+Generic_nRF52833.upload.maximum_data_size=131072
 
 Generic_nRF52833.bootloader.tool=openocd
 
@@ -1200,6 +1612,28 @@ Generic_nRF52833.menu.bootloader.none=No bootloader
 Generic_nRF52833.menu.bootloader.none.bootloader.flags=
 Generic_nRF52833.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+Generic_nRF52833.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+Generic_nRF52833.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+Generic_nRF52833.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52833.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+Generic_nRF52833.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+Generic_nRF52833.menu.bootloader.adafruit_ble.upload.maximum_size=262144
+Generic_nRF52833.menu.bootloader.adafruit_ble.upload.maximum_data_size=106496
+Generic_nRF52833.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Generic_nRF52833.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52833_s140_v7_adabl.hex
+Generic_nRF52833.menu.bootloader.adafruit_ble.build.ldscript=nrf52833_s140_v7_adabl.ld
+
+Generic_nRF52833.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+Generic_nRF52833.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+Generic_nRF52833.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Generic_nRF52833.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+Generic_nRF52833.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+Generic_nRF52833.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+Generic_nRF52833.menu.bootloader.adafruit_serial.upload.maximum_data_size=131064
+Generic_nRF52833.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+Generic_nRF52833.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52833_serial_adabl.hex
+Generic_nRF52833.menu.bootloader.adafruit_serial.build.ldscript=nrf52833_serial_adabl.ld
+
 
 nRF52833DK.name=nRF52833 DK (PCA10100)
 nRF52833DK.vid.0=0x1366
@@ -1210,6 +1644,7 @@ nRF52833DK.upload.protocol=jlink
 nRF52833DK.upload.target=nrf52
 nRF52833DK.upload.jlink_device=nRF52833_xxAA
 nRF52833DK.upload.maximum_size=507904
+nRF52833DK.upload.maximum_data_size=131072
 nRF52833DK.upload.setup_command=transport select swd;
 
 nRF52833DK.bootloader.tool=openocd
@@ -1251,6 +1686,28 @@ nRF52833DK.menu.bootloader.none=No bootloader
 nRF52833DK.menu.bootloader.none.bootloader.flags=
 nRF52833DK.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
+nRF52833DK.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+nRF52833DK.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+nRF52833DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52833DK.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+nRF52833DK.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nRF52833DK.menu.bootloader.adafruit_ble.upload.maximum_size=262144
+nRF52833DK.menu.bootloader.adafruit_ble.upload.maximum_data_size=106496
+nRF52833DK.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nRF52833DK.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52833_s140_v7_adabl.hex
+nRF52833DK.menu.bootloader.adafruit_ble.build.ldscript=nrf52833_s140_v7_adabl.ld
+
+nRF52833DK.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+nRF52833DK.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+nRF52833DK.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nRF52833DK.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+nRF52833DK.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nRF52833DK.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+nRF52833DK.menu.bootloader.adafruit_serial.upload.maximum_data_size=131064
+nRF52833DK.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nRF52833DK.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52833_serial_adabl.hex
+nRF52833DK.menu.bootloader.adafruit_serial.build.ldscript=nrf52833_serial_adabl.ld
+
 
 BBCmicrobitV2.name=BBC micro:bit V2
 
@@ -1262,6 +1719,7 @@ BBCmicrobitV2.upload.protocol=cmsis-dap
 BBCmicrobitV2.upload.target=nrf52
 BBCmicrobitV2.upload.jlink_device=nRF52833_xxAA
 BBCmicrobitV2.upload.maximum_size=507904
+BBCmicrobitV2.upload.maximum_data_size=131072
 BBCmicrobitV2.upload.setup_command=transport select swd;
 
 BBCmicrobitV2.bootloader.tool=openocd
@@ -1298,6 +1756,28 @@ BBCmicrobitV2.menu.cppDbgLvl.info=Info
 BBCmicrobitV2.menu.cppDbgLvl.info.build.cpp_debug=3
 BBCmicrobitV2.menu.cppDbgLvl.debug=Debug
 BBCmicrobitV2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+BBCmicrobitV2.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+BBCmicrobitV2.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+BBCmicrobitV2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+BBCmicrobitV2.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+BBCmicrobitV2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+BBCmicrobitV2.menu.bootloader.adafruit_ble.upload.maximum_size=262144
+BBCmicrobitV2.menu.bootloader.adafruit_ble.upload.maximum_data_size=106496
+BBCmicrobitV2.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+BBCmicrobitV2.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52833_s140_v7_adabl.hex
+BBCmicrobitV2.menu.bootloader.adafruit_ble.build.ldscript=nrf52833_s140_v7_adabl.ld
+
+BBCmicrobitV2.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+BBCmicrobitV2.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+BBCmicrobitV2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+BBCmicrobitV2.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+BBCmicrobitV2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+BBCmicrobitV2.menu.bootloader.adafruit_serial.upload.maximum_size=454656
+BBCmicrobitV2.menu.bootloader.adafruit_serial.upload.maximum_data_size=131064
+BBCmicrobitV2.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+BBCmicrobitV2.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52833_serial_adabl.hex
+BBCmicrobitV2.menu.bootloader.adafruit_serial.build.ldscript=nrf52833_serial_adabl.ld
 
 BBCmicrobitV2.menu.bootloader.none=No bootloader
 BBCmicrobitV2.menu.bootloader.none.bootloader.flags=
