@@ -37,6 +37,7 @@ public:
     uint32_t getTimerTaskHwm();
     uint32_t getBleHostTaskHwm();
     uint32_t getBleLLTaskHwm();
+    TaskHandle_t getMainLoopTaskHandle();
 };
 
 extern nableRtos RTOS;

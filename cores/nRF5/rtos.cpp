@@ -93,4 +93,8 @@ uint32_t nableRtos::getIsrStackHwm() {
    return offset;
 }
 
+TaskHandle_t nableRtos::getMainLoopTaskHandle() {
+    return ::getMainLoopTaskHandle();
+}
+
 nableRtos RTOS;
