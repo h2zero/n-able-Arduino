@@ -51,7 +51,7 @@ void Hardfault_handler_cpp( uint32_t *p_stack_address )
 __attribute__ ((__weak__))
 void __assert_func(const char *file, int line, const char *func, const char *e)
 {
-    Serial.printf("Assertion Failed: %s at line %d , in function: %s", file, line, func);
+    Serial.printf("Assertion Failed: %s at line %d , in function: %s\n", file, line, func);
     yield();
     NVIC_SystemReset();
     while (1){} // silence compiler
