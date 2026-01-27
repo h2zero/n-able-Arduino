@@ -3045,6 +3045,12 @@ TaskHandle_t pvTaskIncrementMutexHeldCount( void ) PRIVILEGED_FUNCTION;
 void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) PRIVILEGED_FUNCTION;
 
 
+/** [N-able ADDED] Backtrace capture code for fault handler **/
+#if ( configRECORD_STACK_HIGH_ADDRESS == 1 )
+uint32_t ulGetCurrentStackLowAddress(void);
+uint32_t ulGetCurrentStackHighAddress(void);
+#endif /* configRECORD_STACK_HIGH_ADDRESS */
+
 /* *INDENT-OFF* */
 #ifdef __cplusplus
     }

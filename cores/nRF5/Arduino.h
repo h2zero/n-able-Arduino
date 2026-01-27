@@ -160,6 +160,8 @@ void loop( void ) ;
 #ifdef __cplusplus
 #include "Uart.h"
 #include "rtos.h"
+void check_and_report_fault();
+void dump_call_stack();
 #endif // __cplusplus
 
 #endif // Arduino_h

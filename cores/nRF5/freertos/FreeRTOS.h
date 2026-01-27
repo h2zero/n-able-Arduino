@@ -431,7 +431,7 @@
 #endif
 
 #ifndef configRECORD_STACK_HIGH_ADDRESS
-    #define configRECORD_STACK_HIGH_ADDRESS    0
+    #define configRECORD_STACK_HIGH_ADDRESS    1
 #endif
 
 #ifndef configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H

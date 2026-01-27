@@ -5393,3 +5393,24 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
     #endif
 
 #endif /* if ( configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H == 1 ) */
+
+/** [N-able ADDED] Backtrace capture code for fault handler **/
+#if ( configRECORD_STACK_HIGH_ADDRESS == 1 )
+uint32_t ulGetCurrentStackLowAddress(void)
+{
+    if (pxCurrentTCB != NULL)
+    {
+        return (uint32_t)pxCurrentTCB->pxStack;
+    }
+    return 0;
+}
+
+uint32_t ulGetCurrentStackHighAddress(void)
+{
+    if (pxCurrentTCB != NULL)
+    {
+        return (uint32_t)pxCurrentTCB->pxEndOfStack;
+    }
+    return 0;
+}
+#endif /* configRECORD_STACK_HIGH_ADDRESS */
