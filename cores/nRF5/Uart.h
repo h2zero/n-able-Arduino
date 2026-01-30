@@ -47,10 +47,10 @@ class Uart : public HardwareSerial
 
     void IrqHandler();
 
-    operator bool() { return true; }
+    operator bool();
 
   private:
-    NRF_UART_Type *nrfUart;
+    NRF_UART_Type *nrfUart{nullptr};
     RingBuffer rxBuffer;
 
     IRQn_Type IRQn;

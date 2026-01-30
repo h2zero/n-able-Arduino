@@ -246,6 +246,10 @@ size_t Uart::write(const uint8_t data)
   return 1;
 }
 
+Uart::operator bool() {
+  return nrfUart->ENABLE == UART_ENABLE_ENABLE_Enabled;
+}
+
 #if defined(NRF52_SERIES)
   #define NRF_UART0_IRQn UARTE0_UART0_IRQn
 #elif defined(NRF51_SERIES)
