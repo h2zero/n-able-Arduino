@@ -25,44 +25,85 @@
 #ifndef ADAFRUIT_USBD_CDC_H_
 #define ADAFRUIT_USBD_CDC_H_
 
-#include "Adafruit_USBD_Device.h"
+#include "Adafruit_TinyUSB_API.h"
+
+#if defined(__cplusplus)
+
+#if defined(ARDUINO_ARCH_ESP32)
+
+// For ESP32 use USBCDC as it is compatible
+#define Adafruit_USBD_CDC USBCDC
+#define SerialTinyUSB Serial
+
+#else
+
+#include "Adafruit_USBD_Interface.h"
 #include "Stream.h"
 
-class Adafruit_USBD_CDC : public Stream, public Adafruit_USBD_Interface
-{
+class Adafruit_USBD_CDC : public Stream, public Adafruit_USBD_Interface {
 public:
-	Adafruit_USBD_CDC(void);
+  Adafruit_USBD_CDC(void);
 
-	// fron Adafruit_USBD_Interface
-	virtual uint16_t getDescriptor(uint8_t itfnum, uint8_t* buf, uint16_t bufsize);
+  static uint8_t getInstanceCount(void) { return _instance_count; }
 
-	void setPins(uint8_t pin_rx, uint8_t pin_tx) { (void) pin_rx; (void) pin_tx; }
-	void begin(uint32_t baud_count);
-	void begin(uint32_t baud, uint8_t config);
-	void end(void);
+  void setPins(uint8_t pin_rx, uint8_t pin_tx) {
+    (void)pin_rx;
+    (void)pin_tx;
+  }
+  void begin(uint32_t baud);
+  void begin(uint32_t baud, uint8_t config);
+  void end(void);
 
-	// return line coding set by host
-	uint32_t baud(void);
-	uint8_t  stopbits(void);
-	uint8_t  paritytype(void);
-	uint8_t  numbits(void);
+  // return line coding set by host
+  uint32_t baud(void);
+  uint8_t stopbits(void);
+  uint8_t paritytype(void);
+  uint8_t numbits(void);
+  int dtr(void);
 
-	virtual int    available(void);
-	virtual int    peek(void);
-	virtual int    read(void);
-	virtual void   flush(void);
-	virtual size_t write(uint8_t);
+  // Stream API
+  virtual int available(void);
+  virtual int peek(void);
 
-	virtual size_t write(const uint8_t *buffer, size_t size);
-	size_t write(const char *buffer, size_t size) {
-	  return write((const uint8_t *)buffer, size);
-	}
+  virtual int read(void);
+  size_t read(uint8_t *buffer, size_t size);
 
-	virtual int availableForWrite(void);
-	using Print::write; // pull in write(str) from Print
-	operator bool();
+  virtual void flush(void);
+  virtual size_t write(uint8_t);
+
+  virtual size_t write(const uint8_t *buffer, size_t size);
+  size_t write(const char *buffer, size_t size) {
+    return write((const uint8_t *)buffer, size);
+  }
+
+  virtual int availableForWrite(void);
+  using Print::write; // pull in write(str) from Print
+  operator bool();
+
+  // from Adafruit_USBD_Interface
+  virtual uint16_t getInterfaceDescriptor(uint8_t itfnum_deprecated,
+                                          uint8_t *buf, uint16_t bufsize);
+
+private:
+  enum { INVALID_INSTANCE = 0xffu };
+  static uint8_t _instance_count;
+
+  uint8_t _instance;
+
+  bool isValid(void) { return _instance != INVALID_INSTANCE; }
 };
 
-extern Adafruit_USBD_CDC Serial;
+extern Adafruit_USBD_CDC SerialTinyUSB;
 
-#endif /* ADAFRUIT_USBD_CDC_H_ */
+// Built-in support "Serial" is assigned to TinyUSB CDC
+// CH32 defines Serial as alias in WSerial.h
+#if defined(USE_TINYUSB) && !defined(ARDUINO_ARCH_CH32)
+#define SerialTinyUSB Serial
+#endif
+
+extern Adafruit_USBD_CDC SerialTinyUSB;
+
+#endif // else of ESP32
+#endif // __cplusplus
+
+#endif

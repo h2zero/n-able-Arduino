@@ -42,9 +42,6 @@ void vApplicationMallocFailedHook(void)
 
 void vApplicationIdleHook(void) {
     NRF_WDT->RR[0] = WDT_RR_RR_Reload;
-#ifdef USB_CDC_DEFAULT_SERIAL
-    Serial.flush();
-#endif
 }
 
 UBaseType_t nimble_port_freertos_get_ll_hwm(void) __attribute__((weak));

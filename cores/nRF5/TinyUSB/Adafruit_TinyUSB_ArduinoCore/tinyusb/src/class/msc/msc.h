@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License (MIT)
  *
  * Copyright (c) 2019 Ha Thach (tinyusb.org)
@@ -23,13 +23,6 @@
  *
  * This file is part of the TinyUSB stack.
  */
-
-/** \ingroup group_class
- *  \defgroup ClassDriver_MSC MassStorage (MSC)
- *  @{ */
-
-/**  \defgroup ClassDriver_MSC_Common Common Definitions
- *  @{ */
 
 #ifndef _TUSB_MSC_H_
 #define _TUSB_MSC_H_
@@ -60,7 +53,7 @@ enum {
 };
 
 /// \brief MassStorage Protocol.
-/// \details CBI only approved to use with full-speed floopy disk & should not used with highspeed or device other than floopy
+/// \details CBI only approved to use with full-speed floppy disk & should not used with highspeed or device other than floppy
 typedef enum
 {
   MSC_PROTOCOL_CBI              = 0 ,  ///< Control/Bulk/Interrupt protocol (with command completion interrupt)
@@ -104,7 +97,7 @@ typedef struct TU_ATTR_PACKED
 {
   uint32_t signature    ; ///< Signature that helps identify this data packet as a CSW. The signature field shall contain the value 53425355h (little endian), indicating CSW.
   uint32_t tag          ; ///< The device shall set this field to the value received in the dCBWTag of the associated CBW.
-  uint32_t data_residue ; ///< For Data-Out the device shall report in the dCSWDataResiduethe difference between the amount of data expected as stated in the dCBWDataTransferLength, and the actual amount of data processed by the device. For Data-In the device shall report in the dCSWDataResiduethe difference between the amount of data expected as stated in the dCBWDataTransferLengthand the actual amount of relevant data sent by the device
+  uint32_t data_residue ; ///< For Data-Out the device shall report in the dCSWDataResidue the difference between the amount of data expected as stated in the dCBWDataTransferLength, and the actual amount of data processed by the device. For Data-In the device shall report in the dCSWDataResiduethe difference between the amount of data expected as stated in the dCBWDataTransferLengthand the actual amount of relevant data sent by the device
   uint8_t  status       ; ///< indicates the success or failure of the command. Values from \ref msc_csw_status_t
 }msc_csw_t;
 
@@ -115,8 +108,7 @@ TU_VERIFY_STATIC(sizeof(msc_csw_t) == 13, "size is not correct");
 //--------------------------------------------------------------------+
 
 /// SCSI Command Operation Code
-typedef enum
-{
+typedef enum {
   SCSI_CMD_TEST_UNIT_READY              = 0x00, ///< The SCSI Test Unit Ready command is used to determine if a device is ready to transfer data (read/write), i.e. if a disk has spun up, if a tape is loaded and ready etc. The device does not perform a self-test operation.
   SCSI_CMD_INQUIRY                      = 0x12, ///< The SCSI Inquiry command is used to obtain basic information from a target device.
   SCSI_CMD_MODE_SELECT_6                = 0x15, ///<  provides a means for the application client to specify medium, logical unit, or peripheral device parameters to the device server. Device servers that implement the MODE SELECT(6) command shall also implement the MODE SENSE(6) command. Application clients should issue MODE SENSE(6) prior to each MODE SELECT(6) to determine supported mode pages, page lengths, and other parameters.
@@ -127,14 +119,13 @@ typedef enum
   SCSI_CMD_REQUEST_SENSE                = 0x03, ///< The SCSI Request Sense command is part of the SCSI computer protocol standard. This command is used to obtain sense data -- status/error information -- from a target device.
   SCSI_CMD_READ_FORMAT_CAPACITY         = 0x23, ///< The command allows the Host to request a list of the possible format capacities for an installed writable media. This command also has the capability to report the writable capacity for a media when it is installed
   SCSI_CMD_READ_10                      = 0x28, ///< The READ (10) command requests that the device server read the specified logical block(s) and transfer them to the data-in buffer.
-  SCSI_CMD_WRITE_10                     = 0x2A, ///< The WRITE (10) command requests thatthe device server transfer the specified logical block(s) from the data-out buffer and write them.
+  SCSI_CMD_WRITE_10                     = 0x2A, ///< The WRITE (10) command requests that the device server transfer the specified logical block(s) from the data-out buffer and write them.
 }scsi_cmd_type_t;
 
 /// SCSI Sense Key
-typedef enum
-{
+typedef enum {
   SCSI_SENSE_NONE            = 0x00, ///< no specific Sense Key. This would be the case for a successful command
-  SCSI_SENSE_RECOVERED_ERROR = 0x01, ///< ndicates the last command completed successfully with some recovery action performed by the disc drive.
+  SCSI_SENSE_RECOVERED_ERROR = 0x01, ///< Indicates the last command completed successfully with some recovery action performed by the disc drive.
   SCSI_SENSE_NOT_READY       = 0x02, ///< Indicates the logical unit addressed cannot be accessed.
   SCSI_SENSE_MEDIUM_ERROR    = 0x03, ///< Indicates the command terminated with a non-recovered error condition.
   SCSI_SENSE_HARDWARE_ERROR  = 0x04, ///< Indicates the disc drive detected a nonrecoverable hardware failure while performing the command or during a self test.
@@ -145,8 +136,29 @@ typedef enum
   SCSI_SENSE_ABORTED_COMMAND = 0x0b, ///< Indicates the disc drive aborted the command.
   SCSI_SENSE_EQUAL           = 0x0c, ///< Indicates a SEARCH DATA command has satisfied an equal comparison.
   SCSI_SENSE_VOLUME_OVERFLOW = 0x0d, ///< Indicates a buffered peripheral device has reached the end of medium partition and data remains in the buffer that has not been written to the medium.
-  SCSI_SENSE_MISCOMPARE      = 0x0e  ///< ndicates that the source data did not match the data read from the medium.
+  SCSI_SENSE_MISCOMPARE      = 0x0e  ///< Indicates that the source data did not match the data read from the medium.
 }scsi_sense_key_type_t;
+
+
+typedef enum {
+  SCSI_PDT_DIRECT_ACCESS = 0x0,
+  SCSI_PDT_SEQUENTIAL_ACCESS = 0x1,
+  SCSI_PDT_PRINTER = 0x2,
+  SCSI_PDT_PROCESSOR = 0x3,
+  SCSI_PDT_WRITE_ONCE = 0x4,
+  SCSI_PDT_CD_DVD = 0x5,
+  SCSI_PDT_SCANNER = 0x6,
+  SCSI_PDT_OPTICAL_DEVICE = 0x7,
+  SCSI_PDT_MEDIUM_CHANGER = 0x8,
+  SCSI_PDT_COMMUNICATIONS = 0x9, // obsolete
+  SCSI_PDT_RAID = 0x0c,
+  SCSI_PDT_ENCLOSURE_SERVICES = 0x0d,
+  SCSI_PDT_SIMPLIFIED_DIRECT_ACCESS = 0x0e,
+  SCSI_PDT_OPTICAL_CARD_READER = 0x0f,
+  SCSI_PDT_BRIDGE = 0x10, ///< Bridge device, e.g. USB to SCSI bridge
+  SCSI_PDT_OBJECT_BASED_STORAGE = 0x11, ///< Object-based storage device
+  SCSI_PDT_AUTOMATION_DRIVE_INTERFACE = 0x12, ///< Automation/Drive Interface (ADI) device
+} scsi_peripheral_device_type_t;
 
 //--------------------------------------------------------------------+
 // SCSI Primary Command (SPC-4)
@@ -255,7 +267,7 @@ typedef struct TU_ATTR_PACKED
 
   uint8_t : 3;
   uint8_t disable_block_descriptor : 1;
-  uint8_t : 0;
+  uint8_t : 4;
 
   uint8_t page_code : 6;
   uint8_t page_control : 2;
@@ -387,6 +399,3 @@ TU_VERIFY_STATIC(sizeof(scsi_write10_t) == 10, "size is not correct");
 #endif
 
 #endif /* _TUSB_MSC_H_ */
-
-/// @}
-/// @}

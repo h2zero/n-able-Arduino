@@ -29,9 +29,6 @@ extern "C" {
 
 void yield(void)
 {
-#ifdef USE_TINYUSB
-  tud_cdc_write_flush();
-#endif
   taskYIELD();
 }
 
@@ -47,19 +44,7 @@ uint32_t micros( void )
 
 void delay( uint32_t ms )
 {
-  uint32_t ticks = ms * configTICK_RATE_HZ / 1000;
-
-#ifdef USE_TINYUSB
-  // Take chance to flush usb cdc
-  uint32_t flush_tick = xTaskGetTickCount();
-  tud_cdc_write_flush();
-
-  flush_tick = xTaskGetTickCount()-flush_tick;
-  if (flush_tick >= ticks) return;
-
-  ticks -= flush_tick;
-#endif
-  vTaskDelay(ticks);
+  vTaskDelay(pdMS_TO_TICKS(ms));
 }
 
 #ifdef __cplusplus
