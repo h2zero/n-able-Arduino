@@ -139,7 +139,10 @@ For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=512'` This will set the main task s
  * `CONFIG_RTOS_MIN_TASK_STACK_SIZE` - set the minimum task stack size.
  * `CONFIG_RTOS_TIMER_QUEUE_LENGTH` - set the queue size for the FreeRTOS timers.
  * `CONFIG_RTOS_TIMER_STACK_DEPTH` - set the timer task stack size **in 32bit words**.
+ * `CONFIG_RTOS_THREAD_LOCAL_STORAGE_POINTERS` - set the number of thread local storage pointers for FreeRTOS tasks (default 1, used for printf buffer management).
  * `CONFIG_WDT_TIMEOUT_SECONDS` - set the number of seconds before the watchdog times out (0 = disable watchdog, default = 0).
+ * `CONFIG_PRINTF_BUFFER_SIZE` - set the size of the buffer used for `printf` and `Serial.printf` (default 128 bytes, set to 1 for no buffer).
+ * `CONFIG_PRINTF_BUFFER_INDEX` - set the FreeRTOS storage pointer index used for managing the `printf` buffer (default 0).
  * Nimble configuration options can also be included, the list of those can be found [here](https://h2zero.github.io/NimBLE-Arduino/md__command_line_config.html)
  * Other compiler options or definitions for other libraries can also be specified.
 
@@ -158,6 +161,10 @@ There are a few useful functions available to help with your project.
 * `uint32_t getResetReason();` - Returns the reset reason for the last boot.
 * `void systemPowerOff();` - Shuts down the MCU.
 * `void systemRestart();` - Reboot.
+* For USB supported boards, additional USB functions beyond CDC are available by including the TinyUSB library (built in) by adding the following to your sketch:
+```cpp
+#include "Adafruit_TinyUSB.h"
+```
 
 ## Bootloader
 Currently only some boards have Adafruit bootloaders available which are provided as options. You may choose to use the bootloader or none.

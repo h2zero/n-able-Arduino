@@ -216,6 +216,32 @@ void SPIClass::setClockDivider(uint8_t div)
   _p_spi->FREQUENCY = clockFreq;
 }
 
+void SPIClass::transfer(const void *tx_buf, void *rx_buf, size_t count)
+{
+  const uint8_t* tx_buf8 = (const uint8_t*) tx_buf;
+  uint8_t* rx_buf8 = (uint8_t*) rx_buf;
+
+  for (size_t i = 0; i < count; i++)
+  {
+    // Send byte (or 0xFF if no tx buffer)
+    _p_spi->TXD = tx_buf8 ? tx_buf8[i] : 0xFF;
+
+    // Wait for transfer to complete
+    while (!_p_spi->EVENTS_READY);
+
+    // Read received byte if rx buffer provided
+    if (rx_buf8) {
+      rx_buf8[i] = _p_spi->RXD;
+    } else {
+      // Read to clear the register
+      (void)_p_spi->RXD;
+    }
+
+    // Clear event flag
+    _p_spi->EVENTS_READY = 0x0UL;
+  }
+}
+
 byte SPIClass::transfer(uint8_t data)
 {
   _p_spi->TXD = data;

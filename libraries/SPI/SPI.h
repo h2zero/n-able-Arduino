@@ -87,6 +87,7 @@ class SPIClass {
   SPIClass(NRF_SPI_Type *p_spi, uint8_t uc_pinMISO, uint8_t uc_pinSCK, uint8_t uc_pinMOSI);
 
 
+  void transfer(const void *tx_buf, void *rx_buf, size_t count);
   byte transfer(uint8_t data);
   uint16_t transfer16(uint16_t data);
   inline void transfer(void *buf, size_t count);

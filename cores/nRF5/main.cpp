@@ -22,6 +22,10 @@
 #include "freertos/task.h"
 #include "Arduino.h"
 
+#ifdef USE_TINYUSB
+#include "Adafruit_USBD_Device.h"
+#endif
+
 #if defined(CONFIG_MAIN_TASK_STACK_SIZE)
 #  define MAIN_TASK_STACK_SIZE CONFIG_MAIN_TASK_STACK_SIZE
 #elif defined(DEVICE_RAM_SIZE)
@@ -42,7 +46,7 @@ void initVariant() { }
 static TaskHandle_t _loopTaskHandle = NULL;
 static StackType_t _mainStack[ MAIN_TASK_STACK_SIZE ];
 static StaticTask_t _mainTaskBuffer;
-
+//#include "Adafruit_USBD_Device.h"
 void loopTask(void *pvParameters)
 {
     setup();
@@ -64,7 +68,7 @@ int main( void )
   initVariant();
 
   #ifdef USE_TINYUSB
-  Adafruit_TinyUSB_Core_init();
+  TinyUSBDevice.begin(0);
   #endif
 
   _loopTaskHandle = xTaskCreateStatic(loopTask, "mlt", MAIN_TASK_STACK_SIZE,

@@ -87,6 +87,10 @@
 #define CONFIG_RTOS_TIMER_TASK_PRIORITY (2)
 #endif
 
+#ifndef CONFIG_RTOS_THREAD_LOCAL_STORAGE_POINTERS
+#define CONFIG_RTOS_THREAD_LOCAL_STORAGE_POINTERS 1
+#endif
+
 #define configTICK_SOURCE                                                         FREERTOS_USE_RTC
 
 #define configUSE_PREEMPTION                                                      1
@@ -115,6 +119,8 @@
 #define configUSE_NEWLIB_REENTRANT                                                0
 #define configENABLE_BACKWARD_COMPATIBILITY                                       1
 #define configSUPPORT_STATIC_ALLOCATION                                           1
+#define configRECORD_STACK_HIGH_ADDRESS                                           1
+#define configNUM_THREAD_LOCAL_STORAGE_POINTERS                                   CONFIG_RTOS_THREAD_LOCAL_STORAGE_POINTERS
 
 /* Hook function related definitions. */
 #define configUSE_IDLE_HOOK                                                       1
