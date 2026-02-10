@@ -91,10 +91,18 @@ static const uint8_t AREF = PIN_AREF;
  */
 
 // Arduino Header D0, D1
-#define PIN_SERIAL1_RX      (33) // P1.01
-#define PIN_SERIAL1_TX      (34) // P1.02
-#define USB_CDC_DEFAULT_SERIAL 1
+#ifndef USB_CDC_DEFAULT_SERIAL
+  #define USB_CDC_DEFAULT_SERIAL (1)
+#endif
 
+#if USB_CDC_DEFAULT_SERIAL
+  #define PIN_SERIAL1_RX         (33)
+  #define PIN_SERIAL1_TX         (34)
+#else
+  #define PIN_SERIAL_RX          (33)
+  #define PIN_SERIAL_TX          (34)
+  #define Serial1                Serial
+#endif
 
 /*
  * SPI Interfaces

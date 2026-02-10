@@ -28,6 +28,14 @@
 
 #include "variant.h"
 
+#ifndef USB_CDC_DEFAULT_SERIAL
+  #define USB_CDC_DEFAULT_SERIAL (0)
+#endif
+
+#if defined(USE_TINYUSB) && USB_CDC_DEFAULT_SERIAL
+  #include "Adafruit_USBD_CDC.h"
+#endif
+
 class Uart : public HardwareSerial
 {
   public:
@@ -78,7 +86,7 @@ class Uart : public HardwareSerial
 //
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
-#if defined(USB_CDC_DEFAULT_SERIAL)
+#if USB_CDC_DEFAULT_SERIAL
   #define SERIAL_PORT_MONITOR         Serial
   #define SERIAL_PORT_USBVIRTUAL      Serial
 

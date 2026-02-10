@@ -86,9 +86,18 @@ static const uint8_t A6  = PIN_A6 ;
 /*
  * Serial interfaces
  */
-#define PIN_SERIAL1_RX       (0)
-#define PIN_SERIAL1_TX       (1)
-#define USB_CDC_DEFAULT_SERIAL 1
+#ifndef USB_CDC_DEFAULT_SERIAL
+  #define USB_CDC_DEFAULT_SERIAL (1)
+#endif
+
+#if USB_CDC_DEFAULT_SERIAL
+  #define PIN_SERIAL1_RX         (0)
+  #define PIN_SERIAL1_TX         (1)
+#else
+  #define PIN_SERIAL_RX          (0)
+  #define PIN_SERIAL_TX          (1)
+  #define Serial1                Serial
+#endif
 
 /*
  * SPI Interfaces

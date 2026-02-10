@@ -54,16 +54,11 @@ void loop( void ) ;
   #include "WMath.h"
   #include "HardwareSerial.h"
   #include "pulse.h"
-#endif
-#include "delay.h"
-#include "binary.h"
-#ifdef __cplusplus
   #include "Uart.h"
 #endif
 
-#ifdef USE_TINYUSB
-  #include "Adafruit_USBD_CDC.h"
-#endif
+#include "delay.h"
+#include "binary.h"
 
 // Include board variant
 #include "variant.h"
