@@ -177,7 +177,7 @@ static size_t capture_backtrace(uint32_t* backtrace_buffer, size_t buffer_size, 
  */
 static void store_fault_to_ram(exception_frame* ef, uint32_t exc_return_val)
 {
-#ifdef USB_CDC_DEFAULT_SERIAL
+#if USB_CDC_DEFAULT_SERIAL
     volatile fault_data_t* fault = FAULT_DATA_ADDR;
     fault->magic = FAULT_DATA_MAGIC;
     fault->pc = ef->pc;
@@ -240,7 +240,7 @@ static void store_fault_to_ram(exception_frame* ef, uint32_t exc_return_val)
 static void print_exception_data(exception_frame* ef)
 {
 // If USB is used for Serial we must avoid using it in HardFault handler
-#ifndef USB_CDC_DEFAULT_SERIAL
+#if !USB_CDC_DEFAULT_SERIAL
     if (Serial)
     {
         Serial.println("\n======== HARD FAULT DETECTED ========");
@@ -320,7 +320,7 @@ static void print_exception_data(exception_frame* ef)
  */
 void check_and_report_fault()
 {
-#ifdef USB_CDC_DEFAULT_SERIAL
+#if USB_CDC_DEFAULT_SERIAL
     volatile fault_data_t* fault = FAULT_DATA_ADDR;
 
     if (fault->magic == FAULT_DATA_MAGIC)

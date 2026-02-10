@@ -143,6 +143,7 @@ For example: `'-DCONFIG_MAIN_TASK_STACK_SIZE=512'` This will set the main task s
  * `CONFIG_WDT_TIMEOUT_SECONDS` - set the number of seconds before the watchdog times out (0 = disable watchdog, default = 0).
  * `CONFIG_PRINTF_BUFFER_SIZE` - set the size of the buffer used for `printf` and `Serial.printf` (default 128 bytes, set to 1 for no buffer).
  * `CONFIG_PRINTF_BUFFER_INDEX` - set the FreeRTOS storage pointer index used for managing the `printf` buffer (default 0).
+ * `USB_CDC_DEFAULT_SERIAL` - For devices with USB CDC support, this enables the USB CDC serial by default, set to 0 to disable (default 1), Serial will be redirected to the UART if this is disabled.
  * Nimble configuration options can also be included, the list of those can be found [here](https://h2zero.github.io/NimBLE-Arduino/md__command_line_config.html)
  * Other compiler options or definitions for other libraries can also be specified.
 

@@ -69,6 +69,9 @@ int main( void )
 
   #ifdef USE_TINYUSB
   TinyUSBDevice.begin(0);
+  #if USB_CDC_DEFAULT_SERIAL
+  Serial.begin(115200);
+  #endif
   #endif
 
   _loopTaskHandle = xTaskCreateStatic(loopTask, "mlt", MAIN_TASK_STACK_SIZE,

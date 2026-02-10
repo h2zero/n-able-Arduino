@@ -256,7 +256,7 @@ Uart::operator bool() {
   #define NRF_UART0_IRQn UART0_IRQn
 #endif
 
-#if !defined(USB_CDC_DEFAULT_SERIAL)
+#if !USB_CDC_DEFAULT_SERIAL
 #  if defined(PIN_SERIAL_CTS) && defined(PIN_SERIAL_RTS)
       Uart Serial( NRF_UART0, NRF_UART0_IRQn, PIN_SERIAL_RX, PIN_SERIAL_TX, PIN_SERIAL_CTS, PIN_SERIAL_RTS );
 #  else

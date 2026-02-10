@@ -26,8 +26,9 @@
 
 #if CFG_TUD_ENABLED || CFG_TUH_ENABLED
 
-#include "Adafruit_USBD_Device.h"
 #include "Arduino.h"
+#include "Adafruit_USBD_Device.h"
+#include "Adafruit_USBD_CDC.h"
 
 extern "C" {
 

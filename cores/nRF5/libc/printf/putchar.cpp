@@ -68,7 +68,7 @@ extern "C"
             Serial.write((const uint8_t *)pbuf->buffer, pbuf->index);
             pbuf->index = 0;
         }
-#ifdef USB_CDC_DEFAULT_SERIAL
+#if USB_CDC_DEFAULT_SERIAL
         Serial.flush();
 #endif
     }
@@ -85,7 +85,7 @@ extern "C"
                 Serial.write('\r');
             }
             Serial.write(c);
-#ifdef USB_CDC_DEFAULT_SERIAL
+#if USB_CDC_DEFAULT_SERIAL
             Serial.flush();
 #endif
             return;
