@@ -85,9 +85,18 @@ static const uint8_t A5  = PIN_A5;
 #define PIN_NFC2                (31)
 
 // Serial interfaces
-#define PIN_SERIAL1_RX          (7)
-#define PIN_SERIAL1_TX          (6)
-#define USB_CDC_DEFAULT_SERIAL  1
+#ifndef USB_CDC_DEFAULT_SERIAL
+  #define USB_CDC_DEFAULT_SERIAL (1)
+#endif
+
+#if USB_CDC_DEFAULT_SERIAL
+  #define PIN_SERIAL1_RX         (7)
+  #define PIN_SERIAL1_TX         (6)
+#else
+  #define PIN_SERIAL_RX          (7)
+  #define PIN_SERIAL_TX          (6)
+  #define Serial1                Serial
+#endif
 
 // SPI Interfaces
 #define SPI_INTERFACES_COUNT    (2)

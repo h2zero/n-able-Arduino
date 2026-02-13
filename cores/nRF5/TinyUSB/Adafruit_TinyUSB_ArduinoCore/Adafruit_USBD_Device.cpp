@@ -259,8 +259,6 @@ bool Adafruit_USBD_Device::begin(uint8_t rhport) {
   config->bNumInterfaces = _itf_count;
 #endif
 #else
-  SerialTinyUSB.begin(115200);
-
   // Init device hardware and call tusb_init()
   TinyUSB_Port_InitDevice(rhport);
 #endif
