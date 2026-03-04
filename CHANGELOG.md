@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-03-03
+
+### Fixed
+ - Serial.printf output not priting over USB CDC when enabled.
+ - NimBLE controller task size config defaults to fix stack overflows in some cases.
+ - Uart bool operator returns enabled state instead of always returning true.
+
+### Changed
+ - Update TinyUSB to version 3.7.3.
+ - Update to use C++ 20.
+ - Boards with Adafruit bootloader will now use the correct linker script by default.
+
+### Added
+ - Add call stack backtrace debug output on faults.
+ - `USB_CDC_DEFAULT_SERIAL` configuration option for devices with USB CDC support. This enables the USB CDC serial by default. Set to 0 to disable (default 1). Serial will be redirected to the UART if this is disabled.
+ - `RTOS::getMainLoopTaskHandle` method to get the main loop task handle for use in application code.
+
 ## [0.3.1] - 2026-01-18
 
 ### Fixed
