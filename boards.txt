@@ -1074,6 +1074,92 @@ seeed52840sense.menu.bootloader.none.bootloader.flags=
 seeed52840sense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
 
 
+# Arduino
+
+nano33blesense.name=Arduino Nano 33 BLE Sense
+
+nano33blesense.vid.0=0x2341
+nano33blesense.pid.0=0x805a
+nano33blesense.vid.1=0x2341
+nano33blesense.pid.1=0x005a
+nano33blesense.vid.2=0x2341
+nano33blesense.pid.2=0x025a
+nano33blesense.vid.3=0x2341
+nano33blesense.pid.3=0x015a
+
+nano33blesense.upload.tool=openocd
+nano33blesense.upload.target=nrf52
+nano33blesense.upload.jlink_device=nRF52840_xxAA
+nano33blesense.upload.use_1200bps_touch=true
+nano33blesense.upload.wait_for_upload_port=true
+nano33blesense.upload.maximum_size=1032192
+nano33blesense.upload.maximum_data_size=262144
+nano33blesense.bootloader.tool=openocd
+
+nano33blesense.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nano33blesense.build.mcu=cortex-m4
+nano33blesense.build.f_cpu=64000000
+nano33blesense.build.board=ARDUINO_NANO33BLE_SENSE
+nano33blesense.build.core=nRF5
+nano33blesense.build.variant=Arduino_Nano33BLE_Sense
+nano33blesense.build.variant_system_lib=
+nano33blesense.build.usb_manufacturer="Arduino"
+nano33blesense.build.usb_product="Nano 33 BLE Sense"
+nano33blesense.build.vid=0x2341
+nano33blesense.build.pid=0x805a
+nano33blesense.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nano33blesense.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nano33blesense.build.ldscript=nrf52840_xxaa.ld
+
+nano33blesense.menu.role.all=All
+nano33blesense.menu.role.all.build.nimble_flags=
+nano33blesense.menu.role.periph=Peripheral
+nano33blesense.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nano33blesense.menu.role.adv=Advertiser
+nano33blesense.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nano33blesense.menu.role.scan=Scanner
+nano33blesense.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nano33blesense.menu.role.central=Client
+nano33blesense.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nano33blesense.menu.cppDbgLvl.none=None
+nano33blesense.menu.cppDbgLvl.none.build.cpp_debug=0
+nano33blesense.menu.cppDbgLvl.error=Error
+nano33blesense.menu.cppDbgLvl.error.build.cpp_debug=1
+nano33blesense.menu.cppDbgLvl.warn=Warn
+nano33blesense.menu.cppDbgLvl.warn.build.cpp_debug=2
+nano33blesense.menu.cppDbgLvl.info=Info
+nano33blesense.menu.cppDbgLvl.info.build.cpp_debug=3
+nano33blesense.menu.cppDbgLvl.debug=Debug
+nano33blesense.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+nano33blesense.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v7 softdevice)
+nano33blesense.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+nano33blesense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nano33blesense.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+nano33blesense.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nano33blesense.menu.bootloader.adafruit_ble.upload.maximum_size=823296
+nano33blesense.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+nano33blesense.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nano33blesense.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v7_adabl.hex
+nano33blesense.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v7_adabl.ld
+
+nano33blesense.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+nano33blesense.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+nano33blesense.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nano33blesense.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+nano33blesense.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nano33blesense.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+nano33blesense.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+nano33blesense.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nano33blesense.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+nano33blesense.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
+nano33blesense.menu.bootloader.none=No bootloader
+nano33blesense.menu.bootloader.none.bootloader.flags=
+nano33blesense.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+
+
 # Adafruit
 
 feather52840.name=Adafruit Feather nRF52840 Express
