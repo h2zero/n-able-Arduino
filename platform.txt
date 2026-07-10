@@ -61,6 +61,8 @@ adafruit-nrfutil.dfu_pattern="{tools.adafruit-nrfutil.cmd}" dfu genpkg --dev-typ
 none.dfu_pattern.cmd=no_dfu
 none.dfu_pattern.cmd.windows=no_dfu.bat
 none.dfu_pattern.path={runtime.platform.path}/tools
+tools.uf2conv.cmd=python3
+tools.uf2conv.cmd.windows=python
 
 nordic.path={build.core.path}/nordic
 

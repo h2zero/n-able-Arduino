@@ -989,6 +989,92 @@ BT5040.menu.bootloader.none.bootloader.flags=-DUSE_NORDIC_BL
 BT5040.menu.bootloader.none.build.bootloader.file=
 
 
+# Nice Keyboards
+
+nicenano_v2.name=nice!nano v2
+
+nicenano_v2.vid.0=0x239A
+nicenano_v2.pid.0=0x80B3
+nicenano_v2.vid.1=0x239A
+nicenano_v2.pid.1=0x00B3
+
+nicenano_v2.upload.tool=openocd
+nicenano_v2.upload.target=nrf52
+nicenano_v2.upload.jlink_device=nRF52840_xxAA
+nicenano_v2.upload.use_1200bps_touch=true
+nicenano_v2.upload.wait_for_upload_port=true
+nicenano_v2.upload.maximum_size=1032192
+nicenano_v2.upload.maximum_data_size=262144
+nicenano_v2.bootloader.tool=openocd
+
+nicenano_v2.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nicenano_v2.build.uf2_family=0xADA52840
+nicenano_v2.build.mcu=cortex-m4
+nicenano_v2.build.f_cpu=64000000
+nicenano_v2.build.board=NICE_NANO_V2
+nicenano_v2.build.core=nRF5
+nicenano_v2.build.variant=nice_nano_v2
+nicenano_v2.build.variant_system_lib=
+nicenano_v2.build.usb_manufacturer="Nice Keyboards"
+nicenano_v2.build.usb_product="nice!nano v2"
+nicenano_v2.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+nicenano_v2.build.ldscript=nrf52840_s140_v6_adabl.ld
+nicenano_v2.build.lfclk_flags=-DUSE_LFXO
+nicenano_v2.build.vid=0x239A
+nicenano_v2.build.pid=0x80B3
+nicenano_v2.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+nicenano_v2.recipe.objcopy.uf2.pattern="{tools.uf2conv.cmd}" "{runtime.platform.path}/tools/uf2conv.py" -f {build.uf2_family} -o "{build.path}/{build.project_name}.uf2" "{build.path}/{build.project_name}.hex"
+nicenano_v2.recipe.output.tmp_file={build.project_name}.uf2
+nicenano_v2.recipe.output.save_file={build.project_name}.{build.variant}.uf2
+
+nicenano_v2.menu.role.all=All
+nicenano_v2.menu.role.all.build.nimble_flags=
+nicenano_v2.menu.role.periph=Peripheral
+nicenano_v2.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+nicenano_v2.menu.role.adv=Advertiser
+nicenano_v2.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+nicenano_v2.menu.role.scan=Scanner
+nicenano_v2.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+nicenano_v2.menu.role.central=Client
+nicenano_v2.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+nicenano_v2.menu.cppDbgLvl.none=None
+nicenano_v2.menu.cppDbgLvl.none.build.cpp_debug=0
+nicenano_v2.menu.cppDbgLvl.error=Error
+nicenano_v2.menu.cppDbgLvl.error.build.cpp_debug=1
+nicenano_v2.menu.cppDbgLvl.warn=Warn
+nicenano_v2.menu.cppDbgLvl.warn.build.cpp_debug=2
+nicenano_v2.menu.cppDbgLvl.info=Info
+nicenano_v2.menu.cppDbgLvl.info.build.cpp_debug=3
+nicenano_v2.menu.cppDbgLvl.debug=Debug
+nicenano_v2.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+nicenano_v2.menu.bootloader.adafruit_ble=Adafruit BLE (s140 v6 softdevice)
+nicenano_v2.menu.bootloader.adafruit_ble.bootloader.flags=-DUSE_ADA_BL -DADA_SD_BL
+nicenano_v2.menu.bootloader.adafruit_ble.upload.tool=adafruit-nrfutil
+nicenano_v2.menu.bootloader.adafruit_ble.upload.protocol=adafruit-nrfutil
+nicenano_v2.menu.bootloader.adafruit_ble.upload.maximum_size=827392
+nicenano_v2.menu.bootloader.adafruit_ble.upload.maximum_data_size=237568
+nicenano_v2.menu.bootloader.adafruit_ble.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nicenano_v2.menu.bootloader.adafruit_ble.build.bootloader.file=tools/nrf52840_s140_v6_adabl.hex
+nicenano_v2.menu.bootloader.adafruit_ble.build.ldscript=nrf52840_s140_v6_adabl.ld
+
+nicenano_v2.menu.bootloader.adafruit_serial=Adafruit Serial (no softdevice)
+nicenano_v2.menu.bootloader.adafruit_serial.bootloader.flags=-DUSE_ADA_BL
+nicenano_v2.menu.bootloader.adafruit_serial.upload.tool=adafruit-nrfutil
+nicenano_v2.menu.bootloader.adafruit_serial.upload.protocol=adafruit-nrfutil
+nicenano_v2.menu.bootloader.adafruit_serial.upload.maximum_size=978944
+nicenano_v2.menu.bootloader.adafruit_serial.upload.maximum_data_size=262136
+nicenano_v2.menu.bootloader.adafruit_serial.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+nicenano_v2.menu.bootloader.adafruit_serial.build.bootloader.file=tools/nrf52840_serial_adabl.hex
+nicenano_v2.menu.bootloader.adafruit_serial.build.ldscript=nrf52840_serial_adabl.ld
+
+nicenano_v2.menu.bootloader.none=No bootloader
+nicenano_v2.menu.bootloader.none.bootloader.flags=
+nicenano_v2.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+nicenano_v2.menu.bootloader.none.build.ldscript=nrf52840_xxaa.ld
+
+
 # Seeedstudio
 
 seeed52840sense.name=Seeed XIAO nRF52840 Sense
