@@ -125,10 +125,14 @@ board = ...
  2. Select adafruit-nrfutil as the firmware uploader in the tools menu.
 
 ### Uploading via UF2
-Boards with an Adafruit UF2 bootloader, such as the nice!nano v2, can be reset
-into the bootloader and programmed by copying the exported `.uf2` file to the
-mounted bootloader drive. UF2 export requires Python 3 to be available on the
-system path.
+Boards with an Adafruit UF2 bootloader, such as the nice!nano v2, can be
+programmed as follows:
+
+1. In the Arduino IDE, select `Sketch -> Export Compiled Binary`. UF2 export
+   requires Python 3 to be available on the system path.
+2. Double-press the board's reset button (or briefly connect RST to GND twice)
+   to enter the UF2 bootloader and wait for the bootloader drive to mount.
+3. Copy the exported `.uf2` file to the mounted bootloader drive.
 
 ### Uploading via (Nordic) nrfutil (for Nordic bootloader devices only)
  1. Install nrfutil if not already installed `pip install nrfutil`
