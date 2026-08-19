@@ -41,18 +41,29 @@ def parse_hex_line(line, line_number):
     address = (raw[1] << 8) | raw[2]
     record_type = raw[3]
     payload = raw[4:4 + count]
+
+    required_lengths = {0x01: 0, 0x02: 2, 0x03: 4, 0x04: 2, 0x05: 4}
+    if record_type in required_lengths:
+        if count != required_lengths[record_type]:
+            raise ValueError(f"line {line_number}: invalid record length for type {record_type:#x}")
+        if address != 0:
+            raise ValueError(f"line {line_number}: non-zero address for type {record_type:#x}")
+
     return record_type, address, payload
 
 
 def read_ihex(filename):
     data = {}
     upper_address = 0
+    eof_seen = False
 
     with open(filename, "r", encoding="ascii") as hex_file:
         for line_number, line in enumerate(hex_file, 1):
             record = parse_hex_line(line, line_number)
             if record is None:
                 continue
+            if eof_seen:
+                raise ValueError(f"line {line_number}: record after EOF")
 
             record_type, address, payload = record
             if record_type == 0x00:
@@ -60,7 +71,7 @@ def read_ihex(filename):
                 for offset, value in enumerate(payload):
                     data[absolute + offset] = value
             elif record_type == 0x01:
-                break
+                eof_seen = True
             elif record_type == 0x02:
                 upper_address = int.from_bytes(payload, "big") << 4
             elif record_type == 0x04:
@@ -70,6 +81,8 @@ def read_ihex(filename):
             else:
                 raise ValueError(f"line {line_number}: unsupported record type {record_type:#x}")
 
+    if not eof_seen:
+        raise ValueError("input HEX is missing EOF record")
     if not data:
         raise ValueError("input HEX contains no data records")
 
