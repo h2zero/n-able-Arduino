@@ -34,6 +34,7 @@ This Arduino Core does **not** contain any BLE functionality. It has been design
  * [Adafruit Feather nRF52840 Sense](https://www.adafruit.com/product/4516)
  * [Adafruit ItsyBitsy nRF52840 Express](https://www.adafruit.com/product/4481)
  * [Ebyte E104-BT5040U](https://www.ebyte.com/en/product-view-news.html?id=1185)
+ * [nice!nano v2](https://nicekeyboards.com/docs/nice-nano/)
  * [XIAO nRF52840 Sense](https://wiki.seeedstudio.com/XIAO_BLE/)
 
 ### nRF52833
@@ -122,6 +123,16 @@ board = ...
 ### Uploading via adafruit-nrfutil (for Adafruit bootloader devices only)
  1. Install adafruit-nrfutil if not already installed `pip install adafruit-nrfutil`
  2. Select adafruit-nrfutil as the firmware uploader in the tools menu.
+
+### Uploading via UF2
+Boards with an Adafruit UF2 bootloader, such as the nice!nano v2, can be
+programmed as follows:
+
+1. In the Arduino IDE, select `Sketch -> Export Compiled Binary`. UF2 export
+   requires Python 3 to be available on the system path.
+2. Double-press the board's reset button (or briefly connect RST to GND twice)
+   to enter the UF2 bootloader and wait for the bootloader drive to mount.
+3. Copy the exported `.uf2` file to the mounted bootloader drive.
 
 ### Uploading via (Nordic) nrfutil (for Nordic bootloader devices only)
  1. Install nrfutil if not already installed `pip install nrfutil`
